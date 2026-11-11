@@ -159,6 +159,16 @@ for name,details in wiktionary.items():
     origin=existing["origin"].casefold()
     # Strong conservative match, not simply identical Latin letters.
     acceptable=any(h in origin for k,hints in WIKTIONARY_COMPATIBLE.items() if k in language for h in hints)
+    # Where the frequency dataset gives no origin at all, Wiktionary may be
+    # the first actual etymological source. Label the source-origin explicitly.
+    # Skip uncertain / multi-origin wording; a homograph can mean different things.
+    source_ety=str(details.get("ety") or "").casefold()
+    uncertain=any(word in source_ety for word in ("possibly","uncertain","folk etymology","unrelated names","probably","perhaps","disputed"))
+    if not acceptable and origin=="origen por verificar" and language and not uncertain and len(language)<55:
+        acceptable=True
+        existing["origin"]=str(details.get("root")).strip()+" (según Wiktionary)"
+        existing["originSource"]="wiktionary-en"
+        existing["meaningScope"]="Interpretación etimológica documentada; puede haber otros orígenes"
     if not acceptable:
         continue
     existing.update(meaning=meaning,meaningLanguage="en",meaningSource="wiktionary-en",meaningLicense="CC BY-SA 4.0")
