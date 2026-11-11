@@ -75,3 +75,6 @@
 .modal .culture-combo-label>svg{display:none}
 .modal .culture-input-shell{height:47px}
 @media(max-width:750px){.filter-bottom .culture-combo{width:100%;min-width:0}.filter-bottom .culture-options{max-height:40vh}}
+
+/* Poetic copy is a creative association, never a claimed traditional etymology. */
+.poetic-label{display:block;font-size:10px;letter-spacing:.45px;color:#9f7b51;margin:4px 0 12px}.name-card .name-open .poetic-label+span{margin-top:9px}.meaning-source-note{display:block;font-size:11px;letter-spacing:.2px;color:#dfc69d;margin:8px 0 12px;line-height:1.5}

@@ -62,3 +62,14 @@ Fuentes: https://en.wiktionary.org/ · https://github.com/suhxnitiwari/baby-name
 **Limitación:** no existe una correspondencia documentada en las fuentes abiertas para todos los nombres. `meaning: null` refleja esa limitación, no una afirmación sobre el nombre. Un campo rellenado por una conjetura sería peor que uno correctamente clasificado como pendiente.
 
 La regeneración y revisión de calidad se ejecuta con `python scripts/build_catalog.py` y `python scripts/validate_catalog.py`. No se autoriza el uso de inferencias automáticas para sustituir fuentes lexicográficas.
+
+## Significados e interpretaciones para todas las fichas
+
+Astera diferencia explícitamente dos categorías:
+
+- **Significado publicado** (`meaningType: "published"`, `meaningStatus: "documented"`): una definición/interpretación previamente documentada en una fuente externa, con `meaningSource` y `meaningSourceUrl`. Algunas aparecen en inglés porque ese es el idioma original de la fuente. No se presentan como una verdad universal para todos los idiomas donde se usa el nombre.
+- **Interpretación poética original** (`meaningType: "creative"`, `meaningStatus: "poetic_interpretation"`): texto evocador escrito por Astera cuando no existe una fuente publicada suficientemente compatible. **No afirma ser el significado etimológico ni cultural del nombre**. Se etiqueta así en las tarjetas y en la vista estelar.
+
+Esta distinción es obligatoria incluso si posteriormente se encuentran fuentes nuevas. La regeneración intenta primero coincidencias de significados publicados, y solamente después completa el espacio de presentación con texto creativo estable para el mismo nombre. El archivo `coverage.json` separa estas poblaciones y `manifest.json` expone `populatedCount`.
+
+La fuente Nurturepedia se amplió con sus colecciones de nombres por países, respetando la compatibilidad de origen; los títulos de las colecciones no se utilizan como prueba de la etimología de un nombre.
