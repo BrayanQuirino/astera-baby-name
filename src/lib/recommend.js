@@ -1,7 +1,7 @@
 export const normalize = value => String(value||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();
 export function searchNames(names,term,gender,country){
  const q=normalize(term).trim();
- return names.filter(n=>(gender==='all'||n.gender===gender||n.gender==='unisex')&&(country==='all'||n.country===country)&&(!q||normalize([n.name,n.meaning,n.origin,...n.variants].join(' ')).includes(q)));
+ return names.filter(n=>(gender==='all'||n.gender===gender||n.gender==='unisex')&&(country==='all'||n.country===country)&&(!q||normalize([n.name,n.native||'',n.reading||'',n.meaning,n.origin,...n.variants].join(' ')).includes(q)));
 }
 export function recommendNames(names,preferences){
  const {gender='all',country='all',style='any',parent1='',parent2=''}=preferences;
