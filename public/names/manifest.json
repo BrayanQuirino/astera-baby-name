@@ -2,10 +2,11 @@
   "version": "v2026.10",
   "count": 18433,
   "countryCount": 103,
-  "meaningCount": 1991,
-  "missingMeaningCount": 16442,
+  "meaningCount": 2107,
+  "missingMeaningCount": 16326,
   "nativeScriptCount": 3482,
   "variantCount": 4563,
+  "cultureSources": 11,
   "wiktionaryLicense": "CC BY-SA 4.0",
   "meaningStatus": "source-backed meanings only; null when not verified",
   "attribution": "Names data from Onomaverse (https://onomaverse.com/datasets), licensed CC BY 4.0."
