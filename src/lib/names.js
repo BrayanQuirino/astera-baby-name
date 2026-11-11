@@ -1,5 +1,6 @@
+import international from '../data/international.json';
 // Catálogo piloto. Las etimologías pueden variar por idioma y tradición.
-export const names=[
+const baseNames=[
 ["Hikaru","unisex","Japonés","Luz (光) o resplandor (輝)","JP","Hikari"],
 ["Kizuna","unisex","Japonés","Lazo emocional, vínculo (絆)","JP",""],
 ["Akira","unisex","Japonés","Brillante (明/昭) o claro (亮), según kanji","JP",""],
@@ -50,3 +51,6 @@ export const names=[
 ["Elio","boy","Griego / Italiano","Sol (asociación con Helios)","IT","Helio"]
 ].map(([name,gender,origin,meaning,country,variants],id)=>({id,name,gender,origin,meaning,country,variants:variants?variants.split(','):[]}));
 export const countries=[["all","Todas las culturas"],["MX","México"],["JP","Japón"],["ES","España"],["IT","Italia"],["FR","Francia"],["DE","Alemania"],["GB","Reino Unido"],["US","Estados Unidos"],["GR","Grecia"],["SE","Suecia"],["IN","India"],["KR","Corea"],["EG","Egipto"],["BR","Brasil"],["NG","Nigeria"],["IE","Irlanda"],["KE","Kenia"]];
+
+// Curated multilingual additions; each original spelling is retained as written.
+export const names=[...baseNames,...international.filter(extra=>!baseNames.some(base=>base.name.toLocaleLowerCase('es')===extra.name.toLocaleLowerCase('es')))].map((item,id)=>({...item,id}));
