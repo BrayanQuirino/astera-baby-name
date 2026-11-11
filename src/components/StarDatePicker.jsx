@@ -1,18 +1,51 @@
 import React,{useEffect,useRef,useState} from 'react';
-import {CalendarDays,ChevronLeft,ChevronRight,X} from 'lucide-react';
+import {CalendarDays,ChevronLeft,ChevronRight,X,ChevronDown} from 'lucide-react';
+
 const months=['enero','febrero','marzo','abril','mayo','junio','julio','agosto','septiembre','octubre','noviembre','diciembre'];
 const weekdays=['L','M','M','J','V','S','D'];
 const fmt=(y,m,d)=>[y,String(m+1).padStart(2,'0'),String(d).padStart(2,'0')].join('-');
+const parseDate=value=>{
+ const match=/^(\d{4})-(\d\d)-(\d\d)$/.exec(value||'');
+ return match?{year:Number(match[1]),month:Number(match[2])-1,day:Number(match[3])}:null;
+};
+const YEARS=Array.from({length:221},(_,i)=>1900+i);
+
 export default function StarDatePicker({value,onChange,dark=false}){
- const initial=value?new Date(value+'T12:00:00'):new Date();
- const [open,setOpen]=useState(false),[month,setMonth]=useState(initial.getMonth()),[year,setYear]=useState(initial.getFullYear());
+ const parsed=parseDate(value);
+ const [open,setOpen]=useState(false);
+ const [month,setMonth]=useState(parsed?.month??new Date().getMonth());
+ const [year,setYear]=useState(parsed?.year??new Date().getFullYear());
  const ref=useRef(null);
- useEffect(()=>{if(!open)return;const fn=e=>{if(ref.current&&!ref.current.contains(e.target))setOpen(false)};const key=e=>{if(e.key==='Escape')setOpen(false)};document.addEventListener('pointerdown',fn);document.addEventListener('keydown',key);return()=>{document.removeEventListener('pointerdown',fn);document.removeEventListener('keydown',key)}},[open]);
- const selected=value?new Date(value+'T12:00:00'):null;
- const shift=x=>{const date=new Date(year,month+x,1);setMonth(date.getMonth());setYear(date.getFullYear())};
+ useEffect(()=>{if(parsed){setMonth(parsed.month);setYear(parsed.year)}},[value]);
+ useEffect(()=>{
+  if(!open)return;
+  const outside=e=>{if(ref.current&&!ref.current.contains(e.target))setOpen(false)};
+  const escape=e=>{if(e.key==='Escape')setOpen(false)};
+  document.addEventListener('pointerdown',outside);
+  document.addEventListener('keydown',escape);
+  return()=>{document.removeEventListener('pointerdown',outside);document.removeEventListener('keydown',escape)};
+ },[open]);
+ const shift=amount=>{const next=new Date(year,month+amount,1);if(next.getFullYear()>=1900&&next.getFullYear()<=2120){setMonth(next.getMonth());setYear(next.getFullYear())}};
  const leading=(new Date(year,month,1).getDay()+6)%7;
  const count=new Date(year,month+1,0).getDate();
  const days=Array.from({length:Math.ceil((leading+count)/7)*7},(_,i)=>i-leading+1);
- const choose=d=>{onChange(fmt(year,month,d));setOpen(false)};
- return <div className={'star-date '+(dark?'dark-date':'')} ref={ref}><button type="button" aria-expanded={open} className="date-trigger" onClick={()=>setOpen(v=>!v)}><CalendarDays size={19}/><span>{selected?new Intl.DateTimeFormat('es-MX',{day:'numeric',month:'long',year:'numeric'}).format(selected):'Elegir fecha probable'}</span><span className="date-chevron">⌄</span></button>{open&&<div className="calendar-popup" role="dialog" aria-label="Elegir fecha probable de nacimiento"><div className="calendar-head"><button type="button" aria-label="Mes anterior" onClick={()=>shift(-1)}><ChevronLeft size={19}/></button><span>{months[month]} <select aria-label="Año" value={year} onChange={e=>setYear(Number(e.target.value))}>{Array.from({length:14},(_,i)=>new Date().getFullYear()-2+i).map(y=><option key={y}>{y}</option>)}</select></span><button type="button" aria-label="Mes siguiente" onClick={()=>shift(1)}><ChevronRight size={19}/></button></div><div className="calendar-grid">{weekdays.map((x,i)=><span key={i} className="weekday">{x}</span>)}{days.map((d,i)=><button type="button" key={i} disabled={d<1||d>count} className={value===fmt(year,month,d)?'selected-day':''} onClick={()=>choose(d)}>{d>=1&&d<=count?d:''}</button>)}</div><div className="calendar-footer"><span>✦ Elige el día de su llegada</span>{value&&<button type="button" onClick={()=>{onChange('');setOpen(false)}}><X size={13}/> Limpiar</button>}</div></div>}</div>;
+ const selected=parsed?new Date(parsed.year,parsed.month,parsed.day,12):null;
+ const choose=day=>{onChange(fmt(year,month,day));setOpen(false)};
+ return <div className={'star-date '+(dark?'dark-date':'')} ref={ref}>
+  <button type="button" aria-expanded={open} aria-haspopup="dialog" className="date-trigger" onClick={()=>setOpen(v=>!v)}>
+   <CalendarDays size={19}/><span>{selected?new Intl.DateTimeFormat('es-MX',{day:'numeric',month:'long',year:'numeric'}).format(selected):'Elegir fecha probable'}</span><ChevronDown size={16} className="date-chevron"/>
+  </button>
+  {open&&<div className="calendar-popup" role="dialog" aria-label="Elegir fecha probable de nacimiento">
+   <div className="calendar-head">
+    <button type="button" aria-label="Mes anterior" onClick={()=>shift(-1)} disabled={year===1900&&month===0}><ChevronLeft size={18}/></button>
+    <div className="calendar-selectors">
+     <label className="calendar-select-wrap"><span className="sr-only">Mes</span><select aria-label="Mes" value={month} onChange={e=>setMonth(Number(e.target.value))}>{months.map((label,i)=><option value={i} key={label}>{label}</option>)}</select><ChevronDown size={13}/></label>
+     <label className="calendar-select-wrap year-wrap"><span className="sr-only">Año</span><select aria-label="Año" value={year} onChange={e=>setYear(Number(e.target.value))}>{YEARS.map(y=><option value={y} key={y}>{y}</option>)}</select><ChevronDown size={13}/></label>
+    </div>
+    <button type="button" aria-label="Mes siguiente" onClick={()=>shift(1)} disabled={year===2120&&month===11}><ChevronRight size={18}/></button>
+   </div>
+   <div className="calendar-grid">{weekdays.map((d,i)=><span className="weekday" key={i}>{d}</span>)}{days.map((d,i)=><button type="button" key={i} disabled={d<1||d>count} aria-label={d>=1&&d<=count?d+' de '+months[month]+' de '+year:undefined} aria-pressed={value===fmt(year,month,d)} className={value===fmt(year,month,d)?'selected-day':''} onClick={()=>choose(d)}>{d>=1&&d<=count?d:''}</button>)}</div>
+   <div className="calendar-footer"><span>✦ Elige el día de su llegada</span>{value&&<button type="button" onClick={()=>{onChange('');setOpen(false)}}><X size={13}/> Limpiar</button>}</div>
+  </div>}
+ </div>;
 }
