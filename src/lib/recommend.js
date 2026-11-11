@@ -1,14 +1,14 @@
 export const normalize = value => String(value||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();
 export function searchNames(names,term,gender,country){
  const q=normalize(term).trim();
- return names.filter(n=>(gender==='all'||n.gender===gender||n.gender==='unisex')&&(country==='all'||n.country===country)&&(!q||normalize([n.name,n.native||'',n.reading||'',n.meaning,n.origin,...n.variants].join(' ')).includes(q)));
+ return names.filter(n=>(gender==='all'||n.gender===gender||n.gender==='unisex')&&(country==='all'||n.country===country||n.countries?.includes(country))&&(!q||normalize([n.name,n.native||'',n.reading||'',n.meaning,n.origin,...n.variants].join(' ')).includes(q)));
 }
 export function recommendNames(names,preferences){
  const {gender='all',country='all',style='any',parent1='',parent2=''}=preferences;
  const initials=[parent1,parent2].filter(Boolean).map(p=>normalize(p[0]));
  return names.filter(n=>gender==='all'||n.gender===gender||n.gender==='unisex').map(n=>{
  let score=0;const name=normalize(n.name);
- if(country!=='all'&&n.country===country)score+=5;
+ if(country!=='all'&&(n.country===country||n.countries?.includes(country)))score+=5;
  if(style==='short'&&name.length<=5)score+=4;
  if(style==='nature'&&/luna|sora|sakura|citlali|aurora|ravi|hana|leo/i.test(n.name))score+=4;
  if(style==='traditional'&&/hugo|lucia|mateo|sofia|ines|nicolas|elena/i.test(name))score+=4;
