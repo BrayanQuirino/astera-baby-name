@@ -1,6 +1,6 @@
 import React,{useMemo,useState,useEffect} from 'react';
 import {Heart,Search,ArrowRight,Sparkles,Globe2,X,CalendarDays,Menu,Copy,Check} from 'lucide-react';
-import {names,countries} from './lib/names.js';
+import {names as curatedNames,countries as curatedCountries} from './lib/names.js';
 import StarDatePicker from './components/StarDatePicker.jsx';
 import NameSkyExperience from './components/NameSkyExperience.jsx';
 import {searchNames,recommendNames,zodiac} from './lib/recommend.js';
@@ -10,7 +10,7 @@ const empty={date:'',mother:'',father:'',country:'all',gender:'all',style:'any'}
 const styles=[['any','Sorpréndeme'],['short','Cortos'],['traditional','Clásicos'],['modern','Modernos'],['nature','Naturaleza']];
 function readFavorites(){try{return JSON.parse(localStorage.getItem('astera.favorites')||'[]')}catch{return []}}
 function NameCard({item,liked,toggle,open}){
- return <article className="name-card"><div className="name-card-top"><span className="name-category">{item.origin}</span><button className={'heart '+(liked?'liked':'')} onClick={()=>toggle(item.id)} aria-label={liked?'Quitar de favoritos':'Guardar favorito'}><Heart size={19} fill={liked?'currentColor':'none'}/></button></div><button className="name-open" onClick={()=>open(item)}><h3>{item.name}</h3>{item.native&&<span className="native-name">{item.native}</span>}<p>{item.meaning}</p><span>Descubrir historia <ArrowRight size={15}/></span></button></article>
+ return <article className="name-card"><div className="name-card-top"><span className="name-category">{item.origin}</span><button className={'heart '+(liked?'liked':'')} onClick={()=>toggle(item.id)} aria-label={liked?'Quitar de favoritos':'Guardar favorito'}><Heart size={19} fill={liked?'currentColor':'none'}/></button></div><button className="name-open" onClick={()=>open(item)}><h3>{item.name}</h3>{item.native&&<span className="native-name">{item.native}</span>}<p>{item.meaning||'Significado pendiente de documentar'}</p><span>Descubrir historia <ArrowRight size={15}/></span></button></article>
 }
 function Sky({date,setDate}){
  const sign=zodiac(date);
@@ -18,6 +18,23 @@ function Sky({date,setDate}){
 }
 export default function App(){
  const [query,setQuery]=useState(''),[gender,setGender]=useState('all'),[country,setCountry]=useState('all');
+ const [names,setNames]=useState(curatedNames);
+ const [countries,setCountries]=useState(curatedCountries);
+ useEffect(()=>{
+  let active=true;
+  Promise.all([fetch(import.meta.env.BASE_URL+'names/extended.json'),fetch(import.meta.env.BASE_URL+'names/countries.json')])
+   .then(async ([nameResponse,countryResponse])=>{
+    if(!nameResponse.ok||!countryResponse.ok)throw Error('El catálogo ampliado no está disponible');
+    const [extended,locations]=await Promise.all([nameResponse.json(),countryResponse.json()]);
+    if(!active)return;
+    const known=new Set(curatedNames.map(n=>n.name.normalize('NFD').toLowerCase()));
+    const additions=extended.filter(n=>!known.has(n.name.normalize('NFD').toLowerCase())).map((n,i)=>({...n,id:curatedNames.length+i}));
+    setNames([...curatedNames,...additions]);
+    const codes=new Set(curatedCountries.map(([code])=>code));
+    setCountries([...curatedCountries,...locations.filter(c=>!codes.has(c.code)).map(c=>[c.code,c.name])].sort((a,b)=>a[0]==='all'?-1:b[0]==='all'?1:a[1].localeCompare(b[1],'es')));
+   }).catch(error=>console.info('Astera conserva el catálogo local:',error.message));
+  return()=>{active=false};
+ },[]);
  const [favorites,setFavorites]=useState(readFavorites),[showFav,setShowFav]=useState(false),[wizard,setWizard]=useState(false);
  const [prefs,setPrefs]=useState(empty),[suggestions,setSuggestions]=useState(null),[detail,setDetail]=useState(null),[copied,setCopied]=useState(false),[menu,setMenu]=useState(false);
  useEffect(()=>{localStorage.setItem('astera.favorites',JSON.stringify(favorites))},[favorites]);
@@ -37,7 +54,7 @@ export default function App(){
  <section id="explorar" className="explore"><div className="section-heading"><div><div className="eyebrow dark">EL PRIMER CAPÍTULO</div><h2>Encuentra ese nombre <em>especial.</em></h2><p>Explora a tu ritmo. Sin formularios, sin prisas.</p></div><button className="outlined" onClick={()=>setWizard(true)}><Sparkles size={17}/> Recomiéndame nombres</button></div>
  <div className="filters"><div className="search-box"><Search size={21}/><input placeholder="Busca un nombre, significado u origen..." aria-label="Buscar nombres" value={query} onChange={e=>{setQuery(e.target.value);setSuggestions(null);setShowFav(false)}}/>{query&&<button aria-label="Borrar búsqueda" onClick={()=>setQuery('')}><X size={16}/></button>}</div><div className="filter-bottom"><div className="segmented">{[['all','Todos'],['girl','Niña'],['boy','Niño']].map(([v,label])=><button key={v} className={gender===v?'active':''} onClick={()=>{setGender(v);setSuggestions(null);setShowFav(false)}}>{label}</button>)}</div><label className="select-field"><Globe2 size={17}/><select aria-label="Cultura" value={country} onChange={e=>{setCountry(e.target.value);setSuggestions(null);setShowFav(false)}}>{countries.map(([v,label])=><option key={v} value={v}>{label}</option>)}</select></label></div></div>
  <div className="listing-head"><h3>✦ {showFav?'Tus nombres favoritos':suggestions?'Elegidos especialmente para ti':'Nombres para inspirarte'} <span>{display.length}</span></h3>{(showFav||suggestions)&&<button onClick={reset}>Volver a explorar ↗</button>}{showFav&&favorites.length>0&&<button onClick={share}>{copied?<Check size={16}/>:<Copy size={16}/>} {copied?'Copiado':'Copiar favoritos'}</button>}</div>
- <div className="name-grid">{display.slice(0,showFav||suggestions?100:24).map(n=><NameCard key={n.id} item={n} liked={favorites.includes(n.id)} toggle={toggle} open={setDetail}/>)}</div>{!display.length&&<div className="no-results"><h3>No encontramos ese nombre todavía ✧</h3><p>Prueba una búsqueda distinta o cambia tus filtros.</p><button className="outlined" onClick={reset}>Ver todos los nombres</button></div>}<p className="catalog-note">Catálogo piloto de {names.length} nombres. Ampliaremos su cobertura y verificaremos etimologías antes del lanzamiento definitivo.</p></section>
+ <div className="name-grid">{display.slice(0,showFav||suggestions?100:24).map(n=><NameCard key={n.id} item={n} liked={favorites.includes(n.id)} toggle={toggle} open={setDetail}/>)}</div>{!display.length&&<div className="no-results"><h3>No encontramos ese nombre todavía ✧</h3><p>Prueba una búsqueda distinta o cambia tus filtros.</p><button className="outlined" onClick={reset}>Ver todos los nombres</button></div>}<p className="catalog-note">Catálogo de {names.length.toLocaleString('es-MX')} nombres. Los significados no documentados aparecen indicados expresamente. Datos internacionales: Onomaverse (CC BY 4.0).</p></section>
  <Sky date={prefs.date} setDate={value=>set('date',value)}/>
  <section className="closing"><div>✳</div><h2>La mejor historia comienza<br/>con un <em>nombre.</em></h2><p>Descubre nombres que conecten con sus raíces, sus sueños y su familia.</p><button className="primary" onClick={()=>setWizard(true)}>Comenzar el descubrimiento <ArrowRight size={18}/></button></section></main>
  <footer><a className="brand" href="#inicio"><span>✳</span> astera<span className="dot">.</span></a><span>Hecho con cariño para nuevos comienzos · 2026</span><span>Versión preliminar 0.1</span></footer>
