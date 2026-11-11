@@ -1,4 +1,5 @@
 name: Astera preview (GitHub Pages)
+# Re-run after enabling deployment permissions
 on:
   push:
     branches: [develop_brayan]
