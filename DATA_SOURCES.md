@@ -17,12 +17,21 @@ El campo `native` solamente se completa cuando se encuentra una escritura no lat
 - Licencia del proyecto de origen: MIT.
 - Un significado inferido de la coincidencia superficial entre palabras no es fiable, por lo que se conserva `meaning: null` cuando no hay evidencia compatible.
 
+## Significados de Wiktionary (CC BY-SA 4.0)
+
+- Colección de etimologías derivada de Wiktionary a través de `suhxnitiwari/baby-name-maker/data/meanings.json`.
+- Fuente original: https://en.wiktionary.org/
+- Colección: https://github.com/suhxnitiwari/baby-name-maker/blob/main/data/meanings.json
+- Licencia: https://creativecommons.org/licenses/by-sa/4.0/
+- Los significados conservan `meaningSource: "wiktionary-en"` y `meaningLicense: "CC BY-SA 4.0"`; las adaptaciones de esos textos requieren atribución y compartir igual.
+- La importación exige coincidencia compatible de raíz etimológica y origen, para evitar mezclar homónimos de distintas culturas.
+
 ## Catálogo editorial inicial
 
 - `src/lib/names.js` y `src/data/international.json`: nombres seleccionados manualmente con significados y grafías; requieren revisión editorial continua de entradas ambiguas.
 
 ## Regeneración
 
-`python scripts/build_catalog.py` descarga las fuentes públicas y regenera `public/names/extended.json`, `public/names/countries.json` y `public/names/manifest.json`. El flujo `catalog.yml` genera y guarda los archivos en `develop_brayan`.
+`python scripts/build_catalog.py` descarga las fuentes públicas y regenera `public/names/extended.json`, `public/names/countries.json` y `public/names/manifest.json`. El flujo `catalog.yml` valida orden alfabético, esquema y procedencia, y guarda los JSON en `develop_brayan`. Validación local: `python scripts/validate_catalog.py`.
 
 No se inventan significados para completar huecos. El catálogo no debe presentarse como exhaustivo de todas las culturas ni como validación lingüística académica.
