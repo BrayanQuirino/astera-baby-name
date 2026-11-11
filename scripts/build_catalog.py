@@ -164,9 +164,53 @@ for name,details in wiktionary.items():
     existing.update(meaning=meaning,meaningLanguage="en",meaningSource="wiktionary-en",meaningLicense="CC BY-SA 4.0")
     wiktionary_added+=1
 print("Meanings added from Wiktionary:",wiktionary_added,flush=True)
+
+# Native-script Wiktionary entries fill gaps when both name and linguistic root agree.
+# The collection records word-level glosses, not guessed kanji/hanja interpretations.
+NATIVE_MEANINGS="https://raw.githubusercontent.com/suhxnitiwari/baby-name-maker/main/data/native-meanings.json"
+try:
+    with urllib.request.urlopen(urllib.request.Request(NATIVE_MEANINGS,headers=HEADERS),timeout=50) as response:
+        native_meanings=json.load(response)
+except Exception as exc:
+    print("Optional native meanings unavailable:",exc,flush=True)
+    native_meanings={}
+native_meaning_count=0
+for key,details in native_meanings.items():
+    if not isinstance(details,dict):
+        continue
+    meaning=details.get("m")
+    if not isinstance(meaning,str) or not (meaning:=meaning.strip()) or len(meaning)>180:
+        continue
+    existing=index.get(dedupe_key(key))
+    if not existing or existing.get("meaning"):
+        continue
+    root=str(details.get("root") or "").casefold()
+    origin=existing["origin"].casefold()
+    compatible=any(h in origin for r,hints in WIKTIONARY_COMPATIBLE.items() if r in root for h in hints)
+    if not compatible:
+        continue
+    existing.update(meaning=meaning,meaningLanguage="en",
+                    meaningSource="wiktionary-native-en",meaningLicense="CC BY-SA 4.0")
+    native_meaning_count+=1
+print("Native-script meanings added:",native_meaning_count,flush=True)
+
+# The name equivalence graph supplies attested alternate spellings; do not treat
+# merely similar strings as actual variants, or confuse cultural equivalents.
+variant_links=defaultdict(set)
+for edge in rows("name-equivalence.csv"):
+    if edge.get("type")!="forename" or edge.get("relation")!="variant":
+        continue
+    first=edge.get("name","").strip()
+    related=edge.get("related_name","").strip()
+    if first and related and dedupe_key(first)!=dedupe_key(related):
+        variant_links[dedupe_key(first)].add(related)
+for item in items:
+    variants=sorted(variant_links.get(dedupe_key(item["name"]),set()),key=str.casefold)
+    item["variants"]=variants[:12]
+print("Names with attested variants:",sum(bool(item["variants"]) for item in items),flush=True)
 items.sort(key=lambda x:x["name"].casefold())
 (OUTPUT/"extended.json").write_text(json.dumps(items,ensure_ascii=False,separators=(",",":")),encoding="utf-8")
 (OUTPUT/"countries.json").write_text(json.dumps([{"code":c,"name":label} for c,label in sorted(countries.items())],ensure_ascii=False),encoding="utf-8")
-(OUTPUT/"manifest.json").write_text(json.dumps({"version":VERSION,"count":len(items),"countryCount":len(countries),"meaningCount":sum(bool(item.get("meaning")) for item in items),"wiktionaryLicense":"CC BY-SA 4.0",
+(OUTPUT/"manifest.json").write_text(json.dumps({"version":VERSION,"count":len(items),"countryCount":len(countries),"meaningCount":sum(bool(item.get("meaning")) for item in items),"missingMeaningCount":sum(not bool(item.get("meaning")) for item in items),"nativeScriptCount":sum(bool(item.get("native")) for item in items),"variantCount":sum(bool(item.get("variants")) for item in items),"wiktionaryLicense":"CC BY-SA 4.0",
     "meaningStatus":"source-backed meanings only; null when not verified","attribution":"Names data from Onomaverse (https://onomaverse.com/datasets), licensed CC BY 4.0."},ensure_ascii=False,indent=2),encoding="utf-8")
 print(f"Built {len(items)} unique names, {len(countries)} countries.",flush=True)
