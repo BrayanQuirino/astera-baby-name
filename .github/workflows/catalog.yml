@@ -1,0 +1,32 @@
+name: Build global baby name JSON
+on:
+  push:
+    branches: [develop_brayan]
+    paths:
+      - scripts/build_catalog.py
+      - .github/workflows/catalog.yml
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  import:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: develop_brayan
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Download CC-BY 4.0 source, normalize and generate JSON
+        run: python scripts/build_catalog.py
+      - name: Commit datasets to the development branch
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add public/names/extended.json public/names/countries.json public/names/manifest.json
+          if ! git diff --cached --quiet; then
+            git commit -m "data: import licensed international names and scripts"
+            git push origin HEAD:develop_brayan
+          fi
