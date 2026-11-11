@@ -218,9 +218,120 @@ for item in items:
     variants=sorted(variant_links.get(dedupe_key(item["name"]),set()),key=str.casefold)
     item["variants"]=variants[:12]
 print("Names with attested variants:",sum(bool(item["variants"]) for item in items),flush=True)
+# Final evidence pass: Wiktionary-derived name glosses from individually curated
+# language/culture lists. Only exact names and one compatible etymology are used.
+# Name usage in a country is NOT evidence of linguistic origin.
+CULTURE_REPO="https://raw.githubusercontent.com/suhxnitiwari/baby-name-maker/main/data/"
+CULTURE_FILES=[
+ "culture-names.json","greek-names.json","latin-names.json",
+ "italian-names.json","german-names.json","finnish-names.json",
+ "portuguese-names.json","russia-cultures.json","caucasus-balkan-names.json",
+ "egyptian-names.json","turkish-names.json","hebrew-names.json",
+ "arabic-names.json","korean-names.json","japanese-names.json",
+ "indian-names.json","african-names.json","slavic-names.json",
+ "french-names.json","irish-names.json"
+]
+# Equivalence by root/language name, NOT by countries where the name was found.
+CULTURE_ALIASES={
+ "arabic":["arab","urdu"],"hebrew":["hebr","hebreo"],"greek":["greek","grieg"],
+ "italian":["ital"],"latin":["latin","roman"],"french":["french","fran"],
+ "portuguese":["portug"],"spanish":["spanish","espa"],"japanese":["japan","japon"],
+ "korean":["korean","corean"],"german":["german","germán","germanic"],
+ "russian":["russian","ruso","slavic","eslav"],"irish":["irish","irland","gaelic"],
+ "persian":["persian","persa"],"turkish":["turkish","turco"],
+ "sanskrit":["sanskrit","hindi","india"],"hindi":["hindi","india"],
+ "finnish":["finnish","finland"],"swahili":["swahili","suaj"],
+ "icelandic":["icelandic","norse","nordic"],"egyptian":["egypt","egip"],
+ "georgian":["georg"],"armenian":["armen"],"albanian":["alban"],
+ "yoruba":["yoruba"],"igbo":["igbo"],"kazakh":["kazakh"],
+ "polish":["polish","polac","slavic","eslav"],"ukrainian":["ukrain","ucran"],
+ "serbian":["serbian","serbio","slavic","eslav"],
+}
+candidate_meanings=defaultdict(list)
+culture_file_success=0
+for filename in CULTURE_FILES:
+    try:
+        request=urllib.request.Request(CULTURE_REPO+filename,headers=HEADERS)
+        with urllib.request.urlopen(request,timeout=50) as response:
+            records=json.load(response)
+    except Exception as exc:
+        print("Culture source unavailable:",filename,str(exc)[:100],flush=True)
+        continue
+    if not isinstance(records,list):
+        continue
+    culture_file_success+=1
+    for record in records:
+        if not isinstance(record,list) or len(record)<7:
+            continue
+        # Lullabyte array layout: name, gender, culture, language, faith,
+        # meaning, evidence, native form, kind, extra categories.
+        name,root,meaning,evidence=record[0],record[3],record[5],record[6]
+        if not all(isinstance(x,str) for x in (name,root,meaning,evidence)):
+            continue
+        name=name.strip()
+        meaning=meaning.strip()
+        if not name or not meaning or len(meaning)>160:
+            continue
+        # Exclude made-up names, generated interpretations, sources not
+        # explicitly described as Wiktionary, and speculative etymologies.
+        evidence_lower=evidence.casefold()
+        if not ("wiktionary" in evidence_lower or "wikt." in evidence_lower):
+            continue
+        if any(t in evidence_lower for t in ("possibly","folk etymology","uncertain")):
+            continue
+        if not isinstance(record[8] if len(record)>8 else "",str):
+            continue
+        if len(record)>8 and record[8].casefold() in ("invented","generated"):
+            continue
+        candidate_meanings[dedupe_key(name)].append((meaning,root.strip(),filename))
+print("Wiktionary-derived candidate names:",len(candidate_meanings),"files:",culture_file_success,flush=True)
+culture_added=0
+ambiguous_skipped=0
+for key,options in candidate_meanings.items():
+    entry=index.get(key)
+    if not entry or entry.get("meaning"):
+        continue
+    origin=entry["origin"].casefold()
+    def compatible(root):
+        root_l=root.casefold()
+        if root_l in origin:
+            return True
+        hints=next((h for language,h in CULTURE_ALIASES.items() if language in root_l),[])
+        return any(h in origin for h in hints)
+    possible=[(meaning,root,filename) for meaning,root,filename in options if compatible(root)]
+    # A name without a recorded etymological origin can be resolved only
+    # if one normalized literal meaning is independently noncontradictory.
+    if not possible and origin=="origen por verificar":
+        possible=options
+    if not possible:
+        continue
+    groups=defaultdict(list)
+    for meaning,root,filename in possible:
+        normalized=re.sub(r"\\s+"," ",meaning.casefold().strip(" .;"))
+        groups[normalized].append((meaning,root,filename))
+    if len(groups)>1:
+        ambiguous_skipped+=1
+        continue
+    meaning,root,filename=next(iter(groups.values()))[0]
+    entry.update(meaning=meaning,meaningLanguage="en",
+                 meaningSource="wiktionary-culture-en",
+                 meaningLicense="CC BY-SA 4.0",meaningSourceFile=filename)
+    if origin=="origen por verificar":
+        entry["origin"]=root+" (según Wiktionary)"
+        entry["originSource"]="wiktionary-culture-en"
+    culture_added+=1
+print("Additional Wiktionary cultural meanings:",culture_added,flush=True)
+print("Ambiguous name interpretations excluded:",ambiguous_skipped,flush=True)
+# Explicit data-quality coverage fields for EVERY imported record.
+for entry in items:
+    entry["meaningStatus"]="documented" if entry.get("meaning") else "undocumented"
+    if not entry.get("meaning"):
+        entry["meaning"]=None
+        entry["meaningSource"]=None
+    entry["nativeStatus"]="documented" if entry.get("native") else "not_available"
 items.sort(key=lambda x:x["name"].casefold())
 (OUTPUT/"extended.json").write_text(json.dumps(items,ensure_ascii=False,separators=(",",":")),encoding="utf-8")
 (OUTPUT/"countries.json").write_text(json.dumps([{"code":c,"name":label} for c,label in sorted(countries.items())],ensure_ascii=False),encoding="utf-8")
-(OUTPUT/"manifest.json").write_text(json.dumps({"version":VERSION,"count":len(items),"countryCount":len(countries),"meaningCount":sum(bool(item.get("meaning")) for item in items),"missingMeaningCount":sum(not bool(item.get("meaning")) for item in items),"nativeScriptCount":sum(bool(item.get("native")) for item in items),"variantCount":sum(bool(item.get("variants")) for item in items),"wiktionaryLicense":"CC BY-SA 4.0",
+(OUTPUT/"manifest.json").write_text(json.dumps({"version":VERSION,"count":len(items),"countryCount":len(countries),"meaningCount":sum(bool(item.get("meaning")) for item in items),"missingMeaningCount":sum(not bool(item.get("meaning")) for item in items),"nativeScriptCount":sum(bool(item.get("native")) for item in items),"variantCount":sum(bool(item.get("variants")) for item in items),"cultureSources":culture_file_success,"wiktionaryLicense":"CC BY-SA 4.0",
     "meaningStatus":"source-backed meanings only; null when not verified","attribution":"Names data from Onomaverse (https://onomaverse.com/datasets), licensed CC BY 4.0."},ensure_ascii=False,indent=2),encoding="utf-8")
 print(f"Built {len(items)} unique names, {len(countries)} countries.",flush=True)
