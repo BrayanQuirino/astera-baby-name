@@ -201,7 +201,8 @@ for key,details in native_meanings.items():
     if not compatible:
         continue
     existing.update(meaning=meaning,meaningLanguage="en",
-                    meaningSource="wiktionary-native-en",meaningLicense="CC BY-SA 4.0")
+                    meaningSource="wiktionary-native-en",meaningLicense="CC BY-SA 4.0",
+                    meaningVia=str(details.get("via") or key))
     native_meaning_count+=1
 print("Native-script meanings added:",native_meaning_count,flush=True)
 
@@ -330,7 +331,7 @@ print("Ambiguous name interpretations excluded:",ambiguous_skipped,flush=True)
 def meaning_reference(item):
     source=item.get("meaningSource") or ""
     if source.startswith("wiktionary"):
-        return "https://en.wiktionary.org/wiki/"+urllib.parse.quote(item["name"],safe="")
+        return "https://en.wiktionary.org/wiki/"+urllib.parse.quote(item.get("meaningVia") or item["name"],safe="")
     if source.startswith("nurturepedia"):
         return "https://github.com/Nurturepedia/baby-names-dataset/tree/main/datasets/origin"
     return None
