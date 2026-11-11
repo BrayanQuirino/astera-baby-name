@@ -80,6 +80,36 @@ for key,entry in names.items():
     items.append({"name":entry["name"],"gender":gender,"country":sorted(entry["countries"])[0],
         "countries":sorted(entry["countries"]),"origin":origin or "Origen por verificar",
         "meaning":None,"native":chosen or "","variants":[],"source":"onomaverse-v2026.10"})
+# Additional open MIT names and etymology descriptions (English source text).
+# Only apply an etymology when the name's cultural origin appears compatible;
+# identical spellings can have unrelated meanings in different languages.
+MEANING_BASE="https://raw.githubusercontent.com/Nurturepedia/baby-names-dataset/main/datasets/origin"
+MEANING_SOURCES=["arabic","english","hebrew","hindi","latin","sanskrit","spanish","urdu","french","irish","germanic"]
+ORIGIN_HINTS={"arabic":["arab","urdu"],"english":["english","anglo"],"hebrew":["hebrew","hebr"],"hindi":["hindi","india"],"latin":["latin","roman"],"sanskrit":["sanskrit","india"],"spanish":["spanish","espa"],"urdu":["urdu","persian"],"french":["french","fran"],"irish":["irish","gaelic"],"germanic":["german","germán"]}
+index={dedupe_key(n["name"]):n for n in items}
+meaning_count=0
+for origin_slug in MEANING_SOURCES:
+    url=f"{MEANING_BASE}/{origin_slug}.json"
+    try:
+        with urllib.request.urlopen(urllib.request.Request(url,headers=HEADERS),timeout=35) as response:
+            origin_rows=json.load(response)
+    except Exception as exc:
+        print("Optional meanings unavailable:",origin_slug,str(exc),flush=True)
+        continue
+    if not isinstance(origin_rows,list):continue
+    for row in origin_rows:
+        if not isinstance(row,dict):continue
+        name=(row.get("name") or "").strip()
+        meaning=(row.get("meaning") or "").strip()
+        if not name or not meaning or len(meaning)>250:continue
+        existing=index.get(dedupe_key(name))
+        if existing and not existing["meaning"]:
+            origin=existing["origin"].casefold()
+            if origin and not any(h in origin for h in ORIGIN_HINTS[origin_slug]):
+                continue
+            existing.update(meaning=meaning,meaningLanguage="en",meaningSource=f"nurturepedia/{origin_slug}")
+            meaning_count+=1
+print("Meanings added from MIT source:",meaning_count,flush=True)
 items.sort(key=lambda x:x["name"].casefold())
 (OUTPUT/"extended.json").write_text(json.dumps(items,ensure_ascii=False,separators=(",",":")),encoding="utf-8")
 (OUTPUT/"countries.json").write_text(json.dumps([{"code":c,"name":label} for c,label in sorted(countries.items())],ensure_ascii=False),encoding="utf-8")
