@@ -7,10 +7,12 @@ root=Path(__file__).resolve().parents[1]
 catalog=json.loads((root/"public/names/extended.json").read_text(encoding="utf-8"))
 countries=json.loads((root/"public/names/countries.json").read_text(encoding="utf-8"))
 manifest=json.loads((root/"public/names/manifest.json").read_text(encoding="utf-8"))
+coverage=json.loads((root/"public/names/coverage.json").read_text(encoding="utf-8"))
 assert isinstance(catalog,list) and catalog, "Catalog must not be empty"
 assert manifest["count"]==len(catalog), "Manifest count differs from JSON"
 assert manifest["countryCount"]==len(countries), "Country count differs"
 assert manifest["meaningCount"]==sum(bool(item.get("meaning")) for item in catalog), "Meaning count differs"
+assert coverage["totalNames"]==len(catalog) and coverage["meaningDocumented"]==manifest["meaningCount"] and coverage["meaningPending"]==manifest["missingMeaningCount"], "Coverage audit differs"
 assert manifest["missingMeaningCount"]==sum(not bool(item.get("meaning")) for item in catalog), "Missing meanings count differs"
 assert manifest["nativeScriptCount"]==sum(bool(item.get("native")) for item in catalog), "Native writing count differs"
 assert manifest["variantCount"]==sum(bool(item.get("variants")) for item in catalog), "Variant count differs"
@@ -25,6 +27,12 @@ for row in catalog:
     assert row["gender"] in ("boy","girl","unisex")
     assert isinstance(row["countries"],list) and row["countries"]==sorted(set(row["countries"]))
     assert row["meaning"] is None or isinstance(row["meaning"],str)
+    assert row.get("meaningStatus") in ("documented","undocumented"), row["name"]
+    assert row.get("reviewStatus") in ("source_matched","requires_etymological_source"), row["name"]
+    assert row.get("nativeStatus") in ("documented","not_available"), row["name"]
+    assert (row["meaningStatus"]=="documented")==bool(row["meaning"]), row["name"]
+    assert (row["nativeStatus"]=="documented")==bool(row.get("native")), row["name"]
+    assert (row.get("meaningSourceUrl") is not None)==bool(row["meaning"]), row["name"]
     if row.get("meaning"):
         assert row.get("meaningSource"), f"Missing meaning provenance for {row['name']}"
     assert isinstance(row["variants"],list)

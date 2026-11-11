@@ -11,7 +11,8 @@ import json
 import re
 import time
 import urllib.request
-from collections import defaultdict
+import urllib.parse
+from collections import defaultdict, Counter
 from pathlib import Path
 
 VERSION="v2026.10"
@@ -200,7 +201,8 @@ for key,details in native_meanings.items():
     if not compatible:
         continue
     existing.update(meaning=meaning,meaningLanguage="en",
-                    meaningSource="wiktionary-native-en",meaningLicense="CC BY-SA 4.0")
+                    meaningSource="wiktionary-native-en",meaningLicense="CC BY-SA 4.0",
+                    meaningVia=str(details.get("via") or key))
     native_meaning_count+=1
 print("Native-script meanings added:",native_meaning_count,flush=True)
 
@@ -218,9 +220,145 @@ for item in items:
     variants=sorted(variant_links.get(dedupe_key(item["name"]),set()),key=str.casefold)
     item["variants"]=variants[:12]
 print("Names with attested variants:",sum(bool(item["variants"]) for item in items),flush=True)
+# Final evidence pass: Wiktionary-derived name glosses from individually curated
+# language/culture lists. Only exact names and one compatible etymology are used.
+# Name usage in a country is NOT evidence of linguistic origin.
+CULTURE_REPO="https://raw.githubusercontent.com/suhxnitiwari/baby-name-maker/main/data/"
+CULTURE_FILES=[
+ "culture-names.json","greek-names.json","latin-names.json",
+ "italian-names.json","german-names.json","finnish-names.json",
+ "portuguese-names.json","russia-cultures.json","caucasus-balkan-names.json",
+ "egyptian-names.json","turkish-names.json","hebrew-names.json",
+ "arabic-names.json","korean-names.json","japanese-names.json",
+ "indian-names.json","african-names.json","slavic-names.json",
+ "french-names.json","irish-names.json"
+]
+# Equivalence by root/language name, NOT by countries where the name was found.
+CULTURE_ALIASES={
+ "arabic":["arab","urdu"],"hebrew":["hebr","hebreo"],"greek":["greek","grieg"],
+ "italian":["ital"],"latin":["latin","roman"],"french":["french","fran"],
+ "portuguese":["portug"],"spanish":["spanish","espa"],"japanese":["japan","japon"],
+ "korean":["korean","corean"],"german":["german","germán","germanic"],
+ "russian":["russian","ruso","slavic","eslav"],"irish":["irish","irland","gaelic"],
+ "persian":["persian","persa"],"turkish":["turkish","turco"],
+ "sanskrit":["sanskrit","hindi","india"],"hindi":["hindi","india"],
+ "finnish":["finnish","finland"],"swahili":["swahili","suaj"],
+ "icelandic":["icelandic","norse","nordic"],"egyptian":["egypt","egip"],
+ "georgian":["georg"],"armenian":["armen"],"albanian":["alban"],
+ "yoruba":["yoruba"],"igbo":["igbo"],"kazakh":["kazakh"],
+ "polish":["polish","polac","slavic","eslav"],"ukrainian":["ukrain","ucran"],
+ "serbian":["serbian","serbio","slavic","eslav"],
+}
+candidate_meanings=defaultdict(list)
+culture_file_success=0
+for filename in CULTURE_FILES:
+    try:
+        request=urllib.request.Request(CULTURE_REPO+filename,headers=HEADERS)
+        with urllib.request.urlopen(request,timeout=50) as response:
+            records=json.load(response)
+    except Exception as exc:
+        print("Culture source unavailable:",filename,str(exc)[:100],flush=True)
+        continue
+    if not isinstance(records,list):
+        continue
+    culture_file_success+=1
+    for record in records:
+        if not isinstance(record,list) or len(record)<7:
+            continue
+        # Lullabyte array layout: name, gender, culture, language, faith,
+        # meaning, evidence, native form, kind, extra categories.
+        name,root,meaning,evidence=record[0],record[3],record[5],record[6]
+        if not all(isinstance(x,str) for x in (name,root,meaning,evidence)):
+            continue
+        name=name.strip()
+        meaning=meaning.strip()
+        if not name or not meaning or len(meaning)>160:
+            continue
+        # Exclude made-up names, generated interpretations, sources not
+        # explicitly described as Wiktionary, and speculative etymologies.
+        evidence_lower=evidence.casefold()
+        if not ("wiktionary" in evidence_lower or "wikt." in evidence_lower):
+            continue
+        if any(t in evidence_lower for t in ("possibly","folk etymology","uncertain")):
+            continue
+        if not isinstance(record[8] if len(record)>8 else "",str):
+            continue
+        if len(record)>8 and record[8].casefold() in ("invented","generated"):
+            continue
+        candidate_meanings[dedupe_key(name)].append((meaning,root.strip(),filename))
+print("Wiktionary-derived candidate names:",len(candidate_meanings),"files:",culture_file_success,flush=True)
+culture_added=0
+ambiguous_skipped=0
+for key,options in candidate_meanings.items():
+    entry=index.get(key)
+    if not entry or entry.get("meaning"):
+        continue
+    origin=entry["origin"].casefold()
+    def compatible(root):
+        root_l=root.casefold()
+        if root_l in origin:
+            return True
+        hints=next((h for language,h in CULTURE_ALIASES.items() if language in root_l),[])
+        return any(h in origin for h in hints)
+    possible=[(meaning,root,filename) for meaning,root,filename in options if compatible(root)]
+    # A name without a recorded etymological origin can be resolved only
+    # if one normalized literal meaning is independently noncontradictory.
+    if not possible and origin=="origen por verificar":
+        possible=options
+    if not possible:
+        continue
+    groups=defaultdict(list)
+    for meaning,root,filename in possible:
+        normalized=re.sub(r"\\s+"," ",meaning.casefold().strip(" .;"))
+        groups[normalized].append((meaning,root,filename))
+    if len(groups)>1:
+        ambiguous_skipped+=1
+        continue
+    meaning,root,filename=next(iter(groups.values()))[0]
+    entry.update(meaning=meaning,meaningLanguage="en",
+                 meaningSource="wiktionary-culture-en",
+                 meaningLicense="CC BY-SA 4.0",meaningSourceFile=filename)
+    if origin=="origen por verificar":
+        entry["origin"]=root+" (según Wiktionary)"
+        entry["originSource"]="wiktionary-culture-en"
+    culture_added+=1
+print("Additional Wiktionary cultural meanings:",culture_added,flush=True)
+print("Ambiguous name interpretations excluded:",ambiguous_skipped,flush=True)
+# Stable provenance URLs and explicit per-record status make every JSON entry
+# auditable; missing etymologies remain null, never generated prose.
+# Wiktionary words may have several language sections, so the displayed gloss
+# is always attributed to the precise imported interpretation.
+def meaning_reference(item):
+    source=item.get("meaningSource") or ""
+    if source.startswith("wiktionary"):
+        return "https://en.wiktionary.org/wiki/"+urllib.parse.quote(item.get("meaningVia") or item["name"],safe="")
+    if source.startswith("nurturepedia"):
+        return "https://github.com/Nurturepedia/baby-names-dataset/tree/main/datasets/origin"
+    return None
+# Explicit data-quality coverage fields for EVERY imported record.
+for entry in items:
+    entry["meaningStatus"]="documented" if entry.get("meaning") else "undocumented"
+    if not entry.get("meaning"):
+        entry["meaning"]=None
+        entry["meaningSource"]=None
+    entry["nativeStatus"]="documented" if entry.get("native") else "not_available"
+    entry["meaningSourceUrl"]=meaning_reference(entry)
+    entry["reviewStatus"]="source_matched" if entry.get("meaning") else "requires_etymological_source"
 items.sort(key=lambda x:x["name"].casefold())
+# Audit all statuses and source coverage without duplicating the full catalog.
+coverage=Counter(item.get("meaningSource") or "pending" for item in items)
+pending_by_origin=Counter(item["origin"] for item in items if not item.get("meaning"))
+audit={
+  "totalNames":len(items),
+  "meaningDocumented":sum(bool(item.get("meaning")) for item in items),
+  "meaningPending":sum(not bool(item.get("meaning")) for item in items),
+  "meaningSources":dict(sorted(coverage.items())),
+  "pendingByOrigin":[{"origin":origin,"count":count} for origin,count in sorted(pending_by_origin.items(),key=lambda pair:(-pair[1],pair[0].casefold()))],
+  "method":"Exact-name meaning match with origin compatibility; no automatic meanings inferred from name strings.",
+}
+(OUTPUT/"coverage.json").write_text(json.dumps(audit,ensure_ascii=False,indent=2),encoding="utf-8")
 (OUTPUT/"extended.json").write_text(json.dumps(items,ensure_ascii=False,separators=(",",":")),encoding="utf-8")
 (OUTPUT/"countries.json").write_text(json.dumps([{"code":c,"name":label} for c,label in sorted(countries.items())],ensure_ascii=False),encoding="utf-8")
-(OUTPUT/"manifest.json").write_text(json.dumps({"version":VERSION,"count":len(items),"countryCount":len(countries),"meaningCount":sum(bool(item.get("meaning")) for item in items),"missingMeaningCount":sum(not bool(item.get("meaning")) for item in items),"nativeScriptCount":sum(bool(item.get("native")) for item in items),"variantCount":sum(bool(item.get("variants")) for item in items),"wiktionaryLicense":"CC BY-SA 4.0",
+(OUTPUT/"manifest.json").write_text(json.dumps({"version":VERSION,"count":len(items),"countryCount":len(countries),"meaningCount":sum(bool(item.get("meaning")) for item in items),"missingMeaningCount":sum(not bool(item.get("meaning")) for item in items),"nativeScriptCount":sum(bool(item.get("native")) for item in items),"variantCount":sum(bool(item.get("variants")) for item in items),"cultureSources":culture_file_success,"wiktionaryLicense":"CC BY-SA 4.0",
     "meaningStatus":"source-backed meanings only; null when not verified","attribution":"Names data from Onomaverse (https://onomaverse.com/datasets), licensed CC BY 4.0."},ensure_ascii=False,indent=2),encoding="utf-8")
 print(f"Built {len(items)} unique names, {len(countries)} countries.",flush=True)

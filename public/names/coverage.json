@@ -1,0 +1,6589 @@
+{
+  "totalNames": 18433,
+  "meaningDocumented": 2107,
+  "meaningPending": 16326,
+  "meaningSources": {
+    "nurturepedia/arabic": 46,
+    "nurturepedia/english": 36,
+    "nurturepedia/french": 26,
+    "nurturepedia/germanic": 27,
+    "nurturepedia/hebrew": 33,
+    "nurturepedia/hindi": 45,
+    "nurturepedia/irish": 17,
+    "nurturepedia/latin": 28,
+    "nurturepedia/sanskrit": 47,
+    "nurturepedia/spanish": 22,
+    "nurturepedia/urdu": 37,
+    "pending": 16326,
+    "wiktionary-culture-en": 116,
+    "wiktionary-en": 1613,
+    "wiktionary-native-en": 14
+  },
+  "pendingByOrigin": [
+    {
+      "origin": "Origen por verificar",
+      "count": 10788
+    },
+    {
+      "origin": "Arabic",
+      "count": 1459
+    },
+    {
+      "origin": "Turkish",
+      "count": 216
+    },
+    {
+      "origin": "Hebrew",
+      "count": 189
+    },
+    {
+      "origin": "Spanish",
+      "count": 172
+    },
+    {
+      "origin": "Latin",
+      "count": 153
+    },
+    {
+      "origin": "English",
+      "count": 146
+    },
+    {
+      "origin": "Italian",
+      "count": 134
+    },
+    {
+      "origin": "Sanskrit",
+      "count": 127
+    },
+    {
+      "origin": "French",
+      "count": 102
+    },
+    {
+      "origin": "Greek",
+      "count": 95
+    },
+    {
+      "origin": "Germanic",
+      "count": 78
+    },
+    {
+      "origin": "Persian",
+      "count": 68
+    },
+    {
+      "origin": "Zulu",
+      "count": 45
+    },
+    {
+      "origin": "Dutch",
+      "count": 36
+    },
+    {
+      "origin": "Yoruba",
+      "count": 32
+    },
+    {
+      "origin": "Slavic",
+      "count": 31
+    },
+    {
+      "origin": "Old English",
+      "count": 29
+    },
+    {
+      "origin": "Chinese",
+      "count": 28
+    },
+    {
+      "origin": "Portuguese",
+      "count": 28
+    },
+    {
+      "origin": "Russian",
+      "count": 28
+    },
+    {
+      "origin": "Polish",
+      "count": 25
+    },
+    {
+      "origin": "Irish",
+      "count": 21
+    },
+    {
+      "origin": "Egyptian Arabic",
+      "count": 18
+    },
+    {
+      "origin": "Igbo",
+      "count": 18
+    },
+    {
+      "origin": "Arabic and Turkish",
+      "count": 17
+    },
+    {
+      "origin": "German",
+      "count": 17
+    },
+    {
+      "origin": "Turkish (from Arabic)",
+      "count": 17
+    },
+    {
+      "origin": "Welsh",
+      "count": 17
+    },
+    {
+      "origin": "Kazakh",
+      "count": 16
+    },
+    {
+      "origin": "Arabic / Islamic",
+      "count": 15
+    },
+    {
+      "origin": "Old Norse",
+      "count": 15
+    },
+    {
+      "origin": "Czech",
+      "count": 14
+    },
+    {
+      "origin": "Scottish Gaelic",
+      "count": 13
+    },
+    {
+      "origin": "Turkic",
+      "count": 13
+    },
+    {
+      "origin": "Arabic and Persian",
+      "count": 11
+    },
+    {
+      "origin": "Finnish",
+      "count": 11
+    },
+    {
+      "origin": "Turkish and Arabic",
+      "count": 11
+    },
+    {
+      "origin": "Arabic (Maghrebi)",
+      "count": 10
+    },
+    {
+      "origin": "Malay",
+      "count": 10
+    },
+    {
+      "origin": "Turkish / Arabic",
+      "count": 10
+    },
+    {
+      "origin": "Basque",
+      "count": 9
+    },
+    {
+      "origin": "Scandinavian",
+      "count": 9
+    },
+    {
+      "origin": "Scottish",
+      "count": 9
+    },
+    {
+      "origin": "Xhosa",
+      "count": 9
+    },
+    {
+      "origin": "Arabic (Egyptian)",
+      "count": 8
+    },
+    {
+      "origin": "Arabic / Turkish",
+      "count": 8
+    },
+    {
+      "origin": "Arabic and Maghrebi",
+      "count": 8
+    },
+    {
+      "origin": "Breton",
+      "count": 8
+    },
+    {
+      "origin": "Catalan",
+      "count": 8
+    },
+    {
+      "origin": "Romanian",
+      "count": 8
+    },
+    {
+      "origin": "Zulu and Xhosa",
+      "count": 8
+    },
+    {
+      "origin": "Arabic / Semitic",
+      "count": 7
+    },
+    {
+      "origin": "Aramaic",
+      "count": 7
+    },
+    {
+      "origin": "Kurdish",
+      "count": 7
+    },
+    {
+      "origin": "Sanskrit and Indian",
+      "count": 7
+    },
+    {
+      "origin": "Spanish and Portuguese",
+      "count": 7
+    },
+    {
+      "origin": "Zulu and Nguni",
+      "count": 7
+    },
+    {
+      "origin": "Arabic / Hebrew",
+      "count": 6
+    },
+    {
+      "origin": "Arabic and Egyptian",
+      "count": 6
+    },
+    {
+      "origin": "Arabic and Hebrew",
+      "count": 6
+    },
+    {
+      "origin": "Bengali",
+      "count": 6
+    },
+    {
+      "origin": "Brazilian Portuguese",
+      "count": 6
+    },
+    {
+      "origin": "Italian (from Latin)",
+      "count": 6
+    },
+    {
+      "origin": "Maghrebi and Arabic",
+      "count": 6
+    },
+    {
+      "origin": "Nguni",
+      "count": 6
+    },
+    {
+      "origin": "Arabic / Persian",
+      "count": 5
+    },
+    {
+      "origin": "Arabic and Moroccan",
+      "count": 5
+    },
+    {
+      "origin": "Arabic via Turkish",
+      "count": 5
+    },
+    {
+      "origin": "Italian (Latin)",
+      "count": 5
+    },
+    {
+      "origin": "Italian / Latin",
+      "count": 5
+    },
+    {
+      "origin": "Old French",
+      "count": 5
+    },
+    {
+      "origin": "Persian and Urdu",
+      "count": 5
+    },
+    {
+      "origin": "Setswana",
+      "count": 5
+    },
+    {
+      "origin": "Sotho-Tswana",
+      "count": 5
+    },
+    {
+      "origin": "Spanish / Latin",
+      "count": 5
+    },
+    {
+      "origin": "Turkish (Arabic)",
+      "count": 5
+    },
+    {
+      "origin": "Yoruba (Nigerian)",
+      "count": 5
+    },
+    {
+      "origin": "Ancient Greek",
+      "count": 4
+    },
+    {
+      "origin": "Arabic (Egyptian colloquial)",
+      "count": 4
+    },
+    {
+      "origin": "Arabic (via Turkish)",
+      "count": 4
+    },
+    {
+      "origin": "Arabic / Egyptian",
+      "count": 4
+    },
+    {
+      "origin": "Arabic / Semitic / Islamic",
+      "count": 4
+    },
+    {
+      "origin": "Arabic and Malay",
+      "count": 4
+    },
+    {
+      "origin": "Arabic Turkish",
+      "count": 4
+    },
+    {
+      "origin": "Germanic / Spanish",
+      "count": 4
+    },
+    {
+      "origin": "Greek and English",
+      "count": 4
+    },
+    {
+      "origin": "Hausa",
+      "count": 4
+    },
+    {
+      "origin": "Hungarian",
+      "count": 4
+    },
+    {
+      "origin": "Igbo (Nigerian)",
+      "count": 4
+    },
+    {
+      "origin": "Irish Gaelic",
+      "count": 4
+    },
+    {
+      "origin": "Italian / Greek",
+      "count": 4
+    },
+    {
+      "origin": "Italian and Germanic",
+      "count": 4
+    },
+    {
+      "origin": "Japanese",
+      "count": 4
+    },
+    {
+      "origin": "Kazakh / Turkic",
+      "count": 4
+    },
+    {
+      "origin": "Maghrebi Arabic",
+      "count": 4
+    },
+    {
+      "origin": "Multicultural",
+      "count": 4
+    },
+    {
+      "origin": "Old High German",
+      "count": 4
+    },
+    {
+      "origin": "Persian / Turkish",
+      "count": 4
+    },
+    {
+      "origin": "Persian and Turkish",
+      "count": 4
+    },
+    {
+      "origin": "Spanish and Latin",
+      "count": 4
+    },
+    {
+      "origin": "Tamil",
+      "count": 4
+    },
+    {
+      "origin": "Tswana",
+      "count": 4
+    },
+    {
+      "origin": "Turkish / Persian",
+      "count": 4
+    },
+    {
+      "origin": "Arabic (Quranic)",
+      "count": 3
+    },
+    {
+      "origin": "Arabic / Maghrebi",
+      "count": 3
+    },
+    {
+      "origin": "Arabic through Turkish",
+      "count": 3
+    },
+    {
+      "origin": "Arabic through Turkish usage",
+      "count": 3
+    },
+    {
+      "origin": "Arabic via Ottoman Turkish",
+      "count": 3
+    },
+    {
+      "origin": "Arabic/Persian",
+      "count": 3
+    },
+    {
+      "origin": "Coptic",
+      "count": 3
+    },
+    {
+      "origin": "English and Hebrew",
+      "count": 3
+    },
+    {
+      "origin": "French (from Latin)",
+      "count": 3
+    },
+    {
+      "origin": "French and English",
+      "count": 3
+    },
+    {
+      "origin": "French and Latin",
+      "count": 3
+    },
+    {
+      "origin": "French from Latin",
+      "count": 3
+    },
+    {
+      "origin": "Hindi",
+      "count": 3
+    },
+    {
+      "origin": "Indian",
+      "count": 3
+    },
+    {
+      "origin": "Italian / Spanish",
+      "count": 3
+    },
+    {
+      "origin": "Italian and Spanish",
+      "count": 3
+    },
+    {
+      "origin": "Italian/Spanish",
+      "count": 3
+    },
+    {
+      "origin": "Latin and French",
+      "count": 3
+    },
+    {
+      "origin": "Multiple origins",
+      "count": 3
+    },
+    {
+      "origin": "Norman French",
+      "count": 3
+    },
+    {
+      "origin": "Persian and Arabic",
+      "count": 3
+    },
+    {
+      "origin": "Sanskrit (Indian)",
+      "count": 3
+    },
+    {
+      "origin": "Semitic",
+      "count": 3
+    },
+    {
+      "origin": "Sesotho",
+      "count": 3
+    },
+    {
+      "origin": "Sotho",
+      "count": 3
+    },
+    {
+      "origin": "Spanish (compound)",
+      "count": 3
+    },
+    {
+      "origin": "Spanish (Germanic)",
+      "count": 3
+    },
+    {
+      "origin": "Spanish (Latin American)",
+      "count": 3
+    },
+    {
+      "origin": "Spanish / Germanic",
+      "count": 3
+    },
+    {
+      "origin": "Spanish / Portuguese",
+      "count": 3
+    },
+    {
+      "origin": "Turkish and Persian",
+      "count": 3
+    },
+    {
+      "origin": "Turkish from Arabic",
+      "count": 3
+    },
+    {
+      "origin": "Xhosa and Zulu",
+      "count": 3
+    },
+    {
+      "origin": "Zulu / Xhosa (South African)",
+      "count": 3
+    },
+    {
+      "origin": "Arabic (Levantine)",
+      "count": 2
+    },
+    {
+      "origin": "Arabic (Maghrebi French transliteration)",
+      "count": 2
+    },
+    {
+      "origin": "Arabic (Maghrebi-French romanisation)",
+      "count": 2
+    },
+    {
+      "origin": "Arabic (Sudanese)",
+      "count": 2
+    },
+    {
+      "origin": "Arabic / Bengali",
+      "count": 2
+    },
+    {
+      "origin": "Arabic / Quranic",
+      "count": 2
+    },
+    {
+      "origin": "Arabic / Sudanese",
+      "count": 2
+    },
+    {
+      "origin": "Arabic and Algerian",
+      "count": 2
+    },
+    {
+      "origin": "Arabic and Bengali",
+      "count": 2
+    },
+    {
+      "origin": "Arabic and Islamic",
+      "count": 2
+    },
+    {
+      "origin": "Arabic compound",
+      "count": 2
+    },
+    {
+      "origin": "Arabic via Bengali and South Asian Muslim usage",
+      "count": 2
+    },
+    {
+      "origin": "Arabic, Persian, and South Asian Muslim",
+      "count": 2
+    },
+    {
+      "origin": "Arabic, Turkish",
+      "count": 2
+    },
+    {
+      "origin": "Arabic, via Turkish",
+      "count": 2
+    },
+    {
+      "origin": "Arabic, with strong Turkish adoption",
+      "count": 2
+    },
+    {
+      "origin": "Berber",
+      "count": 2
+    },
+    {
+      "origin": "Celtic",
+      "count": 2
+    },
+    {
+      "origin": "Chinese (Hokkien / Teochew)",
+      "count": 2
+    },
+    {
+      "origin": "Classical Arabic",
+      "count": 2
+    },
+    {
+      "origin": "Colombian Spanish",
+      "count": 2
+    },
+    {
+      "origin": "Czech (Slavic)",
+      "count": 2
+    },
+    {
+      "origin": "English (Latin)",
+      "count": 2
+    },
+    {
+      "origin": "English / Hebrew",
+      "count": 2
+    },
+    {
+      "origin": "English and Latin",
+      "count": 2
+    },
+    {
+      "origin": "English and Old Norse",
+      "count": 2
+    },
+    {
+      "origin": "English diminutive",
+      "count": 2
+    },
+    {
+      "origin": "English diminutive form",
+      "count": 2
+    },
+    {
+      "origin": "English initial name",
+      "count": 2
+    },
+    {
+      "origin": "English virtue name",
+      "count": 2
+    },
+    {
+      "origin": "English virtue name from Christian vocabulary",
+      "count": 2
+    },
+    {
+      "origin": "Frisian",
+      "count": 2
+    },
+    {
+      "origin": "Germanic / Dutch",
+      "count": 2
+    },
+    {
+      "origin": "Germanic / English",
+      "count": 2
+    },
+    {
+      "origin": "Germanic / Old French",
+      "count": 2
+    },
+    {
+      "origin": "Germanic and Italian",
+      "count": 2
+    },
+    {
+      "origin": "Germanic via Spanish",
+      "count": 2
+    },
+    {
+      "origin": "Greek / English",
+      "count": 2
+    },
+    {
+      "origin": "Greek and Russian",
+      "count": 2
+    },
+    {
+      "origin": "Greek and Spanish",
+      "count": 2
+    },
+    {
+      "origin": "Hausa (from Arabic)",
+      "count": 2
+    },
+    {
+      "origin": "Hausa and Arabic",
+      "count": 2
+    },
+    {
+      "origin": "Hebrew (Biblical)",
+      "count": 2
+    },
+    {
+      "origin": "Hebrew (via Italian)",
+      "count": 2
+    },
+    {
+      "origin": "Hebrew and English",
+      "count": 2
+    },
+    {
+      "origin": "Igbo (Nigeria)",
+      "count": 2
+    },
+    {
+      "origin": "Indian (Sanskrit)",
+      "count": 2
+    },
+    {
+      "origin": "Iraqi Arabic",
+      "count": 2
+    },
+    {
+      "origin": "Italian / Hebrew",
+      "count": 2
+    },
+    {
+      "origin": "Italian and Hebrew",
+      "count": 2
+    },
+    {
+      "origin": "Italian from Latin",
+      "count": 2
+    },
+    {
+      "origin": "Kazakh and Turkic",
+      "count": 2
+    },
+    {
+      "origin": "Latin / French",
+      "count": 2
+    },
+    {
+      "origin": "Latin / Greek",
+      "count": 2
+    },
+    {
+      "origin": "Latin / Italian / Spanish",
+      "count": 2
+    },
+    {
+      "origin": "Latin / Spanish",
+      "count": 2
+    },
+    {
+      "origin": "Latin and Greek",
+      "count": 2
+    },
+    {
+      "origin": "Low German",
+      "count": 2
+    },
+    {
+      "origin": "Mapuche",
+      "count": 2
+    },
+    {
+      "origin": "Modern Egyptian Arabic nickname form",
+      "count": 2
+    },
+    {
+      "origin": "Moroccan Arabic",
+      "count": 2
+    },
+    {
+      "origin": "Nguni (Xhosa and Zulu)",
+      "count": 2
+    },
+    {
+      "origin": "Nigerian English",
+      "count": 2
+    },
+    {
+      "origin": "Old Turkic",
+      "count": 2
+    },
+    {
+      "origin": "Persian / Turkic",
+      "count": 2
+    },
+    {
+      "origin": "Persian and Arabic usage",
+      "count": 2
+    },
+    {
+      "origin": "Sanskrit / Indian",
+      "count": 2
+    },
+    {
+      "origin": "Sesotho (Southern Bantu)",
+      "count": 2
+    },
+    {
+      "origin": "Sesotho and Setswana",
+      "count": 2
+    },
+    {
+      "origin": "Slavic / Czech",
+      "count": 2
+    },
+    {
+      "origin": "Sotho and Tswana",
+      "count": 2
+    },
+    {
+      "origin": "Southern African",
+      "count": 2
+    },
+    {
+      "origin": "Spanish (Colombian compound)",
+      "count": 2
+    },
+    {
+      "origin": "Spanish (Colombian)",
+      "count": 2
+    },
+    {
+      "origin": "Spanish (diminutive of Cecilia)",
+      "count": 2
+    },
+    {
+      "origin": "Spanish (from Latin)",
+      "count": 2
+    },
+    {
+      "origin": "Spanish and English",
+      "count": 2
+    },
+    {
+      "origin": "Spanish and Hebrew",
+      "count": 2
+    },
+    {
+      "origin": "Spanish and Italian",
+      "count": 2
+    },
+    {
+      "origin": "Sudanese Arabic",
+      "count": 2
+    },
+    {
+      "origin": "Swedish",
+      "count": 2
+    },
+    {
+      "origin": "Tatar",
+      "count": 2
+    },
+    {
+      "origin": "Tunisian Arabic",
+      "count": 2
+    },
+    {
+      "origin": "Turkish (Persian)",
+      "count": 2
+    },
+    {
+      "origin": "Turkish / Turkic",
+      "count": 2
+    },
+    {
+      "origin": "Turkish/Arabic",
+      "count": 2
+    },
+    {
+      "origin": "Xhosa Zulu",
+      "count": 2
+    },
+    {
+      "origin": "Yoruba (Nigeria)",
+      "count": 2
+    },
+    {
+      "origin": "Zulu / Xhosa (Nguni)",
+      "count": 2
+    },
+    {
+      "origin": "Zulu and Ndebele",
+      "count": 2
+    },
+    {
+      "origin": "Zulu and Xhosa (Southern Africa)",
+      "count": 2
+    },
+    {
+      "origin": "Zulu Xhosa",
+      "count": 2
+    },
+    {
+      "origin": "Abbreviated Arabic",
+      "count": 1
+    },
+    {
+      "origin": "African (Sotho)",
+      "count": 1
+    },
+    {
+      "origin": "Afrikaans",
+      "count": 1
+    },
+    {
+      "origin": "Akan",
+      "count": 1
+    },
+    {
+      "origin": "Algerian Arabic (with Berber influence)",
+      "count": 1
+    },
+    {
+      "origin": "Amazigh (Berber), Moroccan Arabic",
+      "count": 1
+    },
+    {
+      "origin": "Amazigh and North African Arabic",
+      "count": 1
+    },
+    {
+      "origin": "Ambiguous short form with several plausible sources, including Arabic shorthand usage and wider associations with the ancient Egyptian divine name Ra.",
+      "count": 1
+    },
+    {
+      "origin": "American / English",
+      "count": 1
+    },
+    {
+      "origin": "Arabic (abbreviated modern form)",
+      "count": 1
+    },
+    {
+      "origin": "Arabic (Algerian French spelling)",
+      "count": 1
+    },
+    {
+      "origin": "Arabic (Algerian French transliteration)",
+      "count": 1
+    },
+    {
+      "origin": "Arabic (Algerian)",
+      "count": 1
+    },
+    {
+      "origin": "Arabic (Bedouin / Gulf, feminine)",
+      "count": 1
+    },
+    {
+      "origin": "Arabic (Comparative / Nobiliary Root)",
+      "count": 1
+    },
+    {
+      "origin": "Arabic (compound: Muhammad + Ahmad)",
+      "count": 1
+    },
+    {
+      "origin": "Arabic (Egyptian / Gulf)",
+      "count": 1
+    },
+    {
+      "origin": "Arabic (Egyptian / Sudanese colloquial diminutive)",
+      "count": 1
+    },
+    {
+      "origin": "Arabic (Egyptian colloquial / diminutive)",
+      "count": 1
+    },
+    {
+      "origin": "Arabic (Egyptian colloquial form of Ibrahim / Abraham)",
+      "count": 1
+    },
+    {
+      "origin": "Arabic (Egyptian Diminutive)",
+      "count": 1
+    },
+    {
+      "origin": "Arabic (Egyptian Diminutive) / Sanskrit Root",
+      "count": 1
+    },
+    {
+      "origin": "Arabic (Egyptian-Levantine)",
+      "count": 1
+    },
+    {
+      "origin": "Arabic (Egyptian/Iraqi)",
+      "count": 1
+    },
+    {
+      "origin": "Arabic (Egyptian/North African)",
+      "count": 1
+    },
+    {
+      "origin": "Arabic (from Greek)",
+      "count": 1
+    },
+    {
+      "origin": "Arabic (from Hebrew)",
+      "count": 1
+    },
+    {
+      "origin": "Arabic (from Imperial Aramaic)",
+      "count": 1
+    },
+    {
+      "origin": "Arabic (from Latin via Greek)",
+      "count": 1
+    },
+    {
+      "origin": "Arabic (from Persian bandār, port or harbour)",
+      "count": 1
+    },
+    {
+      "origin": "Arabic (from the Islamic pilgrimage title Hajji)",
+      "count": 1
+    },
+    {
+      "origin": "Arabic (from the trilateral root أ-م-ن, ʾ-m-n, meaning safety, security, and faith)",
+      "count": 1
+    },
+    {
+      "origin": "Arabic (Hebrew transliteration)",
+      "count": 1
+    },
+    {
+      "origin": "Arabic (Hebrew)",
+      "count": 1
+    },
+    {
+      "origin": "Arabic (hypocoristic of Mariam/Mira/Myriam)",
+      "count": 1
+    },
+    {
+      "origin": "Arabic (Iraqi kunya)",
+      "count": 1
+    },
+    {
+      "origin": "Arabic (Iraqi orthographic variant)",
+      "count": 1
+    },
+    {
+      "origin": "Arabic (Iraqi/Shia)",
+      "count": 1
+    },
+    {
+      "origin": "Arabic (Islamic Honorific)",
+      "count": 1
+    },
+    {
+      "origin": "Arabic (Islamic honorific)",
+      "count": 1
+    },
+    {
+      "origin": "Arabic (Islamic theophoric)",
+      "count": 1
+    },
+    {
+      "origin": "Arabic (Islamic — Ali ibn Abi Talib epithet)",
+      "count": 1
+    },
+    {
+      "origin": "Arabic (Islamic)",
+      "count": 1
+    },
+    {
+      "origin": "Arabic (kunya)",
+      "count": 1
+    },
+    {
+      "origin": "Arabic (Levantine and Egyptian hypocoristic)",
+      "count": 1
+    },
+    {
+      "origin": "Arabic (Levantine and Maghrebi diminutive)",
+      "count": 1
+    },
+    {
+      "origin": "Arabic (Maghreb)",
+      "count": 1
+    },
+    {
+      "origin": "Arabic (Maghrebi colloquial)",
+      "count": 1
+    },
+    {
+      "origin": "Arabic (Maghrebi Dialect)",
+      "count": 1
+    },
+    {
+      "origin": "Arabic (Maghrebi feminine)",
+      "count": 1
+    },
+    {
+      "origin": "Arabic (Maghrebi form linked to al-ʿArabi)",
+      "count": 1
+    },
+    {
+      "origin": "Arabic (Maghrebi form of Munṣif/Moncef)",
+      "count": 1
+    },
+    {
+      "origin": "Arabic (Maghrebi form)",
+      "count": 1
+    },
+    {
+      "origin": "Arabic (Maghrebi Francophone spelling)",
+      "count": 1
+    },
+    {
+      "origin": "Arabic (Maghrebi French transcription)",
+      "count": 1
+    },
+    {
+      "origin": "Arabic (Maghrebi spelling)",
+      "count": 1
+    },
+    {
+      "origin": "Arabic (Maghrebi transliteration variant of Mohsin)",
+      "count": 1
+    },
+    {
+      "origin": "Arabic (Maghrebi), Malay",
+      "count": 1
+    },
+    {
+      "origin": "Arabic (Maghrebi-French transliteration)",
+      "count": 1
+    },
+    {
+      "origin": "Arabic (Maghrebi/Algerian/Moroccan) / Islamic Sufi",
+      "count": 1
+    },
+    {
+      "origin": "Arabic (Maghrebi/Berber)",
+      "count": 1
+    },
+    {
+      "origin": "Arabic (Maghrebi/Moroccan spelling of Yunus)",
+      "count": 1
+    },
+    {
+      "origin": "Arabic (Malay usage)",
+      "count": 1
+    },
+    {
+      "origin": "Arabic (Malay/Indonesian Orthography) / Islamic Historical",
+      "count": 1
+    },
+    {
+      "origin": "Arabic (Modern Invention)",
+      "count": 1
+    },
+    {
+      "origin": "Arabic (Moroccan)",
+      "count": 1
+    },
+    {
+      "origin": "Arabic (Moroccan, Maghrebi)",
+      "count": 1
+    },
+    {
+      "origin": "Arabic (North African usage)",
+      "count": 1
+    },
+    {
+      "origin": "Arabic (North African)",
+      "count": 1
+    },
+    {
+      "origin": "Arabic (North Caucasian adaptation)",
+      "count": 1
+    },
+    {
+      "origin": "Arabic (Ottoman administrative title heritage)",
+      "count": 1
+    },
+    {
+      "origin": "Arabic (Ottoman)",
+      "count": 1
+    },
+    {
+      "origin": "Arabic (Persian/South Asian spelling)",
+      "count": 1
+    },
+    {
+      "origin": "Arabic (Sharif) via Maghrebi French transliteration",
+      "count": 1
+    },
+    {
+      "origin": "Arabic (South Asian Muslim usage)",
+      "count": 1
+    },
+    {
+      "origin": "Arabic (Syrian)",
+      "count": 1
+    },
+    {
+      "origin": "Arabic (Tariq/Tareq transliteration family)",
+      "count": 1
+    },
+    {
+      "origin": "Arabic (theophoric Islamic naming tradition)",
+      "count": 1
+    },
+    {
+      "origin": "Arabic (transliteration)",
+      "count": 1
+    },
+    {
+      "origin": "Arabic (Turkified)",
+      "count": 1
+    },
+    {
+      "origin": "Arabic (Turkish adaptation)",
+      "count": 1
+    },
+    {
+      "origin": "Arabic (Turkish form)",
+      "count": 1
+    },
+    {
+      "origin": "Arabic (Turkish Orthography)",
+      "count": 1
+    },
+    {
+      "origin": "Arabic (via Malay adaptation)",
+      "count": 1
+    },
+    {
+      "origin": "Arabic (via Malay and Indonesian)",
+      "count": 1
+    },
+    {
+      "origin": "Arabic (via Ottoman Turkish)",
+      "count": 1
+    },
+    {
+      "origin": "Arabic (via Spanish, Colombian)",
+      "count": 1
+    },
+    {
+      "origin": "Arabic / Algerian (Maghrebi)",
+      "count": 1
+    },
+    {
+      "origin": "Arabic / Aramaic Root",
+      "count": 1
+    },
+    {
+      "origin": "Arabic / Astrological",
+      "count": 1
+    },
+    {
+      "origin": "Arabic / Bedouin",
+      "count": 1
+    },
+    {
+      "origin": "Arabic / Egyptian / Latin",
+      "count": 1
+    },
+    {
+      "origin": "Arabic / Egyptian Compound / Islamic Dual-Prophet",
+      "count": 1
+    },
+    {
+      "origin": "Arabic / English / Hebrew",
+      "count": 1
+    },
+    {
+      "origin": "Arabic / Finnish / Scandinavian",
+      "count": 1
+    },
+    {
+      "origin": "Arabic / Greek / Georgian",
+      "count": 1
+    },
+    {
+      "origin": "Arabic / International",
+      "count": 1
+    },
+    {
+      "origin": "Arabic / Japanese / Hebrew",
+      "count": 1
+    },
+    {
+      "origin": "Arabic / Judicial",
+      "count": 1
+    },
+    {
+      "origin": "Arabic / Kunya",
+      "count": 1
+    },
+    {
+      "origin": "Arabic / Levant",
+      "count": 1
+    },
+    {
+      "origin": "Arabic / Moroccan",
+      "count": 1
+    },
+    {
+      "origin": "Arabic / Multicultural",
+      "count": 1
+    },
+    {
+      "origin": "Arabic / North African / Nature",
+      "count": 1
+    },
+    {
+      "origin": "Arabic / Ottoman Turkish",
+      "count": 1
+    },
+    {
+      "origin": "Arabic / Persian / American (Aromatic Root)",
+      "count": 1
+    },
+    {
+      "origin": "Arabic / Persian / Hebrew",
+      "count": 1
+    },
+    {
+      "origin": "Arabic / Persian / Sanskrit",
+      "count": 1
+    },
+    {
+      "origin": "Arabic / Scandinavian (dual origin)",
+      "count": 1
+    },
+    {
+      "origin": "Arabic / Semitic / Maghrebi",
+      "count": 1
+    },
+    {
+      "origin": "Arabic / Slavic",
+      "count": 1
+    },
+    {
+      "origin": "Arabic / South Asian",
+      "count": 1
+    },
+    {
+      "origin": "Arabic / Spanish / Latin",
+      "count": 1
+    },
+    {
+      "origin": "Arabic / Syriac",
+      "count": 1
+    },
+    {
+      "origin": "Arabic / Tagalog / Persian",
+      "count": 1
+    },
+    {
+      "origin": "Arabic / Turkic / Kazakh",
+      "count": 1
+    },
+    {
+      "origin": "Arabic / Turkish-Balkan form",
+      "count": 1
+    },
+    {
+      "origin": "Arabic / Yoruba / Turkish",
+      "count": 1
+    },
+    {
+      "origin": "Arabic active-participial name from the root s-b-r.",
+      "count": 1
+    },
+    {
+      "origin": "Arabic and Biblical",
+      "count": 1
+    },
+    {
+      "origin": "Arabic and Dutch parallel usage traditions",
+      "count": 1
+    },
+    {
+      "origin": "Arabic and Egyptian colloquial",
+      "count": 1
+    },
+    {
+      "origin": "Arabic and European",
+      "count": 1
+    },
+    {
+      "origin": "Arabic and Germanic",
+      "count": 1
+    },
+    {
+      "origin": "Arabic and Hausa",
+      "count": 1
+    },
+    {
+      "origin": "Arabic and Indo-Muslim",
+      "count": 1
+    },
+    {
+      "origin": "Arabic and Japanese, with Moroccan usage dominant here",
+      "count": 1
+    },
+    {
+      "origin": "Arabic and Kazakh",
+      "count": 1
+    },
+    {
+      "origin": "Arabic and Maghrebi Islamic honorific name based on haj, the pilgrimage to Mecca",
+      "count": 1
+    },
+    {
+      "origin": "Arabic and Malay Muslim",
+      "count": 1
+    },
+    {
+      "origin": "Arabic and modern nickname",
+      "count": 1
+    },
+    {
+      "origin": "Arabic and multilingual",
+      "count": 1
+    },
+    {
+      "origin": "Arabic and Muslim-world masculine given name",
+      "count": 1
+    },
+    {
+      "origin": "Arabic and North African",
+      "count": 1
+    },
+    {
+      "origin": "Arabic and Persian adjective-name meaning spiritual or of the soul",
+      "count": 1
+    },
+    {
+      "origin": "Arabic and Persian-influenced",
+      "count": 1
+    },
+    {
+      "origin": "Arabic and Slavic (Greek)",
+      "count": 1
+    },
+    {
+      "origin": "Arabic and Slavic/Latinized European usage",
+      "count": 1
+    },
+    {
+      "origin": "Arabic and South Asian",
+      "count": 1
+    },
+    {
+      "origin": "Arabic and South Asian Muslim",
+      "count": 1
+    },
+    {
+      "origin": "Arabic and South Slavic",
+      "count": 1
+    },
+    {
+      "origin": "Arabic and Sudanese Muslim",
+      "count": 1
+    },
+    {
+      "origin": "Arabic and Turkish, often from Musa",
+      "count": 1
+    },
+    {
+      "origin": "Arabic and Urdu Muslim masculine given name built on the idea of worthiness, fitness, or merit",
+      "count": 1
+    },
+    {
+      "origin": "Arabic and West African",
+      "count": 1
+    },
+    {
+      "origin": "Arabic colloquial diminutive usage (especially Egyptian)",
+      "count": 1
+    },
+    {
+      "origin": "Arabic colloquial nickname form",
+      "count": 1
+    },
+    {
+      "origin": "Arabic colloquial usage with older European attestations",
+      "count": 1
+    },
+    {
+      "origin": "Arabic compound personal name",
+      "count": 1
+    },
+    {
+      "origin": "Arabic devotional compound from Abd al-Hamid.",
+      "count": 1
+    },
+    {
+      "origin": "Arabic devotional compound from Abd al-Haqq.",
+      "count": 1
+    },
+    {
+      "origin": "Arabic elative form from the root h-s-n.",
+      "count": 1
+    },
+    {
+      "origin": "Arabic Estonian",
+      "count": 1
+    },
+    {
+      "origin": "Arabic feminine given name",
+      "count": 1
+    },
+    {
+      "origin": "Arabic feminine given name associated with comfort, ease, and pleasant abundance",
+      "count": 1
+    },
+    {
+      "origin": "Arabic feminine given name associated with elevation, highlands, or gentle heights",
+      "count": 1
+    },
+    {
+      "origin": "Arabic feminine given name commonly transliterated as Hanaa or Hanaa",
+      "count": 1
+    },
+    {
+      "origin": "Arabic feminine given name from z-h-r root family associated with brightness and flowers",
+      "count": 1
+    },
+    {
+      "origin": "Arabic feminine given name used widely in South Asian Muslim naming traditions",
+      "count": 1
+    },
+    {
+      "origin": "Arabic feminine given name, especially common in North Africa",
+      "count": 1
+    },
+    {
+      "origin": "Arabic feminine name from rahiq, the word for pure nectar or refined drink, especially in Qur'anic imagery.",
+      "count": 1
+    },
+    {
+      "origin": "Arabic feminine name known from early Islamic and premodern literary usage.",
+      "count": 1
+    },
+    {
+      "origin": "Arabic feminine name, often connected with aromatic or laurel-related imagery.",
+      "count": 1
+    },
+    {
+      "origin": "Arabic form of Jesus name tradition used as masculine given name",
+      "count": 1
+    },
+    {
+      "origin": "Arabic from English title",
+      "count": 1
+    },
+    {
+      "origin": "Arabic from Old Persian",
+      "count": 1
+    },
+    {
+      "origin": "Arabic given name",
+      "count": 1
+    },
+    {
+      "origin": "Arabic given name from the root associated with peace, safety, and well-being",
+      "count": 1
+    },
+    {
+      "origin": "Arabic given name variant related to Jihad/Jehad transliteration",
+      "count": 1
+    },
+    {
+      "origin": "Arabic given name with literary usage in classical and modern Arabic",
+      "count": 1
+    },
+    {
+      "origin": "Arabic kunya",
+      "count": 1
+    },
+    {
+      "origin": "Arabic kunya formation",
+      "count": 1
+    },
+    {
+      "origin": "Arabic kunya from Abu Yusuf, father of Yusuf or Joseph.",
+      "count": 1
+    },
+    {
+      "origin": "Arabic kunya, built from Umm, mother of, and Ahmad.",
+      "count": 1
+    },
+    {
+      "origin": "Arabic letter-name through Turkish usage",
+      "count": 1
+    },
+    {
+      "origin": "Arabic lexical given name adopted widely in South Asia",
+      "count": 1
+    },
+    {
+      "origin": "Arabic lexical name from rajul, man.",
+      "count": 1
+    },
+    {
+      "origin": "Arabic Maghrebi feminine usage",
+      "count": 1
+    },
+    {
+      "origin": "Arabic male name from the month of Ramadan.",
+      "count": 1
+    },
+    {
+      "origin": "Arabic masculine given name",
+      "count": 1
+    },
+    {
+      "origin": "Arabic masculine given name from animal-symbolic lexical tradition",
+      "count": 1
+    },
+    {
+      "origin": "Arabic masculine given name used widely in South Asian and Gulf communities",
+      "count": 1
+    },
+    {
+      "origin": "Arabic masculine given name widely used across Muslim societies, including Persian and South Asian contexts",
+      "count": 1
+    },
+    {
+      "origin": "Arabic masculine given name widely used in South and West Asia",
+      "count": 1
+    },
+    {
+      "origin": "Arabic masculine given name, a regional transliterated form of Jibril, the Arabic name of the angel Gabriel",
+      "count": 1
+    },
+    {
+      "origin": "Arabic masculine given name, especially common in Maghrebi transliteration",
+      "count": 1
+    },
+    {
+      "origin": "Arabic masculine given name, especially in Maghrebi transliteration",
+      "count": 1
+    },
+    {
+      "origin": "Arabic masculine given name, more commonly transliterated as Safwan",
+      "count": 1
+    },
+    {
+      "origin": "Arabic masculine given name, more commonly transliterated as Sarmad",
+      "count": 1
+    },
+    {
+      "origin": "Arabic masculine name from sahib lexical root",
+      "count": 1
+    },
+    {
+      "origin": "Arabic Moroccan",
+      "count": 1
+    },
+    {
+      "origin": "Arabic name from a root of support, reinforcement, and strengthening.",
+      "count": 1
+    },
+    {
+      "origin": "Arabic nickname form, especially Egyptian colloquial usage",
+      "count": 1
+    },
+    {
+      "origin": "Arabic nickname form, likely related to Mimi",
+      "count": 1
+    },
+    {
+      "origin": "Arabic nickname tradition",
+      "count": 1
+    },
+    {
+      "origin": "Arabic nickname-style given name, commonly rendered as Zizo",
+      "count": 1
+    },
+    {
+      "origin": "Arabic participial name from the root j-h-d.",
+      "count": 1
+    },
+    {
+      "origin": "Arabic personal name from the root z-y-d.",
+      "count": 1
+    },
+    {
+      "origin": "Arabic phrase fragment, not a personal name",
+      "count": 1
+    },
+    {
+      "origin": "Arabic theophoric compound",
+      "count": 1
+    },
+    {
+      "origin": "Arabic theophoric compound name",
+      "count": 1
+    },
+    {
+      "origin": "Arabic theophoric masculine given name",
+      "count": 1
+    },
+    {
+      "origin": "Arabic theophoric masculine given name built from abd and al-Khaliq, one of the divine names in Islam",
+      "count": 1
+    },
+    {
+      "origin": "Arabic theophoric masculine given name built from abd and al-Rahim, one of the divine names in Islam",
+      "count": 1
+    },
+    {
+      "origin": "Arabic theophoric naming tradition (ʿAbd al-Latif)",
+      "count": 1
+    },
+    {
+      "origin": "Arabic through Central Asian and Muslim naming",
+      "count": 1
+    },
+    {
+      "origin": "Arabic through Hausa",
+      "count": 1
+    },
+    {
+      "origin": "Arabic through Islamic usage",
+      "count": 1
+    },
+    {
+      "origin": "Arabic through Kazakh and broader Turkic Muslim usage",
+      "count": 1
+    },
+    {
+      "origin": "Arabic through Maghrebi transliteration",
+      "count": 1
+    },
+    {
+      "origin": "Arabic through Malay and South Asian Muslim usage",
+      "count": 1
+    },
+    {
+      "origin": "Arabic through South Asian and Gulf usage",
+      "count": 1
+    },
+    {
+      "origin": "Arabic through Turkish and North African usage",
+      "count": 1
+    },
+    {
+      "origin": "Arabic through Turkish, Bosnian, and Balkan usage",
+      "count": 1
+    },
+    {
+      "origin": "Arabic through Turkish, Bosnian, and wider Muslim usage",
+      "count": 1
+    },
+    {
+      "origin": "Arabic through Turkish, from hidaya or hidayet meaning guidance or right direction",
+      "count": 1
+    },
+    {
+      "origin": "Arabic through Turkish-influenced naming",
+      "count": 1
+    },
+    {
+      "origin": "Arabic title word used as a personal name",
+      "count": 1
+    },
+    {
+      "origin": "Arabic title-derived naming tradition",
+      "count": 1
+    },
+    {
+      "origin": "Arabic via French",
+      "count": 1
+    },
+    {
+      "origin": "Arabic via Persian (Algerian transcription)",
+      "count": 1
+    },
+    {
+      "origin": "Arabic via the Bilqis tradition",
+      "count": 1
+    },
+    {
+      "origin": "Arabic via Turkic and Persian",
+      "count": 1
+    },
+    {
+      "origin": "Arabic via Turkish and broader Abrahamic tradition",
+      "count": 1
+    },
+    {
+      "origin": "Arabic via Turkish and broader Muslim naming traditions",
+      "count": 1
+    },
+    {
+      "origin": "Arabic via Turkish compound-name tradition",
+      "count": 1
+    },
+    {
+      "origin": "Arabic with parallel Mediterranean and Slavic-adapted usage",
+      "count": 1
+    },
+    {
+      "origin": "Arabic, adopted into Turkish",
+      "count": 1
+    },
+    {
+      "origin": "Arabic, associated both with contentment and with Mount Radwa near Medina.",
+      "count": 1
+    },
+    {
+      "origin": "Arabic, Caucasian",
+      "count": 1
+    },
+    {
+      "origin": "Arabic, Chinese, and multilingual",
+      "count": 1
+    },
+    {
+      "origin": "Arabic, derived from the Turkic ethnonym",
+      "count": 1
+    },
+    {
+      "origin": "Arabic, especially in Bosnian and North African Muslim usage",
+      "count": 1
+    },
+    {
+      "origin": "Arabic, especially in North African and Francophone transliteration",
+      "count": 1
+    },
+    {
+      "origin": "Arabic, especially in South Asian Muslim usage",
+      "count": 1
+    },
+    {
+      "origin": "Arabic, especially Maghrebi form",
+      "count": 1
+    },
+    {
+      "origin": "Arabic, especially through Shi'i Muslim usage",
+      "count": 1
+    },
+    {
+      "origin": "Arabic, from Hebrew",
+      "count": 1
+    },
+    {
+      "origin": "Arabic, Hebrew, and Turkish",
+      "count": 1
+    },
+    {
+      "origin": "Arabic, Iraqi regional nisba",
+      "count": 1
+    },
+    {
+      "origin": "Arabic, Malay",
+      "count": 1
+    },
+    {
+      "origin": "Arabic, Persian, and South Asian",
+      "count": 1
+    },
+    {
+      "origin": "Arabic, Persian, and Turkic",
+      "count": 1
+    },
+    {
+      "origin": "Arabic, Qur'anic",
+      "count": 1
+    },
+    {
+      "origin": "Arabic, Semitic",
+      "count": 1
+    },
+    {
+      "origin": "Arabic, Slavic",
+      "count": 1
+    },
+    {
+      "origin": "Arabic, Turkish, and West African Muslim",
+      "count": 1
+    },
+    {
+      "origin": "Arabic, ultimately from Latin Caesar",
+      "count": 1
+    },
+    {
+      "origin": "Arabic, uncertain as a given name",
+      "count": 1
+    },
+    {
+      "origin": "Arabic, Urdu, and South Asian Muslim",
+      "count": 1
+    },
+    {
+      "origin": "Arabic, via Turkish adaptation",
+      "count": 1
+    },
+    {
+      "origin": "Arabic, with separate East African parallel usage",
+      "count": 1
+    },
+    {
+      "origin": "Arabic, with Tunisian transliteration",
+      "count": 1
+    },
+    {
+      "origin": "Arabic, with wider Islamic and African usage",
+      "count": 1
+    },
+    {
+      "origin": "Arabic, written here in Hebrew script",
+      "count": 1
+    },
+    {
+      "origin": "Arabic-Persian (via Ottoman Turkish)",
+      "count": 1
+    },
+    {
+      "origin": "Arabic-script record form",
+      "count": 1
+    },
+    {
+      "origin": "Arabic/Egyptian",
+      "count": 1
+    },
+    {
+      "origin": "Arabic/Finnish",
+      "count": 1
+    },
+    {
+      "origin": "Arabic/Hebrew",
+      "count": 1
+    },
+    {
+      "origin": "Arabic/Maghrebi",
+      "count": 1
+    },
+    {
+      "origin": "Arabic/Sanskrit",
+      "count": 1
+    },
+    {
+      "origin": "Arabic/Slavic",
+      "count": 1
+    },
+    {
+      "origin": "Arabic/Spanish",
+      "count": 1
+    },
+    {
+      "origin": "Arabic/Turkish",
+      "count": 1
+    },
+    {
+      "origin": "Aramaic / Polish",
+      "count": 1
+    },
+    {
+      "origin": "Aramaic through French and English",
+      "count": 1
+    },
+    {
+      "origin": "Aramaic through Polish",
+      "count": 1
+    },
+    {
+      "origin": "Aramaic via Greek and Latin",
+      "count": 1
+    },
+    {
+      "origin": "Armenian",
+      "count": 1
+    },
+    {
+      "origin": "Armenian / Malay / Spanish (multiple origins)",
+      "count": 1
+    },
+    {
+      "origin": "Basque (with wider Iberian adoption)",
+      "count": 1
+    },
+    {
+      "origin": "Basque and Hebrew",
+      "count": 1
+    },
+    {
+      "origin": "Basque-Spanish Marian devotional name",
+      "count": 1
+    },
+    {
+      "origin": "Bengali (from English Russell)",
+      "count": 1
+    },
+    {
+      "origin": "Bengali / South Asian",
+      "count": 1
+    },
+    {
+      "origin": "Bengali / Urdu (Arabic compound)",
+      "count": 1
+    },
+    {
+      "origin": "Bengali and Sanskrit",
+      "count": 1
+    },
+    {
+      "origin": "Bengali Muslim and Arabic",
+      "count": 1
+    },
+    {
+      "origin": "Berber/Italian",
+      "count": 1
+    },
+    {
+      "origin": "Biblical Hebrew given name preserved in Jewish and Christian traditions",
+      "count": 1
+    },
+    {
+      "origin": "Brazilian Portuguese, from Greek kleos",
+      "count": 1
+    },
+    {
+      "origin": "Breton / Anglo-Norman",
+      "count": 1
+    },
+    {
+      "origin": "Breton and Celtic",
+      "count": 1
+    },
+    {
+      "origin": "Breton and French",
+      "count": 1
+    },
+    {
+      "origin": "Breton and wider western European usage",
+      "count": 1
+    },
+    {
+      "origin": "Breton, French, and Gaelic",
+      "count": 1
+    },
+    {
+      "origin": "Breton, French, and Hebrew",
+      "count": 1
+    },
+    {
+      "origin": "Bulgar",
+      "count": 1
+    },
+    {
+      "origin": "Canaanite and Hebrew",
+      "count": 1
+    },
+    {
+      "origin": "Catalan (from Hebrew via Latin)",
+      "count": 1
+    },
+    {
+      "origin": "Catalan and Latin",
+      "count": 1
+    },
+    {
+      "origin": "Catalan, inspired by Provençal literature",
+      "count": 1
+    },
+    {
+      "origin": "Catalan, Polish, and Latin",
+      "count": 1
+    },
+    {
+      "origin": "Caucasian",
+      "count": 1
+    },
+    {
+      "origin": "Celtic (Brythonic) via English",
+      "count": 1
+    },
+    {
+      "origin": "Celtic / Latin",
+      "count": 1
+    },
+    {
+      "origin": "Celtic / Old French",
+      "count": 1
+    },
+    {
+      "origin": "Celtic via Scottish and English usage",
+      "count": 1
+    },
+    {
+      "origin": "Celtic/Germanic (French)",
+      "count": 1
+    },
+    {
+      "origin": "Celtic/Latin (via European forms)",
+      "count": 1
+    },
+    {
+      "origin": "Central and Eastern European form of Teresa",
+      "count": 1
+    },
+    {
+      "origin": "Chinese (Cantonese / Hakka)",
+      "count": 1
+    },
+    {
+      "origin": "Chinese (Cantonese)",
+      "count": 1
+    },
+    {
+      "origin": "Chinese (Hokkien / Teochew / Hakka)",
+      "count": 1
+    },
+    {
+      "origin": "Chinese (Hokkien)",
+      "count": 1
+    },
+    {
+      "origin": "Chinese (Mandarin / Cantonese)",
+      "count": 1
+    },
+    {
+      "origin": "Chinese (multiple character traditions) with cross-linguistic usage",
+      "count": 1
+    },
+    {
+      "origin": "Chinese (multiple surname/given-name romanization pathways)",
+      "count": 1
+    },
+    {
+      "origin": "Chinese / Arabic / Celtic / Dual-Origin",
+      "count": 1
+    },
+    {
+      "origin": "Chinese / Cantonese",
+      "count": 1
+    },
+    {
+      "origin": "Chinese / Thai / Lao",
+      "count": 1
+    },
+    {
+      "origin": "Chinese / Vietnamese / Logographic",
+      "count": 1
+    },
+    {
+      "origin": "Chinese and Hebrew",
+      "count": 1
+    },
+    {
+      "origin": "Chinese and Italian short form",
+      "count": 1
+    },
+    {
+      "origin": "Chinese and Korean",
+      "count": 1
+    },
+    {
+      "origin": "Chinese and Southeast Asian",
+      "count": 1
+    },
+    {
+      "origin": "Chinese and Turkish",
+      "count": 1
+    },
+    {
+      "origin": "Chinese, Vietnamese, and Southeast Asian",
+      "count": 1
+    },
+    {
+      "origin": "Chinese, Vietnamese, and West African contexts",
+      "count": 1
+    },
+    {
+      "origin": "Chinese/Korean",
+      "count": 1
+    },
+    {
+      "origin": "Colombian (Latin American) / Invented Phonetic",
+      "count": 1
+    },
+    {
+      "origin": "Colombian Spanish (English influence)",
+      "count": 1
+    },
+    {
+      "origin": "Colombian Spanish (from Hebrew via Spanish Joana)",
+      "count": 1
+    },
+    {
+      "origin": "Colombian Spanish (re-spelling of English Jefferson)",
+      "count": 1
+    },
+    {
+      "origin": "Colombian Spanish (respelling in the Juan/John family, ultimately Hebrew)",
+      "count": 1
+    },
+    {
+      "origin": "Colombian Spanish and English",
+      "count": 1
+    },
+    {
+      "origin": "Continental European form of Edward, from Old English and wider Germanic tradition.",
+      "count": 1
+    },
+    {
+      "origin": "Coptic and Egyptian",
+      "count": 1
+    },
+    {
+      "origin": "Coptic and Latin",
+      "count": 1
+    },
+    {
+      "origin": "Coptic Egyptian",
+      "count": 1
+    },
+    {
+      "origin": "Cornish",
+      "count": 1
+    },
+    {
+      "origin": "Cornish/Celtic",
+      "count": 1
+    },
+    {
+      "origin": "Cornish/English (hypocoristic of Jennifer/Genoveva)",
+      "count": 1
+    },
+    {
+      "origin": "Croatian (South Slavic compound)",
+      "count": 1
+    },
+    {
+      "origin": "Croatian / Slavic / Hebrew Root",
+      "count": 1
+    },
+    {
+      "origin": "Croatian Latin",
+      "count": 1
+    },
+    {
+      "origin": "Croatian, Serbian, Slovene and Italian",
+      "count": 1
+    },
+    {
+      "origin": "Czech / Latin",
+      "count": 1
+    },
+    {
+      "origin": "Czech / Slovak",
+      "count": 1
+    },
+    {
+      "origin": "Czech and Dutch form of Charles, from the Germanic name Karl.",
+      "count": 1
+    },
+    {
+      "origin": "Czech and Hebrew",
+      "count": 1
+    },
+    {
+      "origin": "Czech and Slovak, diminutive of Helena or Magdalena",
+      "count": 1
+    },
+    {
+      "origin": "Czech masculine given name with Slavic and Latin-linked etymological interpretations",
+      "count": 1
+    },
+    {
+      "origin": "Dakota and English",
+      "count": 1
+    },
+    {
+      "origin": "Danish and Low German",
+      "count": 1
+    },
+    {
+      "origin": "Dual (Malay / Chinese)",
+      "count": 1
+    },
+    {
+      "origin": "Dutch (Flemish)",
+      "count": 1
+    },
+    {
+      "origin": "Dutch (Latin)",
+      "count": 1
+    },
+    {
+      "origin": "Dutch (short form of Bartholomew)",
+      "count": 1
+    },
+    {
+      "origin": "Dutch (short form of Elisabeth)",
+      "count": 1
+    },
+    {
+      "origin": "Dutch / Estonian (from Latin Martinus)",
+      "count": 1
+    },
+    {
+      "origin": "Dutch / Hebrew Root / Diminutive",
+      "count": 1
+    },
+    {
+      "origin": "Dutch / Indonesian",
+      "count": 1
+    },
+    {
+      "origin": "Dutch / Persian (Iranian)",
+      "count": 1
+    },
+    {
+      "origin": "Dutch / Slavic / Scandinavian (from Hebrew)",
+      "count": 1
+    },
+    {
+      "origin": "Dutch / West Frisian",
+      "count": 1
+    },
+    {
+      "origin": "Dutch and Afrikaans",
+      "count": 1
+    },
+    {
+      "origin": "Dutch and Albanian",
+      "count": 1
+    },
+    {
+      "origin": "Dutch and Danish",
+      "count": 1
+    },
+    {
+      "origin": "Dutch and English",
+      "count": 1
+    },
+    {
+      "origin": "Dutch and Flemish",
+      "count": 1
+    },
+    {
+      "origin": "Dutch and Flemish masculine short-form given name",
+      "count": 1
+    },
+    {
+      "origin": "Dutch and French",
+      "count": 1
+    },
+    {
+      "origin": "Dutch and German",
+      "count": 1
+    },
+    {
+      "origin": "Dutch and Germanic",
+      "count": 1
+    },
+    {
+      "origin": "Dutch and Greek",
+      "count": 1
+    },
+    {
+      "origin": "Dutch diminutive and short-form usage",
+      "count": 1
+    },
+    {
+      "origin": "Dutch form of Peter",
+      "count": 1
+    },
+    {
+      "origin": "Dutch French",
+      "count": 1
+    },
+    {
+      "origin": "Dutch Hebrew",
+      "count": 1
+    },
+    {
+      "origin": "Dutch hypocoristic masculine name used as a short form of Johannes, Joseph, Jacobus, and related names",
+      "count": 1
+    },
+    {
+      "origin": "Dutch, Flemish, Chinese, and Vietnamese",
+      "count": 1
+    },
+    {
+      "origin": "East Asian given-name form, especially as a Romanized spelling in Korean naming",
+      "count": 1
+    },
+    {
+      "origin": "East Slavic diminutive-origin feminine given name, commonly from Viktoriya",
+      "count": 1
+    },
+    {
+      "origin": "East Slavic form of Alexios lineage through Orthodox Christian naming tradition",
+      "count": 1
+    },
+    {
+      "origin": "East Slavic form of Basilios",
+      "count": 1
+    },
+    {
+      "origin": "East Slavic form of the Greek name Alexios through Orthodox Christian tradition",
+      "count": 1
+    },
+    {
+      "origin": "East Slavic, especially Russian",
+      "count": 1
+    },
+    {
+      "origin": "Egyptian",
+      "count": 1
+    },
+    {
+      "origin": "Egyptian Arabic (hypocoristic)",
+      "count": 1
+    },
+    {
+      "origin": "Egyptian Arabic (informal/modern)",
+      "count": 1
+    },
+    {
+      "origin": "Egyptian Arabic (nickname culture)",
+      "count": 1
+    },
+    {
+      "origin": "Egyptian Arabic colloquial",
+      "count": 1
+    },
+    {
+      "origin": "Egyptian Arabic nickname",
+      "count": 1
+    },
+    {
+      "origin": "Egyptian Arabic nickname form",
+      "count": 1
+    },
+    {
+      "origin": "Egyptian Arabic nickname usage",
+      "count": 1
+    },
+    {
+      "origin": "Egyptian/Latin",
+      "count": 1
+    },
+    {
+      "origin": "English (African usage)",
+      "count": 1
+    },
+    {
+      "origin": "English (American)",
+      "count": 1
+    },
+    {
+      "origin": "English (Brazilian usage)",
+      "count": 1
+    },
+    {
+      "origin": "English (diminutive of Dennis, ultimately Greek)",
+      "count": 1
+    },
+    {
+      "origin": "English (diminutive of Hebrew Gabriel)",
+      "count": 1
+    },
+    {
+      "origin": "English (diminutive of Oliver)",
+      "count": 1
+    },
+    {
+      "origin": "English (diminutive of Theodore or Edward)",
+      "count": 1
+    },
+    {
+      "origin": "English (diminutive, multiple origins)",
+      "count": 1
+    },
+    {
+      "origin": "English (from Germanic Henry)",
+      "count": 1
+    },
+    {
+      "origin": "English (from Latin via Laura)",
+      "count": 1
+    },
+    {
+      "origin": "English (from Norman French)",
+      "count": 1
+    },
+    {
+      "origin": "English (Hollywood coinage)",
+      "count": 1
+    },
+    {
+      "origin": "English (Late Latin)",
+      "count": 1
+    },
+    {
+      "origin": "English (Latin American adaptation)",
+      "count": 1
+    },
+    {
+      "origin": "English (literary)",
+      "count": 1
+    },
+    {
+      "origin": "English (medieval variant of Helen, from Ancient Greek Ἑλένη)",
+      "count": 1
+    },
+    {
+      "origin": "English (modern form related to Jenny/Jane/Jennifer lineages)",
+      "count": 1
+    },
+    {
+      "origin": "English (Nigerian adoption)",
+      "count": 1
+    },
+    {
+      "origin": "English (Old English patronymic)",
+      "count": 1
+    },
+    {
+      "origin": "English (Old English plant name)",
+      "count": 1
+    },
+    {
+      "origin": "English (Old English toponym, adopted in Brazilian Portuguese)",
+      "count": 1
+    },
+    {
+      "origin": "English (Old English)",
+      "count": 1
+    },
+    {
+      "origin": "English (Old French / place-name)",
+      "count": 1
+    },
+    {
+      "origin": "English (Toponymic)",
+      "count": 1
+    },
+    {
+      "origin": "English (used widely in South Africa and India)",
+      "count": 1
+    },
+    {
+      "origin": "English (virtue name)",
+      "count": 1
+    },
+    {
+      "origin": "English / American",
+      "count": 1
+    },
+    {
+      "origin": "English / Breton",
+      "count": 1
+    },
+    {
+      "origin": "English / Dutch / Hebrew",
+      "count": 1
+    },
+    {
+      "origin": "English / French / Germanic",
+      "count": 1
+    },
+    {
+      "origin": "English / French / Greek",
+      "count": 1
+    },
+    {
+      "origin": "English / Germanic",
+      "count": 1
+    },
+    {
+      "origin": "English / Latin",
+      "count": 1
+    },
+    {
+      "origin": "English / Norman-French",
+      "count": 1
+    },
+    {
+      "origin": "English / Old English",
+      "count": 1
+    },
+    {
+      "origin": "English / Sanskrit",
+      "count": 1
+    },
+    {
+      "origin": "English / Scottish",
+      "count": 1
+    },
+    {
+      "origin": "English and Arabic",
+      "count": 1
+    },
+    {
+      "origin": "English and Arabic in mixed modern usage",
+      "count": 1
+    },
+    {
+      "origin": "English and Celtic",
+      "count": 1
+    },
+    {
+      "origin": "English and French",
+      "count": 1
+    },
+    {
+      "origin": "English and French diminutive form",
+      "count": 1
+    },
+    {
+      "origin": "English and French-influenced modern European usage",
+      "count": 1
+    },
+    {
+      "origin": "English and Germanic surname-name",
+      "count": 1
+    },
+    {
+      "origin": "English and Hebrew-influenced",
+      "count": 1
+    },
+    {
+      "origin": "English and Indian",
+      "count": 1
+    },
+    {
+      "origin": "English and Old French",
+      "count": 1
+    },
+    {
+      "origin": "English and Portuguese title-style usage",
+      "count": 1
+    },
+    {
+      "origin": "English and Scottish",
+      "count": 1
+    },
+    {
+      "origin": "English and Scottish (Old French)",
+      "count": 1
+    },
+    {
+      "origin": "English and South African",
+      "count": 1
+    },
+    {
+      "origin": "English and Spanish American",
+      "count": 1
+    },
+    {
+      "origin": "English and Welsh diminutive tradition",
+      "count": 1
+    },
+    {
+      "origin": "English and West African",
+      "count": 1
+    },
+    {
+      "origin": "English and wider European short-form usage",
+      "count": 1
+    },
+    {
+      "origin": "English Christian virtue name",
+      "count": 1
+    },
+    {
+      "origin": "English diminutive of Bradley, with wider surname-style usage",
+      "count": 1
+    },
+    {
+      "origin": "English diminutive of Frank or Frances",
+      "count": 1
+    },
+    {
+      "origin": "English diminutive of Pamela.",
+      "count": 1
+    },
+    {
+      "origin": "English diminutive usage",
+      "count": 1
+    },
+    {
+      "origin": "English diminutive usage, with secondary roots in other traditions",
+      "count": 1
+    },
+    {
+      "origin": "English diminutive with parallel Punjabi usage",
+      "count": 1
+    },
+    {
+      "origin": "English feminine form from the Carol and Caroline name family, ultimately linked to Germanic Karl.",
+      "count": 1
+    },
+    {
+      "origin": "English flower name",
+      "count": 1
+    },
+    {
+      "origin": "English form of Aemilia",
+      "count": 1
+    },
+    {
+      "origin": "English from Germanic",
+      "count": 1
+    },
+    {
+      "origin": "English from Germanic Robert",
+      "count": 1
+    },
+    {
+      "origin": "English from Greek Christian tradition",
+      "count": 1
+    },
+    {
+      "origin": "English initials",
+      "count": 1
+    },
+    {
+      "origin": "English lexical given-name usage",
+      "count": 1
+    },
+    {
+      "origin": "English modern form from Jane",
+      "count": 1
+    },
+    {
+      "origin": "English nickname",
+      "count": 1
+    },
+    {
+      "origin": "English nickname and occasional independent given name, also used in Italian American naming as a short familiar form",
+      "count": 1
+    },
+    {
+      "origin": "English nickname turned independent given name",
+      "count": 1
+    },
+    {
+      "origin": "English Puritan virtue-name tradition",
+      "count": 1
+    },
+    {
+      "origin": "English short form of Jennifer and related names",
+      "count": 1
+    },
+    {
+      "origin": "English short form of Natasha",
+      "count": 1
+    },
+    {
+      "origin": "English short-form usage",
+      "count": 1
+    },
+    {
+      "origin": "English surname-derived given name from Old English place elements",
+      "count": 1
+    },
+    {
+      "origin": "English surname-to-forename tradition",
+      "count": 1
+    },
+    {
+      "origin": "English surname-to-forename transfer",
+      "count": 1
+    },
+    {
+      "origin": "English surname-to-given-name tradition",
+      "count": 1
+    },
+    {
+      "origin": "English title word used as a personal name",
+      "count": 1
+    },
+    {
+      "origin": "English virtue name from Late Latin destinata lineage",
+      "count": 1
+    },
+    {
+      "origin": "English word-name and short form",
+      "count": 1
+    },
+    {
+      "origin": "English, Anglo-Norman",
+      "count": 1
+    },
+    {
+      "origin": "English, diminutive of Patricia or Martha",
+      "count": 1
+    },
+    {
+      "origin": "English, Egyptian Arabic, and Spanish usage",
+      "count": 1
+    },
+    {
+      "origin": "English, especially American nickname usage",
+      "count": 1
+    },
+    {
+      "origin": "English, German, Spanish, and Bengali",
+      "count": 1
+    },
+    {
+      "origin": "English, Hebrew, and Spanish American",
+      "count": 1
+    },
+    {
+      "origin": "English, Scottish, and French usage",
+      "count": 1
+    },
+    {
+      "origin": "English, Welsh and Arabic",
+      "count": 1
+    },
+    {
+      "origin": "English/Germanic (Patronymic)",
+      "count": 1
+    },
+    {
+      "origin": "English/Irish (Diminutive of Mary)",
+      "count": 1
+    },
+    {
+      "origin": "English/Latin (Topographic)",
+      "count": 1
+    },
+    {
+      "origin": "European diminutive from the Antonius name family",
+      "count": 1
+    },
+    {
+      "origin": "European Greek-root name family via Nicole/Nicol lineages",
+      "count": 1
+    },
+    {
+      "origin": "European short-form given name used especially in Italian, Albanian, and several other modern naming traditions",
+      "count": 1
+    },
+    {
+      "origin": "European, with multiple reinforcing sources",
+      "count": 1
+    },
+    {
+      "origin": "Finnic and Arabic-influenced parallel usage",
+      "count": 1
+    },
+    {
+      "origin": "Finnish (from Greek via Christian liturgy)",
+      "count": 1
+    },
+    {
+      "origin": "Finnish (from Latin Petrus / Greek Petros)",
+      "count": 1
+    },
+    {
+      "origin": "Finnish / Hebrew",
+      "count": 1
+    },
+    {
+      "origin": "Finnish / Nature / Hebrew Root",
+      "count": 1
+    },
+    {
+      "origin": "Finnish and broader international usage with Arabic and Persian overlaps",
+      "count": 1
+    },
+    {
+      "origin": "Finnish and Germanic",
+      "count": 1
+    },
+    {
+      "origin": "Finnish and Greek",
+      "count": 1
+    },
+    {
+      "origin": "Finnish and Scandinavian",
+      "count": 1
+    },
+    {
+      "origin": "Finnish from Hebrew",
+      "count": 1
+    },
+    {
+      "origin": "Finnish, Sanskrit, and multicultural",
+      "count": 1
+    },
+    {
+      "origin": "Frankish",
+      "count": 1
+    },
+    {
+      "origin": "Frankish (Germanic)",
+      "count": 1
+    },
+    {
+      "origin": "Frankish via Spanish, Italian, and Portuguese",
+      "count": 1
+    },
+    {
+      "origin": "French (Berber/Arabic)",
+      "count": 1
+    },
+    {
+      "origin": "French (Germanic root)",
+      "count": 1
+    },
+    {
+      "origin": "French (Hebrew and Germanic)",
+      "count": 1
+    },
+    {
+      "origin": "French (Hebrew)",
+      "count": 1
+    },
+    {
+      "origin": "French (Slavic)",
+      "count": 1
+    },
+    {
+      "origin": "French (via Latin/Greek)",
+      "count": 1
+    },
+    {
+      "origin": "French / Arabic / Latin",
+      "count": 1
+    },
+    {
+      "origin": "French / Biblical",
+      "count": 1
+    },
+    {
+      "origin": "French / Germanic",
+      "count": 1
+    },
+    {
+      "origin": "French / Hebrew",
+      "count": 1
+    },
+    {
+      "origin": "French abbreviation",
+      "count": 1
+    },
+    {
+      "origin": "French and Arabic",
+      "count": 1
+    },
+    {
+      "origin": "French and Celtic",
+      "count": 1
+    },
+    {
+      "origin": "French and Dutch diminutive tradition from Anne/Anna lineages",
+      "count": 1
+    },
+    {
+      "origin": "French and German form of a Christian name",
+      "count": 1
+    },
+    {
+      "origin": "French and Italian",
+      "count": 1
+    },
+    {
+      "origin": "French and North African",
+      "count": 1
+    },
+    {
+      "origin": "French and North African nickname",
+      "count": 1
+    },
+    {
+      "origin": "French and Slavic",
+      "count": 1
+    },
+    {
+      "origin": "French and Spanish",
+      "count": 1
+    },
+    {
+      "origin": "French and Spanish diminutive of Charles/Carlos",
+      "count": 1
+    },
+    {
+      "origin": "French and wider Christian European usage",
+      "count": 1
+    },
+    {
+      "origin": "French diminutive form in the Julie/Julia naming family",
+      "count": 1
+    },
+    {
+      "origin": "French diminutive of Robert, later English unisex usage",
+      "count": 1
+    },
+    {
+      "origin": "French diminutive tradition from Jeanne/Jean lineages",
+      "count": 1
+    },
+    {
+      "origin": "French diminutive with strong North African and Francophone social use",
+      "count": 1
+    },
+    {
+      "origin": "French feminine form from Pierre and the Peter name family",
+      "count": 1
+    },
+    {
+      "origin": "French feminine form of Joseph",
+      "count": 1
+    },
+    {
+      "origin": "French form of Amalia, from a Germanic element meaning \"work\".",
+      "count": 1
+    },
+    {
+      "origin": "French form of Christopher",
+      "count": 1
+    },
+    {
+      "origin": "French form of Monica",
+      "count": 1
+    },
+    {
+      "origin": "French form of Philip",
+      "count": 1
+    },
+    {
+      "origin": "French from Germanic",
+      "count": 1
+    },
+    {
+      "origin": "French from Germanic Roderick",
+      "count": 1
+    },
+    {
+      "origin": "French from Greek place name Lydia",
+      "count": 1
+    },
+    {
+      "origin": "French masculine given name of Germanic origin",
+      "count": 1
+    },
+    {
+      "origin": "French place name with Basque regional background",
+      "count": 1
+    },
+    {
+      "origin": "French place-name and English nature surname",
+      "count": 1
+    },
+    {
+      "origin": "French Spanish",
+      "count": 1
+    },
+    {
+      "origin": "French surname turned English given name",
+      "count": 1
+    },
+    {
+      "origin": "French, Catalan, and Romanian form of Marcus",
+      "count": 1
+    },
+    {
+      "origin": "French, from the Latin family name Antonius",
+      "count": 1
+    },
+    {
+      "origin": "French/Latin (Surname-derived)",
+      "count": 1
+    },
+    {
+      "origin": "French/Scottish",
+      "count": 1
+    },
+    {
+      "origin": "Fula",
+      "count": 1
+    },
+    {
+      "origin": "Gaelic",
+      "count": 1
+    },
+    {
+      "origin": "Gaelic (Scottish)",
+      "count": 1
+    },
+    {
+      "origin": "Gaelic / Old Norse / Greek",
+      "count": 1
+    },
+    {
+      "origin": "Gaelic, later naturalized in French and English use",
+      "count": 1
+    },
+    {
+      "origin": "Gaulish (Celtic), via Latin",
+      "count": 1
+    },
+    {
+      "origin": "Georgian",
+      "count": 1
+    },
+    {
+      "origin": "Georgian (with broader modern cross-cultural use)",
+      "count": 1
+    },
+    {
+      "origin": "German (diminutive of Cornelia / Constance)",
+      "count": 1
+    },
+    {
+      "origin": "German / Dutch / French / Latin",
+      "count": 1
+    },
+    {
+      "origin": "German / French (diminutive of Christine)",
+      "count": 1
+    },
+    {
+      "origin": "German / French / Hebrew",
+      "count": 1
+    },
+    {
+      "origin": "German / Frisian / Scandinavian",
+      "count": 1
+    },
+    {
+      "origin": "German and Dutch",
+      "count": 1
+    },
+    {
+      "origin": "German and Dutch spelling of the Slavic diminutive form of Natalia",
+      "count": 1
+    },
+    {
+      "origin": "German and Scandinavian",
+      "count": 1
+    },
+    {
+      "origin": "German masculine given name of old Germanic origin",
+      "count": 1
+    },
+    {
+      "origin": "German, French and Spanish (short form of Caroline / Carolina)",
+      "count": 1
+    },
+    {
+      "origin": "Germanic (Brazilian Portuguese variant)",
+      "count": 1
+    },
+    {
+      "origin": "Germanic (Finnish and German usage of Timothy lineage)",
+      "count": 1
+    },
+    {
+      "origin": "Germanic (Italianized)",
+      "count": 1
+    },
+    {
+      "origin": "Germanic (Latin American variant)",
+      "count": 1
+    },
+    {
+      "origin": "Germanic (Low German diminutive)",
+      "count": 1
+    },
+    {
+      "origin": "Germanic (Low German/Norse-linked)",
+      "count": 1
+    },
+    {
+      "origin": "Germanic (Old High German)",
+      "count": 1
+    },
+    {
+      "origin": "Germanic (through French Raymond)",
+      "count": 1
+    },
+    {
+      "origin": "Germanic (via Italian)",
+      "count": 1
+    },
+    {
+      "origin": "Germanic (via Latin Carolus)",
+      "count": 1
+    },
+    {
+      "origin": "Germanic (Visigothic)",
+      "count": 1
+    },
+    {
+      "origin": "Germanic / English (Diminutive)",
+      "count": 1
+    },
+    {
+      "origin": "Germanic / Gaelic",
+      "count": 1
+    },
+    {
+      "origin": "Germanic / Gothic",
+      "count": 1
+    },
+    {
+      "origin": "Germanic / Italian",
+      "count": 1
+    },
+    {
+      "origin": "Germanic / Norman French",
+      "count": 1
+    },
+    {
+      "origin": "Germanic / Old English",
+      "count": 1
+    },
+    {
+      "origin": "Germanic / Slavic",
+      "count": 1
+    },
+    {
+      "origin": "Germanic / Swiss",
+      "count": 1
+    },
+    {
+      "origin": "Germanic and Dutch-Scandinavian form in the Francis/Frans name family",
+      "count": 1
+    },
+    {
+      "origin": "Germanic and English",
+      "count": 1
+    },
+    {
+      "origin": "Germanic and Indonesian",
+      "count": 1
+    },
+    {
+      "origin": "Germanic and Italian literary",
+      "count": 1
+    },
+    {
+      "origin": "Germanic and Multi-origin",
+      "count": 1
+    },
+    {
+      "origin": "Germanic feminine given name used especially in Dutch and German-speaking regions",
+      "count": 1
+    },
+    {
+      "origin": "Germanic root through Central and Southeastern European usage",
+      "count": 1
+    },
+    {
+      "origin": "Germanic through English and Irish literary usage",
+      "count": 1
+    },
+    {
+      "origin": "Germanic through French and Occitan",
+      "count": 1
+    },
+    {
+      "origin": "Germanic through Spanish and Portuguese",
+      "count": 1
+    },
+    {
+      "origin": "Germanic via Dutch and English",
+      "count": 1
+    },
+    {
+      "origin": "Germanic, Dutch, and English",
+      "count": 1
+    },
+    {
+      "origin": "Germanic, through Iberian usage",
+      "count": 1
+    },
+    {
+      "origin": "Germanic, via Latin Carolina",
+      "count": 1
+    },
+    {
+      "origin": "Germanic, via Portuguese",
+      "count": 1
+    },
+    {
+      "origin": "Germanic/French",
+      "count": 1
+    },
+    {
+      "origin": "Gothic through Spanish and Portuguese",
+      "count": 1
+    },
+    {
+      "origin": "Greek (via English diminutive and Dutch independent use)",
+      "count": 1
+    },
+    {
+      "origin": "Greek (via Finnish and Russian)",
+      "count": 1
+    },
+    {
+      "origin": "Greek (via Italian)",
+      "count": 1
+    },
+    {
+      "origin": "Greek (via Russian Orthodox tradition)",
+      "count": 1
+    },
+    {
+      "origin": "Greek (via Slavic)",
+      "count": 1
+    },
+    {
+      "origin": "Greek (via Spanish)",
+      "count": 1
+    },
+    {
+      "origin": "Greek / Berber",
+      "count": 1
+    },
+    {
+      "origin": "Greek / Biblical",
+      "count": 1
+    },
+    {
+      "origin": "Greek / Czech",
+      "count": 1
+    },
+    {
+      "origin": "Greek / Finnish",
+      "count": 1
+    },
+    {
+      "origin": "Greek / German",
+      "count": 1
+    },
+    {
+      "origin": "Greek / Germanic (Noble Root)",
+      "count": 1
+    },
+    {
+      "origin": "Greek / Italian",
+      "count": 1
+    },
+    {
+      "origin": "Greek / Latin",
+      "count": 1
+    },
+    {
+      "origin": "Greek / Latin (Leonine Root)",
+      "count": 1
+    },
+    {
+      "origin": "Greek / Latin / Slavic",
+      "count": 1
+    },
+    {
+      "origin": "Greek / Polish",
+      "count": 1
+    },
+    {
+      "origin": "Greek / Spanish",
+      "count": 1
+    },
+    {
+      "origin": "Greek and Coptic Arabic",
+      "count": 1
+    },
+    {
+      "origin": "Greek and Dutch",
+      "count": 1
+    },
+    {
+      "origin": "Greek and Slavic in Hispanic double-name use",
+      "count": 1
+    },
+    {
+      "origin": "Greek feminine given name rooted in the word for foliage and preserved through classical myth",
+      "count": 1
+    },
+    {
+      "origin": "Greek through Christian and Romance usage",
+      "count": 1
+    },
+    {
+      "origin": "Greek through French",
+      "count": 1
+    },
+    {
+      "origin": "Greek through Italian and Slavic traditions",
+      "count": 1
+    },
+    {
+      "origin": "Greek through Latin and European Christian usage",
+      "count": 1
+    },
+    {
+      "origin": "Greek through Russian",
+      "count": 1
+    },
+    {
+      "origin": "Greek through Spanish",
+      "count": 1
+    },
+    {
+      "origin": "Greek via Church Slavonic",
+      "count": 1
+    },
+    {
+      "origin": "Greek via East Slavic",
+      "count": 1
+    },
+    {
+      "origin": "Greek via European forms",
+      "count": 1
+    },
+    {
+      "origin": "Greek via Iberian forms",
+      "count": 1
+    },
+    {
+      "origin": "Greek via Latin and European Christian usage",
+      "count": 1
+    },
+    {
+      "origin": "Greek via Latin and Romance languages",
+      "count": 1
+    },
+    {
+      "origin": "Greek via Latin and Spanish",
+      "count": 1
+    },
+    {
+      "origin": "Greek via Melissa, widely naturalized in Turkish and Spanish-speaking usage.",
+      "count": 1
+    },
+    {
+      "origin": "Greek via Romanian/European Christian naming traditions",
+      "count": 1
+    },
+    {
+      "origin": "Greek via Slavic",
+      "count": 1
+    },
+    {
+      "origin": "Greek via Slavic and European traditions",
+      "count": 1
+    },
+    {
+      "origin": "Greek via Spanish",
+      "count": 1
+    },
+    {
+      "origin": "Greek, Christian, and Arabic-script",
+      "count": 1
+    },
+    {
+      "origin": "Greek, French, and Germanic European",
+      "count": 1
+    },
+    {
+      "origin": "Greek, from the ancient feminine form Eunika or Eunike.",
+      "count": 1
+    },
+    {
+      "origin": "Greek, Hebrew, Latin, Italian, and Spanish",
+      "count": 1
+    },
+    {
+      "origin": "Greek-root Christian name family via modern short-form usage",
+      "count": 1
+    },
+    {
+      "origin": "Greek-root Christian name tradition (modern Romance/Latin spelling variant)",
+      "count": 1
+    },
+    {
+      "origin": "Greek/Germanic",
+      "count": 1
+    },
+    {
+      "origin": "Greek/Iberian",
+      "count": 1
+    },
+    {
+      "origin": "Greek/Italian",
+      "count": 1
+    },
+    {
+      "origin": "Guarani",
+      "count": 1
+    },
+    {
+      "origin": "Gujarati (Indian)",
+      "count": 1
+    },
+    {
+      "origin": "Hakka and Cantonese Chinese (Malaysian)",
+      "count": 1
+    },
+    {
+      "origin": "Hausa / Arabic",
+      "count": 1
+    },
+    {
+      "origin": "Hausa and Arabic-influenced",
+      "count": 1
+    },
+    {
+      "origin": "Hawaiian (Hebrew)",
+      "count": 1
+    },
+    {
+      "origin": "Hebrew (Biblical) / Latin American / East African",
+      "count": 1
+    },
+    {
+      "origin": "Hebrew (Latin American Spanish/Portuguese variant)",
+      "count": 1
+    },
+    {
+      "origin": "Hebrew (via European forms)",
+      "count": 1
+    },
+    {
+      "origin": "Hebrew (via Greek)",
+      "count": 1
+    },
+    {
+      "origin": "Hebrew (via Italian/Latin)",
+      "count": 1
+    },
+    {
+      "origin": "Hebrew (via Manuel)",
+      "count": 1
+    },
+    {
+      "origin": "Hebrew (via Russian/Church Slavonic)",
+      "count": 1
+    },
+    {
+      "origin": "Hebrew / Arabic / Persian",
+      "count": 1
+    },
+    {
+      "origin": "Hebrew / Biblical / Semitic",
+      "count": 1
+    },
+    {
+      "origin": "Hebrew / Egyptian",
+      "count": 1
+    },
+    {
+      "origin": "Hebrew / English",
+      "count": 1
+    },
+    {
+      "origin": "Hebrew / Ibero-Romance",
+      "count": 1
+    },
+    {
+      "origin": "Hebrew / Italian / Latin",
+      "count": 1
+    },
+    {
+      "origin": "Hebrew / Latin",
+      "count": 1
+    },
+    {
+      "origin": "Hebrew / Latin / Spanish",
+      "count": 1
+    },
+    {
+      "origin": "Hebrew / Spanish",
+      "count": 1
+    },
+    {
+      "origin": "Hebrew / Spanish-American variant",
+      "count": 1
+    },
+    {
+      "origin": "Hebrew and English short form",
+      "count": 1
+    },
+    {
+      "origin": "Hebrew and European",
+      "count": 1
+    },
+    {
+      "origin": "Hebrew and Japanese",
+      "count": 1
+    },
+    {
+      "origin": "Hebrew and Multi-origin",
+      "count": 1
+    },
+    {
+      "origin": "Hebrew and Persian",
+      "count": 1
+    },
+    {
+      "origin": "Hebrew and Sanskrit",
+      "count": 1
+    },
+    {
+      "origin": "Hebrew and Spanish",
+      "count": 1
+    },
+    {
+      "origin": "Hebrew and Spanish-Portuguese",
+      "count": 1
+    },
+    {
+      "origin": "Hebrew and West African",
+      "count": 1
+    },
+    {
+      "origin": "Hebrew Latin Portuguese Spanish",
+      "count": 1
+    },
+    {
+      "origin": "Hebrew through biblical tradition",
+      "count": 1
+    },
+    {
+      "origin": "Hebrew through English and Spanish",
+      "count": 1
+    },
+    {
+      "origin": "Hebrew Turkish Chechen",
+      "count": 1
+    },
+    {
+      "origin": "Hebrew via Biblical and Arabic traditions",
+      "count": 1
+    },
+    {
+      "origin": "Hebrew via biblical English tradition",
+      "count": 1
+    },
+    {
+      "origin": "Hebrew via English and Spanish forms",
+      "count": 1
+    },
+    {
+      "origin": "Hebrew via European diminutive traditions",
+      "count": 1
+    },
+    {
+      "origin": "Hebrew via Germanic and Scandinavian forms",
+      "count": 1
+    },
+    {
+      "origin": "Hebrew via Greek and Slavic Christian tradition",
+      "count": 1
+    },
+    {
+      "origin": "Hebrew via Greek, Latin, and English",
+      "count": 1
+    },
+    {
+      "origin": "Hebrew via Iberian languages",
+      "count": 1
+    },
+    {
+      "origin": "Hebrew via Italian Christian naming tradition",
+      "count": 1
+    },
+    {
+      "origin": "Hebrew via Mary, with an additional Egyptian parallel",
+      "count": 1
+    },
+    {
+      "origin": "Hebrew via Slavic",
+      "count": 1
+    },
+    {
+      "origin": "Hebrew via Spanish orthographic adaptation",
+      "count": 1
+    },
+    {
+      "origin": "Hebrew, French, and Portuguese",
+      "count": 1
+    },
+    {
+      "origin": "Hebrew, Latin, and French",
+      "count": 1
+    },
+    {
+      "origin": "Hebrew, Latin, and Portuguese",
+      "count": 1
+    },
+    {
+      "origin": "Hebrew, through Dutch and German usage",
+      "count": 1
+    },
+    {
+      "origin": "Hebrew, via Arabic Quranic usage",
+      "count": 1
+    },
+    {
+      "origin": "Hebrew, via Latin",
+      "count": 1
+    },
+    {
+      "origin": "Hebrew/Arabic/Persian",
+      "count": 1
+    },
+    {
+      "origin": "Hebrew/French",
+      "count": 1
+    },
+    {
+      "origin": "Hebrew/Greek",
+      "count": 1
+    },
+    {
+      "origin": "Hindi and South Asian",
+      "count": 1
+    },
+    {
+      "origin": "Hungarian and Catalan form of Judith, ultimately Hebrew",
+      "count": 1
+    },
+    {
+      "origin": "Hungarian from Slavic",
+      "count": 1
+    },
+    {
+      "origin": "Igbo (Nigerian) / Regal",
+      "count": 1
+    },
+    {
+      "origin": "Igbo and Nigerian",
+      "count": 1
+    },
+    {
+      "origin": "Indian (Hindi, Bengali)",
+      "count": 1
+    },
+    {
+      "origin": "Indian (Hindi/Bengali)",
+      "count": 1
+    },
+    {
+      "origin": "Indian (Malayalam)",
+      "count": 1
+    },
+    {
+      "origin": "Indian / Sanskrit",
+      "count": 1
+    },
+    {
+      "origin": "Indian / Sanskrit (Vaishnava Root)",
+      "count": 1
+    },
+    {
+      "origin": "Indian and Belarusian",
+      "count": 1
+    },
+    {
+      "origin": "Indian devotional name used across several South Asian languages",
+      "count": 1
+    },
+    {
+      "origin": "Indonesian",
+      "count": 1
+    },
+    {
+      "origin": "Initialism",
+      "count": 1
+    },
+    {
+      "origin": "Initialism (not a personal given name)",
+      "count": 1
+    },
+    {
+      "origin": "Invalid full-name record",
+      "count": 1
+    },
+    {
+      "origin": "Irish (Gaelic) / Anglo-Saxon",
+      "count": 1
+    },
+    {
+      "origin": "Irish (Regal/Diminutive)",
+      "count": 1
+    },
+    {
+      "origin": "Irish / Celtic (Latinized feminine of Alan)",
+      "count": 1
+    },
+    {
+      "origin": "Irish / Gaelic",
+      "count": 1
+    },
+    {
+      "origin": "Irish / Old French",
+      "count": 1
+    },
+    {
+      "origin": "Irish and Germanic",
+      "count": 1
+    },
+    {
+      "origin": "Irish and Italian (short form of Honora and Eleonora)",
+      "count": 1
+    },
+    {
+      "origin": "Irish Gaelic (English literary)",
+      "count": 1
+    },
+    {
+      "origin": "Irish via English",
+      "count": 1
+    },
+    {
+      "origin": "Irish via Norman French",
+      "count": 1
+    },
+    {
+      "origin": "Irish-influenced English",
+      "count": 1
+    },
+    {
+      "origin": "Italian (adapted from Old English via Norman French)",
+      "count": 1
+    },
+    {
+      "origin": "Italian (compound of Gian + Piero)",
+      "count": 1
+    },
+    {
+      "origin": "Italian (diminutive of Antonio)",
+      "count": 1
+    },
+    {
+      "origin": "Italian (diminutive of Filippo or Giuseppe)",
+      "count": 1
+    },
+    {
+      "origin": "Italian (diminutive of Giuseppe)",
+      "count": 1
+    },
+    {
+      "origin": "Italian (diminutive of Rosa)",
+      "count": 1
+    },
+    {
+      "origin": "Italian (from Hebrew Karmel via the Carmel/Carmela family of Marian devotional names)",
+      "count": 1
+    },
+    {
+      "origin": "Italian (from Hebrew via Latin)",
+      "count": 1
+    },
+    {
+      "origin": "Italian (from Magdalene biblical tradition)",
+      "count": 1
+    },
+    {
+      "origin": "Italian (from Russian)",
+      "count": 1
+    },
+    {
+      "origin": "Italian (Greek)",
+      "count": 1
+    },
+    {
+      "origin": "Italian (Hebrew)",
+      "count": 1
+    },
+    {
+      "origin": "Italian (hypocoristic)",
+      "count": 1
+    },
+    {
+      "origin": "Italian (likely diminutive or affectionate form in the Laura/Lore- name family)",
+      "count": 1
+    },
+    {
+      "origin": "Italian (short form of Giuseppina and related Giuseppe family names)",
+      "count": 1
+    },
+    {
+      "origin": "Italian / Germanic",
+      "count": 1
+    },
+    {
+      "origin": "Italian / Germanic / Latin",
+      "count": 1
+    },
+    {
+      "origin": "Italian / Germanic Root / Apostolic",
+      "count": 1
+    },
+    {
+      "origin": "Italian / Hebrew Root",
+      "count": 1
+    },
+    {
+      "origin": "Italian / Latin / Hebrew",
+      "count": 1
+    },
+    {
+      "origin": "Italian / Latin / Nature",
+      "count": 1
+    },
+    {
+      "origin": "Italian / Slavic",
+      "count": 1
+    },
+    {
+      "origin": "Italian / Spanish / Latin",
+      "count": 1
+    },
+    {
+      "origin": "Italian and Arabic-influenced",
+      "count": 1
+    },
+    {
+      "origin": "Italian and European feminine form of Simon",
+      "count": 1
+    },
+    {
+      "origin": "Italian and French (pet name)",
+      "count": 1
+    },
+    {
+      "origin": "Italian and Georgian short-form",
+      "count": 1
+    },
+    {
+      "origin": "Italian and Greek",
+      "count": 1
+    },
+    {
+      "origin": "Italian and Iberian form of Alfred",
+      "count": 1
+    },
+    {
+      "origin": "Italian and Portuguese",
+      "count": 1
+    },
+    {
+      "origin": "Italian and South Slavic (Arabic influence)",
+      "count": 1
+    },
+    {
+      "origin": "Italian and Spanish (Hebrew/Greek)",
+      "count": 1
+    },
+    {
+      "origin": "Italian and Spanish form of Herman",
+      "count": 1
+    },
+    {
+      "origin": "Italian and Spanish, from Latin",
+      "count": 1
+    },
+    {
+      "origin": "Italian Catholic",
+      "count": 1
+    },
+    {
+      "origin": "Italian compound (Piero + Paolo)",
+      "count": 1
+    },
+    {
+      "origin": "Italian compound Christian name",
+      "count": 1
+    },
+    {
+      "origin": "Italian compound of Maria and Angela",
+      "count": 1
+    },
+    {
+      "origin": "Italian form of Gabriel",
+      "count": 1
+    },
+    {
+      "origin": "Italian form of Joanna / feminine form of Giovanni",
+      "count": 1
+    },
+    {
+      "origin": "Italian form of Richard",
+      "count": 1
+    },
+    {
+      "origin": "Italian form of the Germanic Hugh name family",
+      "count": 1
+    },
+    {
+      "origin": "Italian form of Xavier, ultimately linked to the Basque place name Etxeberria.",
+      "count": 1
+    },
+    {
+      "origin": "Italian form related to Roxana",
+      "count": 1
+    },
+    {
+      "origin": "Italian from ancient Roman Latin",
+      "count": 1
+    },
+    {
+      "origin": "Italian from Germanic Herman",
+      "count": 1
+    },
+    {
+      "origin": "Italian from Greek-Latin solar root",
+      "count": 1
+    },
+    {
+      "origin": "Italian from Latin Caesar",
+      "count": 1
+    },
+    {
+      "origin": "Italian literary creation",
+      "count": 1
+    },
+    {
+      "origin": "Italian masculine given name from Latin Gratianus lineage",
+      "count": 1
+    },
+    {
+      "origin": "Italian masculine name, historically a short form of Durante",
+      "count": 1
+    },
+    {
+      "origin": "Italian pet form of Roberto and Roberta (Germanic)",
+      "count": 1
+    },
+    {
+      "origin": "Italian Spanish",
+      "count": 1
+    },
+    {
+      "origin": "Italian, from Greek",
+      "count": 1
+    },
+    {
+      "origin": "Italian, from Hebrew",
+      "count": 1
+    },
+    {
+      "origin": "Italian, from Latin",
+      "count": 1
+    },
+    {
+      "origin": "Italian, from Latin Martia",
+      "count": 1
+    },
+    {
+      "origin": "Italian, Hebrew, and Latin",
+      "count": 1
+    },
+    {
+      "origin": "Italian, Spanish, and Portuguese from Germanic",
+      "count": 1
+    },
+    {
+      "origin": "Italian, Spanish, and Portuguese from Latin",
+      "count": 1
+    },
+    {
+      "origin": "Italian, with wider Romance influence",
+      "count": 1
+    },
+    {
+      "origin": "Italian/Latin American Spanish",
+      "count": 1
+    },
+    {
+      "origin": "Italian/Portuguese",
+      "count": 1
+    },
+    {
+      "origin": "Italian/Romanian (from Hebrew via Latin)",
+      "count": 1
+    },
+    {
+      "origin": "Japanese / Hebrew / Italian / Multi-origin",
+      "count": 1
+    },
+    {
+      "origin": "Japanese / Kanji Combinations",
+      "count": 1
+    },
+    {
+      "origin": "Japanese / Logographic",
+      "count": 1
+    },
+    {
+      "origin": "Japanese, Korean, and Chinese",
+      "count": 1
+    },
+    {
+      "origin": "Kashmiri",
+      "count": 1
+    },
+    {
+      "origin": "Kazakh (from Arabic)",
+      "count": 1
+    },
+    {
+      "origin": "Kazakh (Persian-Turkic compound)",
+      "count": 1
+    },
+    {
+      "origin": "Kazakh / Russian (Central Asian Diminutive)",
+      "count": 1
+    },
+    {
+      "origin": "Kazakh / Turkic / Steppe",
+      "count": 1
+    },
+    {
+      "origin": "Kazakh and Kyrgyz Turkic",
+      "count": 1
+    },
+    {
+      "origin": "Kazakh and Turkic Muslim given name",
+      "count": 1
+    },
+    {
+      "origin": "Kazakh Turkic",
+      "count": 1
+    },
+    {
+      "origin": "Kazakh Turkic Persian Arabic",
+      "count": 1
+    },
+    {
+      "origin": "Kazakh, Turkic, and Arabic-influenced",
+      "count": 1
+    },
+    {
+      "origin": "Kazakh, with deeper layers from Arabic and Turkic",
+      "count": 1
+    },
+    {
+      "origin": "Kazakh/Persian",
+      "count": 1
+    },
+    {
+      "origin": "Kazakh/Turkic",
+      "count": 1
+    },
+    {
+      "origin": "Kazakh/Turkic with Persian element",
+      "count": 1
+    },
+    {
+      "origin": "Kurdish / Persian",
+      "count": 1
+    },
+    {
+      "origin": "Late Latin and Greek via Christian Europe",
+      "count": 1
+    },
+    {
+      "origin": "Latin (Italian/Spanish)",
+      "count": 1
+    },
+    {
+      "origin": "Latin (Russian form)",
+      "count": 1
+    },
+    {
+      "origin": "Latin (via English)",
+      "count": 1
+    },
+    {
+      "origin": "Latin (via Italian)",
+      "count": 1
+    },
+    {
+      "origin": "Latin (via Portuguese), revived in Brazilian Catholic culture",
+      "count": 1
+    },
+    {
+      "origin": "Latin (via Romance and Scandinavian pet forms)",
+      "count": 1
+    },
+    {
+      "origin": "Latin / Dutch",
+      "count": 1
+    },
+    {
+      "origin": "Latin / English / Italian",
+      "count": 1
+    },
+    {
+      "origin": "Latin / Germanic",
+      "count": 1
+    },
+    {
+      "origin": "Latin / Imperial Roman (Compound)",
+      "count": 1
+    },
+    {
+      "origin": "Latin / Italian",
+      "count": 1
+    },
+    {
+      "origin": "Latin / Italian (modern revival)",
+      "count": 1
+    },
+    {
+      "origin": "Latin / Roman / Nature",
+      "count": 1
+    },
+    {
+      "origin": "Latin / Romance",
+      "count": 1
+    },
+    {
+      "origin": "Latin / Romance (regional feminine usage)",
+      "count": 1
+    },
+    {
+      "origin": "Latin / Romance / Slavic",
+      "count": 1
+    },
+    {
+      "origin": "Latin / Romanian / Spanish",
+      "count": 1
+    },
+    {
+      "origin": "Latin / Scandinavian",
+      "count": 1
+    },
+    {
+      "origin": "Latin American (debated: possibly indigenous American, Hebrew, or Arabic roots)",
+      "count": 1
+    },
+    {
+      "origin": "Latin American (Spanish)",
+      "count": 1
+    },
+    {
+      "origin": "Latin American Spanish",
+      "count": 1
+    },
+    {
+      "origin": "Latin and Central European",
+      "count": 1
+    },
+    {
+      "origin": "Latin and Christian",
+      "count": 1
+    },
+    {
+      "origin": "Latin and Christian European tradition",
+      "count": 1
+    },
+    {
+      "origin": "Latin and English",
+      "count": 1
+    },
+    {
+      "origin": "Latin and English short-form",
+      "count": 1
+    },
+    {
+      "origin": "Latin and German-speaking Christian tradition",
+      "count": 1
+    },
+    {
+      "origin": "Latin and Greek form of the Hebrew name Yohanan",
+      "count": 1
+    },
+    {
+      "origin": "Latin and Italian",
+      "count": 1
+    },
+    {
+      "origin": "Latin and Italian, later strengthened in Spanish and Catholic usage.",
+      "count": 1
+    },
+    {
+      "origin": "Latin and Spanish",
+      "count": 1
+    },
+    {
+      "origin": "Latin and Spanish compound tradition",
+      "count": 1
+    },
+    {
+      "origin": "Latin feminine form in the Marcellus and Marcus name family.",
+      "count": 1
+    },
+    {
+      "origin": "Latin through French",
+      "count": 1
+    },
+    {
+      "origin": "Latin through Italian and wider European usage",
+      "count": 1
+    },
+    {
+      "origin": "Latin through Russian and other European naming traditions",
+      "count": 1
+    },
+    {
+      "origin": "Latin via Italian",
+      "count": 1
+    },
+    {
+      "origin": "Latin via Italian and other European languages",
+      "count": 1
+    },
+    {
+      "origin": "Latin via Italian and Romance usage",
+      "count": 1
+    },
+    {
+      "origin": "Latin via Italian, Spanish, and Portuguese",
+      "count": 1
+    },
+    {
+      "origin": "Latin via Slavic",
+      "count": 1
+    },
+    {
+      "origin": "Latin via Slavic and Romance traditions",
+      "count": 1
+    },
+    {
+      "origin": "Latin via Spanish",
+      "count": 1
+    },
+    {
+      "origin": "Latin, from the flower lily",
+      "count": 1
+    },
+    {
+      "origin": "Latin, Spanish, and French",
+      "count": 1
+    },
+    {
+      "origin": "Latin, via Spanish adaptation of Diana",
+      "count": 1
+    },
+    {
+      "origin": "Latin/Italian",
+      "count": 1
+    },
+    {
+      "origin": "Latin/Macedonian Greek",
+      "count": 1
+    },
+    {
+      "origin": "Latin/Roman",
+      "count": 1
+    },
+    {
+      "origin": "Lebanese / Syriac / Aramaic",
+      "count": 1
+    },
+    {
+      "origin": "Literary Greek",
+      "count": 1
+    },
+    {
+      "origin": "Maghrebi and French-linked variant of Arabic Jamal/Jamil name family",
+      "count": 1
+    },
+    {
+      "origin": "Maghrebi Arabic (Darija)",
+      "count": 1
+    },
+    {
+      "origin": "Maghrebi Arabic form of Uthman or Othman.",
+      "count": 1
+    },
+    {
+      "origin": "Maghrebi Arabic nickname",
+      "count": 1
+    },
+    {
+      "origin": "Maghrebi Arabic patronymic particle (also a given-name use)",
+      "count": 1
+    },
+    {
+      "origin": "Maghrebi Arabic, probably Tunisian",
+      "count": 1
+    },
+    {
+      "origin": "Malagasy / Finnish / Yoruba / Catalan Root",
+      "count": 1
+    },
+    {
+      "origin": "Malay (Arabic roots)",
+      "count": 1
+    },
+    {
+      "origin": "Malay (from Arabic)",
+      "count": 1
+    },
+    {
+      "origin": "Malay (with Arabic and Persian roots)",
+      "count": 1
+    },
+    {
+      "origin": "Malay / Arabic",
+      "count": 1
+    },
+    {
+      "origin": "Malay / Arabic / Islamic",
+      "count": 1
+    },
+    {
+      "origin": "Malay and Arabic",
+      "count": 1
+    },
+    {
+      "origin": "Malay and Indonesian from Sanskrit",
+      "count": 1
+    },
+    {
+      "origin": "Malay and Indonesian; source debated (the Philippine surname Rizal, or Arabic)",
+      "count": 1
+    },
+    {
+      "origin": "Malay and Sinhalese",
+      "count": 1
+    },
+    {
+      "origin": "Malay hypocoristic, often linked to Muhammad",
+      "count": 1
+    },
+    {
+      "origin": "Malay usage influenced by Ruslan-type names",
+      "count": 1
+    },
+    {
+      "origin": "Malay-Muslim compound name from Arabic amir element",
+      "count": 1
+    },
+    {
+      "origin": "Malayalam",
+      "count": 1
+    },
+    {
+      "origin": "Medieval European given name with Brythonic and French literary development",
+      "count": 1
+    },
+    {
+      "origin": "Mediterranean and biblical",
+      "count": 1
+    },
+    {
+      "origin": "Mediterranean usage with Arabic and Italian overlap",
+      "count": 1
+    },
+    {
+      "origin": "Mixed: Soviet ideological coinage in one tradition, Marlene variant in another",
+      "count": 1
+    },
+    {
+      "origin": "Mixed; often used in Russian and Tatar environments, with different historical influences behind the modern form.",
+      "count": 1
+    },
+    {
+      "origin": "Modern Arabic feminine-leaning given name in Egyptian usage",
+      "count": 1
+    },
+    {
+      "origin": "Modern Arabic short-form usage",
+      "count": 1
+    },
+    {
+      "origin": "Modern Arabic usage with likely contact from forms such as Mirna and Myrna",
+      "count": 1
+    },
+    {
+      "origin": "Modern Colombian and Latin American adaptation of Jason through English contact and local phonetic reshaping.",
+      "count": 1
+    },
+    {
+      "origin": "Modern Colombian spelling adaptation of the English name Jason",
+      "count": 1
+    },
+    {
+      "origin": "Modern English feminine name",
+      "count": 1
+    },
+    {
+      "origin": "Modern English literary",
+      "count": 1
+    },
+    {
+      "origin": "Modern English literary coinage",
+      "count": 1
+    },
+    {
+      "origin": "Modern English with Norse associations",
+      "count": 1
+    },
+    {
+      "origin": "Modern feminine given name used in Latin America and the Americas",
+      "count": 1
+    },
+    {
+      "origin": "Modern Hispanic and Anglophone spelling of a flower name",
+      "count": 1
+    },
+    {
+      "origin": "Modern Hispanic form of Elizabeth",
+      "count": 1
+    },
+    {
+      "origin": "Modern Hispanic spelling adaptation of Jennifer, ultimately from Cornish and Welsh tradition",
+      "count": 1
+    },
+    {
+      "origin": "Modern international short form used in Spanish-speaking contexts, often tied to Julia or Yuliana lines",
+      "count": 1
+    },
+    {
+      "origin": "Modern Portuguese and Spanish masculine given name, especially used in Brazil and Peru, often treated as a variant of Milton",
+      "count": 1
+    },
+    {
+      "origin": "Modern Romance-language feminine given name used in Latin America",
+      "count": 1
+    },
+    {
+      "origin": "Modern South Indian, especially Kerala usage",
+      "count": 1
+    },
+    {
+      "origin": "Modern Spanish-American usage with mixed lexical and adaptation pathways",
+      "count": 1
+    },
+    {
+      "origin": "Modern Spanish-language form influenced by Sarah",
+      "count": 1
+    },
+    {
+      "origin": "Modern Spanish-language given name of uncertain deeper origin, popularized in Latin America.",
+      "count": 1
+    },
+    {
+      "origin": "Moroccan Arabic (Darija)",
+      "count": 1
+    },
+    {
+      "origin": "Moroccan Arabic / Berber (diminutive); also Yoruba",
+      "count": 1
+    },
+    {
+      "origin": "Moroccan Arabic masculine given name, a Maghrebi spelling variant of Mohsin",
+      "count": 1
+    },
+    {
+      "origin": "Multi-origin",
+      "count": 1
+    },
+    {
+      "origin": "Multi-origin (French diminutive / Greek / Japanese / African)",
+      "count": 1
+    },
+    {
+      "origin": "Multi-origin (Italian and West African)",
+      "count": 1
+    },
+    {
+      "origin": "Multi-origin (Persian and Sanskrit)",
+      "count": 1
+    },
+    {
+      "origin": "Multi-origin / uncertain",
+      "count": 1
+    },
+    {
+      "origin": "Multi-origin, especially Kurdish and Maghrebi usage",
+      "count": 1
+    },
+    {
+      "origin": "Multi-origin, including Arabic, Igbo, and South Asian usage",
+      "count": 1
+    },
+    {
+      "origin": "Multicultural (English / Germanic / Arthurian)",
+      "count": 1
+    },
+    {
+      "origin": "Multicultural (Hebrew / Arabic / Sanskrit)",
+      "count": 1
+    },
+    {
+      "origin": "Multicultural diminutive",
+      "count": 1
+    },
+    {
+      "origin": "Multicultural short form",
+      "count": 1
+    },
+    {
+      "origin": "Multilingual (English / Italian / Romance)",
+      "count": 1
+    },
+    {
+      "origin": "Multilingual (Japanese, Korean, Khmer, West African)",
+      "count": 1
+    },
+    {
+      "origin": "Multilingual form used in several traditions",
+      "count": 1
+    },
+    {
+      "origin": "Multilingual short form (especially Romance and English contexts)",
+      "count": 1
+    },
+    {
+      "origin": "Multilingual South Asian and Arabic-related given-name usage",
+      "count": 1
+    },
+    {
+      "origin": "Multilingual: Hebrew, Japanese, Arabic, and others",
+      "count": 1
+    },
+    {
+      "origin": "Multiorigin, with major Chinese, Breton-French, Slavic, and modern Brazilian use",
+      "count": 1
+    },
+    {
+      "origin": "Multiple",
+      "count": 1
+    },
+    {
+      "origin": "Multiple Asian naming traditions with uncertain unified origin in this record",
+      "count": 1
+    },
+    {
+      "origin": "Multiple modern traditions, chiefly English and Scandinavian",
+      "count": 1
+    },
+    {
+      "origin": "Multiple origins (Greek, Tupi, Spanish American)",
+      "count": 1
+    },
+    {
+      "origin": "Multiple streams: Spanish diminutive usage and Arabic/Ethiopic usage contexts",
+      "count": 1
+    },
+    {
+      "origin": "Multiple traditions, especially Irish and Sanskrit",
+      "count": 1
+    },
+    {
+      "origin": "Multiple, including Arabic and Slavic usage",
+      "count": 1
+    },
+    {
+      "origin": "Multisource short name used in English, with frequent use as a diminutive of names such as Tiana, Christina, or Thea",
+      "count": 1
+    },
+    {
+      "origin": "Najdi Arabic",
+      "count": 1
+    },
+    {
+      "origin": "Ndebele and Nguni",
+      "count": 1
+    },
+    {
+      "origin": "Nguni (especially isiXhosa and isiZulu) given-name tradition",
+      "count": 1
+    },
+    {
+      "origin": "Nguni (Southern Africa, especially isiZulu/isiSwati usage)",
+      "count": 1
+    },
+    {
+      "origin": "Nguni (Zulu / Xhosa / Ndebele), South Africa",
+      "count": 1
+    },
+    {
+      "origin": "Nguni (Zulu / Xhosa)",
+      "count": 1
+    },
+    {
+      "origin": "Nguni (Zulu and Xhosa)",
+      "count": 1
+    },
+    {
+      "origin": "Nguni (Zulu and Xhosa, South African)",
+      "count": 1
+    },
+    {
+      "origin": "Nguni (Zulu/Xhosa)",
+      "count": 1
+    },
+    {
+      "origin": "Nguni (Zulu/Xhosa) Root",
+      "count": 1
+    },
+    {
+      "origin": "Nguni / South African",
+      "count": 1
+    },
+    {
+      "origin": "Nguni / Southern African",
+      "count": 1
+    },
+    {
+      "origin": "Nguni, especially Xhosa and related South African naming traditions",
+      "count": 1
+    },
+    {
+      "origin": "Nguni, especially Zulu and Xhosa",
+      "count": 1
+    },
+    {
+      "origin": "Nguni, especially Zulu and Xhosa usage",
+      "count": 1
+    },
+    {
+      "origin": "Nguni-language masculine given name in South Africa",
+      "count": 1
+    },
+    {
+      "origin": "Nguni-language Southern African masculine given name",
+      "count": 1
+    },
+    {
+      "origin": "Nickname-style given name used in Arabic and Mediterranean contexts",
+      "count": 1
+    },
+    {
+      "origin": "Nigerian Contemporary / Digital Vernacular",
+      "count": 1
+    },
+    {
+      "origin": "Norman French through Scottish usage",
+      "count": 1
+    },
+    {
+      "origin": "North African",
+      "count": 1
+    },
+    {
+      "origin": "North African Arabic nickname usage",
+      "count": 1
+    },
+    {
+      "origin": "North Caucasian, Russian, and Malay usage",
+      "count": 1
+    },
+    {
+      "origin": "Norwegian",
+      "count": 1
+    },
+    {
+      "origin": "Not a genuine personal name",
+      "count": 1
+    },
+    {
+      "origin": "Not a reliable personal-name origin; this record appears to preserve the Arabic descriptor majhul, meaning unknown.",
+      "count": 1
+    },
+    {
+      "origin": "Occitan (Provençal)",
+      "count": 1
+    },
+    {
+      "origin": "Occitan / Provencal",
+      "count": 1
+    },
+    {
+      "origin": "Occitan and Catalan (from Hebrew via Greek and Latin)",
+      "count": 1
+    },
+    {
+      "origin": "Old English (Anglo-Saxon)",
+      "count": 1
+    },
+    {
+      "origin": "Old English (later toponymic)",
+      "count": 1
+    },
+    {
+      "origin": "Old English / Old Norse / Irish",
+      "count": 1
+    },
+    {
+      "origin": "Old English and Old Germanic, with Arabic parallels",
+      "count": 1
+    },
+    {
+      "origin": "Old English and West African Christian usage",
+      "count": 1
+    },
+    {
+      "origin": "Old English surname transferred to given name",
+      "count": 1
+    },
+    {
+      "origin": "Old English via Spanish-language adaptation",
+      "count": 1
+    },
+    {
+      "origin": "Old English, via Portuguese",
+      "count": 1
+    },
+    {
+      "origin": "Old French (from Germanic roots)",
+      "count": 1
+    },
+    {
+      "origin": "Old French (from Occitan/Provençal)",
+      "count": 1
+    },
+    {
+      "origin": "Old French / English",
+      "count": 1
+    },
+    {
+      "origin": "Old French and Gaelic",
+      "count": 1
+    },
+    {
+      "origin": "Old French with medieval literary spread",
+      "count": 1
+    },
+    {
+      "origin": "Old Norse (Scandinavian)",
+      "count": 1
+    },
+    {
+      "origin": "Old Norse / Scandinavian",
+      "count": 1
+    },
+    {
+      "origin": "Old Norse and Irish",
+      "count": 1
+    },
+    {
+      "origin": "Old Norse and Proto-Germanic",
+      "count": 1
+    },
+    {
+      "origin": "Old Norse via East Slavic",
+      "count": 1
+    },
+    {
+      "origin": "Old Persian",
+      "count": 1
+    },
+    {
+      "origin": "Old Polish",
+      "count": 1
+    },
+    {
+      "origin": "Old Turkic (Nature/Temporal Root)",
+      "count": 1
+    },
+    {
+      "origin": "Ottoman Turkish (Egyptian Arabic)",
+      "count": 1
+    },
+    {
+      "origin": "Ottoman Turkish (from Arabic)",
+      "count": 1
+    },
+    {
+      "origin": "Persian (from Arabic)",
+      "count": 1
+    },
+    {
+      "origin": "Persian (Mythological) / Arabic",
+      "count": 1
+    },
+    {
+      "origin": "Persian (via Greek and Latin)",
+      "count": 1
+    },
+    {
+      "origin": "Persian (via Ottoman Turkish)",
+      "count": 1
+    },
+    {
+      "origin": "Persian (via Turkic adoption)",
+      "count": 1
+    },
+    {
+      "origin": "Persian (via Turkish)",
+      "count": 1
+    },
+    {
+      "origin": "Persian / Arabic",
+      "count": 1
+    },
+    {
+      "origin": "Persian / Arabic / Turkish",
+      "count": 1
+    },
+    {
+      "origin": "Persian and Arabic/Turkic",
+      "count": 1
+    },
+    {
+      "origin": "Persian and Central Asian",
+      "count": 1
+    },
+    {
+      "origin": "Persian and English",
+      "count": 1
+    },
+    {
+      "origin": "Persian and Germanic (dual origin)",
+      "count": 1
+    },
+    {
+      "origin": "Persian and Hebrew",
+      "count": 1
+    },
+    {
+      "origin": "Persian and Sanskrit",
+      "count": 1
+    },
+    {
+      "origin": "Persian heroic name from the Iranian epic tradition.",
+      "count": 1
+    },
+    {
+      "origin": "Persian Root (Folad) / Turkish",
+      "count": 1
+    },
+    {
+      "origin": "Persian through Spanish and English",
+      "count": 1
+    },
+    {
+      "origin": "Persian through Turkish",
+      "count": 1
+    },
+    {
+      "origin": "Persian via Greek and French-influenced European forms",
+      "count": 1
+    },
+    {
+      "origin": "Persian via South Asian Muslim usage",
+      "count": 1
+    },
+    {
+      "origin": "Persian, Turkic, and Central Asian",
+      "count": 1
+    },
+    {
+      "origin": "Persian, Urdu, and South Asian Muslim usage",
+      "count": 1
+    },
+    {
+      "origin": "Persian, widely naturalized in Turkish",
+      "count": 1
+    },
+    {
+      "origin": "Persian-Arabic compound name combining Ali and Reza",
+      "count": 1
+    },
+    {
+      "origin": "Persian-Arabic compound used in South and Central Asian Muslim naming traditions",
+      "count": 1
+    },
+    {
+      "origin": "Persian-derived masculine given name used across South and West Asia",
+      "count": 1
+    },
+    {
+      "origin": "Persian-origin form adopted into Arabic (Nermin/Nermeen family)",
+      "count": 1
+    },
+    {
+      "origin": "Persian-root feminine name Nasrin adopted across Arabic, Turkish, and South Asian usage",
+      "count": 1
+    },
+    {
+      "origin": "Persian/Arabic",
+      "count": 1
+    },
+    {
+      "origin": "Persian/Turkish",
+      "count": 1
+    },
+    {
+      "origin": "Polish (from Aramaic via Greek and Latin)",
+      "count": 1
+    },
+    {
+      "origin": "Polish (from Greek via Latin)",
+      "count": 1
+    },
+    {
+      "origin": "Polish (from Norman French)",
+      "count": 1
+    },
+    {
+      "origin": "Polish (Latin)",
+      "count": 1
+    },
+    {
+      "origin": "Polish (Lithuanian)",
+      "count": 1
+    },
+    {
+      "origin": "Polish (Old West Slavic compound)",
+      "count": 1
+    },
+    {
+      "origin": "Polish (Slavic compound)",
+      "count": 1
+    },
+    {
+      "origin": "Polish (Slavic form of Paul)",
+      "count": 1
+    },
+    {
+      "origin": "Polish (West Slavic)",
+      "count": 1
+    },
+    {
+      "origin": "Polish / Hebrew",
+      "count": 1
+    },
+    {
+      "origin": "Polish and Aramaic",
+      "count": 1
+    },
+    {
+      "origin": "Polish and German (Latin)",
+      "count": 1
+    },
+    {
+      "origin": "Polish and Slavic",
+      "count": 1
+    },
+    {
+      "origin": "Polish and Spanish",
+      "count": 1
+    },
+    {
+      "origin": "Polish form of Gregory",
+      "count": 1
+    },
+    {
+      "origin": "Polish form of Marius",
+      "count": 1
+    },
+    {
+      "origin": "Polish, Lithuanian, and Greek",
+      "count": 1
+    },
+    {
+      "origin": "Polish/Germanic",
+      "count": 1
+    },
+    {
+      "origin": "Portuguese (Brazilian usage)",
+      "count": 1
+    },
+    {
+      "origin": "Portuguese (Brazilian)",
+      "count": 1
+    },
+    {
+      "origin": "Portuguese (Brazilian) / Anglo-Saxon Root",
+      "count": 1
+    },
+    {
+      "origin": "Portuguese (Brazilian) / Latin Root",
+      "count": 1
+    },
+    {
+      "origin": "Portuguese (disputed: Dutch toponymic or Germanic compound)",
+      "count": 1
+    },
+    {
+      "origin": "Portuguese (Occupational/Metonymic)",
+      "count": 1
+    },
+    {
+      "origin": "Portuguese (Patronymic)",
+      "count": 1
+    },
+    {
+      "origin": "Portuguese / Afrikaans (Combination / Phonological Root)",
+      "count": 1
+    },
+    {
+      "origin": "Portuguese / Brazilian / Latin",
+      "count": 1
+    },
+    {
+      "origin": "Portuguese / Hebrew",
+      "count": 1
+    },
+    {
+      "origin": "Portuguese / Latin",
+      "count": 1
+    },
+    {
+      "origin": "Portuguese / Latin (Martial Root)",
+      "count": 1
+    },
+    {
+      "origin": "Portuguese and French",
+      "count": 1
+    },
+    {
+      "origin": "Portuguese and Iberian form from the Germanic Ronald or Ragnvald name family.",
+      "count": 1
+    },
+    {
+      "origin": "Portuguese feminine form of Philip",
+      "count": 1
+    },
+    {
+      "origin": "Portuguese feminine given name from the Lucia name family",
+      "count": 1
+    },
+    {
+      "origin": "Portuguese, Albanian, Irish Gaelic",
+      "count": 1
+    },
+    {
+      "origin": "Portuguese, Spanish, and Italian",
+      "count": 1
+    },
+    {
+      "origin": "Primarily Slavic diminutive tradition with parallel uses in other languages",
+      "count": 1
+    },
+    {
+      "origin": "Provencal",
+      "count": 1
+    },
+    {
+      "origin": "Provençal / Occitan",
+      "count": 1
+    },
+    {
+      "origin": "Punic / Iberian",
+      "count": 1
+    },
+    {
+      "origin": "Punjabi / Sikh (Divine Luminal Root)",
+      "count": 1
+    },
+    {
+      "origin": "Roman",
+      "count": 1
+    },
+    {
+      "origin": "Romance and English-derived feminine given name linked to crystal",
+      "count": 1
+    },
+    {
+      "origin": "Romance Catholic compound (Maria + Rosa)",
+      "count": 1
+    },
+    {
+      "origin": "Romance masculine given name and nickname form, especially in Spanish and Italian usage",
+      "count": 1
+    },
+    {
+      "origin": "Romance-language feminine given name related to Rosa/Rosanna forms",
+      "count": 1
+    },
+    {
+      "origin": "Romanian (Hebrew)",
+      "count": 1
+    },
+    {
+      "origin": "Romanian / Latin",
+      "count": 1
+    },
+    {
+      "origin": "Romanian and Welsh forms of John",
+      "count": 1
+    },
+    {
+      "origin": "Romanian, Greek",
+      "count": 1
+    },
+    {
+      "origin": "Romanian, Greek, and Basque",
+      "count": 1
+    },
+    {
+      "origin": "Russian (diminutive of Valeria, ultimately Latin)",
+      "count": 1
+    },
+    {
+      "origin": "Russian (from Greek via Latin)",
+      "count": 1
+    },
+    {
+      "origin": "Russian (from Greek)",
+      "count": 1
+    },
+    {
+      "origin": "Russian (from Latin)",
+      "count": 1
+    },
+    {
+      "origin": "Russian (Greek roots)",
+      "count": 1
+    },
+    {
+      "origin": "Russian (Slavic)",
+      "count": 1
+    },
+    {
+      "origin": "Russian / Geographical / Spanish",
+      "count": 1
+    },
+    {
+      "origin": "Russian / German",
+      "count": 1
+    },
+    {
+      "origin": "Russian / Japanese / Spanish",
+      "count": 1
+    },
+    {
+      "origin": "Russian / Latin",
+      "count": 1
+    },
+    {
+      "origin": "Russian / Slavic",
+      "count": 1
+    },
+    {
+      "origin": "Russian and Armenian",
+      "count": 1
+    },
+    {
+      "origin": "Russian and East Slavic diminutive form of Olga.",
+      "count": 1
+    },
+    {
+      "origin": "Russian and East Slavic feminine form of Valerius",
+      "count": 1
+    },
+    {
+      "origin": "Russian and East Slavic form from Greek",
+      "count": 1
+    },
+    {
+      "origin": "Russian and Italian (short form); Georgian (Saint Nino)",
+      "count": 1
+    },
+    {
+      "origin": "Russian and other East Slavic adaptation of the French Jeanne name family",
+      "count": 1
+    },
+    {
+      "origin": "Russian and wider Slavic diminutive tradition from Anna",
+      "count": 1
+    },
+    {
+      "origin": "Russian diminutive-origin feminine name from Yuliya",
+      "count": 1
+    },
+    {
+      "origin": "Russian form of Artemios and Artem",
+      "count": 1
+    },
+    {
+      "origin": "Russian form of Elena, ultimately from Greek Helene.",
+      "count": 1
+    },
+    {
+      "origin": "Russian from the Latin Tatiana name family",
+      "count": 1
+    },
+    {
+      "origin": "Russian, Greek",
+      "count": 1
+    },
+    {
+      "origin": "Sanskrit (Indian, Nepali)",
+      "count": 1
+    },
+    {
+      "origin": "Sanskrit (Indic Hindu tradition)",
+      "count": 1
+    },
+    {
+      "origin": "Sanskrit / Bengali",
+      "count": 1
+    },
+    {
+      "origin": "Sanskrit / Hindi",
+      "count": 1
+    },
+    {
+      "origin": "Sanskrit / Hindu",
+      "count": 1
+    },
+    {
+      "origin": "Sanskrit / Hindu tradition",
+      "count": 1
+    },
+    {
+      "origin": "Sanskrit / Persian / Arabic Root",
+      "count": 1
+    },
+    {
+      "origin": "Sanskrit and Bengali",
+      "count": 1
+    },
+    {
+      "origin": "Sanskrit and Bengali/Hindi modern usage",
+      "count": 1
+    },
+    {
+      "origin": "Sanskrit and Hebrew, with Persian connections",
+      "count": 1
+    },
+    {
+      "origin": "Sanskrit and Hindi",
+      "count": 1
+    },
+    {
+      "origin": "Sanskrit and Hindu",
+      "count": 1
+    },
+    {
+      "origin": "Sanskrit and modern Indian name from the word sagara.",
+      "count": 1
+    },
+    {
+      "origin": "Sanskrit and modern Indian usage",
+      "count": 1
+    },
+    {
+      "origin": "Sanskrit and modern South Asian usage",
+      "count": 1
+    },
+    {
+      "origin": "Sanskrit and Nepali/Bengali usage",
+      "count": 1
+    },
+    {
+      "origin": "Sanskrit and Persian",
+      "count": 1
+    },
+    {
+      "origin": "Sanskrit and South Asian",
+      "count": 1
+    },
+    {
+      "origin": "Sanskrit and South Asian usage",
+      "count": 1
+    },
+    {
+      "origin": "Sanskrit and South Indian",
+      "count": 1
+    },
+    {
+      "origin": "Sanskrit and South Indian usage",
+      "count": 1
+    },
+    {
+      "origin": "Sanskrit and Spanish",
+      "count": 1
+    },
+    {
+      "origin": "Sanskrit and Turkish (dual origin)",
+      "count": 1
+    },
+    {
+      "origin": "Sanskrit, from the verbal root hṛ",
+      "count": 1
+    },
+    {
+      "origin": "Sanskrit, Greek, and Hebrew",
+      "count": 1
+    },
+    {
+      "origin": "Sanskrit/Hindi",
+      "count": 1
+    },
+    {
+      "origin": "Sanskrit/Hindi (South Asian)",
+      "count": 1
+    },
+    {
+      "origin": "Scandinavian (Hebrew)",
+      "count": 1
+    },
+    {
+      "origin": "Scandinavian / English",
+      "count": 1
+    },
+    {
+      "origin": "Scandinavian and Celtic",
+      "count": 1
+    },
+    {
+      "origin": "Scandinavian and German",
+      "count": 1
+    },
+    {
+      "origin": "Scots",
+      "count": 1
+    },
+    {
+      "origin": "Scots, Vietnamese, and Chinese (Cantonese)",
+      "count": 1
+    },
+    {
+      "origin": "Scottish (Anglicized Gaelic)",
+      "count": 1
+    },
+    {
+      "origin": "Scottish (Descriptive)",
+      "count": 1
+    },
+    {
+      "origin": "Scottish (from Brittonic place-name)",
+      "count": 1
+    },
+    {
+      "origin": "Scottish (from Leslie)",
+      "count": 1
+    },
+    {
+      "origin": "Scottish (Hebrew root via Jean/Janet and Jessica)",
+      "count": 1
+    },
+    {
+      "origin": "Scottish / English",
+      "count": 1
+    },
+    {
+      "origin": "Scottish / Irish (Gaelic)",
+      "count": 1
+    },
+    {
+      "origin": "Scottish and English",
+      "count": 1
+    },
+    {
+      "origin": "Scottish and English feminine given name from the Elizabeth family",
+      "count": 1
+    },
+    {
+      "origin": "Scottish and English short form of Alexander that became an independent given name",
+      "count": 1
+    },
+    {
+      "origin": "Scottish and English surname-derived name",
+      "count": 1
+    },
+    {
+      "origin": "Scottish Gaelic via English",
+      "count": 1
+    },
+    {
+      "origin": "Scottish toponymic surname turned English-language given name",
+      "count": 1
+    },
+    {
+      "origin": "Semitic (Hebrew/Arabic)",
+      "count": 1
+    },
+    {
+      "origin": "Semitic via Arabic",
+      "count": 1
+    },
+    {
+      "origin": "Sepedi (Northern Sotho)",
+      "count": 1
+    },
+    {
+      "origin": "Sesotho / Tswana (Southern African Bantu)",
+      "count": 1
+    },
+    {
+      "origin": "Setswana, Sotho-Tswana",
+      "count": 1
+    },
+    {
+      "origin": "Setswana/Sesotho given name tradition in Southern Africa",
+      "count": 1
+    },
+    {
+      "origin": "Sicilian (Greek/Latin)",
+      "count": 1
+    },
+    {
+      "origin": "Slavic (Croatian / Czech / Bulgarian / Serbian)",
+      "count": 1
+    },
+    {
+      "origin": "Slavic (Czech, Slovak, Polish)",
+      "count": 1
+    },
+    {
+      "origin": "Slavic (diminutive from Svetlana and related forms)",
+      "count": 1
+    },
+    {
+      "origin": "Slavic (from Hebrew) / Arabic",
+      "count": 1
+    },
+    {
+      "origin": "Slavic (Gothic Christian tradition)",
+      "count": 1
+    },
+    {
+      "origin": "Slavic (Hebrew)",
+      "count": 1
+    },
+    {
+      "origin": "Slavic (Polish)",
+      "count": 1
+    },
+    {
+      "origin": "Slavic (Romanian)",
+      "count": 1
+    },
+    {
+      "origin": "Slavic / German",
+      "count": 1
+    },
+    {
+      "origin": "Slavic / Germanic / Nature",
+      "count": 1
+    },
+    {
+      "origin": "Slavic / Greek",
+      "count": 1
+    },
+    {
+      "origin": "Slavic / Latin",
+      "count": 1
+    },
+    {
+      "origin": "Slavic / Russian",
+      "count": 1
+    },
+    {
+      "origin": "Slavic and Arabic parallel usage traditions",
+      "count": 1
+    },
+    {
+      "origin": "Slavic and Central European from the wider Blanche/Blanca family",
+      "count": 1
+    },
+    {
+      "origin": "Slavic and Czech",
+      "count": 1
+    },
+    {
+      "origin": "Slavic and Hispanic",
+      "count": 1
+    },
+    {
+      "origin": "Slavic and internationalized European usage",
+      "count": 1
+    },
+    {
+      "origin": "Slavic and Spanish",
+      "count": 1
+    },
+    {
+      "origin": "Slavic form of Daniel",
+      "count": 1
+    },
+    {
+      "origin": "Slavic form of Maximus",
+      "count": 1
+    },
+    {
+      "origin": "Slavic from Latin floral root",
+      "count": 1
+    },
+    {
+      "origin": "Slavic, especially Russian",
+      "count": 1
+    },
+    {
+      "origin": "Slavic-rooted feminine given name adapted into Spanish-speaking use",
+      "count": 1
+    },
+    {
+      "origin": "Sotho (Southern African)",
+      "count": 1
+    },
+    {
+      "origin": "Sotho / Tswana",
+      "count": 1
+    },
+    {
+      "origin": "Sotho-Tswana (Setswana / Sesotho)",
+      "count": 1
+    },
+    {
+      "origin": "Sotho-Tswana (Southern African Bantu)",
+      "count": 1
+    },
+    {
+      "origin": "Sotho-Tswana (Southern Bantu)",
+      "count": 1
+    },
+    {
+      "origin": "Sotho-Tswana, especially Southern African usage",
+      "count": 1
+    },
+    {
+      "origin": "South African feminine given name, especially from Nguni naming tradition",
+      "count": 1
+    },
+    {
+      "origin": "South African given name, especially in Nguni naming tradition",
+      "count": 1
+    },
+    {
+      "origin": "South African, Nguni and Sotho-Tswana",
+      "count": 1
+    },
+    {
+      "origin": "South Asian (Indic usage, especially Bengali/Hindi-Urdu)",
+      "count": 1
+    },
+    {
+      "origin": "South Asian form of Shiva, from Sanskrit and Hindu religious tradition.",
+      "count": 1
+    },
+    {
+      "origin": "South Indian",
+      "count": 1
+    },
+    {
+      "origin": "South Slavic",
+      "count": 1
+    },
+    {
+      "origin": "South Slavic and Turkic (Tatar)",
+      "count": 1
+    },
+    {
+      "origin": "Southern Bantu (Setswana and Sesotho)",
+      "count": 1
+    },
+    {
+      "origin": "Spanish (Andean) respelling of the English and Scottish Ronald",
+      "count": 1
+    },
+    {
+      "origin": "Spanish (Arabic-Latin hybrid)",
+      "count": 1
+    },
+    {
+      "origin": "Spanish (blended modern form related to María and Maricela traditions)",
+      "count": 1
+    },
+    {
+      "origin": "Spanish (Catalan and broader Iberian usage)",
+      "count": 1
+    },
+    {
+      "origin": "Spanish (Colombian creative spelling)",
+      "count": 1
+    },
+    {
+      "origin": "Spanish (Colombian nickname)",
+      "count": 1
+    },
+    {
+      "origin": "Spanish (Colombian) / Hebrew Root",
+      "count": 1
+    },
+    {
+      "origin": "Spanish (compound given name)",
+      "count": 1
+    },
+    {
+      "origin": "Spanish (compound Marian + Germanic)",
+      "count": 1
+    },
+    {
+      "origin": "Spanish (compound of José and María, devotional Catholic tradition)",
+      "count": 1
+    },
+    {
+      "origin": "Spanish (compound: Hebrew + Greek/Latin)",
+      "count": 1
+    },
+    {
+      "origin": "Spanish (from Basque)",
+      "count": 1
+    },
+    {
+      "origin": "Spanish (from Hebrew)",
+      "count": 1
+    },
+    {
+      "origin": "Spanish (from Latin miraculum)",
+      "count": 1
+    },
+    {
+      "origin": "Spanish (gem-name)",
+      "count": 1
+    },
+    {
+      "origin": "Spanish (Germanic / Greek hybrid)",
+      "count": 1
+    },
+    {
+      "origin": "Spanish (Germanic and Greek)",
+      "count": 1
+    },
+    {
+      "origin": "Spanish (Germanic), Turkic-Arabic and Russian",
+      "count": 1
+    },
+    {
+      "origin": "Spanish (Greek)",
+      "count": 1
+    },
+    {
+      "origin": "Spanish (Hebrew roots)",
+      "count": 1
+    },
+    {
+      "origin": "Spanish (Hebrew)",
+      "count": 1
+    },
+    {
+      "origin": "Spanish (hypocoristic of Juana)",
+      "count": 1
+    },
+    {
+      "origin": "Spanish (Latin American variant of Johanna, ultimately from Hebrew יוֹחָנָן)",
+      "count": 1
+    },
+    {
+      "origin": "Spanish (Latin)",
+      "count": 1
+    },
+    {
+      "origin": "Spanish (Marian devotion)",
+      "count": 1
+    },
+    {
+      "origin": "Spanish / Ancient Greek",
+      "count": 1
+    },
+    {
+      "origin": "Spanish / Catalan",
+      "count": 1
+    },
+    {
+      "origin": "Spanish / Colombian / Religious",
+      "count": 1
+    },
+    {
+      "origin": "Spanish / Germanic / Hebrew",
+      "count": 1
+    },
+    {
+      "origin": "Spanish / Greek",
+      "count": 1
+    },
+    {
+      "origin": "Spanish / Guanche",
+      "count": 1
+    },
+    {
+      "origin": "Spanish / Hebrew / Persian",
+      "count": 1
+    },
+    {
+      "origin": "Spanish / Italian",
+      "count": 1
+    },
+    {
+      "origin": "Spanish / Italian (phonetic adaptation of English Michael)",
+      "count": 1
+    },
+    {
+      "origin": "Spanish / Italian / Sotho",
+      "count": 1
+    },
+    {
+      "origin": "Spanish / Latin / Hebrew",
+      "count": 1
+    },
+    {
+      "origin": "Spanish / Marian diminutive",
+      "count": 1
+    },
+    {
+      "origin": "Spanish / Portuguese (from Hebrew)",
+      "count": 1
+    },
+    {
+      "origin": "Spanish / Portuguese Catholic compound name",
+      "count": 1
+    },
+    {
+      "origin": "Spanish and Arabic nickname usage",
+      "count": 1
+    },
+    {
+      "origin": "Spanish and Colombian",
+      "count": 1
+    },
+    {
+      "origin": "Spanish and Germanic",
+      "count": 1
+    },
+    {
+      "origin": "Spanish and Greek",
+      "count": 1
+    },
+    {
+      "origin": "Spanish and Italian hypocoristic tradition",
+      "count": 1
+    },
+    {
+      "origin": "Spanish and Italian usage, linked to Myrtle-name family traditions",
+      "count": 1
+    },
+    {
+      "origin": "Spanish and Latin American compound feminine name combining Maria and Eugenia",
+      "count": 1
+    },
+    {
+      "origin": "Spanish and Latin American orthographic variant of Christian/Cristian",
+      "count": 1
+    },
+    {
+      "origin": "Spanish and Latin Christian",
+      "count": 1
+    },
+    {
+      "origin": "Spanish and Mexican Catholic",
+      "count": 1
+    },
+    {
+      "origin": "Spanish and Portuguese compound Christian tradition",
+      "count": 1
+    },
+    {
+      "origin": "Spanish and Portuguese form of Julia",
+      "count": 1
+    },
+    {
+      "origin": "Spanish and Portuguese from Greek through Latin",
+      "count": 1
+    },
+    {
+      "origin": "Spanish and Portuguese from Latin Marcellinus",
+      "count": 1
+    },
+    {
+      "origin": "Spanish and Slavic",
+      "count": 1
+    },
+    {
+      "origin": "Spanish Catholic devotional tradition",
+      "count": 1
+    },
+    {
+      "origin": "Spanish compound",
+      "count": 1
+    },
+    {
+      "origin": "Spanish compound Christian naming tradition",
+      "count": 1
+    },
+    {
+      "origin": "Spanish compound name",
+      "count": 1
+    },
+    {
+      "origin": "Spanish compound name from Aramaic and Latin",
+      "count": 1
+    },
+    {
+      "origin": "Spanish compound with Germanic roots",
+      "count": 1
+    },
+    {
+      "origin": "Spanish diminutive and Latin",
+      "count": 1
+    },
+    {
+      "origin": "Spanish double feminine given name combining biblical and Latin Christian traditions",
+      "count": 1
+    },
+    {
+      "origin": "Spanish double masculine given name combining biblical and royal Christian traditions",
+      "count": 1
+    },
+    {
+      "origin": "Spanish form of Constantia, from Latin constantia.",
+      "count": 1
+    },
+    {
+      "origin": "Spanish form of Germanic Reinhold/Reynald family",
+      "count": 1
+    },
+    {
+      "origin": "Spanish form of Stephanie",
+      "count": 1
+    },
+    {
+      "origin": "Spanish from Catholic Marian devotion",
+      "count": 1
+    },
+    {
+      "origin": "Spanish from Latin",
+      "count": 1
+    },
+    {
+      "origin": "Spanish from Latin Dominicus.",
+      "count": 1
+    },
+    {
+      "origin": "Spanish hypocoristic form (especially from Pilar)",
+      "count": 1
+    },
+    {
+      "origin": "Spanish hypocoristic of Mercedes",
+      "count": 1
+    },
+    {
+      "origin": "Spanish nickname tradition (from Fernando/Fernanda)",
+      "count": 1
+    },
+    {
+      "origin": "Spanish place name and surname used as given name",
+      "count": 1
+    },
+    {
+      "origin": "Spanish short form of Marcela or Marcelina",
+      "count": 1
+    },
+    {
+      "origin": "Spanish, from Germanic roots",
+      "count": 1
+    },
+    {
+      "origin": "Spanish, from Hebrew and Latin",
+      "count": 1
+    },
+    {
+      "origin": "Spanish, from Visigothic Germanic",
+      "count": 1
+    },
+    {
+      "origin": "Spanish, Hebrew, and Greek",
+      "count": 1
+    },
+    {
+      "origin": "Spanish, Hebrew, and Marian Catholic",
+      "count": 1
+    },
+    {
+      "origin": "Spanish, Latin, and Germanic",
+      "count": 1
+    },
+    {
+      "origin": "Spanish, Portuguese, and Romanian",
+      "count": 1
+    },
+    {
+      "origin": "Spanish, probably literary-classical in modern use",
+      "count": 1
+    },
+    {
+      "origin": "Spanish, with possible Greek influence",
+      "count": 1
+    },
+    {
+      "origin": "Spanish-language feminine name, widely treated as a Hispanic adaptation of Sulayma or related Arabic forms",
+      "count": 1
+    },
+    {
+      "origin": "Spanish-speaking Colombian compound form",
+      "count": 1
+    },
+    {
+      "origin": "Spanish/Czech (hypocoristic)",
+      "count": 1
+    },
+    {
+      "origin": "Spanish/Italian",
+      "count": 1
+    },
+    {
+      "origin": "Swedish / English",
+      "count": 1
+    },
+    {
+      "origin": "Swedish and German (Low German form of Christina)",
+      "count": 1
+    },
+    {
+      "origin": "Tahitian (Polynesian)",
+      "count": 1
+    },
+    {
+      "origin": "Tamil and Sanskrit",
+      "count": 1
+    },
+    {
+      "origin": "Tatar/Arabic",
+      "count": 1
+    },
+    {
+      "origin": "Telugu",
+      "count": 1
+    },
+    {
+      "origin": "Telugu and Sanskrit",
+      "count": 1
+    },
+    {
+      "origin": "Tswana (Setswana)",
+      "count": 1
+    },
+    {
+      "origin": "Tswana (Southern Africa)",
+      "count": 1
+    },
+    {
+      "origin": "Tswana (Southern African Bantu)",
+      "count": 1
+    },
+    {
+      "origin": "Tswana and Sotho (Southern Africa)",
+      "count": 1
+    },
+    {
+      "origin": "Tswana Sotho",
+      "count": 1
+    },
+    {
+      "origin": "Tswana, Greek, and modern international",
+      "count": 1
+    },
+    {
+      "origin": "Tupi-Guarani (Brazilian Portuguese)",
+      "count": 1
+    },
+    {
+      "origin": "Turco-Mongolic",
+      "count": 1
+    },
+    {
+      "origin": "Turkic (Chagatai/Persianate)",
+      "count": 1
+    },
+    {
+      "origin": "Turkic (Persian)",
+      "count": 1
+    },
+    {
+      "origin": "Turkic / Altaic / Royal Title",
+      "count": 1
+    },
+    {
+      "origin": "Turkic / Aramaic",
+      "count": 1
+    },
+    {
+      "origin": "Turkic and broader Eurasian given name",
+      "count": 1
+    },
+    {
+      "origin": "Turkic and broader Islamic usage",
+      "count": 1
+    },
+    {
+      "origin": "Turkic and Malay",
+      "count": 1
+    },
+    {
+      "origin": "Turkic and Mongolic",
+      "count": 1
+    },
+    {
+      "origin": "Turkic and Persian",
+      "count": 1
+    },
+    {
+      "origin": "Turkic and Persianate historical-cultural name tradition",
+      "count": 1
+    },
+    {
+      "origin": "Turkic historical name",
+      "count": 1
+    },
+    {
+      "origin": "Turkic with Arabic lexical influence",
+      "count": 1
+    },
+    {
+      "origin": "Turkic, especially Turkish and Azerbaijani",
+      "count": 1
+    },
+    {
+      "origin": "Turkic, from the Mongol-era title Ilkhan",
+      "count": 1
+    },
+    {
+      "origin": "Turkic, Persian, and Arabic",
+      "count": 1
+    },
+    {
+      "origin": "Turkish (Arabic and Turkic elements)",
+      "count": 1
+    },
+    {
+      "origin": "Turkish (Arabic origin)",
+      "count": 1
+    },
+    {
+      "origin": "Turkish (Celestial / Monarchical Root)",
+      "count": 1
+    },
+    {
+      "origin": "Turkish (from Arabic faridah)",
+      "count": 1
+    },
+    {
+      "origin": "Turkish (from Arabic Junayd)",
+      "count": 1
+    },
+    {
+      "origin": "Turkish (from Arabic Safiyya)",
+      "count": 1
+    },
+    {
+      "origin": "Turkish (from Arabic Talib)",
+      "count": 1
+    },
+    {
+      "origin": "Turkish (from Arabic-Persian literary tradition)",
+      "count": 1
+    },
+    {
+      "origin": "Turkish (from Greek borrowing)",
+      "count": 1
+    },
+    {
+      "origin": "Turkish (from Mongol Chinggis)",
+      "count": 1
+    },
+    {
+      "origin": "Turkish (from Persian buland بلند)",
+      "count": 1
+    },
+    {
+      "origin": "Turkish (from Persian)",
+      "count": 1
+    },
+    {
+      "origin": "Turkish (Old Turkic)",
+      "count": 1
+    },
+    {
+      "origin": "Turkish (Persian origin)",
+      "count": 1
+    },
+    {
+      "origin": "Turkish (Persian-Turkic hybrid)",
+      "count": 1
+    },
+    {
+      "origin": "Turkish (Title/Royal)",
+      "count": 1
+    },
+    {
+      "origin": "Turkish (with Arabic and Turkic elements)",
+      "count": 1
+    },
+    {
+      "origin": "Turkish / Altaic",
+      "count": 1
+    },
+    {
+      "origin": "Turkish / Anatolian",
+      "count": 1
+    },
+    {
+      "origin": "Turkish / Arabic / Islamic",
+      "count": 1
+    },
+    {
+      "origin": "Turkish / Arabic Root",
+      "count": 1
+    },
+    {
+      "origin": "Turkish / Aramaic Root / Calendar",
+      "count": 1
+    },
+    {
+      "origin": "Turkish / Botanical",
+      "count": 1
+    },
+    {
+      "origin": "Turkish / Kazakh / Persian",
+      "count": 1
+    },
+    {
+      "origin": "Turkish / Mongolic",
+      "count": 1
+    },
+    {
+      "origin": "Turkish / Old Turkic",
+      "count": 1
+    },
+    {
+      "origin": "Turkish abbreviation",
+      "count": 1
+    },
+    {
+      "origin": "Turkish and Albanian usage traditions",
+      "count": 1
+    },
+    {
+      "origin": "Turkish and Azerbaijani",
+      "count": 1
+    },
+    {
+      "origin": "Turkish and Azerbaijani regional usage",
+      "count": 1
+    },
+    {
+      "origin": "Turkish and Balkan form of the Arabic month name Shaaban.",
+      "count": 1
+    },
+    {
+      "origin": "Turkish and Balkan variant form in the Mehmet/Muhammad name family",
+      "count": 1
+    },
+    {
+      "origin": "Turkish and Chinese via international vocabulary",
+      "count": 1
+    },
+    {
+      "origin": "Turkish and Egyptian Arabic",
+      "count": 1
+    },
+    {
+      "origin": "Turkish and Germanic",
+      "count": 1
+    },
+    {
+      "origin": "Turkish and Japanese",
+      "count": 1
+    },
+    {
+      "origin": "Turkish and Kurdish",
+      "count": 1
+    },
+    {
+      "origin": "Turkish and Latin",
+      "count": 1
+    },
+    {
+      "origin": "Turkish and older Turkic given name",
+      "count": 1
+    },
+    {
+      "origin": "Turkish and West African Muslim",
+      "count": 1
+    },
+    {
+      "origin": "Turkish and Yoruba",
+      "count": 1
+    },
+    {
+      "origin": "Turkish compound given name from er and dogan elements",
+      "count": 1
+    },
+    {
+      "origin": "Turkish compound given name from nur and ay elements",
+      "count": 1
+    },
+    {
+      "origin": "Turkish compound given name from tan and er elements",
+      "count": 1
+    },
+    {
+      "origin": "Turkish compound name built from tunç and ay.",
+      "count": 1
+    },
+    {
+      "origin": "Turkish feminine given name",
+      "count": 1
+    },
+    {
+      "origin": "Turkish form derived from Arabic mawlud naming tradition",
+      "count": 1
+    },
+    {
+      "origin": "Turkish form from Persian jahan, world or universe.",
+      "count": 1
+    },
+    {
+      "origin": "Turkish form of Arabic",
+      "count": 1
+    },
+    {
+      "origin": "Turkish from Arabic nehr, meaning river",
+      "count": 1
+    },
+    {
+      "origin": "Turkish from Persian",
+      "count": 1
+    },
+    {
+      "origin": "Turkish lexical compound",
+      "count": 1
+    },
+    {
+      "origin": "Turkish masculine given name built from old Turkic elements",
+      "count": 1
+    },
+    {
+      "origin": "Turkish name from an old adjective describing toughness, severity, or resolute strength.",
+      "count": 1
+    },
+    {
+      "origin": "Turkish name with a separate and unrelated Nigerian use in some communities.",
+      "count": 1
+    },
+    {
+      "origin": "Turkish Persian",
+      "count": 1
+    },
+    {
+      "origin": "Turkish personal name from old Turkic military vocabulary.",
+      "count": 1
+    },
+    {
+      "origin": "Turkish, Arabic",
+      "count": 1
+    },
+    {
+      "origin": "Turkish, Arabic, and Persian",
+      "count": 1
+    },
+    {
+      "origin": "Turkish, from Arabic",
+      "count": 1
+    },
+    {
+      "origin": "Turkish, from Arabic Jalāl",
+      "count": 1
+    },
+    {
+      "origin": "Turkish, with related Kurdish usage",
+      "count": 1
+    },
+    {
+      "origin": "Turkish/Germanic",
+      "count": 1
+    },
+    {
+      "origin": "Turkish/Persian",
+      "count": 1
+    },
+    {
+      "origin": "Ukrainian",
+      "count": 1
+    },
+    {
+      "origin": "Ukrainian and East Slavic",
+      "count": 1
+    },
+    {
+      "origin": "Uncertain placeholder or clipped record",
+      "count": 1
+    },
+    {
+      "origin": "Uncertain truncated record from Egyptian and Maghreb civil registries",
+      "count": 1
+    },
+    {
+      "origin": "Uncertain, likely clipped Maghrebi or Arabic form",
+      "count": 1
+    },
+    {
+      "origin": "Uncertain; likely a clipped Maghrebi transliteration rather than a stable standalone classical form",
+      "count": 1
+    },
+    {
+      "origin": "Uncertain; likely a compressed North African and Arabic-adjacent record rather than one single recoverable given name tradition.",
+      "count": 1
+    },
+    {
+      "origin": "Unknown",
+      "count": 1
+    },
+    {
+      "origin": "Vietnamese",
+      "count": 1
+    },
+    {
+      "origin": "Welsh (Greek)",
+      "count": 1
+    },
+    {
+      "origin": "Welsh / Celtic",
+      "count": 1
+    },
+    {
+      "origin": "Welsh / Old English",
+      "count": 1
+    },
+    {
+      "origin": "Welsh / Romanian",
+      "count": 1
+    },
+    {
+      "origin": "Welsh English African",
+      "count": 1
+    },
+    {
+      "origin": "Welsh via Spanish and English adaptation",
+      "count": 1
+    },
+    {
+      "origin": "Welsh, Breton",
+      "count": 1
+    },
+    {
+      "origin": "Welsh/Brythonic",
+      "count": 1
+    },
+    {
+      "origin": "West African (Francophone form of Arabic Abdullah)",
+      "count": 1
+    },
+    {
+      "origin": "West African / Arabic",
+      "count": 1
+    },
+    {
+      "origin": "West African / Arabic (Ethno-Theological Root)",
+      "count": 1
+    },
+    {
+      "origin": "West African and Arabic",
+      "count": 1
+    },
+    {
+      "origin": "West African Muslim",
+      "count": 1
+    },
+    {
+      "origin": "West African Muslim masculine given name, especially in Hausa usage, linked to the Arabic title shaykh",
+      "count": 1
+    },
+    {
+      "origin": "West African, Arabic, and nickname usage",
+      "count": 1
+    },
+    {
+      "origin": "West Slavic (Czech and Polish)",
+      "count": 1
+    },
+    {
+      "origin": "Xhosa and Zulu (Nguni Bantu)",
+      "count": 1
+    },
+    {
+      "origin": "Xhosa/Zulu",
+      "count": 1
+    },
+    {
+      "origin": "Yiddish",
+      "count": 1
+    },
+    {
+      "origin": "Yoruba / Tupi-Guarani",
+      "count": 1
+    },
+    {
+      "origin": "Yoruba and Hungarian",
+      "count": 1
+    },
+    {
+      "origin": "Yoruba given name from West Africa",
+      "count": 1
+    },
+    {
+      "origin": "Yucatec Maya",
+      "count": 1
+    },
+    {
+      "origin": "Zapotec (Mexican Indigenous)",
+      "count": 1
+    },
+    {
+      "origin": "Zulu (Nguni)",
+      "count": 1
+    },
+    {
+      "origin": "Zulu (Southern African)",
+      "count": 1
+    },
+    {
+      "origin": "Zulu / Ndebele (Southern African Bantu)",
+      "count": 1
+    },
+    {
+      "origin": "Zulu and Southern African",
+      "count": 1
+    },
+    {
+      "origin": "Zulu and Xhosa (Nguni languages)",
+      "count": 1
+    },
+    {
+      "origin": "Zulu feminine given name",
+      "count": 1
+    },
+    {
+      "origin": "Zulu/Nguni (South Africa)",
+      "count": 1
+    }
+  ],
+  "method": "Exact-name meaning match with origin compatibility; no automatic meanings inferred from name strings."
+}

@@ -49,7 +49,7 @@ const baseNames=[
 ["Nia","girl","Suajili / Galés","Propósito (suajili); otro origen en galés","KE",""],
 ["Aurora","girl","Latín","Amanecer","IT","Aurore"],
 ["Elio","boy","Griego / Italiano","Sol (asociación con Helios)","IT","Helio"]
-].map(([name,gender,origin,meaning,country,variants],id)=>({id,name,gender,origin,meaning,country,variants:variants?variants.split(','):[]}));
+].map(([name,gender,origin,meaning,country,variants],id)=>({id,name,gender,origin,meaning,country,variants:variants?variants.split(','):[],meaningStatus:'editorial_pending_verification',nativeStatus:'not_available',reviewStatus:'needs_individual_source',meaningSource:null}));
 export const countries=[["all","Todas las culturas"],["MX","México"],["JP","Japón"],["ES","España"],["IT","Italia"],["FR","Francia"],["DE","Alemania"],["GB","Reino Unido"],["US","Estados Unidos"],["GR","Grecia"],["SE","Suecia"],["IN","India"],["KR","Corea"],["EG","Egipto"],["BR","Brasil"],["NG","Nigeria"],["IE","Irlanda"],["KE","Kenia"]];
 
 // Curated multilingual additions; each original spelling is retained as written.
