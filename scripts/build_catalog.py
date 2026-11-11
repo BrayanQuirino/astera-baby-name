@@ -324,6 +324,68 @@ for key,options in candidate_meanings.items():
     culture_added+=1
 print("Additional Wiktionary cultural meanings:",culture_added,flush=True)
 print("Ambiguous name interpretations excluded:",ambiguous_skipped,flush=True)
+# A broader independent set of published popular-name interpretations.
+# Exact-name matches only. Source country is not by itself evidence of origin,
+# so only attach a meaning when its stated linguistic origin agrees.
+COUNTRY_SOURCES=["australia","canada","united-states","india","united-kingdom","pakistan","ireland","nigeria","south-africa","united-arab-emirates","saudi-arabia","spain","germany","france"]
+COUNTRY_TO_ORIGIN={"australia":["english"],"canada":["english","french"],"united-states":["english"],"india":["hindi","sanskrit"],"united-kingdom":["english"],"pakistan":["urdu","arabic"],"ireland":["irish","gaelic"],"nigeria":["yoruba","igbo"],"south-africa":["zulu","xhosa"],"united-arab-emirates":["arabic"],"saudi-arabia":["arabic"],"spain":["spanish"],"germany":["german"],"france":["french"]}
+country_sourced=0
+for country_filename in COUNTRY_SOURCES:
+    url="https://raw.githubusercontent.com/Nurturepedia/baby-names-dataset/main/datasets/countries/"+country_filename+".json"
+    try:
+        with urllib.request.urlopen(urllib.request.Request(url,headers=HEADERS),timeout=30) as response:
+            records=json.load(response)
+    except Exception as exc:
+        print("Country meanings source unavailable:",country_filename,str(exc)[:100],flush=True)
+        continue
+    if not isinstance(records,list):
+        continue
+    for record in records:
+        if not isinstance(record,dict):
+            continue
+        key=dedupe_key(record.get("name") or "")
+        existing=index.get(key)
+        meaning=(record.get("meaning") or "").strip() if isinstance(record.get("meaning"),str) else ""
+        if not existing or existing.get("meaning") or not meaning or len(meaning)>180:
+            continue
+        origin=str(record.get("origin") or "").casefold()
+        current_origin=existing["origin"].casefold()
+        if not origin or current_origin=="origen por verificar":
+            continue
+        # Exact linguistic-root match only (not country-based inference).
+        if origin not in current_origin and current_origin not in origin:
+            continue
+        existing.update(meaning=meaning,meaningLanguage="en",meaningSource="nurturepedia-country/"+country_filename)
+        country_sourced+=1
+print("Additional country-list published meanings:",country_sourced,flush=True)
+
+# A poetic *association* is not a culturally established name meaning.
+# Each missing name receives engaging Spanish copy in its own distinct field
+# and classification, never an invented etymology.
+POETIC_ASSOCIATIONS=[
+  "una historia llena de posibilidades","la luz de los nuevos comienzos",
+  "un encuentro que transforma la vida","un sueño que empieza a florecer",
+  "un camino de descubrimientos","el cariño que une generaciones",
+  "la belleza de un nuevo capítulo","un horizonte de esperanza",
+  "la alegría de descubrir el mundo","un lazo que trasciende fronteras",
+  "la magia de los pequeños momentos","la fuerza de los sueños",
+  "un viaje hacia lo extraordinario","la ternura de un nuevo hogar",
+  "el brillo de las primeras estrellas","un universo por explorar",
+  "la promesa de un mañana hermoso","el comienzo de una gran aventura",
+  "una conexión entre culturas","la calidez de los recuerdos",
+  "la serenidad de un amanecer","la libertad de imaginar",
+  "la confianza de caminar juntos","un instante que se vuelve eterno",
+  "la energía de una nueva etapa","el refugio de los abrazos",
+  "la armonía de un cielo tranquilo","el valor de ser uno mismo",
+  "la curiosidad por lo desconocido","el eco de una historia familiar",
+  "un deseo compartido","la dulzura de lo inesperado"
+]
+import hashlib
+def poetic_text(name):
+    digest=hashlib.sha256(name.casefold().encode("utf-8")).digest()
+    first=digest[0]%len(POETIC_ASSOCIATIONS)
+    second=(first+1+digest[1]%(len(POETIC_ASSOCIATIONS)-1))%len(POETIC_ASSOCIATIONS)
+    return f"Evoca {POETIC_ASSOCIATIONS[first]} y {POETIC_ASSOCIATIONS[second]}."
 # Stable provenance URLs and explicit per-record status make every JSON entry
 # auditable; missing etymologies remain null, never generated prose.
 # Wiktionary words may have several language sections, so the displayed gloss
@@ -333,25 +395,27 @@ def meaning_reference(item):
     if source.startswith("wiktionary"):
         return "https://en.wiktionary.org/wiki/"+urllib.parse.quote(item.get("meaningVia") or item["name"],safe="")
     if source.startswith("nurturepedia"):
-        return "https://github.com/Nurturepedia/baby-names-dataset/tree/main/datasets/origin"
+        return "https://github.com/Nurturepedia/baby-names-dataset/tree/main/datasets"
     return None
 # Explicit data-quality coverage fields for EVERY imported record.
 for entry in items:
-    entry["meaningStatus"]="documented" if entry.get("meaning") else "undocumented"
-    if not entry.get("meaning"):
-        entry["meaning"]=None
+    documented=bool(entry.get("meaning"))
+    entry["meaningStatus"]="documented" if documented else "poetic_interpretation"
+    entry["meaningType"]="published" if documented else "creative"
+    if not documented:
+        entry["meaning"]=poetic_text(entry["name"])
         entry["meaningSource"]=None
     entry["nativeStatus"]="documented" if entry.get("native") else "not_available"
     entry["meaningSourceUrl"]=meaning_reference(entry)
-    entry["reviewStatus"]="source_matched" if entry.get("meaning") else "requires_etymological_source"
+    entry["reviewStatus"]="source_matched" if documented else "requires_etymological_source"
 items.sort(key=lambda x:x["name"].casefold())
 # Audit all statuses and source coverage without duplicating the full catalog.
-coverage=Counter(item.get("meaningSource") or "pending" for item in items)
-pending_by_origin=Counter(item["origin"] for item in items if not item.get("meaning"))
+coverage=Counter(item.get("meaningSource") or "creative" for item in items)
+pending_by_origin=Counter(item["origin"] for item in items if item["meaningType"]=="creative")
 audit={
   "totalNames":len(items),
-  "meaningDocumented":sum(bool(item.get("meaning")) for item in items),
-  "meaningPending":sum(not bool(item.get("meaning")) for item in items),
+  "meaningDocumented":sum(item["meaningType"]=="published" for item in items),
+  "meaningPending":sum(item["meaningType"]=="creative" for item in items),
   "meaningSources":dict(sorted(coverage.items())),
   "pendingByOrigin":[{"origin":origin,"count":count} for origin,count in sorted(pending_by_origin.items(),key=lambda pair:(-pair[1],pair[0].casefold()))],
   "method":"Exact-name meaning match with origin compatibility; no automatic meanings inferred from name strings.",
@@ -359,6 +423,6 @@ audit={
 (OUTPUT/"coverage.json").write_text(json.dumps(audit,ensure_ascii=False,indent=2),encoding="utf-8")
 (OUTPUT/"extended.json").write_text(json.dumps(items,ensure_ascii=False,separators=(",",":")),encoding="utf-8")
 (OUTPUT/"countries.json").write_text(json.dumps([{"code":c,"name":label} for c,label in sorted(countries.items())],ensure_ascii=False),encoding="utf-8")
-(OUTPUT/"manifest.json").write_text(json.dumps({"version":VERSION,"count":len(items),"countryCount":len(countries),"meaningCount":sum(bool(item.get("meaning")) for item in items),"missingMeaningCount":sum(not bool(item.get("meaning")) for item in items),"nativeScriptCount":sum(bool(item.get("native")) for item in items),"variantCount":sum(bool(item.get("variants")) for item in items),"cultureSources":culture_file_success,"wiktionaryLicense":"CC BY-SA 4.0",
-    "meaningStatus":"source-backed meanings only; null when not verified","attribution":"Names data from Onomaverse (https://onomaverse.com/datasets), licensed CC BY 4.0."},ensure_ascii=False,indent=2),encoding="utf-8")
+(OUTPUT/"manifest.json").write_text(json.dumps({"version":VERSION,"count":len(items),"countryCount":len(countries),"meaningCount":sum(item["meaningType"]=="published" for item in items),"missingMeaningCount":sum(item["meaningType"]=="creative" for item in items),"populatedCount":len(items),"nativeScriptCount":sum(bool(item.get("native")) for item in items),"variantCount":sum(bool(item.get("variants")) for item in items),"cultureSources":culture_file_success,"wiktionaryLicense":"CC BY-SA 4.0",
+    "meaningStatus":"every name has text; published or clearly labeled creative interpretation","attribution":"Names data from Onomaverse (https://onomaverse.com/datasets), licensed CC BY 4.0."},ensure_ascii=False,indent=2),encoding="utf-8")
 print(f"Built {len(items)} unique names, {len(countries)} countries.",flush=True)

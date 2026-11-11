@@ -6,6 +6,7 @@ on:
       - scripts/build_catalog.py
       - .github/workflows/catalog.yml
       - scripts/validate_catalog.py
+      - src/data/international.json
   workflow_dispatch:
 permissions:
   contents: write
