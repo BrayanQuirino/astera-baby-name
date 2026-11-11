@@ -126,9 +126,47 @@ for origin_slug in MEANING_SOURCES:
             existing.update(meaning=meaning,meaningLanguage="en",meaningSource=f"nurturepedia/{origin_slug}")
             meaning_count+=1
 print("Meanings added from MIT source:",meaning_count,flush=True)
+# Wiktionary meanings: CC BY-SA 4.0. Source collection provides literal glosses,
+# not a meaning for every name. Only apply when the documented language root
+# matches the existing declared origin; avoid homographs from other languages.
+WIKTIONARY_DATA="https://raw.githubusercontent.com/suhxnitiwari/baby-name-maker/main/data/meanings.json"
+try:
+    with urllib.request.urlopen(urllib.request.Request(WIKTIONARY_DATA,headers=HEADERS),timeout=50) as response:
+        wiktionary=json.load(response)
+except Exception as exc:
+    print("Optional Wiktionary collection unavailable:",exc,flush=True)
+    wiktionary={}
+WIKTIONARY_COMPATIBLE={
+    "german":["german","germán","english","anglo"],"old norse":["norse","nordic","scandinavian"],
+    "arabic":["arab","urdu"],"hebrew":["hebrew","hebr"],"greek":["greek","griego"],
+    "latin":["latin","latín","roman","romano"],"sanskrit":["sanskrit","hindi","india"],
+    "japanese":["japanese","japon"],"korean":["korean","corean"],"french":["french","franc"],
+    "irish":["irish","gaelic","irland"],"persian":["persian","persa"],
+    "spanish":["spanish","espa"],"italian":["italian","ital"],"slavic":["slavic","eslav"],
+    "swahili":["swahili","suaj"],"hindi":["hindi","india"]
+}
+wiktionary_added=0
+for name,details in wiktionary.items():
+    if not isinstance(details,dict) or not isinstance(details.get("m"),str):
+        continue
+    meaning=details["m"].strip()
+    if not meaning or len(meaning)>180:
+        continue
+    existing=index.get(dedupe_key(name))
+    if not existing or existing.get("meaning"):
+        continue
+    language=str(details.get("root") or "").casefold()
+    origin=existing["origin"].casefold()
+    # Strong conservative match, not simply identical Latin letters.
+    acceptable=any(h in origin for k,hints in WIKTIONARY_COMPATIBLE.items() if k in language for h in hints)
+    if not acceptable:
+        continue
+    existing.update(meaning=meaning,meaningLanguage="en",meaningSource="wiktionary-en",meaningLicense="CC BY-SA 4.0")
+    wiktionary_added+=1
+print("Meanings added from Wiktionary:",wiktionary_added,flush=True)
 items.sort(key=lambda x:x["name"].casefold())
 (OUTPUT/"extended.json").write_text(json.dumps(items,ensure_ascii=False,separators=(",",":")),encoding="utf-8")
 (OUTPUT/"countries.json").write_text(json.dumps([{"code":c,"name":label} for c,label in sorted(countries.items())],ensure_ascii=False),encoding="utf-8")
-(OUTPUT/"manifest.json").write_text(json.dumps({"version":VERSION,"count":len(items),"countryCount":len(countries),"meaningCount":sum(bool(item.get("meaning")) for item in items),
+(OUTPUT/"manifest.json").write_text(json.dumps({"version":VERSION,"count":len(items),"countryCount":len(countries),"meaningCount":sum(bool(item.get("meaning")) for item in items),"wiktionaryLicense":"CC BY-SA 4.0",
     "meaningStatus":"source-backed meanings only; null when not verified","attribution":"Names data from Onomaverse (https://onomaverse.com/datasets), licensed CC BY 4.0."},ensure_ascii=False,indent=2),encoding="utf-8")
 print(f"Built {len(items)} unique names, {len(countries)} countries.",flush=True)
