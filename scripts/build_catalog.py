@@ -395,7 +395,7 @@ def meaning_reference(item):
     if source.startswith("wiktionary"):
         return "https://en.wiktionary.org/wiki/"+urllib.parse.quote(item.get("meaningVia") or item["name"],safe="")
     if source.startswith("nurturepedia"):
-        return "https://github.com/Nurturepedia/baby-names-dataset/tree/main/datasets/origin"
+        return "https://github.com/Nurturepedia/baby-names-dataset/tree/main/datasets"
     return None
 # Explicit data-quality coverage fields for EVERY imported record.
 for entry in items:
@@ -423,6 +423,6 @@ audit={
 (OUTPUT/"coverage.json").write_text(json.dumps(audit,ensure_ascii=False,indent=2),encoding="utf-8")
 (OUTPUT/"extended.json").write_text(json.dumps(items,ensure_ascii=False,separators=(",",":")),encoding="utf-8")
 (OUTPUT/"countries.json").write_text(json.dumps([{"code":c,"name":label} for c,label in sorted(countries.items())],ensure_ascii=False),encoding="utf-8")
-(OUTPUT/"manifest.json").write_text(json.dumps({"version":VERSION,"count":len(items),"countryCount":len(countries),"meaningCount":sum(bool(item.get("meaning")) for item in items),"missingMeaningCount":sum(not bool(item.get("meaning")) for item in items),"nativeScriptCount":sum(bool(item.get("native")) for item in items),"variantCount":sum(bool(item.get("variants")) for item in items),"cultureSources":culture_file_success,"wiktionaryLicense":"CC BY-SA 4.0",
+(OUTPUT/"manifest.json").write_text(json.dumps({"version":VERSION,"count":len(items),"countryCount":len(countries),"meaningCount":sum(item["meaningType"]=="published" for item in items),"missingMeaningCount":sum(item["meaningType"]=="creative" for item in items),"populatedCount":len(items),"nativeScriptCount":sum(bool(item.get("native")) for item in items),"variantCount":sum(bool(item.get("variants")) for item in items),"cultureSources":culture_file_success,"wiktionaryLicense":"CC BY-SA 4.0",
     "meaningStatus":"every name has text; published or clearly labeled creative interpretation","attribution":"Names data from Onomaverse (https://onomaverse.com/datasets), licensed CC BY 4.0."},ensure_ascii=False,indent=2),encoding="utf-8")
 print(f"Built {len(items)} unique names, {len(countries)} countries.",flush=True)
