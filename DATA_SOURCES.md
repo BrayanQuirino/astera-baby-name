@@ -49,3 +49,16 @@ El archivo `public/names/manifest.json` es el informe reproducible con `meaningC
 **Estado de la revisión (11 noviembre de 2026):** 18,433 registros internacionales, 1,991 significados documentados, 16,442 por documentar. Estas métricas cambian cuando se regenera el catálogo; el JSON manifest prevalece sobre esta instantánea.
 
 Fuentes: https://en.wiktionary.org/ · https://github.com/suhxnitiwari/baby-name-maker/blob/main/docs/name-sources.md · https://onomaverse.com/datasets.
+
+## Auditoría final de todos los JSON — 11 de noviembre de 2026
+
+- `public/names/extended.json`: **todos los registros** mantienen sus campos de origen, significado o `null`, estado de significado, estado de escritura original, variantes y fuente. Los elementos están ordenados por nombre sin duplicados.
+- `public/names/coverage.json`: informe de cobertura por fuente y por origen, incluyendo los nombres que todavía necesitan evidencia.
+- `public/names/manifest.json`: cifras verificables de la importación y las escrituras originales.
+- `src/data/international.json` y los nombres editoriales de `src/lib/names.js`: tienen un estado distinto (`editorial_pending_verification`); no se presentan como lingüísticamente verificados por el simple hecho de tener un significado redactado.
+- También se consultaron 20 archivos de lenguas/culturas de `suhxnitiwari/baby-name-maker`, utilizando exclusivamente entradas con significado textual explícito y referencias a **Wiktionary**; se descartan etimologías ambiguas y nombres inventados. Fuente: https://github.com/suhxnitiwari/baby-name-maker/blob/main/docs/name-sources.md. Licencia de contenido derivado de Wiktionary: [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/).
+- Los orígenes se comparan antes de importar significados. Si un mismo nombre tiene traducciones incompatibles en diferentes lenguas, el dato queda pendiente en lugar de escoger una arbitrariamente.
+
+**Limitación:** no existe una correspondencia documentada en las fuentes abiertas para todos los nombres. `meaning: null` refleja esa limitación, no una afirmación sobre el nombre. Un campo rellenado por una conjetura sería peor que uno correctamente clasificado como pendiente.
+
+La regeneración y revisión de calidad se ejecuta con `python scripts/build_catalog.py` y `python scripts/validate_catalog.py`. No se autoriza el uso de inferencias automáticas para sustituir fuentes lexicográficas.
