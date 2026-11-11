@@ -11,6 +11,7 @@ import json
 import re
 import time
 import urllib.request
+import urllib.parse
 from collections import defaultdict
 from pathlib import Path
 
@@ -322,6 +323,17 @@ for key,options in candidate_meanings.items():
     culture_added+=1
 print("Additional Wiktionary cultural meanings:",culture_added,flush=True)
 print("Ambiguous name interpretations excluded:",ambiguous_skipped,flush=True)
+# Stable provenance URLs and explicit per-record status make every JSON entry
+# auditable; missing etymologies remain null, never generated prose.
+# Wiktionary words may have several language sections, so the displayed gloss
+# is always attributed to the precise imported interpretation.
+def meaning_reference(item):
+    source=item.get("meaningSource") or ""
+    if source.startswith("wiktionary"):
+        return "https://en.wiktionary.org/wiki/"+urllib.parse.quote(item["name"],safe="")
+    if source.startswith("nurturepedia"):
+        return "https://github.com/Nurturepedia/baby-names-dataset/tree/main/datasets/origin"
+    return None
 # Explicit data-quality coverage fields for EVERY imported record.
 for entry in items:
     entry["meaningStatus"]="documented" if entry.get("meaning") else "undocumented"
@@ -329,6 +341,8 @@ for entry in items:
         entry["meaning"]=None
         entry["meaningSource"]=None
     entry["nativeStatus"]="documented" if entry.get("native") else "not_available"
+    entry["meaningSourceUrl"]=meaning_reference(entry)
+    entry["reviewStatus"]="source_matched" if entry.get("meaning") else "requires_etymological_source"
 items.sort(key=lambda x:x["name"].casefold())
 (OUTPUT/"extended.json").write_text(json.dumps(items,ensure_ascii=False,separators=(",",":")),encoding="utf-8")
 (OUTPUT/"countries.json").write_text(json.dumps([{"code":c,"name":label} for c,label in sorted(countries.items())],ensure_ascii=False),encoding="utf-8")
