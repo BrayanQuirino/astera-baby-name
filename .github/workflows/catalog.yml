@@ -28,5 +28,7 @@ jobs:
           git add public/names/extended.json public/names/countries.json public/names/manifest.json
           if ! git diff --cached --quiet; then
             git commit -m "data: import licensed international names and scripts"
+            git fetch origin develop_brayan
+            git rebase origin/develop_brayan
             git push origin HEAD:develop_brayan
           fi
