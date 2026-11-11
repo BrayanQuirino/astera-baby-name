@@ -39,3 +39,21 @@
 
 /* Original written forms for names using non-Latin scripts. */
 .name-card .native-name{display:block;font-size:16px;font-weight:500;color:#98775f;letter-spacing:.4px;line-height:1.5;margin:-4px 0 9px}.cosmic-native{font-size:clamp(19px,2.5vw,31px);font-weight:400;line-height:1.5;color:#e0bb82;letter-spacing:1px;margin:0 0 12px}.cosmic-native span{font-size:.72em;color:#b9c6dc}.name-card .name-open p{min-height:42px}
+
+
+/* Calendar header with consistent cross-browser styled month and year controls. */
+.calendar-head{display:grid;grid-template-columns:32px minmax(0,1fr) 32px;align-items:center;gap:6px;width:100%}
+.calendar-head>button{display:flex;align-items:center;justify-content:center;border:0;background:transparent;min-width:32px;height:34px;color:#6b5d4a;border-radius:6px}
+.calendar-head>button:hover:not(:disabled){background:#efe5d7}
+.calendar-head>button:disabled{opacity:.3;cursor:default}
+.calendar-selectors{display:grid;grid-template-columns:minmax(0,1fr) 94px;min-width:0;gap:7px;align-items:center}
+.calendar-select-wrap{position:relative;display:block;min-width:0}
+.calendar-select-wrap select,.calendar-head .calendar-select-wrap select{display:block;width:100%;max-width:100%;box-sizing:border-box;min-width:0;height:36px;min-height:36px;line-height:1.2;padding:7px 21px 7px 9px;border:1px solid #dfd2c1;border-radius:7px;background:#fffdf8;color:#2d3a54;font-size:12px;font-family:'DM Sans',sans-serif;font-weight:600;text-transform:capitalize;appearance:none;-webkit-appearance:none;outline-offset:2px;cursor:pointer}
+.calendar-select-wrap svg{position:absolute;right:7px;top:50%;transform:translateY(-50%);pointer-events:none;color:#97806a}
+.calendar-popup{width:min(330px,calc(100vw - 36px));max-width:calc(100vw - 36px);box-sizing:border-box;z-index:80}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.hero-caption{display:flex;flex-direction:column;gap:7px;margin-top:54px}
+.hero-count{display:block;color:#f0e0c5;font-size:14px;letter-spacing:.2px}
+.hero-count strong{font-family:'Playfair Display',serif;font-size:30px;font-weight:500;color:#e9c792;margin-right:6px;font-variant-numeric:tabular-nums}
+.hero-count-note{font-size:11px;color:#a5b1c7}
+@media(max-width:480px){.calendar-popup{left:0;padding:13px}.calendar-selectors{grid-template-columns:minmax(0,1fr) 82px;gap:5px}.calendar-select-wrap select,.calendar-head .calendar-select-wrap select{font-size:11px;padding-left:7px;padding-right:18px}.calendar-head{gap:3px;grid-template-columns:27px minmax(0,1fr) 27px}.calendar-head>button{min-width:27px}.hero-count strong{font-size:27px}}
