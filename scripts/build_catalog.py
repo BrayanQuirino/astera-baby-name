@@ -103,6 +103,22 @@ for origin_slug in MEANING_SOURCES:
         meaning=(row.get("meaning") or "").strip()
         if not name or not meaning or len(meaning)>250:continue
         existing=index.get(dedupe_key(name))
+        if not existing:
+            # Genuine additional first names from the independent MIT-licensed catalog.
+            # Do not infer nationality from a name's linguistic origin.
+            raw_gender=str(row.get("gender") or "").strip().casefold()
+            gender={"male":"boy","female":"girl","boy":"boy","girl":"girl","unisex":"unisex"}.get(raw_gender,"unisex")
+            origin_value=row.get("origin") or origin_slug
+            if isinstance(origin_value,list):
+                origin_value=" / ".join(str(v).title() for v in origin_value if v)
+            existing={"name":name[:1].upper()+name[1:],"gender":gender,
+                "country":"ZZ","countries":[],"origin":str(origin_value).title(),
+                "meaning":meaning,"native":"","variants":[],"source":f"nurturepedia/{origin_slug}",
+                "meaningLanguage":"en","meaningSource":f"nurturepedia/{origin_slug}"}
+            items.append(existing)
+            index[dedupe_key(name)]=existing
+            meaning_count+=1
+            continue
         if existing and not existing["meaning"]:
             origin=existing["origin"].casefold()
             if origin and not any(h in origin for h in ORIGIN_HINTS[origin_slug]):
@@ -113,6 +129,6 @@ print("Meanings added from MIT source:",meaning_count,flush=True)
 items.sort(key=lambda x:x["name"].casefold())
 (OUTPUT/"extended.json").write_text(json.dumps(items,ensure_ascii=False,separators=(",",":")),encoding="utf-8")
 (OUTPUT/"countries.json").write_text(json.dumps([{"code":c,"name":label} for c,label in sorted(countries.items())],ensure_ascii=False),encoding="utf-8")
-(OUTPUT/"manifest.json").write_text(json.dumps({"version":VERSION,"count":len(items),"countryCount":len(countries),
-    "meaningStatus":"not provided by source; do not invent","attribution":"Names data from Onomaverse (https://onomaverse.com/datasets), licensed CC BY 4.0."},ensure_ascii=False,indent=2),encoding="utf-8")
+(OUTPUT/"manifest.json").write_text(json.dumps({"version":VERSION,"count":len(items),"countryCount":len(countries),"meaningCount":sum(bool(item.get("meaning")) for item in items),
+    "meaningStatus":"source-backed meanings only; null when not verified","attribution":"Names data from Onomaverse (https://onomaverse.com/datasets), licensed CC BY 4.0."},ensure_ascii=False,indent=2),encoding="utf-8")
 print(f"Built {len(items)} unique names, {len(countries)} countries.",flush=True)
