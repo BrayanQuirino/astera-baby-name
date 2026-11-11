@@ -57,3 +57,21 @@
 .hero-count strong{font-family:'Playfair Display',serif;font-size:30px;font-weight:500;color:#e9c792;margin-right:6px;font-variant-numeric:tabular-nums}
 .hero-count-note{font-size:11px;color:#a5b1c7}
 @media(max-width:480px){.calendar-popup{left:0;padding:13px}.calendar-selectors{grid-template-columns:minmax(0,1fr) 82px;gap:5px}.calendar-select-wrap select,.calendar-head .calendar-select-wrap select{font-size:11px;padding-left:7px;padding-right:18px}.calendar-head{gap:3px;grid-template-columns:27px minmax(0,1fr) 27px}.calendar-head>button{min-width:27px}.hero-count strong{font-size:27px}}
+
+
+/* Typeahead selector - stable visual rhythm at mobile and desktop sizes. */
+.culture-combo{position:relative;width:min(100%,280px);min-width:210px;z-index:8}
+.culture-combo-label{display:flex;align-items:center;gap:8px;width:100%;color:#9c8971}
+.culture-input-shell{display:flex;align-items:center;min-width:0;flex:1;border:1px solid #e6e1da;border-radius:7px;background:#fff;height:43px}
+.culture-input-shell:focus-within{border-color:#c7a47e;box-shadow:0 0 0 3px #c7a47e22}
+.culture-input-shell input{border:0!important;outline:0!important;box-shadow:none!important;min-width:0;width:100%;flex:1;background:transparent;padding:10px 9px;color:#273750;font-size:12px;text-overflow:ellipsis}
+.culture-input-shell button{background:transparent;border:0;display:grid;place-items:center;padding:8px;color:#927b65}
+.culture-options{position:absolute;left:0;right:0;top:calc(100% + 8px);z-index:100;border:1px solid #e1d7c8;background:#fffcf6;box-shadow:0 16px 45px #10192c2d;border-radius:9px;max-height:min(325px,45vh);overflow-y:auto;padding:6px}
+.culture-options button{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px;width:100%;background:transparent;border:0;border-radius:6px;text-align:left;font-size:13px;color:#354258}
+.culture-options button.active,.culture-options button:hover{background:#f0e7d9}
+.culture-options button.selected{color:#9b6e3b;font-weight:700}
+.culture-empty{margin:0;padding:15px;font-size:12px;color:#8f8880}
+.modal .culture-combo{width:100%;max-width:none}
+.modal .culture-combo-label>svg{display:none}
+.modal .culture-input-shell{height:47px}
+@media(max-width:750px){.filter-bottom .culture-combo{width:100%;min-width:0}.filter-bottom .culture-options{max-height:40vh}}
