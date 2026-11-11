@@ -25,6 +25,12 @@ for row in catalog:
     assert row["gender"] in ("boy","girl","unisex")
     assert isinstance(row["countries"],list) and row["countries"]==sorted(set(row["countries"]))
     assert row["meaning"] is None or isinstance(row["meaning"],str)
+    assert row.get("meaningStatus") in ("documented","undocumented"), row["name"]
+    assert row.get("reviewStatus") in ("source_matched","requires_etymological_source"), row["name"]
+    assert row.get("nativeStatus") in ("documented","not_available"), row["name"]
+    assert (row["meaningStatus"]=="documented")==bool(row["meaning"]), row["name"]
+    assert (row["nativeStatus"]=="documented")==bool(row.get("native")), row["name"]
+    assert (row.get("meaningSourceUrl") is not None)==bool(row["meaning"]), row["name"]
     if row.get("meaning"):
         assert row.get("meaningSource"), f"Missing meaning provenance for {row['name']}"
     assert isinstance(row["variants"],list)
