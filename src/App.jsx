@@ -10,7 +10,7 @@ const empty={date:'',mother:'',father:'',country:'all',gender:'all',style:'any'}
 const styles=[['any','Sorpréndeme'],['short','Cortos'],['traditional','Clásicos'],['modern','Modernos'],['nature','Naturaleza']];
 function readFavorites(){try{return JSON.parse(localStorage.getItem('astera.favorites')||'[]')}catch{return []}}
 function NameCard({item,liked,toggle,open}){
- return <article className="name-card"><div className="name-card-top"><span className="name-category">{item.origin}</span><button className={'heart '+(liked?'liked':'')} onClick={()=>toggle(item.id)} aria-label={liked?'Quitar de favoritos':'Guardar favorito'}><Heart size={19} fill={liked?'currentColor':'none'}/></button></div><button className="name-open" onClick={()=>open(item)}><h3>{item.name}</h3><p>{item.meaning}</p><span>Descubrir historia <ArrowRight size={15}/></span></button></article>
+ return <article className="name-card"><div className="name-card-top"><span className="name-category">{item.origin}</span><button className={'heart '+(liked?'liked':'')} onClick={()=>toggle(item.id)} aria-label={liked?'Quitar de favoritos':'Guardar favorito'}><Heart size={19} fill={liked?'currentColor':'none'}/></button></div><button className="name-open" onClick={()=>open(item)}><h3>{item.name}</h3>{item.native&&<span className="native-name">{item.native}</span>}<p>{item.meaning}</p><span>Descubrir historia <ArrowRight size={15}/></span></button></article>
 }
 function Sky({date,setDate}){
  const sign=zodiac(date);
