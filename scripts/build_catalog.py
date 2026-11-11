@@ -23,8 +23,8 @@ def get(filename):
     request=urllib.request.Request(f"{BASE}/{filename}",headers=HEADERS)
     for attempt in range(4):
         try:
-            with urllib.request.urlopen(request,timeout=90) as response:
-                return io.TextIOWrapper(response,encoding="utf-8-sig",newline="")
+            response=urllib.request.urlopen(request,timeout=90)
+            return io.TextIOWrapper(response,encoding="utf-8-sig",newline="")
         except Exception as exc:
             if attempt==3:
                 raise RuntimeError(f"Could not download {filename}") from exc
