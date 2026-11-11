@@ -35,3 +35,17 @@ El campo `native` solamente se completa cuando se encuentra una escritura no lat
 `python scripts/build_catalog.py` descarga las fuentes públicas y regenera `public/names/extended.json`, `public/names/countries.json` y `public/names/manifest.json`. El flujo `catalog.yml` valida orden alfabético, esquema y procedencia, y guarda los JSON en `develop_brayan`. Validación local: `python scripts/validate_catalog.py`.
 
 No se inventan significados para completar huecos. El catálogo no debe presentarse como exhaustivo de todas las culturas ni como validación lingüística académica.
+
+## Cobertura de la revisión de etimologías
+
+El archivo `public/names/manifest.json` es el informe reproducible con `meaningCount`, `missingMeaningCount`, `nativeScriptCount` y `variantCount`.
+
+- Los significados confirmados de Wiktionary en inglés provienen de las colecciones públicas `data/meanings.json` y `data/native-meanings.json` de Lullabyte, derivados de entradas de Wiktionary, con atribución y licencia CC BY-SA 4.0.
+- Cuando el registro base no tiene origen, solamente se asigna una etimología cuyo origen específico aparece explícitamente en la fuente, y se anota el alcance interpretativo.
+- Las variantes proceden de la relación `variant` en el grafo de equivalencia de Onomaverse (CC BY 4.0). No se confunden con meras semejanzas ni con equivalentes de otras culturas.
+- No se asignan significados automáticos a partir de transliteraciones ni por copiar la etimología de un nombre parecido.
+- Los nombres sin suficiente documentación mantienen `meaning: null`; no significa que carezcan de significado, sino que el catálogo todavía no posee una referencia segura.
+
+**Estado de la revisión (11 noviembre de 2026):** 18,433 registros internacionales, 1,991 significados documentados, 16,442 por documentar. Estas métricas cambian cuando se regenera el catálogo; el JSON manifest prevalece sobre esta instantánea.
+
+Fuentes: https://en.wiktionary.org/ · https://github.com/suhxnitiwari/baby-name-maker/blob/main/docs/name-sources.md · https://onomaverse.com/datasets.
