@@ -12,7 +12,7 @@ import re
 import time
 import urllib.request
 import urllib.parse
-from collections import defaultdict
+from collections import defaultdict, Counter
 from pathlib import Path
 
 VERSION="v2026.10"
@@ -344,6 +344,18 @@ for entry in items:
     entry["meaningSourceUrl"]=meaning_reference(entry)
     entry["reviewStatus"]="source_matched" if entry.get("meaning") else "requires_etymological_source"
 items.sort(key=lambda x:x["name"].casefold())
+# Audit all statuses and source coverage without duplicating the full catalog.
+coverage=Counter(item.get("meaningSource") or "pending" for item in items)
+pending_by_origin=Counter(item["origin"] for item in items if not item.get("meaning"))
+audit={
+  "totalNames":len(items),
+  "meaningDocumented":sum(bool(item.get("meaning")) for item in items),
+  "meaningPending":sum(not bool(item.get("meaning")) for item in items),
+  "meaningSources":dict(sorted(coverage.items())),
+  "pendingByOrigin":[{"origin":origin,"count":count} for origin,count in sorted(pending_by_origin.items(),key=lambda pair:(-pair[1],pair[0].casefold()))],
+  "method":"Exact-name meaning match with origin compatibility; no automatic meanings inferred from name strings.",
+}
+(OUTPUT/"coverage.json").write_text(json.dumps(audit,ensure_ascii=False,indent=2),encoding="utf-8")
 (OUTPUT/"extended.json").write_text(json.dumps(items,ensure_ascii=False,separators=(",",":")),encoding="utf-8")
 (OUTPUT/"countries.json").write_text(json.dumps([{"code":c,"name":label} for c,label in sorted(countries.items())],ensure_ascii=False),encoding="utf-8")
 (OUTPUT/"manifest.json").write_text(json.dumps({"version":VERSION,"count":len(items),"countryCount":len(countries),"meaningCount":sum(bool(item.get("meaning")) for item in items),"missingMeaningCount":sum(not bool(item.get("meaning")) for item in items),"nativeScriptCount":sum(bool(item.get("native")) for item in items),"variantCount":sum(bool(item.get("variants")) for item in items),"cultureSources":culture_file_success,"wiktionaryLicense":"CC BY-SA 4.0",
