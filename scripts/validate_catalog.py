@@ -11,9 +11,10 @@ coverage=json.loads((root/"public/names/coverage.json").read_text(encoding="utf-
 assert isinstance(catalog,list) and catalog, "Catalog must not be empty"
 assert manifest["count"]==len(catalog), "Manifest count differs from JSON"
 assert manifest["countryCount"]==len(countries), "Country count differs"
-assert manifest["meaningCount"]==sum(bool(item.get("meaning")) for item in catalog), "Meaning count differs"
+assert manifest.get("populatedCount")==len(catalog), "Not all names have a display meaning"
+assert manifest["meaningCount"]==sum(item.get("meaningType")=="published" for item in catalog), "Meaning count differs"
 assert coverage["totalNames"]==len(catalog) and coverage["meaningDocumented"]==manifest["meaningCount"] and coverage["meaningPending"]==manifest["missingMeaningCount"], "Coverage audit differs"
-assert manifest["missingMeaningCount"]==sum(not bool(item.get("meaning")) for item in catalog), "Missing meanings count differs"
+assert manifest["missingMeaningCount"]==sum(item.get("meaningType")=="creative" for item in catalog), "Missing meanings count differs"
 assert manifest["nativeScriptCount"]==sum(bool(item.get("native")) for item in catalog), "Native writing count differs"
 assert manifest["variantCount"]==sum(bool(item.get("variants")) for item in catalog), "Variant count differs"
 assert catalog==sorted(catalog,key=lambda item:item["name"].casefold()), "Alphabetical order changed"
@@ -26,15 +27,18 @@ for row in catalog:
     seen.add(key)
     assert row["gender"] in ("boy","girl","unisex")
     assert isinstance(row["countries"],list) and row["countries"]==sorted(set(row["countries"]))
-    assert row["meaning"] is None or isinstance(row["meaning"],str)
-    assert row.get("meaningStatus") in ("documented","undocumented"), row["name"]
+    assert isinstance(row["meaning"],str) and row["meaning"].strip()
+    assert row.get("meaningStatus") in ("documented","poetic_interpretation"), row["name"]
+    assert row.get("meaningType") in ("published","creative"), row["name"]
     assert row.get("reviewStatus") in ("source_matched","requires_etymological_source"), row["name"]
     assert row.get("nativeStatus") in ("documented","not_available"), row["name"]
-    assert (row["meaningStatus"]=="documented")==bool(row["meaning"]), row["name"]
+    assert (row["meaningStatus"]=="documented")==(row["meaningType"]=="published"), row["name"]
     assert (row["nativeStatus"]=="documented")==bool(row.get("native")), row["name"]
-    assert (row.get("meaningSourceUrl") is not None)==bool(row["meaning"]), row["name"]
-    if row.get("meaning"):
+    assert (row.get("meaningSourceUrl") is not None)==(row["meaningType"]=="published"), row["name"]
+    if row["meaningType"]=="published":
         assert row.get("meaningSource"), f"Missing meaning provenance for {row['name']}"
+    else:
+        assert row.get("meaningSource") is None, f"Creative interpretation incorrectly attributed for {row['name']}"
     assert isinstance(row["variants"],list)
     assert len(row["variants"])==len(set(row["variants"]))
     assert row["variants"]==sorted(row["variants"],key=str.casefold), f"Variant order changed for {row['name']}"
