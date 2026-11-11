@@ -1,8 +1,8 @@
-name: Astera preview (GitHub Pages)
+name: Astera production (GitHub Pages)
 # Re-run after enabling deployment permissions
 on:
   push:
-    branches: [develop_brayan]
+    branches: [main]
   workflow_dispatch:
 permissions:
   contents: read
