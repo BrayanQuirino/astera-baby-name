@@ -1,0 +1,95 @@
+name: Enrich popularity and translated name meanings
+on:
+  push:
+    branches: [main]
+    paths:
+      - scripts/build_popularity.py
+      - scripts/build_meaning_locales.py
+      - .github/workflows/enrich.yml
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: astera-catalog-enrichment
+  cancel-in-progress: false
+jobs:
+  meanings:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    strategy:
+      fail-fast: false
+      matrix:
+        language: [en, fr, pt, de, it, ja, ko, zh]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Generate one language's meaning translations
+        env:
+          ASTERA_LANG: ${{ matrix.language }}
+        run: python scripts/build_meaning_locales.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: locale-${{ matrix.language }}
+          path: public/names/locales/${{ matrix.language }}.json
+          if-no-files-found: error
+  frequency:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Create country-based popularity index
+        run: python scripts/build_popularity.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: astera-popularity
+          path: public/names/popularity.json
+          if-no-files-found: error
+  publish:
+    needs: [frequency,meanings]
+    if: always() && needs.frequency.result == 'success' && needs.meanings.result == 'success'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          persist-credentials: true
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: locale-*
+          path: public/names/locales
+          merge-multiple: true
+      - uses: actions/download-artifact@v4
+        with:
+          name: astera-popularity
+          path: public/names
+      - name: Validate JSON and coverage
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          popularity=json.loads(Path('public/names/popularity.json').read_text())
+          assert popularity['names']
+          for name in ['en','fr','pt','de','it','ja','ko','zh']:
+              p=Path(f'public/names/locales/{name}.json')
+              data=json.loads(p.read_text())
+              assert data['lang']==name and data['phrases'] and data['meanings']
+              print(name,len(data['phrases']),len(data['meanings']),data['status'])
+          print('popularity names',len(popularity['names']))
+          PY
+      - name: Commit source-backed insights to main
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add public/names/popularity.json public/names/locales/
+          if ! git diff --cached --quiet; then
+            git commit -m "data: add multilingual meanings and country popularity [skip ci]"
+            git fetch origin main
+            git rebase origin/main
+            git push origin HEAD:main
+          fi
