@@ -11,7 +11,7 @@ const sources={
  Itzel:'https://www.behindthename.com/name/itzel',
  Akira:'https://www.behindthename.com/name/akira'
 };
-export default function NameSkyExperience({item,date,onDateChange,onClose,onFavorite,isFavorite,lang='es'}){
+export default function NameSkyExperience({item,date,onDateChange,onClose,onFavorite,isFavorite,lang='es',meaning,translated=true}){
  const t=key=>translate(lang,key);
  const [location,setLocation]=useState({preset:0,lat:19.4326,lon:-99.1332});
  const sky=celestialForDate(date);
@@ -19,7 +19,8 @@ export default function NameSkyExperience({item,date,onDateChange,onClose,onFavo
   <FullSkyMap date={date} location={location}/>
   <div className="cosmic-top"><button onClick={onClose}><ArrowLeft size={18}/> {t('backNames')}</button><span>✳ astera.</span></div>
   <div className="cosmic-grid immersive-layout">
-   <div className="cosmic-name"><div className="eyebrow">{t('detailEyebrow')}</div><span className="cosmic-overline">{t('detailTitle')}</span><h2>{item.name}</h2>{item.native&&<p className="cosmic-native" lang="und">{item.native} {item.reading&&<span>· {item.reading}</span>}</p>}<p className="cosmic-meaning">{item.meaning||""}</p>{item.meaningType==="creative"&&<span className="meaning-source-note">✧ {t('poetic')} · {t('nonTraditional')}</span>}{item.meaningLanguage==="en"&&<span className="meaning-source-note">{t('meaningInEnglish')} · {item.meaningSource?.startsWith("wiktionary")?"Wiktionary (CC BY-SA 4.0)":"Nurturepedia (MIT)"}</span>}
+   <div className="cosmic-name"><div className="eyebrow">{t('detailEyebrow')}</div><span className="cosmic-overline">{t('detailTitle')}</span><h2>{item.name}</h2>{item.native&&<p className="cosmic-native" lang="und">{item.native} {item.reading&&<span>· {item.reading}</span>}</p>}<p className="cosmic-meaning">{meaning??item.meaning??""}</p>{!translated&&<small className="meaning-source-note">{t("meaningOriginal")}</small>}
+{item.meaningType==="creative"&&<span className="meaning-source-note">✧ {t('poetic')} · {t('nonTraditional')}</span>}{item.meaningLanguage==="en"&&<span className="meaning-source-note">{t('meaningInEnglish')} · {item.meaningSource?.startsWith("wiktionary")?"Wiktionary (CC BY-SA 4.0)":"Nurturepedia (MIT)"}</span>}
     <div className="cosmic-facts"><div><small>{t('origin')}</small><strong>{item.origin}</strong></div><div><small>{t('variants')}</small><strong>{item.variants.length?item.variants.join(' · '):t('original')}</strong></div></div>
     {(item.meaningSource||sources[item.name])&&<a className="cosmic-source" href={item.meaningSourceUrl||sources[item.name]||'https://en.wiktionary.org/wiki/'+encodeURIComponent(item.name)} target="_blank" rel="noopener noreferrer">{t('source')} <ExternalLink size={14}/></a>}
     <button className="cosmic-like" onClick={onFavorite}><Heart size={18} fill={isFavorite?'currentColor':'none'}/>{isFavorite?t('saved'):t('saveToFavorites')}</button>
