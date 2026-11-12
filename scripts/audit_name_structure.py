@@ -91,3 +91,11 @@ for key,count in sorted(summary["countByCategory"].items(),key=lambda p:-p[1]):
 print("Observed variants:", {k:[x["name"] for x in v] for k,v in summary["present"].items() if v})
 print("Curated exact Maria:",summary["curatedExactMaria"])
 print("Audit saved:",REPORT)
+
+# Small machine-readable digest for quick review; detailed report stays intact.
+summary_path=ROOT/"reports/name_structure_summary.json"
+summary_path.write_text(json.dumps({
+  **summary,
+  "examples":{k:([x.get("name") if isinstance(x,dict) else [y["name"] for y in x] for x in v[:24]]) for k,v in sorted(groups.items())},
+},ensure_ascii=False,indent=2),encoding="utf-8")
+print("Compact summary:",summary_path)
