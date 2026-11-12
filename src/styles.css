@@ -109,3 +109,15 @@
 .locale-offer .locale-dismiss{background:transparent;color:#526078;padding:5px}
 @media(max-width:750px){.language-menu{margin-left:auto}.language-menu select{max-width:86px}.name-pagination{gap:8px}.name-pagination button{min-width:89px;padding:9px;font-size:11px}.name-pagination .page-status{min-width:95px}.locale-offer{right:10px;bottom:10px;left:10px;max-width:none;gap:8px;padding:12px}.locale-offer button{padding:8px}.header .language-menu{margin-right:6px}}
 @media(max-width:380px){.name-pagination button span{display:none}.name-pagination button{min-width:43px}.locale-offer{flex-wrap:wrap}}
+
+/* Astera name insights: understated twin metrics and translation provenance. */
+.name-card .popularity-meter{margin:13px 0 10px}
+.name-card .harmony-meter{margin:11px 0 11px}
+.popularity-meter .harmony-track{background:#eee7dc}
+.popularity-meter .harmony-track>div{background:linear-gradient(90deg,#cfbda2,#be966b)}
+.popularity-meter .harmony-track.missing{background:repeating-linear-gradient(110deg,#e6e3dd 0 5px,#f5f0e7 5px 10px)}
+.popularity-meter .harmony-track.missing>div{width:0!important}
+.popularity-meter .harmony-meter-heading small{font-size:10px;font-weight:400;color:#8b847a;letter-spacing:0}
+.name-card .harmony-meter-heading{letter-spacing:.1px}
+.meaning-source-caption{display:block;margin:4px 0 9px;font-size:10px;line-height:1.5;color:#8c7964}
+@media(max-width:420px){.name-card .harmony-meter-heading{font-size:10px}.name-card .harmony-meter-heading strong{font-size:11px}}
