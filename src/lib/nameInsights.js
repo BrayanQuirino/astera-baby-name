@@ -21,7 +21,7 @@ export function localizedMeaning(item,locale,bundle){
  return bundle.meanings?.[original]||original;
 }
 export function hasLocalizedMeaning(item,locale,bundle){
- return locale==='es'||localizedMeaning(item,locale,bundle)!==(item?.meaning||'');
+ return locale==='es'||(item?.meaningType==='published'&&item?.meaningLanguage===locale)||localizedMeaning(item,locale,bundle)!==(item?.meaning||'');
 }
 export function getPopularity(item,dataset,preferredCountry='all'){
  const key=foldMeaning(item?.name);
