@@ -1,5 +1,6 @@
 import React,{useEffect,useRef,useState} from 'react';
 import {MapPin,CalendarDays} from 'lucide-react';
+import {translate} from '../lib/i18n.js';
 
 // Public J2000 equatorial star/constellation catalog, BSD-3-Clause, d3-celestial.
 // Catalog coordinates are astronomical rather than decorative.
@@ -123,8 +124,8 @@ export default function FullSkyMap({date,location,onLocationChange}){
  },[catalog,date,lat,lon]);
  return <div className="full-sky-layer" aria-hidden="true"><canvas ref={canvas} className="full-sky-canvas"/><div className="full-sky-shade"/><div className="full-sky-glow"/>{!catalog&&<span className="sky-data-status">{error?'Vista decorativa: no se pudo cargar el catálogo astronómico':'Cargando estrellas reales…'}</span>}</div>;
 }
-export function SkyLocationControl({location,onChange}){
+export function SkyLocationControl({location,onChange,lang='es'}){
  const preset=location?.preset??0,custom=preset===CITY_OPTIONS.length-1;
  const chosen=CITY_OPTIONS[preset]||CITY_OPTIONS[0];
- return <div className="sky-location-control"><label><MapPin size={15}/> Lugar de observación</label><select aria-label="Lugar de observación" value={preset} onChange={e=>{const p=Number(e.target.value),c=CITY_OPTIONS[p];onChange({preset:p,lat:c.lat,lon:c.lon})}}>{CITY_OPTIONS.map((city,i)=><option key={city.label} value={i}>{city.label}</option>)}</select>{custom&&<div className="sky-coordinates"><label>Latitud <input type="number" min="-90" max="90" step=".0001" value={location?.lat??''} placeholder="19.4326" onChange={e=>onChange({...location,lat:e.target.value===''?null:Math.max(-90,Math.min(90,Number(e.target.value)))})}/></label><label>Longitud <input type="number" min="-180" max="180" step=".0001" value={location?.lon??''} placeholder="-99.1332" onChange={e=>onChange({...location,lon:e.target.value===''?null:Math.max(-180,Math.min(180,Number(e.target.value)))})}/></label></div>}</div>;
+ return <div className="sky-location-control"><label><MapPin size={15}/> {translate(lang,'observing')}</label><select aria-label={translate(lang,'observing')} value={preset} onChange={e=>{const p=Number(e.target.value),c=CITY_OPTIONS[p];onChange({preset:p,lat:c.lat,lon:c.lon})}}>{CITY_OPTIONS.map((city,i)=><option key={city.label} value={i}>{city.label}</option>)}</select>{custom&&<div className="sky-coordinates"><label>{translate(lang,'latitude')} <input type="number" min="-90" max="90" step=".0001" value={location?.lat??''} placeholder="19.4326" onChange={e=>onChange({...location,lat:e.target.value===''?null:Math.max(-90,Math.min(90,Number(e.target.value)))})}/></label><label>{translate(lang,'longitude')} <input type="number" min="-180" max="180" step=".0001" value={location?.lon??''} placeholder="-99.1332" onChange={e=>onChange({...location,lon:e.target.value===''?null:Math.max(-180,Math.min(180,Number(e.target.value)))})}/></label></div>}</div>;
 }
