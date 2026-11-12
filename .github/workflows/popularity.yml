@@ -1,0 +1,33 @@
+name: Publish observed name popularity
+on:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/popularity.yml
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Build observed country-specific name popularity
+        run: python scripts/build_popularity.py
+      - name: Publish JSON
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add public/names/popularity.json
+          if ! git diff --cached --quiet; then
+            git commit -m "data: publish observed name popularity [skip ci]"
+            git fetch origin main
+            git rebase origin/main
+            git push origin HEAD:main
+          fi
