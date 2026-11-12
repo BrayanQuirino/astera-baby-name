@@ -1,0 +1,662 @@
+{
+  "totalCatalogRecords": 18433,
+  "totalCuratedInternational": 72,
+  "present": {
+    "M Carmen": [
+      {
+        "name": "M Carmen",
+        "gender": "girl",
+        "origin": "Origen por verificar",
+        "meaning": "Evoca un deseo compartido y la promesa de un mañana hermoso.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      }
+    ],
+    "Maria": [
+      {
+        "name": "Maria",
+        "gender": "girl",
+        "origin": "Hebrew",
+        "meaning": "Evoca la serenidad de un amanecer y la alegría de descubrir el mundo.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      }
+    ],
+    "María": [
+      {
+        "name": "Maria",
+        "gender": "girl",
+        "origin": "Hebrew",
+        "meaning": "Evoca la serenidad de un amanecer y la alegría de descubrir el mundo.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      }
+    ],
+    "Maria del Carmen": [
+      {
+        "name": "Maria Del Carmen",
+        "gender": "girl",
+        "origin": "Spanish Catholic devotional tradition",
+        "meaning": "Evoca la luz de los nuevos comienzos y la fuerza de los sueños.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      }
+    ],
+    "María del Carmen": [
+      {
+        "name": "Maria Del Carmen",
+        "gender": "girl",
+        "origin": "Spanish Catholic devotional tradition",
+        "meaning": "Evoca la luz de los nuevos comienzos y la fuerza de los sueños.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      }
+    ],
+    "María Carmen": [
+      {
+        "name": "Maria Carmen",
+        "gender": "girl",
+        "origin": "Origen por verificar",
+        "meaning": "Evoca un encuentro que transforma la vida y la promesa de un mañana hermoso.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      }
+    ],
+    "Ma Carmen": [],
+    "Mª Carmen": [],
+    "M. Carmen": [],
+    "José María": [
+      {
+        "name": "Jose Maria",
+        "gender": "boy",
+        "origin": "Spanish (compound of José and María, devotional Catholic tradition)",
+        "meaning": "Evoca un encuentro que transforma la vida y la energía de una nueva etapa.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      }
+    ],
+    "Jose Maria": [
+      {
+        "name": "Jose Maria",
+        "gender": "boy",
+        "origin": "Spanish (compound of José and María, devotional Catholic tradition)",
+        "meaning": "Evoca un encuentro que transforma la vida y la energía de una nueva etapa.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      }
+    ],
+    "M Jose": [
+      {
+        "name": "M Jose",
+        "gender": "girl",
+        "origin": "Origen por verificar",
+        "meaning": "Evoca el cariño que une generaciones y el refugio de los abrazos.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      }
+    ],
+    "M José": [
+      {
+        "name": "M Jose",
+        "gender": "girl",
+        "origin": "Origen por verificar",
+        "meaning": "Evoca el cariño que une generaciones y el refugio de los abrazos.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      }
+    ],
+    "M Dolores": [],
+    "M Pilar": [],
+    "M Teresa": [],
+    "M Isabel": [],
+    "M Angeles": [
+      {
+        "name": "M Angeles",
+        "gender": "girl",
+        "origin": "Origen por verificar",
+        "meaning": "Evoca la confianza de caminar juntos y un sueño que empieza a florecer.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      }
+    ]
+  },
+  "countByCategory": {
+    "non_name_symbols": 4,
+    "short_names_review_not_necessarily_invalid": 169,
+    "multiple_words": 957,
+    "hyphenated_names": 41,
+    "common_compound_prefixes": 189,
+    "three_or_more_words": 19,
+    "separator_or_annotation": 2,
+    "middle_or_trailing_single_initial": 5,
+    "leading_single_initial": 5,
+    "possible_maria_abbreviation": 6,
+    "diacritic_fold_collisions": 31,
+    "punctuation_or_space_collisions": 126
+  },
+  "commonCompoundFirstWords": [
+    [
+      "ابو",
+      100
+    ],
+    [
+      "maria",
+      73
+    ],
+    [
+      "محمد",
+      50
+    ],
+    [
+      "jose",
+      36
+    ],
+    [
+      "ana",
+      29
+    ],
+    [
+      "luis",
+      26
+    ],
+    [
+      "juan",
+      24
+    ],
+    [
+      "عبد",
+      24
+    ],
+    [
+      "luz",
+      21
+    ],
+    [
+      "abd",
+      20
+    ],
+    [
+      "احمد",
+      20
+    ],
+    [
+      "ام",
+      16
+    ],
+    [
+      "carlos",
+      12
+    ],
+    [
+      "jorge",
+      10
+    ],
+    [
+      "marie",
+      10
+    ],
+    [
+      "انا",
+      9
+    ],
+    [
+      "علي",
+      9
+    ],
+    [
+      "md",
+      8
+    ],
+    [
+      "mehmet",
+      8
+    ],
+    [
+      "ali",
+      7
+    ],
+    [
+      "gloria",
+      7
+    ],
+    [
+      "jhon",
+      7
+    ],
+    [
+      "tc",
+      7
+    ],
+    [
+      "سيد",
+      7
+    ],
+    [
+      "abu",
+      6
+    ],
+    [
+      "diana",
+      6
+    ],
+    [
+      "gian",
+      6
+    ],
+    [
+      "joão",
+      6
+    ],
+    [
+      "mari",
+      6
+    ],
+    [
+      "martha",
+      6
+    ],
+    [
+      "oscar",
+      6
+    ],
+    [
+      "pedro",
+      6
+    ],
+    [
+      "anna",
+      5
+    ],
+    [
+      "carmen",
+      5
+    ],
+    [
+      "diego",
+      5
+    ],
+    [
+      "jean",
+      5
+    ],
+    [
+      "jesus",
+      5
+    ],
+    [
+      "laura",
+      5
+    ],
+    [
+      "mohd",
+      5
+    ],
+    [
+      "victor",
+      5
+    ]
+  ],
+  "curatedExactMaria": false,
+  "warning": "Categorization detects possible abbreviations and formatting anomalies, not definitively incorrect legal names.",
+  "policy": "Retain source name and native form; expansion requires corroboration. Independently index genuine compounds and their components.",
+  "examples": {
+    "common_compound_prefixes": [
+      "Abd al-Karim",
+      "Abd Ali",
+      "Abd Alrahman",
+      "Abd El Rahman",
+      "Abd Elrahman",
+      "Abd Elrhman",
+      "Abd Ilah",
+      "Abd Lah",
+      "Abd Latif",
+      "Abd Lhadi",
+      "Abd Lhak",
+      "Abd Lkbir",
+      "Abd Lkrim",
+      "Abd Ltif",
+      "Abd Rahim",
+      "Abd Rahman",
+      "Abd Razak",
+      "Abd Salam",
+      "Abd Samad",
+      "Abd Slam",
+      "Abdul Aziz",
+      "Abdul Rahman",
+      "Ana Ahmed",
+      "Ana Aslan"
+    ],
+    "diacritic_fold_collisions": [
+      [
+        "Amelie",
+        "Amélie"
+      ],
+      [
+        "Anais",
+        "Anaïs"
+      ],
+      [
+        "Clementine",
+        "Clémentine"
+      ],
+      [
+        "Soren",
+        "Sören"
+      ],
+      [
+        "Леха",
+        "Лёха"
+      ],
+      [
+        "Леша",
+        "Лёша"
+      ],
+      [
+        "Семен",
+        "Семён"
+      ],
+      [
+        "Серега",
+        "Серёга"
+      ],
+      [
+        "Сережа",
+        "Серёжа"
+      ],
+      [
+        "Федор",
+        "Фёдор"
+      ],
+      [
+        "آبو",
+        "أبو",
+        "ابو"
+      ],
+      [
+        "آحمد",
+        "أحمد",
+        "إحمد",
+        "احمد"
+      ],
+      [
+        "آدم",
+        "ادم"
+      ],
+      [
+        "آية",
+        "اية"
+      ],
+      [
+        "إبراهيم",
+        "ابراهيم"
+      ],
+      [
+        "إدريس",
+        "ادريس"
+      ],
+      [
+        "إسماعيل",
+        "اسماعيل"
+      ],
+      [
+        "إم",
+        "ام"
+      ],
+      [
+        "إيمي",
+        "ايمي"
+      ],
+      [
+        "إيهاب",
+        "ايهاب"
+      ],
+      [
+        "القرآن",
+        "القران"
+      ],
+      [
+        "حسؤني",
+        "حسوني"
+      ],
+      [
+        "حمؤدي",
+        "حمودي"
+      ],
+      [
+        "رائد",
+        "رايد"
+      ]
+    ],
+    "hyphenated_names": [
+      "Abd al-Karim",
+      "Al-Dunya",
+      "Al-Omda",
+      "Al-Ward",
+      "Anna-Lena",
+      "Anne-Laure",
+      "Anne-Lise",
+      "Anne-Marie",
+      "Anne-Sophie",
+      "Dr-Ahmed",
+      "Dr-Mohamed",
+      "El-Sayed",
+      "Gert-Jan",
+      "Hans-Joachim",
+      "Hans-Jürgen",
+      "Hans-Peter",
+      "Jean-Baptiste",
+      "Jean-Charles",
+      "Jean-Christophe",
+      "Jean-Claude",
+      "Jean-François",
+      "Jean-Jacques",
+      "Jean-Luc",
+      "Jean-Marc"
+    ],
+    "leading_single_initial": [
+      "M Angeles",
+      "M Carmen",
+      "M Jose",
+      "S M",
+      "T Man"
+    ],
+    "middle_or_trailing_single_initial": [
+      "Jose A",
+      "Jose M",
+      "Maria C",
+      "Maria E",
+      "S M"
+    ],
+    "multiple_words": [
+      "Abd al-Karim",
+      "Abd Ali",
+      "Abd Alrahman",
+      "Abd El Rahman",
+      "Abd Elrahman",
+      "Abd Elrhman",
+      "Abd Ilah",
+      "Abd Lah",
+      "Abd Latif",
+      "Abd Lhadi",
+      "Abd Lhak",
+      "Abd Lkbir",
+      "Abd Lkrim",
+      "Abd Ltif",
+      "Abd Rahim",
+      "Abd Rahman",
+      "Abd Razak",
+      "Abd Salam",
+      "Abd Samad",
+      "Abd Slam",
+      "Abde Rahim",
+      "Abdel Fattah",
+      "Abdel Rahman",
+      "Abdul Aziz"
+    ],
+    "non_name_symbols": [
+      "A*I",
+      "Eg/J",
+      "F/I",
+      "G/I"
+    ],
+    "possible_maria_abbreviation": [
+      "M Angeles",
+      "M Carmen",
+      "M Jose",
+      "Ma Elena",
+      "Ma Guadalupe",
+      "Ma Vie"
+    ],
+    "punctuation_or_space_collisions": [
+      [
+        "Abd Ali",
+        "Abdali"
+      ],
+      [
+        "Abd Alrahman",
+        "Abdalrahman"
+      ],
+      [
+        "Abd El Rahman",
+        "Abd Elrahman",
+        "Abdel Rahman",
+        "Abdelrahman"
+      ],
+      [
+        "Abd Elrhman",
+        "Abdelrhman"
+      ],
+      [
+        "Abd Ilah",
+        "Abdilah"
+      ],
+      [
+        "Abd Lah",
+        "Abdlah"
+      ],
+      [
+        "Abd Latif",
+        "Abdlatif"
+      ],
+      [
+        "Abd Lhadi",
+        "Abdlhadi"
+      ],
+      [
+        "Abd Lhak",
+        "Abdlhak"
+      ],
+      [
+        "Abd Lkbir",
+        "Abdlkbir"
+      ],
+      [
+        "Abd Lkrim",
+        "Abdlkrim"
+      ],
+      [
+        "Abd Ltif",
+        "Abdltif"
+      ],
+      [
+        "Abd Rahman",
+        "Abdrahman"
+      ],
+      [
+        "Abd Razak",
+        "Abdrazak"
+      ],
+      [
+        "Abd Salam",
+        "Abdsalam"
+      ],
+      [
+        "Abd Samad",
+        "Abdsamad"
+      ],
+      [
+        "Abd Slam",
+        "Abdslam"
+      ],
+      [
+        "Abde Rahim",
+        "Abderahim"
+      ],
+      [
+        "Abdel Fattah",
+        "Abdelfattah"
+      ],
+      [
+        "Abdul Aziz",
+        "Abdulaziz"
+      ],
+      [
+        "Abdul Rahman",
+        "Abdulrahman"
+      ],
+      [
+        "Abu Bakar",
+        "Abubakar"
+      ],
+      [
+        "Abu Bakr",
+        "Abubakr"
+      ],
+      [
+        "Ahed",
+        "Ặĥɱěd"
+      ]
+    ],
+    "separator_or_annotation": [
+      "Eg(Hd",
+      "F(Jd"
+    ],
+    "short_names_review_not_necessarily_invalid": [
+      "Ab",
+      "Ad",
+      "Ah",
+      "Aj",
+      "Ak",
+      "Al",
+      "An",
+      "Ar",
+      "As",
+      "Ay",
+      "Ba",
+      "Bd",
+      "Be",
+      "Bi",
+      "Bj",
+      "Bo",
+      "Ca",
+      "Ch",
+      "Cj",
+      "Ck",
+      "Ct",
+      "Cé",
+      "Da",
+      "De"
+    ],
+    "three_or_more_words": [
+      "Abd El Rahman",
+      "Flor De Maria",
+      "Jose De Jesus",
+      "Maria Das Graças",
+      "Maria De Fatima",
+      "Maria De Jesus",
+      "Maria De La Luz",
+      "Maria De Los Angeles",
+      "Maria De Lourdes",
+      "Maria Del Carmen",
+      "Maria Del Mar",
+      "Maria Del Pilar",
+      "Maria Del Rosario",
+      "Maria Do Carmo",
+      "Maria Do Socorro",
+      "Muslim - Sunni",
+      "ابو عبد الرحمن",
+      "ابو عبد الله",
+      "مسلم والحمد لله"
+    ]
+  }
+}
