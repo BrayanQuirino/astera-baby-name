@@ -62,10 +62,10 @@ export function surnameHarmony(givenName,surnames=[]){
 }
 export function recommendNames(names,preferences){
  const {gender='all',country='all',style='any',parent1='',parent2='',mother='',father='',surname1='',surname2=''}=preferences;
- const initials=[parent1||mother,parent2||father].filter(Boolean).map(p=>normalize(p[0]));
+ const initial=normalize(preferences.initial||'').trim().slice(0,1);
  const surnames=[surname1,surname2].map(v=>String(v||'').trim()).filter(Boolean);
- const personalized=Boolean(surnames.length||initials.length||country!=='all'||style!=='any');
- return names.filter(n=>gender==='all'||n.gender===gender||n.gender==='unisex').map(n=>{
+ const personalized=Boolean(surnames.length||country!=='all'||style!=='any');
+ return names.filter(n=>(gender==='all'||n.gender===gender||n.gender==='unisex')&&(!initial||normalize(n.name).startsWith(initial))).map(n=>{
   const name=normalize(n.name);
   let preferenceScore=0;
   if(country!=='all'&&(n.country===country||n.countries?.includes(country)))preferenceScore+=12;
@@ -73,10 +73,29 @@ export function recommendNames(names,preferences){
   if(style==='nature'&&/luna|sora|sakura|citlali|aurora|ravi|hana|leo/i.test(n.name))preferenceScore+=8;
   if(style==='traditional'&&/hugo|lucia|mateo|sofia|ines|nicolas|elena/i.test(name))preferenceScore+=8;
   if(style==='modern'&&/kai|ren|mia|yuna|zuri|noah|liam/i.test(name))preferenceScore+=8;
-  if(initials.some(a=>name.startsWith(a)))preferenceScore+=2;
   const harmony=surnames.length?surnameHarmony(n.name,surnames):null;
   return {...n,harmony,score:preferenceScore+(harmony??0)};
  }).sort((a,b)=>personalized?(b.score-a.score||a.name.localeCompare(b.name,'es')):a.name.localeCompare(b.name,'es'));
+}
+// Live discovery uses the same field names as personalized recommendations.
+// In browse mode, initials are a hard filter and surnames activate harmony ranking.
+export function filterNames(names,query,preferences={}){
+ const {gender='all',country='all',style='any',initial='',surname1='',surname2=''}=preferences;
+ const q=normalize(query).trim(),letter=normalize(initial).trim().slice(0,1);
+ const surnames=[surname1,surname2].map(v=>String(v||'').trim()).filter(Boolean);
+ return names.filter(n=>{
+  if(gender!=='all'&&n.gender!==gender&&n.gender!=='unisex')return false;
+  if(country!=='all'&&n.country!==country&&!n.countries?.includes(country))return false;
+  if(letter&&!normalize(n.name).startsWith(letter))return false;
+  const name=normalize(n.name);
+  if(style==='short'&&name.length>5)return false;
+  if(style==='nature'&&!/luna|sora|sakura|citlali|aurora|ravi|hana|leo|rosa|flora|iris|sol|rio|kai|mar|river|jade|oliver|olive|dahlia/i.test(name))return false;
+  if(style==='traditional'&&!/hugo|lucia|mateo|sofia|ines|nicolas|elena|ana|maria|jose|juan|carlos|isabel|antonio|miguel|pedro|francisco|carmen/i.test(name))return false;
+  if(style==='modern'&&!/kai|ren|mia|yuna|zuri|noah|liam|emma|olivia|luca|leo|enzo|theo|aria|nova|ezra/i.test(name))return false;
+  if(q&&!normalize([n.name,n.native||'',n.reading||'',n.meaning||'',n.origin||'',...(n.variants||[])].join(' ')).includes(q))return false;
+  return true;
+ }).map(n=>surnames.length?{...n,harmony:surnameHarmony(n.name,surnames)}:n)
+  .sort((a,b)=>surnames.length?(b.harmony-a.harmony||a.name.localeCompare(b.name,'es')):a.name.localeCompare(b.name,'es'));
 }
 export function zodiac(date){
  if(!date)return {name:'Tu cielo',symbol:'✧',dots:[[14,23],[71,19],[40,48],[81,72],[28,83],[60,91]]};
