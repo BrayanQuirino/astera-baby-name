@@ -33,7 +33,7 @@ export default function StarDatePicker({value,onChange,dark=false}){
  const choose=day=>{onChange(fmt(year,month,day));setOpen(false)};
  return <div className={'star-date '+(dark?'dark-date':'')} ref={ref}>
   <button type="button" aria-expanded={open} aria-haspopup="dialog" className="date-trigger" onClick={()=>setOpen(v=>!v)}>
-   <CalendarDays size={19}/><span>{selected?new Intl.DateTimeFormat('es-MX',{day:'numeric',month:'long',year:'numeric'}).format(selected):'Elegir fecha probable'}</span><ChevronDown size={16} className="date-chevron"/>
+   <CalendarDays size={19} className="date-icon"/><span className="date-trigger-label">{selected?new Intl.DateTimeFormat('es-MX',{day:'numeric',month:'long',year:'numeric'}).format(selected):'Elegir fecha probable'}</span><ChevronDown size={16} className="date-chevron"/>
   </button>
   {open&&<div className="calendar-popup" role="dialog" aria-label="Elegir fecha probable de nacimiento">
    <div className="calendar-head">
