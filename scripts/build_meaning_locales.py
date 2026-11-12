@@ -86,7 +86,7 @@ published=sorted({n["meaning"] for n in catalog if n.get("meaningType")=="publis
 # Curated meanings supplement catalog meaning lookup.
 curated=load_json(ROOT/"src/data/international.json",[])
 published=sorted(set(published)|{n["meaning"] for n in curated if isinstance(n,dict) and n.get("meaning")})
-for lang in LANGUAGES:
+for lang in (os.environ["ASTERA_LANG"],) if os.environ.get("ASTERA_LANG") in LANGUAGES else LANGUAGES:
     path=OUTPUT/(lang+".json")
     old=load_json(path,{})
     phrases=dict(old.get("phrases") or {})
