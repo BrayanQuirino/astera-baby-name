@@ -1,11 +1,12 @@
 import React,{useEffect,useMemo,useRef,useState} from 'react';
 import {Check,ChevronDown,Globe2,Search,X} from 'lucide-react';
+import {translate} from '../lib/i18n.js';
 
 // Accent-insensitive search works equally for México, Mexico, Japanese, etc.
 const fold=value=>String(value??'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLocaleLowerCase('es').trim();
 
 /** Searchable, keyboard-accessible country selector; no third-party widget dependency. */
-export default function CultureCombobox({options,value,onChange,label='Cultura',className=''}) {
+export default function CultureCombobox({options,value,onChange,label='Cultura',className='',lang='es'}) {
  const [open,setOpen]=useState(false);
  const [term,setTerm]=useState('');
  const [active,setActive]=useState(0);
@@ -15,7 +16,7 @@ export default function CultureCombobox({options,value,onChange,label='Cultura',
    const needle=fold(term);
    return needle?options.filter(([code,name])=>fold(name).includes(needle)||fold(code).includes(needle)):options;
  },[options,term]);
- const selected=options.find(([code])=>code===value)?.[1]??'Todas las culturas';
+ const selected=options.find(([code])=>code===value)?.[1]??translate(lang,'all');
  useEffect(()=>setActive(0),[term]);
  useEffect(()=>{
    if(!open)return;
