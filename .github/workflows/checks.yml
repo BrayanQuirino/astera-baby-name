@@ -23,5 +23,7 @@ jobs:
         run: python scripts/validate_catalog.py
       - name: Install app dependencies
         run: npm install --no-audit --no-fund
+      - name: Test name ranking and filters
+        run: npm test
       - name: Build production app
         run: npm run build
