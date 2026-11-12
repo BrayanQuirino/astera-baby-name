@@ -25,7 +25,8 @@ export function hasLocalizedMeaning(item,locale,bundle){
 }
 export function getPopularity(item,dataset,preferredCountry='all'){
  const key=foldMeaning(item?.name);
- const values=dataset?.names?.[key];
+ const originalKey=String(item?.name||'').normalize('NFD').toLowerCase().trim();
+ const values=dataset?.names?.[originalKey]||dataset?.names?.[key];
  if(!values)return null;
  if(preferredCountry!=='all'){
   const pair=values[preferredCountry];
