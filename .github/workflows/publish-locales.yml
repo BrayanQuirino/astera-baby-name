@@ -1,0 +1,51 @@
+name: Publish generated name translations
+on:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/publish-locales.yml
+  workflow_dispatch:
+permissions:
+  contents: write
+  actions: read
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          persist-credentials: true
+      - uses: actions/download-artifact@v4
+        with:
+          run-id: 43148644039
+          github-token: ${{ github.token }}
+          pattern: locale-*
+          path: public/names/locales
+          merge-multiple: true
+      - name: Validate translated meaning JSON
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          for lang in ('en','fr','pt','de','it','ja','ko','zh'):
+              path=Path('public/names/locales')/(lang+'.json')
+              entry=json.loads(path.read_text(encoding='utf-8'))
+              assert entry['lang']==lang
+              assert entry['status'] in ('partial','complete')
+              assert isinstance(entry.get('phrases'),dict)
+              assert isinstance(entry.get('meanings'),dict)
+              print(lang,'poetic',len(entry['phrases']),'documented',len(entry['meanings']),'status',entry['status'])
+          PY
+      - name: Publish language files
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add public/names/locales/
+          if ! git diff --cached --quiet; then
+            git commit -m "data: publish eight language meaning bundles"
+            git fetch origin main
+            git rebase origin/main
+            git push origin HEAD:main
+          fi
