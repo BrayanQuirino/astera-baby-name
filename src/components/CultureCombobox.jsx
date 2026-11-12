@@ -12,11 +12,20 @@ export default function CultureCombobox({options,value,onChange,label='Cultura',
  const [active,setActive]=useState(0);
  const ref=useRef(null);
  const input=useRef(null);
+ // ISO country names are localized by the browser. Non-country cultural labels are kept verbatim.
+ const localized=useMemo(()=>{
+   let regions=null;
+   try{regions=new Intl.DisplayNames([lang],{type:'region'})}catch{}
+   return options.map(([code,name])=>{
+    const label=code==='all'?translate(lang,'all'):/^[A-Z]{2}$/.test(code)&&regions?regions.of(code)||name:name;
+    return [code,label,name];
+   }).sort((a,b)=>a[0]==='all'?-1:b[0]==='all'?1:a[1].localeCompare(b[1],lang));
+ },[options,lang]);
  const list=useMemo(()=>{
    const needle=fold(term);
-   return needle?options.filter(([code,name])=>fold(name).includes(needle)||fold(code).includes(needle)):options;
- },[options,term]);
- const selected=options.find(([code])=>code===value)?.[1]??translate(lang,'all');
+   return needle?localized.filter(([code,name,original])=>fold(name).includes(needle)||fold(original).includes(needle)||fold(code).includes(needle)):localized;
+ },[localized,term]);
+ const selected=localized.find(([code])=>code===value)?.[1]??translate(lang,'all');
  useEffect(()=>setActive(0),[term]);
  useEffect(()=>{
    if(!open)return;
