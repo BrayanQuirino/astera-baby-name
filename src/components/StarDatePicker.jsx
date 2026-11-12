@@ -2,8 +2,6 @@ import React,{useEffect,useRef,useState} from 'react';
 import {CalendarDays,ChevronLeft,ChevronRight,X,ChevronDown} from 'lucide-react';
 import {translate} from '../lib/i18n.js';
 
-const months=Array.from({length:12},(_,i)=>new Intl.DateTimeFormat(lang,{month:'long'}).format(new Date(2026,i,1)));
-const weekdays=['L','M','M','J','V','S','D'];
 const fmt=(y,m,d)=>[y,String(m+1).padStart(2,'0'),String(d).padStart(2,'0')].join('-');
 const parseDate=value=>{
  const match=/^(\d{4})-(\d\d)-(\d\d)$/.exec(value||'');
