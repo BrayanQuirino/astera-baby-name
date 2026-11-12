@@ -40,25 +40,25 @@ for item in names:
         record("multiple_words",item)
     if len(words)>=3:
         record("three_or_more_words",item)
-    if re.match(r"^[A-Za-zÁÉÍÓÚÜÑáéíóúüñ]\\.?\\s+\\S",name):
+    if re.match(r"^[A-Za-zÁÉÍÓÚÜÑáéíóúüñ]\.?\s+\S",name):
         record("leading_single_initial",item)
-    if re.search(r"(?<=\\s)[A-Za-zÁÉÍÓÚÜÑáéíóúüñ]\\.?(?=\\s|$)",name):
+    if re.search(r"(?<=\s)[A-Za-zÁÉÍÓÚÜÑáéíóúüñ]\.?(?=\s|$)",name):
         record("middle_or_trailing_single_initial",item)
-    if re.match(r"^(?:M|M\\.|Ma|Ma\\.|Mª|Mª\\.)\\s+",name,re.I):
+    if re.match(r"^(?:M|M\.|Ma|Ma\.|Mª|Mª\.)\s+",name,re.I):
         record("possible_maria_abbreviation",item)
-    if re.match(r"^(?:J|J\\.|Jº|Jº\\.)\\s+",name,re.I):
+    if re.match(r"^(?:J|J\.|Jº|Jº\.)\s+",name,re.I):
         record("ambiguous_j_initial",item)
-    if re.search(r"[0-9*?/#@\\\\]",name):
+    if re.search(r"[0-9*?/#@\\]",name):
         record("non_name_symbols",item)
-    if re.search(r"(?<!\\w)[A-Za-z]\\.(?!\\w)",name):
+    if re.search(r"(?<!\w)[A-Za-z]\.(?!\w)",name):
         record("period_abbreviations",item)
-    if re.search(r"\\s{2,}",name) or name!=name.strip():
+    if re.search(r"\s{2,}",name) or name!=name.strip():
         record("whitespace_anomalies",item)
-    if re.search(r"[,:;()\\[\\]]",name):
+    if re.search(r"[,:;()\[\]]",name):
         record("separator_or_annotation",item)
     if re.search(r"[-–]",name):
         record("hyphenated_names",item)
-    if re.match(r"^(?:Maria|María|José|Jose|Ana|Juan|Jean|Abd|Abdul)\\s+",name,re.I):
+    if re.match(r"^(?:Maria|María|José|Jose|Ana|Juan|Jean|Abd|Abdul)\s+",name,re.I):
         record("common_compound_prefixes",item)
     if len(name)<=2 and name.isalpha():
         record("short_names_review_not_necessarily_invalid",item)
