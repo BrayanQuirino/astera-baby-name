@@ -1,0 +1,34 @@
+name: Audit abbreviated and compound names
+on:
+  push:
+    branches: [main]
+    paths:
+      - scripts/audit_name_structure.py
+      - .github/workflows/name-audit.yml
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Inspect all catalog names
+        run: python scripts/audit_name_structure.py
+      - name: Publish structured audit report
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add reports/name_structure_audit.json
+          if ! git diff --cached --quiet; then
+            git commit -m "audit: publish compound and abbreviated names report"
+            git fetch origin main
+            git rebase origin/main
+            git push origin HEAD:main
+          fi
