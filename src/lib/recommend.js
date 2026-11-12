@@ -23,7 +23,7 @@ export function surnameHarmony(givenName,surnames=[]){
  if(!givenWords.length||!familyWords.length)return null;
  const all=[...givenWords,...familyWords].map(sound);
  const sounds=all.map(syllables);
- let points=70;
+ let points=54;
  // Rhythm: distinguish 1–2–3, 2–3–2 and dense equal-length patterns.
  const total=sounds.reduce((sum,n)=>sum+n,0);
  points+=total>=4&&total<=10?5:total>13?-9:-2;
