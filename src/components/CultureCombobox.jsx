@@ -34,12 +34,12 @@ export default function CultureCombobox({options,value,onChange,label='Cultura',
  return <div className={'culture-combo '+className} ref={ref}>
   <label className="culture-combo-label"><Globe2 size={17}/><span className="sr-only">{label}</span>
    <div className="culture-input-shell">
-    <input ref={input} value={open?term:selected} onFocus={()=>{setOpen(true);setTerm('')}} onChange={e=>{setTerm(e.target.value);setOpen(true)}} onKeyDown={keyboard} role="combobox" aria-label={label} aria-expanded={open} aria-autocomplete="list" aria-controls="culture-options" aria-activedescendant={open&&list[active]?'culture-option-'+list[active][0]:undefined} placeholder="Busca un país o cultura..." autoComplete="off"/>
-    {value!=='all'&&!open?<button type="button" onClick={()=>choose('all')} aria-label="Quitar filtro"><X size={14}/></button>:<button type="button" aria-label={open?'Cerrar lista':'Abrir lista'} onClick={()=>{setOpen(v=>!v);if(!open){setTerm('');input.current?.focus()}}}><ChevronDown size={17}/></button>}
+    <input ref={input} value={open?term:selected} onFocus={()=>{setOpen(true);setTerm('')}} onChange={e=>{setTerm(e.target.value);setOpen(true)}} onKeyDown={keyboard} role="combobox" aria-label={label} aria-expanded={open} aria-autocomplete="list" aria-controls="culture-options" aria-activedescendant={open&&list[active]?'culture-option-'+list[active][0]:undefined} placeholder={translate(lang,'cultureSearch')} autoComplete="off"/>
+    {value!=='all'&&!open?<button type="button" onClick={()=>choose('all')} aria-label={translate(lang,'removeFilter')}><X size={14}/></button>:<button type="button" aria-label={translate(lang,open?'closeList':'openList')} onClick={()=>{setOpen(v=>!v);if(!open){setTerm('');input.current?.focus()}}}><ChevronDown size={17}/></button>}
    </div>
   </label>
   {open&&<div className="culture-options" id="culture-options" role="listbox" aria-label={label}>
-    {list.length?list.slice(0,110).map(([code,name],i)=><button id={'culture-option-'+code} type="button" role="option" aria-selected={value===code} key={code} className={(active===i?'active ':'')+(value===code?'selected':'')} onMouseEnter={()=>setActive(i)} onMouseDown={event=>event.preventDefault()} onClick={()=>choose(code)}><span>{name}</span>{value===code&&<Check size={15}/>}</button>):<p className="culture-empty">No encontramos coincidencias. Prueba otra búsqueda.</p>}
+    {list.length?list.slice(0,110).map(([code,name],i)=><button id={'culture-option-'+code} type="button" role="option" aria-selected={value===code} key={code} className={(active===i?'active ':'')+(value===code?'selected':'')} onMouseEnter={()=>setActive(i)} onMouseDown={event=>event.preventDefault()} onClick={()=>choose(code)}><span>{name}</span>{value===code&&<Check size={15}/>}</button>):<p className="culture-empty">{translate(lang,'noCulture')}</p>}
   </div>}
  </div>;
 }
