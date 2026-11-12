@@ -126,10 +126,14 @@
       "short_names_review_not_necessarily_invalid": 169,
       "multiple_words": 957,
       "hyphenated_names": 41,
+      "common_compound_prefixes": 189,
       "three_or_more_words": 19,
+      "separator_or_annotation": 2,
+      "middle_or_trailing_single_initial": 5,
+      "leading_single_initial": 5,
+      "possible_maria_abbreviation": 6,
       "diacritic_fold_collisions": 31,
-      "punctuation_or_space_collisions": 126,
-      "leading_single_initial": 0
+      "punctuation_or_space_collisions": 126
     },
     "commonCompoundFirstWords": [
       [
@@ -298,6 +302,1520 @@
     "policy": "Retain source name and native form; expansion requires corroboration. Independently index genuine compounds and their components."
   },
   "groups": {
+    "common_compound_prefixes": [
+      {
+        "name": "Abd al-Karim",
+        "gender": "boy",
+        "origin": "Arabic",
+        "meaning": "Evoca un universo por explorar y el valor de ser uno mismo.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      },
+      {
+        "name": "Abd Ali",
+        "gender": "unisex",
+        "origin": "Origen por verificar",
+        "meaning": "Evoca un instante que se vuelve eterno y la alegría de descubrir el mundo.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      },
+      {
+        "name": "Abd Alrahman",
+        "gender": "boy",
+        "origin": "Origen por verificar",
+        "meaning": "Evoca una historia llena de posibilidades y un viaje hacia lo extraordinario.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      },
+      {
+        "name": "Abd El Rahman",
+        "gender": "boy",
+        "origin": "Origen por verificar",
+        "meaning": "Evoca la alegría de descubrir el mundo y la serenidad de un amanecer.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      },
+      {
+        "name": "Abd Elrahman",
+        "gender": "boy",
+        "origin": "Arabic",
+        "meaning": "Evoca el valor de ser uno mismo y un universo por explorar.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      },
+      {
+        "name": "Abd Elrhman",
+        "gender": "boy",
+        "origin": "Origen por verificar",
+        "meaning": "Evoca una conexión entre culturas y el eco de una historia familiar.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      },
+      {
+        "name": "Abd Ilah",
+        "gender": "unisex",
+        "origin": "Origen por verificar",
+        "meaning": "Evoca un camino de descubrimientos y un encuentro que transforma la vida.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      },
+      {
+        "name": "Abd Lah",
+        "gender": "unisex",
+        "origin": "Origen por verificar",
+        "meaning": "Evoca la libertad de imaginar y el brillo de las primeras estrellas.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      },
+      {
+        "name": "Abd Latif",
+        "gender": "unisex",
+        "origin": "Origen por verificar",
+        "meaning": "Evoca un encuentro que transforma la vida y la alegría de descubrir el mundo.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      },
+      {
+        "name": "Abd Lhadi",
+        "gender": "unisex",
+        "origin": "Origen por verificar",
+        "meaning": "Evoca un sueño que empieza a florecer y el brillo de las primeras estrellas.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      },
+      {
+        "name": "Abd Lhak",
+        "gender": "unisex",
+        "origin": "Origen por verificar",
+        "meaning": "Evoca un horizonte de esperanza y la libertad de imaginar.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      },
+      {
+        "name": "Abd Lkbir",
+        "gender": "unisex",
+        "origin": "Origen por verificar",
+        "meaning": "Evoca la alegría de descubrir el mundo y la luz de los nuevos comienzos.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      },
+      {
+        "name": "Abd Lkrim",
+        "gender": "unisex",
+        "origin": "Origen por verificar",
+        "meaning": "Evoca un instante que se vuelve eterno y la calidez de los recuerdos.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      },
+      {
+        "name": "Abd Ltif",
+        "gender": "unisex",
+        "origin": "Origen por verificar",
+        "meaning": "Evoca la energía de una nueva etapa y la magia de los pequeños momentos.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      },
+      {
+        "name": "Abd Rahim",
+        "gender": "unisex",
+        "origin": "Arabic",
+        "meaning": "Evoca la fuerza de los sueños y el cariño que une generaciones.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      },
+      {
+        "name": "Abd Rahman",
+        "gender": "unisex",
+        "origin": "Origen por verificar",
+        "meaning": "Evoca el eco de una historia familiar y un camino de descubrimientos.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      },
+      {
+        "name": "Abd Razak",
+        "gender": "unisex",
+        "origin": "Origen por verificar",
+        "meaning": "Evoca un camino de descubrimientos y la alegría de descubrir el mundo.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      },
+      {
+        "name": "Abd Salam",
+        "gender": "unisex",
+        "origin": "Origen por verificar",
+        "meaning": "Evoca la serenidad de un amanecer y la alegría de descubrir el mundo.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      },
+      {
+        "name": "Abd Samad",
+        "gender": "unisex",
+        "origin": "Origen por verificar",
+        "meaning": "Evoca la energía de una nueva etapa y la fuerza de los sueños.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      },
+      {
+        "name": "Abd Slam",
+        "gender": "unisex",
+        "origin": "Origen por verificar",
+        "meaning": "Evoca la luz de los nuevos comienzos y una historia llena de posibilidades.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      },
+      {
+        "name": "Abdul Aziz",
+        "gender": "boy",
+        "origin": "Arabic",
+        "meaning": "Evoca la curiosidad por lo desconocido y una historia llena de posibilidades.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      },
+      {
+        "name": "Abdul Rahman",
+        "gender": "boy",
+        "origin": "Origen por verificar",
+        "meaning": "Evoca un instante que se vuelve eterno y la armonía de un cielo tranquilo.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      },
+      {
+        "name": "Ana Ahmed",
+        "gender": "boy",
+        "origin": "Origen por verificar",
+        "meaning": "Evoca la alegría de descubrir el mundo y la libertad de imaginar.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      },
+      {
+        "name": "Ana Aslan",
+        "gender": "girl",
+        "origin": "Invalid full-name record",
+        "meaning": "Evoca un deseo compartido y un encuentro que transforma la vida.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      },
+      {
+        "name": "Ana Asln",
+        "gender": "unisex",
+        "origin": "Origen por verificar",
+        "meaning": "Evoca el brillo de las primeras estrellas y la belleza de un nuevo capítulo.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      },
+      {
+        "name": "Ana Beatriz",
+        "gender": "girl",
+        "origin": "Origen por verificar",
+        "meaning": "Evoca el cariño que une generaciones y la belleza de un nuevo capítulo.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      },
+      {
+        "name": "Ana Belen",
+        "gender": "girl",
+        "origin": "Spanish",
+        "meaning": "Evoca la armonía de un cielo tranquilo y la curiosidad por lo desconocido.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      },
+      {
+        "name": "Ana Carolina",
+        "gender": "girl",
+        "origin": "Origen por verificar",
+        "meaning": "Evoca la calidez de los recuerdos y un instante que se vuelve eterno.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      },
+      {
+        "name": "Ana Cecilia",
+        "gender": "girl",
+        "origin": "Origen por verificar",
+        "meaning": "Evoca el eco de una historia familiar y la calidez de los recuerdos.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      },
+      {
+        "name": "Ana Clara",
+        "gender": "girl",
+        "origin": "Origen por verificar",
+        "meaning": "Evoca la calidez de los recuerdos y la energía de una nueva etapa.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      },
+      {
+        "name": "Ana Claudia",
+        "gender": "girl",
+        "origin": "Origen por verificar",
+        "meaning": "Evoca el eco de una historia familiar y una conexión entre culturas.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      },
+      {
+        "name": "Ana Cristina",
+        "gender": "girl",
+        "origin": "Origen por verificar",
+        "meaning": "Evoca un sueño que empieza a florecer y la fuerza de los sueños.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      },
+      {
+        "name": "Ana Habebt",
+        "gender": "girl",
+        "origin": "Origen por verificar",
+        "meaning": "Evoca el brillo de las primeras estrellas y la luz de los nuevos comienzos.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      },
+      {
+        "name": "Ana Habibt",
+        "gender": "girl",
+        "origin": "Origen por verificar",
+        "meaning": "Evoca la libertad de imaginar y el cariño que une generaciones.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      },
+      {
+        "name": "Ana Isabel",
+        "gender": "girl",
+        "origin": "Spanish and Portuguese",
+        "meaning": "Evoca la promesa de un mañana hermoso y la ternura de un nuevo hogar.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      },
+      {
+        "name": "Ana Julia",
+        "gender": "girl",
+        "origin": "Origen por verificar",
+        "meaning": "Evoca un universo por explorar y un lazo que trasciende fronteras.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      },
+      {
+        "name": "Ana Karen",
+        "gender": "girl",
+        "origin": "Origen por verificar",
+        "meaning": "Evoca una conexión entre culturas y el comienzo de una gran aventura.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      },
+      {
+        "name": "Ana Laura",
+        "gender": "girl",
+        "origin": "Origen por verificar",
+        "meaning": "Evoca un universo por explorar y el cariño que une generaciones.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      },
+      {
+        "name": "Ana Lilia",
+        "gender": "girl",
+        "origin": "Origen por verificar",
+        "meaning": "Evoca un camino de descubrimientos y una historia llena de posibilidades.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      },
+      {
+        "name": "Ana Lucia",
+        "gender": "girl",
+        "origin": "Hebrew Latin Portuguese Spanish",
+        "meaning": "Evoca un encuentro que transforma la vida y la energía de una nueva etapa.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      },
+      {
+        "name": "Ana Luisa",
+        "gender": "girl",
+        "origin": "Origen por verificar",
+        "meaning": "Evoca la fuerza de los sueños y una historia llena de posibilidades.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      },
+      {
+        "name": "Ana Luiza",
+        "gender": "girl",
+        "origin": "Origen por verificar",
+        "meaning": "Evoca una conexión entre culturas y la fuerza de los sueños.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      },
+      {
+        "name": "Ana Mari",
+        "gender": "girl",
+        "origin": "Origen por verificar",
+        "meaning": "Evoca la curiosidad por lo desconocido y el eco de una historia familiar.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      },
+      {
+        "name": "Ana Maria",
+        "gender": "girl",
+        "origin": "Spanish, Portuguese, and Romanian",
+        "meaning": "Evoca la alegría de descubrir el mundo y el brillo de las primeras estrellas.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      },
+      {
+        "name": "Ana Mercedes",
+        "gender": "girl",
+        "origin": "Origen por verificar",
+        "meaning": "Evoca la calidez de los recuerdos y un encuentro que transforma la vida.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      },
+      {
+        "name": "Ana Milena",
+        "gender": "girl",
+        "origin": "Spanish and Slavic",
+        "meaning": "Evoca la libertad de imaginar y la belleza de un nuevo capítulo.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      },
+      {
+        "name": "Ana Paula",
+        "gender": "girl",
+        "origin": "Hebrew, Latin, and Portuguese",
+        "meaning": "Evoca una conexión entre culturas y el cariño que une generaciones.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      },
+      {
+        "name": "Ana Rita",
+        "gender": "girl",
+        "origin": "Origen por verificar",
+        "meaning": "Evoca la serenidad de un amanecer y la confianza de caminar juntos.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      },
+      {
+        "name": "Ana Rosa",
+        "gender": "girl",
+        "origin": "Origen por verificar",
+        "meaning": "Evoca un viaje hacia lo extraordinario y el comienzo de una gran aventura.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      },
+      {
+        "name": "Ana Sofia",
+        "gender": "girl",
+        "origin": "Origen por verificar",
+        "meaning": "Evoca la confianza de caminar juntos y un lazo que trasciende fronteras.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      },
+      {
+        "name": "Ana Wad",
+        "gender": "boy",
+        "origin": "Origen por verificar",
+        "meaning": "Evoca la dulzura de lo inesperado y el valor de ser uno mismo.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      },
+      {
+        "name": "Jean Carlos",
+        "gender": "boy",
+        "origin": "French and Spanish",
+        "meaning": "Evoca un deseo compartido y un instante que se vuelve eterno.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      },
+      {
+        "name": "Jean Louis",
+        "gender": "boy",
+        "origin": "French (Hebrew and Germanic)",
+        "meaning": "Evoca el valor de ser uno mismo y un viaje hacia lo extraordinario.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      },
+      {
+        "name": "Jean Michel",
+        "gender": "boy",
+        "origin": "French",
+        "meaning": "Evoca un viaje hacia lo extraordinario y un encuentro que transforma la vida.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      },
+      {
+        "name": "Jean Noel",
+        "gender": "boy",
+        "origin": "Origen por verificar",
+        "meaning": "Evoca un lazo que trasciende fronteras y una conexión entre culturas.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      },
+      {
+        "name": "Jean Paul",
+        "gender": "boy",
+        "origin": "Hebrew, Latin, and French",
+        "meaning": "Evoca la dulzura de lo inesperado y la magia de los pequeños momentos.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      },
+      {
+        "name": "Jose A",
+        "gender": "boy",
+        "origin": "Origen por verificar",
+        "meaning": "Evoca un universo por explorar y un lazo que trasciende fronteras.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      },
+      {
+        "name": "Jose Alberto",
+        "gender": "boy",
+        "origin": "Spanish",
+        "meaning": "Evoca el cariño que une generaciones y el brillo de las primeras estrellas.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      },
+      {
+        "name": "Jose Alejandro",
+        "gender": "boy",
+        "origin": "Origen por verificar",
+        "meaning": "Evoca una conexión entre culturas y la confianza de caminar juntos.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      },
+      {
+        "name": "Jose Alexander",
+        "gender": "boy",
+        "origin": "Origen por verificar",
+        "meaning": "Evoca la fuerza de los sueños y un horizonte de esperanza.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      },
+      {
+        "name": "Jose Alfredo",
+        "gender": "boy",
+        "origin": "Spanish (compound given name)",
+        "meaning": "Evoca el cariño que une generaciones y un universo por explorar.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      },
+      {
+        "name": "Jose Andres",
+        "gender": "boy",
+        "origin": "Origen por verificar",
+        "meaning": "Evoca un lazo que trasciende fronteras y la libertad de imaginar.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      },
+      {
+        "name": "Jose Angel",
+        "gender": "boy",
+        "origin": "Spanish",
+        "meaning": "Evoca un deseo compartido y la magia de los pequeños momentos.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      },
+      {
+        "name": "Jose Antonio",
+        "gender": "boy",
+        "origin": "Spanish, from Hebrew and Latin",
+        "meaning": "Evoca una historia llena de posibilidades y un deseo compartido.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      },
+      {
+        "name": "Jose Armando",
+        "gender": "boy",
+        "origin": "Origen por verificar",
+        "meaning": "Evoca un deseo compartido y la serenidad de un amanecer.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      },
+      {
+        "name": "Jose Carlos",
+        "gender": "boy",
+        "origin": "Spanish and Portuguese compound Christian tradition",
+        "meaning": "Evoca la curiosidad por lo desconocido y el cariño que une generaciones.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      },
+      {
+        "name": "Jose Cruz",
+        "gender": "boy",
+        "origin": "Origen por verificar",
+        "meaning": "Evoca la confianza de caminar juntos y la libertad de imaginar.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      },
+      {
+        "name": "Jose Daniel",
+        "gender": "boy",
+        "origin": "Origen por verificar",
+        "meaning": "Evoca un lazo que trasciende fronteras y la curiosidad por lo desconocido.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      },
+      {
+        "name": "Jose David",
+        "gender": "boy",
+        "origin": "Spanish",
+        "meaning": "Evoca un deseo compartido y el cariño que une generaciones.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      },
+      {
+        "name": "Jose De Jesus",
+        "gender": "boy",
+        "origin": "Origen por verificar",
+        "meaning": "Evoca la ternura de un nuevo hogar y la luz de los nuevos comienzos.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      },
+      {
+        "name": "Jose Eduardo",
+        "gender": "boy",
+        "origin": "Origen por verificar",
+        "meaning": "Evoca la libertad de imaginar y un instante que se vuelve eterno.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      },
+      {
+        "name": "Jose Enrique",
+        "gender": "boy",
+        "origin": "Origen por verificar",
+        "meaning": "Evoca un lazo que trasciende fronteras y el refugio de los abrazos.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      },
+      {
+        "name": "Jose Fernando",
+        "gender": "boy",
+        "origin": "Origen por verificar",
+        "meaning": "Evoca el valor de ser uno mismo y el refugio de los abrazos.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      },
+      {
+        "name": "Jose Francisco",
+        "gender": "boy",
+        "origin": "Spanish and Portuguese",
+        "meaning": "Evoca la libertad de imaginar y el cariño que une generaciones.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      },
+      {
+        "name": "Jose Gabriel",
+        "gender": "boy",
+        "origin": "Origen por verificar",
+        "meaning": "Evoca la magia de los pequeños momentos y un lazo que trasciende fronteras.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      },
+      {
+        "name": "Jose Gregorio",
+        "gender": "boy",
+        "origin": "Origen por verificar",
+        "meaning": "Evoca un sueño que empieza a florecer y el valor de ser uno mismo.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      },
+      {
+        "name": "Jose Guadalupe",
+        "gender": "boy",
+        "origin": "Origen por verificar",
+        "meaning": "Evoca un encuentro que transforma la vida y el comienzo de una gran aventura.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      },
+      {
+        "name": "Jose Ignacio",
+        "gender": "boy",
+        "origin": "Spanish",
+        "meaning": "Evoca la calidez de los recuerdos y la belleza de un nuevo capítulo.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      },
+      {
+        "name": "Jose Javier",
+        "gender": "boy",
+        "origin": "Origen por verificar",
+        "meaning": "Evoca el eco de una historia familiar y la calidez de los recuerdos.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      },
+      {
+        "name": "Jose Juan",
+        "gender": "boy",
+        "origin": "Spanish",
+        "meaning": "Evoca un encuentro que transforma la vida y la promesa de un mañana hermoso.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      },
+      {
+        "name": "Jose Luis",
+        "gender": "boy",
+        "origin": "Spanish",
+        "meaning": "Evoca la serenidad de un amanecer y el brillo de las primeras estrellas.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      },
+      {
+        "name": "Jose M",
+        "gender": "boy",
+        "origin": "Origen por verificar",
+        "meaning": "Evoca una historia llena de posibilidades y la energía de una nueva etapa.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      },
+      {
+        "name": "Jose Manuel",
+        "gender": "boy",
+        "origin": "Spanish",
+        "meaning": "Evoca un instante que se vuelve eterno y la fuerza de los sueños.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      },
+      {
+        "name": "Jose Mari",
+        "gender": "boy",
+        "origin": "Origen por verificar",
+        "meaning": "Evoca la libertad de imaginar y la fuerza de los sueños.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      },
+      {
+        "name": "Jose Maria",
+        "gender": "boy",
+        "origin": "Spanish (compound of José and María, devotional Catholic tradition)",
+        "meaning": "Evoca un encuentro que transforma la vida y la energía de una nueva etapa.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      },
+      {
+        "name": "Jose Martin",
+        "gender": "boy",
+        "origin": "Origen por verificar",
+        "meaning": "Evoca la libertad de imaginar y un deseo compartido.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      },
+      {
+        "name": "Jose Miguel",
+        "gender": "boy",
+        "origin": "Spanish compound Christian naming tradition",
+        "meaning": "Evoca la ternura de un nuevo hogar y una conexión entre culturas.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      },
+      {
+        "name": "Jose Orlando",
+        "gender": "boy",
+        "origin": "Origen por verificar",
+        "meaning": "Evoca la alegría de descubrir el mundo y el comienzo de una gran aventura.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      },
+      {
+        "name": "Jose Ramon",
+        "gender": "boy",
+        "origin": "Spanish",
+        "meaning": "Evoca un viaje hacia lo extraordinario y la curiosidad por lo desconocido.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      },
+      {
+        "name": "Jose Ricardo",
+        "gender": "boy",
+        "origin": "Origen por verificar",
+        "meaning": "Evoca la ternura de un nuevo hogar y el valor de ser uno mismo.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      },
+      {
+        "name": "Jose Roberto",
+        "gender": "boy",
+        "origin": "Origen por verificar",
+        "meaning": "Evoca un encuentro que transforma la vida y la alegría de descubrir el mundo.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      },
+      {
+        "name": "Jose Vicente",
+        "gender": "boy",
+        "origin": "Origen por verificar",
+        "meaning": "Evoca la alegría de descubrir el mundo y la libertad de imaginar.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      },
+      {
+        "name": "Juan Alberto",
+        "gender": "boy",
+        "origin": "Origen por verificar",
+        "meaning": "Evoca un camino de descubrimientos y la ternura de un nuevo hogar.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      },
+      {
+        "name": "Juan Andres",
+        "gender": "boy",
+        "origin": "Origen por verificar",
+        "meaning": "Evoca una historia llena de posibilidades y la promesa de un mañana hermoso.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      },
+      {
+        "name": "Juan Antonio",
+        "gender": "boy",
+        "origin": "Spanish compound",
+        "meaning": "Evoca el eco de una historia familiar y el refugio de los abrazos.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      },
+      {
+        "name": "Juan Camilo",
+        "gender": "boy",
+        "origin": "Spanish and Colombian",
+        "meaning": "Evoca la ternura de un nuevo hogar y la curiosidad por lo desconocido.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      },
+      {
+        "name": "Juan Carlos",
+        "gender": "boy",
+        "origin": "Spanish",
+        "meaning": "Evoca un sueño que empieza a florecer y el refugio de los abrazos.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      },
+      {
+        "name": "Juan Daniel",
+        "gender": "boy",
+        "origin": "Origen por verificar",
+        "meaning": "Evoca la promesa de un mañana hermoso y el valor de ser uno mismo.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      },
+      {
+        "name": "Juan David",
+        "gender": "boy",
+        "origin": "Spanish (from Hebrew)",
+        "meaning": "Evoca la fuerza de los sueños y el comienzo de una gran aventura.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      },
+      {
+        "name": "Juan Diego",
+        "gender": "boy",
+        "origin": "Spanish, Hebrew, and Greek",
+        "meaning": "Evoca la confianza de caminar juntos y una conexión entre culturas.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      },
+      {
+        "name": "Juan Esteban",
+        "gender": "boy",
+        "origin": "Spanish",
+        "meaning": "Evoca el comienzo de una gran aventura y la energía de una nueva etapa.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      },
+      {
+        "name": "Juan Felipe",
+        "gender": "boy",
+        "origin": "Spanish double masculine given name combining biblical and royal Christian traditions",
+        "meaning": "Evoca el eco de una historia familiar y la belleza de un nuevo capítulo.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      },
+      {
+        "name": "Juan Fernando",
+        "gender": "boy",
+        "origin": "Origen por verificar",
+        "meaning": "Evoca la calidez de los recuerdos y la magia de los pequeños momentos.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      },
+      {
+        "name": "Juan Francisco",
+        "gender": "boy",
+        "origin": "Spanish",
+        "meaning": "Evoca la fuerza de los sueños y la luz de los nuevos comienzos.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      },
+      {
+        "name": "Juan Gabriel",
+        "gender": "boy",
+        "origin": "Origen por verificar",
+        "meaning": "Evoca un viaje hacia lo extraordinario y un camino de descubrimientos.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      },
+      {
+        "name": "Juan Guillermo",
+        "gender": "boy",
+        "origin": "Origen por verificar",
+        "meaning": "Evoca un deseo compartido y la fuerza de los sueños.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      },
+      {
+        "name": "Juan Ignacio",
+        "gender": "boy",
+        "origin": "Origen por verificar",
+        "meaning": "Evoca la ternura de un nuevo hogar y la belleza de un nuevo capítulo.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      },
+      {
+        "name": "Juan Jesus",
+        "gender": "boy",
+        "origin": "Origen por verificar",
+        "meaning": "Evoca el eco de una historia familiar y la energía de una nueva etapa.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      },
+      {
+        "name": "Juan Jose",
+        "gender": "boy",
+        "origin": "Hebrew",
+        "meaning": "Evoca un sueño que empieza a florecer y una conexión entre culturas.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      },
+      {
+        "name": "Juan Luis",
+        "gender": "boy",
+        "origin": "Spanish",
+        "meaning": "Evoca la curiosidad por lo desconocido y la serenidad de un amanecer.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      },
+      {
+        "name": "Juan Manuel",
+        "gender": "boy",
+        "origin": "Spanish (Hebrew roots)",
+        "meaning": "Evoca la luz de los nuevos comienzos y el cariño que une generaciones.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      },
+      {
+        "name": "Juan Miguel",
+        "gender": "boy",
+        "origin": "Origen por verificar",
+        "meaning": "Evoca un sueño que empieza a florecer y la ternura de un nuevo hogar.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      },
+      {
+        "name": "Juan Pablo",
+        "gender": "boy",
+        "origin": "Spanish",
+        "meaning": "Evoca la confianza de caminar juntos y la calidez de los recuerdos.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      },
+      {
+        "name": "Juan Pedro",
+        "gender": "boy",
+        "origin": "Origen por verificar",
+        "meaning": "Evoca un lazo que trasciende fronteras y un viaje hacia lo extraordinario.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      },
+      {
+        "name": "Juan Ramon",
+        "gender": "boy",
+        "origin": "Origen por verificar",
+        "meaning": "Evoca un camino de descubrimientos y un viaje hacia lo extraordinario.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      },
+      {
+        "name": "Juan Sebastian",
+        "gender": "boy",
+        "origin": "Spanish (compound: Hebrew + Greek/Latin)",
+        "meaning": "Evoca una historia llena de posibilidades y la belleza de un nuevo capítulo.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      },
+      {
+        "name": "Maria Alejandra",
+        "gender": "girl",
+        "origin": "Spanish",
+        "meaning": "Evoca una historia llena de posibilidades y la energía de una nueva etapa.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      },
+      {
+        "name": "Maria Angela",
+        "gender": "girl",
+        "origin": "Origen por verificar",
+        "meaning": "Evoca la serenidad de un amanecer y un viaje hacia lo extraordinario.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      },
+      {
+        "name": "Maria Angeles",
+        "gender": "girl",
+        "origin": "Origen por verificar",
+        "meaning": "Evoca la ternura de un nuevo hogar y un encuentro que transforma la vida.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      },
+      {
+        "name": "Maria Angelica",
+        "gender": "girl",
+        "origin": "Latin",
+        "meaning": "Evoca la serenidad de un amanecer y el valor de ser uno mismo.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      },
+      {
+        "name": "Maria Anna",
+        "gender": "girl",
+        "origin": "Origen por verificar",
+        "meaning": "Evoca la curiosidad por lo desconocido y la serenidad de un amanecer.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      },
+      {
+        "name": "Maria Antonia",
+        "gender": "girl",
+        "origin": "Origen por verificar",
+        "meaning": "Evoca la ternura de un nuevo hogar y la fuerza de los sueños.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      },
+      {
+        "name": "Maria Antonietta",
+        "gender": "girl",
+        "origin": "Italian and Hebrew",
+        "meaning": "Evoca una historia llena de posibilidades y un sueño que empieza a florecer.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      },
+      {
+        "name": "Maria Aparecida",
+        "gender": "girl",
+        "origin": "Origen por verificar",
+        "meaning": "Evoca la armonía de un cielo tranquilo y un deseo compartido.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      },
+      {
+        "name": "Maria Assunta",
+        "gender": "girl",
+        "origin": "Origen por verificar",
+        "meaning": "Evoca la belleza de un nuevo capítulo y un universo por explorar.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      },
+      {
+        "name": "Maria C",
+        "gender": "girl",
+        "origin": "Origen por verificar",
+        "meaning": "Evoca la confianza de caminar juntos y la curiosidad por lo desconocido.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      },
+      {
+        "name": "Maria Camila",
+        "gender": "girl",
+        "origin": "Spanish and Hebrew",
+        "meaning": "Evoca la ternura de un nuevo hogar y el comienzo de una gran aventura.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      },
+      {
+        "name": "Maria Carmela",
+        "gender": "girl",
+        "origin": "Origen por verificar",
+        "meaning": "Evoca el eco de una historia familiar y un lazo que trasciende fronteras.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      },
+      {
+        "name": "Maria Carmen",
+        "gender": "girl",
+        "origin": "Origen por verificar",
+        "meaning": "Evoca un encuentro que transforma la vida y la promesa de un mañana hermoso.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      },
+      {
+        "name": "Maria Cecilia",
+        "gender": "girl",
+        "origin": "Origen por verificar",
+        "meaning": "Evoca la serenidad de un amanecer y un deseo compartido.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      },
+      {
+        "name": "Maria Chiara",
+        "gender": "girl",
+        "origin": "Origen por verificar",
+        "meaning": "Evoca un lazo que trasciende fronteras y la fuerza de los sueños.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      },
+      {
+        "name": "Maria Clara",
+        "gender": "girl",
+        "origin": "Origen por verificar",
+        "meaning": "Evoca la luz de los nuevos comienzos y el valor de ser uno mismo.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      },
+      {
+        "name": "Maria Claudia",
+        "gender": "girl",
+        "origin": "Origen por verificar",
+        "meaning": "Evoca la serenidad de un amanecer y la curiosidad por lo desconocido.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      },
+      {
+        "name": "Maria Concetta",
+        "gender": "girl",
+        "origin": "Origen por verificar",
+        "meaning": "Evoca la fuerza de los sueños y un sueño que empieza a florecer.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      },
+      {
+        "name": "Maria Consuelo",
+        "gender": "girl",
+        "origin": "Origen por verificar",
+        "meaning": "Evoca un deseo compartido y el brillo de las primeras estrellas.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      },
+      {
+        "name": "Maria Cristina",
+        "gender": "girl",
+        "origin": "Italian and Spanish (Hebrew/Greek)",
+        "meaning": "Evoca el comienzo de una gran aventura y la promesa de un mañana hermoso.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      },
+      {
+        "name": "Maria Das Graças",
+        "gender": "girl",
+        "origin": "Origen por verificar",
+        "meaning": "Evoca la ternura de un nuevo hogar y el cariño que une generaciones.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      },
+      {
+        "name": "Maria De Fatima",
+        "gender": "girl",
+        "origin": "Origen por verificar",
+        "meaning": "Evoca la luz de los nuevos comienzos y un universo por explorar.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      },
+      {
+        "name": "Maria De Jesus",
+        "gender": "girl",
+        "origin": "Origen por verificar",
+        "meaning": "Evoca un camino de descubrimientos y un sueño que empieza a florecer.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      },
+      {
+        "name": "Maria De La Luz",
+        "gender": "girl",
+        "origin": "Origen por verificar",
+        "meaning": "Evoca la fuerza de los sueños y la luz de los nuevos comienzos.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      },
+      {
+        "name": "Maria De Los Angeles",
+        "gender": "girl",
+        "origin": "Origen por verificar",
+        "meaning": "Evoca la dulzura de lo inesperado y un instante que se vuelve eterno.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      },
+      {
+        "name": "Maria De Lourdes",
+        "gender": "girl",
+        "origin": "Origen por verificar",
+        "meaning": "Evoca un universo por explorar y la luz de los nuevos comienzos.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      },
+      {
+        "name": "Maria Del Carmen",
+        "gender": "girl",
+        "origin": "Spanish Catholic devotional tradition",
+        "meaning": "Evoca la luz de los nuevos comienzos y la fuerza de los sueños.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      },
+      {
+        "name": "Maria Del Mar",
+        "gender": "girl",
+        "origin": "Spanish",
+        "meaning": "Evoca una conexión entre culturas y un viaje hacia lo extraordinario.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      },
+      {
+        "name": "Maria Del Pilar",
+        "gender": "girl",
+        "origin": "Origen por verificar",
+        "meaning": "Evoca un universo por explorar y un viaje hacia lo extraordinario.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      },
+      {
+        "name": "Maria Del Rosario",
+        "gender": "girl",
+        "origin": "Origen por verificar",
+        "meaning": "Evoca el refugio de los abrazos y el comienzo de una gran aventura.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      },
+      {
+        "name": "Maria Do Carmo",
+        "gender": "girl",
+        "origin": "Origen por verificar",
+        "meaning": "Evoca un sueño que empieza a florecer y el cariño que une generaciones.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      },
+      {
+        "name": "Maria Do Socorro",
+        "gender": "girl",
+        "origin": "Origen por verificar",
+        "meaning": "Evoca la libertad de imaginar y el comienzo de una gran aventura.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      },
+      {
+        "name": "Maria Dolores",
+        "gender": "girl",
+        "origin": "Spanish",
+        "meaning": "Evoca la energía de una nueva etapa y el refugio de los abrazos.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      },
+      {
+        "name": "Maria E",
+        "gender": "girl",
+        "origin": "Origen por verificar",
+        "meaning": "Evoca un viaje hacia lo extraordinario y el valor de ser uno mismo.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      },
+      {
+        "name": "Maria Eduarda",
+        "gender": "girl",
+        "origin": "Origen por verificar",
+        "meaning": "Evoca la libertad de imaginar y la belleza de un nuevo capítulo.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      },
+      {
+        "name": "Maria Elena",
+        "gender": "girl",
+        "origin": "Hebrew",
+        "meaning": "Evoca un lazo que trasciende fronteras y la magia de los pequeños momentos.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      },
+      {
+        "name": "Maria Esther",
+        "gender": "girl",
+        "origin": "Origen por verificar",
+        "meaning": "Evoca el brillo de las primeras estrellas y la luz de los nuevos comienzos.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      },
+      {
+        "name": "Maria Eugenia",
+        "gender": "girl",
+        "origin": "Spanish and Latin American compound feminine name combining Maria and Eugenia",
+        "meaning": "Evoca la armonía de un cielo tranquilo y el valor de ser uno mismo.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      },
+      {
+        "name": "Maria Fernanda",
+        "gender": "girl",
+        "origin": "Spanish (compound Marian + Germanic)",
+        "meaning": "Evoca la confianza de caminar juntos y el comienzo de una gran aventura.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      },
+      {
+        "name": "Maria Francesca",
+        "gender": "girl",
+        "origin": "Origen por verificar",
+        "meaning": "Evoca la armonía de un cielo tranquilo y la confianza de caminar juntos.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      },
+      {
+        "name": "Maria Gabriella",
+        "gender": "girl",
+        "origin": "Origen por verificar",
+        "meaning": "Evoca un instante que se vuelve eterno y el eco de una historia familiar.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      },
+      {
+        "name": "Maria Giovanna",
+        "gender": "girl",
+        "origin": "Origen por verificar",
+        "meaning": "Evoca un deseo compartido y la serenidad de un amanecer.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      },
+      {
+        "name": "Maria Giulia",
+        "gender": "girl",
+        "origin": "Origen por verificar",
+        "meaning": "Evoca el refugio de los abrazos y la dulzura de lo inesperado.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      },
+      {
+        "name": "Maria Grazia",
+        "gender": "girl",
+        "origin": "Italian compound Christian name",
+        "meaning": "Evoca un instante que se vuelve eterno y el refugio de los abrazos.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      },
+      {
+        "name": "Maria Guadalupe",
+        "gender": "girl",
+        "origin": "Spanish and Mexican Catholic",
+        "meaning": "Evoca la serenidad de un amanecer y una historia llena de posibilidades.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      },
+      {
+        "name": "Maria Helena",
+        "gender": "girl",
+        "origin": "Origen por verificar",
+        "meaning": "Evoca un horizonte de esperanza y la ternura de un nuevo hogar.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      },
+      {
+        "name": "Maria Ines",
+        "gender": "girl",
+        "origin": "Origen por verificar",
+        "meaning": "Evoca la alegría de descubrir el mundo y un instante que se vuelve eterno.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      },
+      {
+        "name": "Maria Isabel",
+        "gender": "girl",
+        "origin": "Spanish",
+        "meaning": "Evoca la confianza de caminar juntos y el valor de ser uno mismo.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      },
+      {
+        "name": "Maria Jesus",
+        "gender": "girl",
+        "origin": "Spanish (Hebrew)",
+        "meaning": "Evoca la libertad de imaginar y el eco de una historia familiar.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      },
+      {
+        "name": "Maria José",
+        "gender": "girl",
+        "origin": "Spanish / Portuguese Catholic compound name",
+        "meaning": "Evoca la serenidad de un amanecer y el cariño que une generaciones.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      },
+      {
+        "name": "Maria João",
+        "gender": "girl",
+        "origin": "Origen por verificar",
+        "meaning": "Evoca la confianza de caminar juntos y la belleza de un nuevo capítulo.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      },
+      {
+        "name": "Maria Laura",
+        "gender": "girl",
+        "origin": "Origen por verificar",
+        "meaning": "Evoca el cariño que une generaciones y la fuerza de los sueños.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      },
+      {
+        "name": "Maria Letizia",
+        "gender": "girl",
+        "origin": "Origen por verificar",
+        "meaning": "Evoca un horizonte de esperanza y la luz de los nuevos comienzos.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      },
+      {
+        "name": "Maria Lucia",
+        "gender": "girl",
+        "origin": "Origen por verificar",
+        "meaning": "Evoca la curiosidad por lo desconocido y la libertad de imaginar.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      },
+      {
+        "name": "Maria Luisa",
+        "gender": "girl",
+        "origin": "Spanish",
+        "meaning": "Evoca la confianza de caminar juntos y la belleza de un nuevo capítulo.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      },
+      {
+        "name": "Maria Luiza",
+        "gender": "girl",
+        "origin": "Origen por verificar",
+        "meaning": "Evoca el brillo de las primeras estrellas y la belleza de un nuevo capítulo.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      },
+      {
+        "name": "Maria Luz",
+        "gender": "girl",
+        "origin": "Origen por verificar",
+        "meaning": "Evoca el valor de ser uno mismo y la luz de los nuevos comienzos.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      },
+      {
+        "name": "Maria Magdalena",
+        "gender": "girl",
+        "origin": "Origen por verificar",
+        "meaning": "Evoca el brillo de las primeras estrellas y la libertad de imaginar.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      },
+      {
+        "name": "Maria Mercedes",
+        "gender": "girl",
+        "origin": "Origen por verificar",
+        "meaning": "Evoca un camino de descubrimientos y la calidez de los recuerdos.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      },
+      {
+        "name": "Maria Nelly",
+        "gender": "girl",
+        "origin": "Origen por verificar",
+        "meaning": "Evoca la dulzura de lo inesperado y la belleza de un nuevo capítulo.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      },
+      {
+        "name": "Maria Paola",
+        "gender": "girl",
+        "origin": "Origen por verificar",
+        "meaning": "Evoca un camino de descubrimientos y la dulzura de lo inesperado.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      },
+      {
+        "name": "Maria Paula",
+        "gender": "girl",
+        "origin": "Origen por verificar",
+        "meaning": "Evoca el brillo de las primeras estrellas y la luz de los nuevos comienzos.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      },
+      {
+        "name": "Maria Paz",
+        "gender": "girl",
+        "origin": "Origen por verificar",
+        "meaning": "Evoca la serenidad de un amanecer y la energía de una nueva etapa.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      },
+      {
+        "name": "Maria Pia",
+        "gender": "girl",
+        "origin": "Italian",
+        "meaning": "Evoca un instante que se vuelve eterno y un universo por explorar.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      },
+      {
+        "name": "Maria Pilar",
+        "gender": "girl",
+        "origin": "Origen por verificar",
+        "meaning": "Evoca un viaje hacia lo extraordinario y la promesa de un mañana hermoso.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      },
+      {
+        "name": "Maria Rita",
+        "gender": "girl",
+        "origin": "Italian",
+        "meaning": "Evoca la libertad de imaginar y la dulzura de lo inesperado.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      },
+      {
+        "name": "Maria Rosa",
+        "gender": "girl",
+        "origin": "Romance Catholic compound (Maria + Rosa)",
+        "meaning": "Evoca el brillo de las primeras estrellas y la serenidad de un amanecer.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      },
+      {
+        "name": "Maria Rosaria",
+        "gender": "girl",
+        "origin": "Italian",
+        "meaning": "Evoca la fuerza de los sueños y la libertad de imaginar.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      },
+      {
+        "name": "Maria Soledad",
+        "gender": "girl",
+        "origin": "Origen por verificar",
+        "meaning": "Evoca un horizonte de esperanza y una historia llena de posibilidades.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      },
+      {
+        "name": "Maria Stella",
+        "gender": "girl",
+        "origin": "Origen por verificar",
+        "meaning": "Evoca el brillo de las primeras estrellas y la promesa de un mañana hermoso.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      },
+      {
+        "name": "Maria Teresa",
+        "gender": "girl",
+        "origin": "Italian and Spanish",
+        "meaning": "Evoca la dulzura de lo inesperado y la promesa de un mañana hermoso.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      },
+      {
+        "name": "Maria Victoria",
+        "gender": "girl",
+        "origin": "Origen por verificar",
+        "meaning": "Evoca el eco de una historia familiar y la calidez de los recuerdos.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      },
+      {
+        "name": "Maria Vittoria",
+        "gender": "girl",
+        "origin": "Origen por verificar",
+        "meaning": "Evoca la belleza de un nuevo capítulo y el refugio de los abrazos.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      }
+    ],
     "diacritic_fold_collisions": [
       [
         {
@@ -1212,7 +2730,90 @@
         "source": "onomaverse-v2026.10"
       }
     ],
-    "leading_single_initial": [],
+    "leading_single_initial": [
+      {
+        "name": "M Angeles",
+        "gender": "girl",
+        "origin": "Origen por verificar",
+        "meaning": "Evoca la confianza de caminar juntos y un sueño que empieza a florecer.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      },
+      {
+        "name": "M Carmen",
+        "gender": "girl",
+        "origin": "Origen por verificar",
+        "meaning": "Evoca un deseo compartido y la promesa de un mañana hermoso.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      },
+      {
+        "name": "M Jose",
+        "gender": "girl",
+        "origin": "Origen por verificar",
+        "meaning": "Evoca el cariño que une generaciones y el refugio de los abrazos.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      },
+      {
+        "name": "S M",
+        "gender": "boy",
+        "origin": "Origen por verificar",
+        "meaning": "Evoca un universo por explorar y un camino de descubrimientos.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      },
+      {
+        "name": "T Man",
+        "gender": "boy",
+        "origin": "Origen por verificar",
+        "meaning": "Evoca la calidez de los recuerdos y el refugio de los abrazos.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      }
+    ],
+    "middle_or_trailing_single_initial": [
+      {
+        "name": "Jose A",
+        "gender": "boy",
+        "origin": "Origen por verificar",
+        "meaning": "Evoca un universo por explorar y un lazo que trasciende fronteras.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      },
+      {
+        "name": "Jose M",
+        "gender": "boy",
+        "origin": "Origen por verificar",
+        "meaning": "Evoca una historia llena de posibilidades y la energía de una nueva etapa.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      },
+      {
+        "name": "Maria C",
+        "gender": "girl",
+        "origin": "Origen por verificar",
+        "meaning": "Evoca la confianza de caminar juntos y la curiosidad por lo desconocido.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      },
+      {
+        "name": "Maria E",
+        "gender": "girl",
+        "origin": "Origen por verificar",
+        "meaning": "Evoca un viaje hacia lo extraordinario y el valor de ser uno mismo.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      },
+      {
+        "name": "S M",
+        "gender": "boy",
+        "origin": "Origen por verificar",
+        "meaning": "Evoca un universo por explorar y un camino de descubrimientos.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      }
+    ],
     "multiple_words": [
       {
         "name": "Abd al-Karim",
@@ -8901,6 +10502,56 @@
         "gender": "unisex",
         "origin": "Origen por verificar",
         "meaning": "Evoca el eco de una historia familiar y la promesa de un mañana hermoso.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      }
+    ],
+    "possible_maria_abbreviation": [
+      {
+        "name": "M Angeles",
+        "gender": "girl",
+        "origin": "Origen por verificar",
+        "meaning": "Evoca la confianza de caminar juntos y un sueño que empieza a florecer.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      },
+      {
+        "name": "M Carmen",
+        "gender": "girl",
+        "origin": "Origen por verificar",
+        "meaning": "Evoca un deseo compartido y la promesa de un mañana hermoso.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      },
+      {
+        "name": "M Jose",
+        "gender": "girl",
+        "origin": "Origen por verificar",
+        "meaning": "Evoca el cariño que une generaciones y el refugio de los abrazos.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      },
+      {
+        "name": "Ma Elena",
+        "gender": "girl",
+        "origin": "Origen por verificar",
+        "meaning": "Evoca un instante que se vuelve eterno y un universo por explorar.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      },
+      {
+        "name": "Ma Guadalupe",
+        "gender": "girl",
+        "origin": "Origen por verificar",
+        "meaning": "Evoca la fuerza de los sueños y el comienzo de una gran aventura.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      },
+      {
+        "name": "Ma Vie",
+        "gender": "unisex",
+        "origin": "Origen por verificar",
+        "meaning": "Evoca la serenidad de un amanecer y la confianza de caminar juntos.",
         "meaningType": "creative",
         "source": "onomaverse-v2026.10"
       }
@@ -33526,6 +35177,24 @@
           "source": "onomaverse-v2026.10"
         }
       ]
+    ],
+    "separator_or_annotation": [
+      {
+        "name": "Eg(Hd",
+        "gender": "unisex",
+        "origin": "Origen por verificar",
+        "meaning": "Evoca la luz de los nuevos comienzos y el cariño que une generaciones.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      },
+      {
+        "name": "F(Jd",
+        "gender": "unisex",
+        "origin": "Origen por verificar",
+        "meaning": "Evoca el valor de ser uno mismo y la fuerza de los sueños.",
+        "meaningType": "creative",
+        "source": "onomaverse-v2026.10"
+      }
     ],
     "short_names_review_not_necessarily_invalid": [
       {
