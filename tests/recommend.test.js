@@ -19,9 +19,11 @@ test('optional preferences activate a 0-100 harmony percentage',()=>{
  assert.ok(ranked.every(n=>Number.isInteger(n.harmony)&&n.harmony>=0&&n.harmony<=100));
  assert.ok(ranked.every((n,i)=>i===0||ranked[i-1].harmony>=n.harmony));
  assert.equal(hasHarmonyPreferences({surname1:'García'}),true);
+ assert.equal(hasHarmonyPreferences({country:'JP',style:'modern',mother:'Suzu'}),false);
+ assert.notEqual(surnameHarmony('Ana',['García','Tanaka']),surnameHarmony('Hikaru',['García','Tanaka']));
 });
 test('surname scoring supports one or two surnames and ignores blanks',()=>{
- assert.equal(surnameHarmony('Hikaru',[]),0);
+ assert.equal(surnameHarmony('Hikaru',[]),null);
  assert.ok(Number.isFinite(surnameHarmony('Hikaru',['García','Tanaka'])));
  assert.ok(Number.isFinite(surnameHarmony('Ana',['García'])));
 });
