@@ -2,75 +2,41 @@ import React,{useMemo,useState,useEffect,useRef} from 'react';
 import {Heart,Search,ArrowRight,Sparkles,Globe2,X,CalendarDays,Menu,Copy,Check,SlidersHorizontal,ChevronDown} from 'lucide-react';
 import {names as curatedNames,countries as curatedCountries} from './lib/names.js';
 import StarDatePicker from './components/StarDatePicker.jsx';
-import AlphabetPicker from './components/AlphabetPicker.jsx';
+import CosmicOrrery from './components/CosmicOrrery.jsx';
 import NameSkyExperience from './components/NameSkyExperience.jsx';
 import CultureCombobox from './components/CultureCombobox.jsx';
-import {filterNames,zodiac,hasHarmonyPreferences,LETTER_RANGES} from './lib/recommend.js';
+import {filterNames,hasHarmonyPreferences} from './lib/recommend.js';
 import {LANGUAGES,localeFor,translate} from './lib/i18n.js';
 import {localizedMeaning,hasLocalizedMeaning,getPopularity} from './lib/nameInsights.js';
 
 const genders=[['all','surprise'],['girl','girl'],['boy','boy']];
 const todayLocal=()=>{const d=new Date();return [d.getFullYear(),String(d.getMonth()+1).padStart(2,'0'),String(d.getDate()).padStart(2,'0')].join('-')};
-const empty={date:todayLocal(),initial:'',initialRange:'',surname1:'',surname2:'',country:'all',gender:'all',style:'any'};
+const empty={date:todayLocal(),initial:'',surname1:'',surname2:'',country:'all',gender:'all',style:'any'};
 const styles=[['any','any'],['short','short'],['traditional','traditional'],['modern','modern'],['nature','nature']];
 function readFavorites(){try{return JSON.parse(localStorage.getItem('astera.favorites')||'[]')}catch{return []}}
 function NameCard({item,liked,toggle,open,surnames='',harmony=null,popularity=null,t,meaning,translated=true}){
  return <article className="name-card"><div className="name-card-top"><span className="name-category">{item.origin}</span><button className={'heart '+(liked?'liked':'')} onClick={()=>toggle(item.id)} aria-label={liked?t('remove'):t('save')}><Heart size={19} fill={liked?'currentColor':'none'}/></button></div><button className="name-open" onClick={()=>open(item)}><h3>{item.name}</h3>{surnames&&<span className="full-name-preview">{item.name} {surnames}</span>}{item.native&&<span className="native-name">{item.native}</span>}{item.components?.length>1&&<span className="compound-components" aria-label={t('components')}><small>{t('components')}</small><span>{item.components.join(' · ')}</span></span>}<p>{meaning||t('nameStory')}</p>{!translated&&<small className="meaning-source-caption">{t('meaningOriginal')}</small>}{item.meaningType==='creative'&&<small className="poetic-label">✧ {t('poetic')}</small>}{popularity&&<div className="harmony-meter popularity-meter" aria-label={`${t('popularity')}: ${popularity.index}/100`} title={t('popularityNote')}><div className="harmony-meter-heading"><span>✦ {t('popularity')} <small>({popularity.country})</small></span><strong>{popularity.index}/100</strong></div><div className="harmony-track"><div style={{width:`${popularity.index}%`}}/></div></div>}{!popularity&&<div className="harmony-meter popularity-meter" title={t('popularityNote')}><div className="harmony-meter-heading"><span>✦ {t('popularity')}</span><strong>{t('noPopularity')}</strong></div><div className="harmony-track missing"><div/></div></div>}{harmony!==null&&<div className="harmony-meter" aria-label={`${t('harmony')}: ${harmony}%`}><div className="harmony-meter-heading"><span>✧ {t('harmony')}</span><strong>{harmony}%</strong></div><div className="harmony-track"><div style={{width:`${harmony}%`}}/></div></div>}<span>{t('nameStory')} <ArrowRight size={15}/></span></button></article>
 }
-// Stylized zodiac artwork: decorative star patterns, not an astronomical sky map.
-const zodiacStarMaps={
- '♈':[[20,68],[35,44],[51,38],[67,23],[76,33]],
- '♉':[[24,25],[37,44],[51,51],[67,26],[82,21],[69,67],[52,73]],
- '♊':[[27,24],[27,49],[27,78],[44,69],[57,28],[72,22],[72,51],[72,77]],
- '♋':[[21,51],[39,36],[54,52],[72,34],[80,59]],
- '♌':[[27,21],[43,34],[55,18],[68,43],[57,60],[38,72],[69,77]],
- '♍':[[18,29],[29,47],[42,39],[57,52],[74,37],[81,67],[58,76]],
- '♎':[[20,30],[40,45],[60,45],[81,29],[50,72]],
- '♏':[[19,24],[29,45],[43,52],[54,68],[69,75],[81,58]],
- '♐':[[18,76],[35,56],[51,37],[75,20],[71,45],[49,65]],
- '♑':[[21,37],[37,20],[54,33],[72,50],[81,72],[54,71],[36,63]],
- '♒':[[14,35],[32,27],[43,42],[61,26],[77,41],[86,55]],
- '♓':[[20,31],[38,23],[56,42],[72,60],[84,75],[30,69],[51,77]]
-};
+// The landing page previews stars only. Zodiac art appears inside name details.
+const skyDots=[[13,25],[29,43],[48,30],[65,51],[81,27],[73,73],[48,80],[22,68]];
 function Sky({date,setDate,t,lang}){
- const sign=zodiac(date);
- const [expanded,setExpanded]=useState(true);
- const collapseTimer=useRef(null);
- useEffect(()=>{
-  setExpanded(true);
-  clearTimeout(collapseTimer.current);
-  collapseTimer.current=setTimeout(()=>setExpanded(false),4700);
-  return()=>clearTimeout(collapseTimer.current);
- },[date]);
- const dots=zodiacStarMaps[sign.symbol]||[[20,25],[42,42],[61,25],[77,58],[45,76]];
  return <section id="cielo" className="sky-section">
   <div className="sky-copy"><div className="eyebrow">{t('skyEyebrow')}</div><h2>{t('skyTitle')} <em>{t('skyEm')}</em></h2>
-  <p>{t('skyDescription')}</p><div className="date-input"><StarDatePicker value={date} onChange={setDate} lang={lang} dark/></div><small>{t('skyNote')}</small>
+   <p>{t('skyDescription')}</p><div className="date-input"><StarDatePicker value={date} onChange={setDate} lang={lang} dark/></div>
+   <small>{t('skyNote')}</small>
   </div>
-  <div className="sky-graphic zodiac-scene">
-   <div className="orbital outer"></div><div className="orbital inner"></div>
-   <svg className="zodiac-constellation" viewBox="0 0 100 100" aria-hidden="true">
-    <defs><radialGradient id="zodiacGlow"><stop offset="0%" stopColor="#ffe5ac" stopOpacity=".95"/><stop offset="100%" stopColor="#b89259" stopOpacity=".1"/></radialGradient></defs>
-    <polyline className="zodiac-lines" points={dots.map(([x,y])=>x+','+y).join(' ')}/>
-    {dots.map(([x,y],i)=><g key={i}><circle className="zodiac-star-aura" cx={x} cy={y} r="2.5" fill="url(#zodiacGlow)"/><circle className="zodiac-star-point" cx={x} cy={y} r=".8" style={{animationDelay:(.16*i)+'s'}}/></g>)}
-   </svg>
-   <div className="zodiac-sparkles" aria-hidden="true">✦ <span>✧</span><i>✦</i></div>
-   <div className={'zodiac-symbol-reveal '+(expanded?'show':'collapsed')} aria-hidden={!expanded}>
-    <div className="zodiac-symbol-aura"></div><span className="sky-symbol">{sign.symbol}</span>
-    <span className="zodiac-reveal-caption">{t('zodiacRevealed')}</span>
-   </div>
-   <div className="zodiac-info"><strong>{sign.name}</strong><span className="sky-label">{date?t('skySign'):t('chooseDate')}</span>
-    <button type="button" className="zodiac-reopen" aria-expanded={expanded} onClick={()=>{clearTimeout(collapseTimer.current);setExpanded(v=>!v)}}>
-     <Sparkles size={15}/>{expanded?t('zodiacCollapse'):t('zodiacOpen')}
-    </button>
-   </div>
+  <div className="sky-graphic constellation-preview" aria-hidden="true">
+   <div className="orbital outer"/><div className="orbital inner"/>
+   <svg viewBox="0 0 100 100" className="zodiac-constellation constellation-only">
+    <polyline className="zodiac-lines" points={skyDots.map(([x,y])=>x+','+y).join(' ')}/>
+    {skyDots.map(([x,y],i)=><g key={i}><circle cx={x} cy={y} r="2.7" fill="#f7dda9" fillOpacity=".10"/><circle className="zodiac-star-point" cx={x} cy={y} r=".9"/></g>)}
+   </svg><span className="constellation-preview-label">✦ &nbsp; ASTERA · ATLAS</span>
   </div>
  </section>
 }
 export default function App(){
  const [query,setQuery]=useState('');
  const [advancedOpen,setAdvancedOpen]=useState(false);
- const [expandedLetterRange,setExpandedLetterRange]=useState('');
  const [searchFocused,setSearchFocused]=useState(false);
  const [selectedSuggestion,setSelectedSuggestion]=useState('');
  const [showFloatingReturn,setShowFloatingReturn]=useState(false);
@@ -78,8 +44,7 @@ export default function App(){
  const [prefs,setPrefs]=useState(empty);
  const [discoveryMode,setDiscoveryMode]=useState(false);
  const updateFilter=(key,value)=>{setPrefs(p=>({...p,[key]:value}));setShowFav(false);setPage(1)};
- const updateInitial=value=>{setPrefs(p=>({...p,initial:value.slice(0,1),initialRange:''}));setShowFav(false)};
- const updateRange=value=>{setExpandedLetterRange(p=>p===value?'':value);setPrefs(p=>({...p,initialRange:value,initial:''}));setShowFav(false)};
+ const updateInitial=value=>{setPrefs(p=>({...p,initial:value.slice(0,1)}));setShowFav(false)};
  const openWizard=()=>setWizard(true);
  const [lang,setLang]=useState(()=>{try{return localeFor(localStorage.getItem('astera.language'))||'es'}catch{return 'es'}});
  const [languageOffer,setLanguageOffer]=useState(null);
@@ -191,7 +156,7 @@ export default function App(){
  return <div className="site">
  <header className="header"><a className="brand" href="#inicio"><span>✳</span> astera<span className="dot">.</span></a><nav className={menu?'open':''}><a onClick={()=>setMenu(false)} href="#explorar">{t('navExplore')}</a><a onClick={()=>setMenu(false)} href="#cielo">{t('navSky')}</a><button onClick={()=>{setShowFav(true);setDiscoveryMode(false);setMenu(false);document.getElementById('explorar')?.scrollIntoView({behavior:'smooth'})}}>{t('favorites')} <b>{favorites.length}</b></button></nav><button className="nav-cta" onClick={openWizard}>{t('findName')} <ArrowRight size={17}/></button><div className="language-menu"><Globe2 size={16}/><select value={lang} aria-label={t('language')} onChange={e=>languageChange(e.target.value)}>{Object.entries(LANGUAGES).map(([code,label])=><option value={code} key={code}>{label}</option>)}</select></div><button className="menu-button" aria-label="Abrir navegación" onClick={()=>setMenu(!menu)}>{menu?<X/>:<Menu/>}</button></header>
  <main>
- <section id="inicio" className="hero"><div className="hero-copy"><div className="eyebrow">{t('heroEyebrow')}</div><h1>{t('heroTitle')}<br/><em>{t('heroEm')}</em></h1><p>{t('heroDescription')}</p><div className="hero-actions"><button className="primary" onClick={()=>setWizard(true)}>{t('discover')} <Sparkles size={18}/></button><a className="plain-link" href="#explorar">{t('explore')} <ArrowRight size={17}/></a></div><div className="hero-caption"><span className="hero-count"><strong>{names.length.toLocaleString('es-MX')}</strong> {t('heroCount')}</span><span className="hero-count-note">{t('heroNote')}</span></div></div><div className="hero-art" aria-hidden="true"><div className="orbit orbit-a"></div><div className="orbit orbit-b"></div><div className="orbit orbit-c"></div><div className="moon"><i></i><i></i></div><span className="spark s1">✧</span><span className="spark s2">✦</span><span className="spark s3">✧</span><span className="orbit-text o1">amor</span><span className="orbit-text o2">vida</span><span className="orbit-text o3">luz</span></div></section>
+ <section id="inicio" className="hero"><div className="hero-copy"><div className="eyebrow">{t('heroEyebrow')}</div><h1>{t('heroTitle')}<br/><em>{t('heroEm')}</em></h1><p>{t('heroDescription')}</p><div className="hero-actions"><button className="primary" onClick={()=>setWizard(true)}>{t('discover')} <Sparkles size={18}/></button><a className="plain-link" href="#explorar">{t('explore')} <ArrowRight size={17}/></a></div><div className="hero-caption"><span className="hero-count"><strong>{names.length.toLocaleString('es-MX')}</strong> {t('heroCount')}</span><span className="hero-count-note">{t('heroNote')}</span></div></div><CosmicOrrery/></section>
  <div className="ticker"><span>✧ &nbsp; {t('ticker1')}</span><span>✧ &nbsp; {t('ticker2')}</span><span>✧ &nbsp; {t('ticker3')}</span><span>✧ &nbsp; {t('ticker4')}</span></div>
  <section id="explorar" className="explore"><div className="section-heading"><div><div className="eyebrow dark">{t('exploreEyebrow')}</div><h2>{t('exploreTitle')} <em>{t('exploreEm')}</em></h2><p>{t('exploreDescription')}</p></div><button className="outlined" onClick={()=>setWizard(true)}><Sparkles size={17}/> {t('recommend')}</button></div>
  <div className="filters"><div className="search-smart" onBlur={e=>{if(!e.currentTarget.contains(e.relatedTarget))setSearchFocused(false)}}>
@@ -211,7 +176,7 @@ export default function App(){
   if(e.key==='ArrowUp'){e.preventDefault();e.currentTarget.previousElementSibling?.focus()}
  }}>
  <span className="smart-suggestion-name">{n.name}</span><span className="smart-suggestion-origin">{n.origin}</span><ArrowRight size={14}/></button>)}
- </div>}</div><div className="filter-bottom"><div className="segmented">{[['all',t('all')],['girl',t('girl')],['boy',t('boy')]].map(([v,label])=><button key={v} className={prefs.gender===v?'active':''} onClick={()=>updateFilter('gender',v)}>{label}</button>)}</div><CultureCombobox options={countries} counts={cultureCounts} value={prefs.country} lang={lang} label={t('cultureQuestion')} onChange={next=>updateFilter('country',next)}/></div><AlphabetPicker label={t('initialRanges')} initial={prefs.initial} initialRange={prefs.initialRange} expandedRange={expandedLetterRange} onRange={updateRange} onInitial={updateInitial}/><div className="advanced-toggle-row"><button type="button" className={'advanced-toggle '+(advancedOpen||activeFilters?'active':'')} aria-expanded={advancedOpen} aria-controls="advanced-name-filters" onClick={()=>setAdvancedOpen(v=>!v)}><SlidersHorizontal size={17}/>{advancedOpen?t('collapseFilters'):t('expandFilters')} {activeFilters>0&&<span className="filter-count">{activeFilters}</span>}<ChevronDown className={advancedOpen?'rotated':''} size={16}/></button>{activeFilters>0&&<button className="clear-advanced" type="button" onClick={()=>setPrefs(p=>({...p,style:'any',initial:'',surname1:'',surname2:''}))}>{t('clearFilters')}</button>}</div>{advancedOpen&&<div className="advanced-panel" id="advanced-name-filters"><div className="advanced-grid"><div className="advanced-field"><strong>{t('styleQuestion')}</strong><div className="choices">{styles.map(([v,k])=><button type="button" key={v} className={prefs.style===v?'active':''} onClick={()=>updateFilter('style',v)}>{t(k)}</button>)}</div></div><label className="advanced-field"><strong>{t('initialQuestion')}</strong><input value={prefs.initial} onChange={e=>updateInitial(e.target.value)} maxLength={1} placeholder={t('initialPlaceholder')} autoComplete="off" /></label><div className="advanced-field"><strong>{t('surnames')}</strong><div className="two-fields"><input aria-label={t('surname1')} value={prefs.surname1} onChange={e=>updateFilter('surname1',e.target.value)} placeholder={t('surname1')} maxLength={70}/><input aria-label={t('surname2')} value={prefs.surname2} onChange={e=>updateFilter('surname2',e.target.value)} placeholder={t('surname2')} maxLength={70}/></div><small className="surname-hint">{t('surnameHint')}</small></div></div></div>}</div>{prefs.country!=='all'&&<p className="origin-filter-note">{t('originFilterNote')} · {t('unknownOrigins')}: {unknownOrigins.toLocaleString(lang)}. {t('originFilterSource')}</p>}
+ </div>}</div><div className="filter-bottom"><div className="segmented">{[['all',t('all')],['girl',t('girl')],['boy',t('boy')]].map(([v,label])=><button key={v} className={prefs.gender===v?'active':''} onClick={()=>updateFilter('gender',v)}>{label}</button>)}</div><CultureCombobox options={countries} counts={cultureCounts} value={prefs.country} lang={lang} label={t('cultureQuestion')} onChange={next=>updateFilter('country',next)}/></div><div className="advanced-toggle-row"><button type="button" className={'advanced-toggle '+(advancedOpen||activeFilters?'active':'')} aria-expanded={advancedOpen} aria-controls="advanced-name-filters" onClick={()=>setAdvancedOpen(v=>!v)}><SlidersHorizontal size={17}/>{advancedOpen?t('collapseFilters'):t('expandFilters')} {activeFilters>0&&<span className="filter-count">{activeFilters}</span>}<ChevronDown className={advancedOpen?'rotated':''} size={16}/></button>{activeFilters>0&&<button className="clear-advanced" type="button" onClick={()=>setPrefs(p=>({...p,style:'any',initial:'',surname1:'',surname2:''}))}>{t('clearFilters')}</button>}</div>{advancedOpen&&<div className="advanced-panel" id="advanced-name-filters"><div className="advanced-grid"><div className="advanced-field"><strong>{t('styleQuestion')}</strong><div className="choices">{styles.map(([v,k])=><button type="button" key={v} className={prefs.style===v?'active':''} onClick={()=>updateFilter('style',v)}>{t(k)}</button>)}</div></div><label className="advanced-field"><strong>{t('initialQuestion')}</strong><input value={prefs.initial} onChange={e=>updateInitial(e.target.value)} maxLength={1} placeholder={t('initialPlaceholder')} autoComplete="off" /></label><div className="advanced-field"><strong>{t('surnames')}</strong><div className="two-fields"><input aria-label={t('surname1')} value={prefs.surname1} onChange={e=>updateFilter('surname1',e.target.value)} placeholder={t('surname1')} maxLength={70}/><input aria-label={t('surname2')} value={prefs.surname2} onChange={e=>updateFilter('surname2',e.target.value)} placeholder={t('surname2')} maxLength={70}/></div><small className="surname-hint">{t('surnameHint')}</small></div></div></div>}</div>{prefs.country!=='all'&&<p className="origin-filter-note">{t('originFilterNote')} · {t('unknownOrigins')}: {unknownOrigins.toLocaleString(lang)}. {t('originFilterSource')}</p>}
  <div id="name-results" className="result-anchor"><div className="listing-head"><h3>✦ {showFav?t('listingFavorites'):discoveryMode?t('listingRecommended'):t('listingDefault')} <span>{display.length}</span></h3>{(showFav||discoveryMode)&&<button onClick={reset}>{t('backExplore')} ↗</button>}{showFav&&favorites.length>0&&<button onClick={share}>{copied?<Check size={16}/>:<Copy size={16}/>} {copied?t('copied'):t('copy')}</button>}</div>
  <div className="name-grid" ref={carouselRef} onScroll={onCarouselScroll} aria-label={t('nameCarousel')}>{visible.map(n=><NameCard key={n.id} item={n} liked={favorites.includes(n.id)} toggle={toggle} open={setDetail} surnames={harmonyEnabled?babySurnames:''} harmony={harmonyEnabled?n.harmony:null} popularity={getPopularity(n,popularityData,popularityCountry)} meaning={localizedMeaning(n,lang,meaningBundle)} translated={hasLocalizedMeaning(n,lang,meaningBundle)} t={t}/>)}</div>
  {visible.length>1&&<div className="mobile-carousel-nav" aria-label={t('nameCarousel')}>
@@ -232,7 +197,7 @@ export default function App(){
  <Sky date={prefs.date} setDate={value=>set('date',value)} t={t} lang={lang}/>
  <section className="closing"><div>✳</div><h2>{t('closingTitle')}<br/><em>{t('closingEm')}</em></h2><p>{t('closingDescription')}</p><button className="primary" onClick={()=>setWizard(true)}>{t('begin')} <ArrowRight size={18}/></button></section></main>
  <footer><a className="brand" href="#inicio"><span>✳</span> astera<span className="dot">.</span></a><span>Hecho con cariño para nuevos comienzos · 2026</span><span>Versión preliminar 0.1</span></footer>
- {wizard&&<div className="overlay" onMouseDown={e=>{if(e.target===e.currentTarget)setWizard(false)}}><section role="dialog" aria-modal="true" aria-label="Calculadora de nombres" className="modal"><button className="close" onClick={()=>setWizard(false)} aria-label="Cerrar"><X/></button><div className="eyebrow dark">{t('wizardEyebrow')}</div><h2>{t('wizardTitle')}<br/><em>{t('wizardEm')}</em></h2><p>{t('wizardDescription')}</p><label className="field"><strong>{t('genderQuestion')}</strong><div className="choices">{genders.map(([v,l])=><button className={prefs.gender===v?'active':''} key={v} onClick={()=>set('gender',v)}>{t(l)}</button>)}</div></label><label className="field"><strong>{t('styleQuestion')}</strong><div className="choices">{styles.map(([v,l])=><button className={prefs.style===v?'active':''} key={v} onClick={()=>set('style',v)}>{t(l)}</button>)}</div></label><div className="field"><strong>{t('cultureQuestion')}</strong><CultureCombobox options={countries} value={prefs.country} lang={lang} label={t('cultureQuestion')} onChange={next=>set('country',next)}/></div><label className="field"><strong>{t('initialQuestion')}</strong><input value={prefs.initial} onChange={e=>updateInitial(e.target.value)} maxLength={1} placeholder={t('initialPlaceholder')} autoComplete="off"/></label><div className="wizard-alphabet"><AlphabetPicker label={t('initialRanges')} initial={prefs.initial} initialRange={prefs.initialRange} expandedRange={expandedLetterRange} onRange={updateRange} onInitial={updateInitial}/></div><div className="field"><strong>{t('surnames')}</strong><div className="two-fields"><input aria-label={t('surname1')} autoComplete="off" placeholder={t('surname1')} maxLength={70} value={prefs.surname1} onChange={e=>set('surname1',e.target.value)}/><input aria-label={t('surname2')} autoComplete="off" placeholder={t('surname2')} maxLength={70} value={prefs.surname2} onChange={e=>set('surname2',e.target.value)}/></div><small className="surname-hint">{t('surnameHint')}</small></div><label className="field"><strong>{t('birthDate')}</strong><StarDatePicker value={prefs.date} onChange={v=>set('date',v)} lang={lang}/></label><button className="primary submit" onClick={generate}>{t('submit')} <Sparkles size={18}/></button><small className="privacy">{t('privacy')}</small></section></div>}
+ {wizard&&<div className="overlay" onMouseDown={e=>{if(e.target===e.currentTarget)setWizard(false)}}><section role="dialog" aria-modal="true" aria-label="Calculadora de nombres" className="modal"><button className="close" onClick={()=>setWizard(false)} aria-label="Cerrar"><X/></button><div className="eyebrow dark">{t('wizardEyebrow')}</div><h2>{t('wizardTitle')}<br/><em>{t('wizardEm')}</em></h2><p>{t('wizardDescription')}</p><label className="field"><strong>{t('genderQuestion')}</strong><div className="choices">{genders.map(([v,l])=><button className={prefs.gender===v?'active':''} key={v} onClick={()=>set('gender',v)}>{t(l)}</button>)}</div></label><label className="field"><strong>{t('styleQuestion')}</strong><div className="choices">{styles.map(([v,l])=><button className={prefs.style===v?'active':''} key={v} onClick={()=>set('style',v)}>{t(l)}</button>)}</div></label><div className="field"><strong>{t('cultureQuestion')}</strong><CultureCombobox options={countries} value={prefs.country} lang={lang} label={t('cultureQuestion')} onChange={next=>set('country',next)}/></div><label className="field"><strong>{t('initialQuestion')}</strong><input value={prefs.initial} onChange={e=>updateInitial(e.target.value)} maxLength={1} placeholder={t('initialPlaceholder')} autoComplete="off"/></label><div className="wizard-alphabet"></div><div className="field"><strong>{t('surnames')}</strong><div className="two-fields"><input aria-label={t('surname1')} autoComplete="off" placeholder={t('surname1')} maxLength={70} value={prefs.surname1} onChange={e=>set('surname1',e.target.value)}/><input aria-label={t('surname2')} autoComplete="off" placeholder={t('surname2')} maxLength={70} value={prefs.surname2} onChange={e=>set('surname2',e.target.value)}/></div><small className="surname-hint">{t('surnameHint')}</small></div><label className="field"><strong>{t('birthDate')}</strong><StarDatePicker value={prefs.date} onChange={v=>set('date',v)} lang={lang}/></label><button className="primary submit" onClick={generate}>{t('submit')} <Sparkles size={18}/></button><small className="privacy">{t('privacy')}</small></section></div>}
  {languageOffer&&<aside className="locale-offer" role="status"><Globe2 size={19}/><div><strong>{t('language')}: {LANGUAGES[languageOffer]}</strong><p>{t('suggestLanguage')}</p></div><button type="button" onClick={()=>languageChange(languageOffer)}>{t('switchLanguage')}</button><button type="button" className="locale-dismiss" onClick={()=>{setLanguageOffer(null);try{sessionStorage.setItem('astera.languageOfferDismissed','1')}catch{}}} aria-label={t('dismiss')}><X size={17}/></button></aside>}
  {detail&&<NameSkyExperience lang={lang} meaning={localizedMeaning(detail,lang,meaningBundle)} translated={hasLocalizedMeaning(detail,lang,meaningBundle)} item={detail} date={prefs.date} onDateChange={v=>set('date',v)} onClose={()=>setDetail(null)} onFavorite={()=>toggle(detail.id)} isFavorite={favorites.includes(detail.id)}/>}
  </div>
