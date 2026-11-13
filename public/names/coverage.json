@@ -24,7 +24,7 @@
   "pendingByOrigin": [
     {
       "origin": "Origen por verificar",
-      "count": 134933
+      "count": 133719
     },
     {
       "origin": "Japonés",
@@ -32,55 +32,67 @@
     },
     {
       "origin": "Arabic",
-      "count": 1410
+      "count": 1553
     },
     {
-      "origin": "Turkish",
-      "count": 210
-    },
-    {
-      "origin": "Spanish",
-      "count": 163
+      "origin": "Sanskrit",
+      "count": 465
     },
     {
       "origin": "Hebrew",
-      "count": 162
+      "count": 394
     },
     {
       "origin": "English",
-      "count": 142
+      "count": 243
+    },
+    {
+      "origin": "Turkish",
+      "count": 214
+    },
+    {
+      "origin": "Spanish",
+      "count": 190
+    },
+    {
+      "origin": "French",
+      "count": 152
+    },
+    {
+      "origin": "Italian",
+      "count": 141
     },
     {
       "origin": "Latin",
       "count": 139
     },
     {
-      "origin": "Italian",
-      "count": 124
-    },
-    {
-      "origin": "Sanskrit",
-      "count": 120
-    },
-    {
-      "origin": "French",
-      "count": 98
-    },
-    {
       "origin": "Greek",
-      "count": 90
+      "count": 109
+    },
+    {
+      "origin": "Irish",
+      "count": 92
+    },
+    {
+      "origin": "Persian",
+      "count": 85
     },
     {
       "origin": "Germanic",
       "count": 76
     },
     {
-      "origin": "Persian",
-      "count": 64
+      "origin": "Welsh",
+      "count": 72
     },
     {
       "origin": "Arabic / Japonés",
       "count": 49
+    },
+    {
+      "origin": "Russian",
+      "count": 47
     },
     {
       "origin": "Zulu",
@@ -88,11 +100,23 @@
     },
     {
       "origin": "Dutch",
-      "count": 33
+      "count": 39
+    },
+    {
+      "origin": "German",
+      "count": 37
     },
     {
       "origin": "Yoruba",
-      "count": 32
+      "count": 34
+    },
+    {
+      "origin": "Scottish Gaelic",
+      "count": 33
+    },
+    {
+      "origin": "Portuguese",
+      "count": 30
     },
     {
       "origin": "Slavic",
@@ -103,28 +127,20 @@
       "count": 29
     },
     {
-      "origin": "Portuguese",
-      "count": 26
+      "origin": "Polish",
+      "count": 28
     },
     {
-      "origin": "Russian",
+      "origin": "Hindi",
+      "count": 27
+    },
+    {
+      "origin": "Chinese",
       "count": 26
     },
     {
       "origin": "Hebrew / Japonés",
       "count": 25
-    },
-    {
-      "origin": "Polish",
-      "count": 25
-    },
-    {
-      "origin": "Chinese",
-      "count": 24
-    },
-    {
-      "origin": "Irish",
-      "count": 19
     },
     {
       "origin": "Egyptian Arabic",
@@ -143,10 +159,6 @@
       "count": 17
     },
     {
-      "origin": "German",
-      "count": 16
-    },
-    {
       "origin": "Kazakh",
       "count": 16
     },
@@ -163,20 +175,12 @@
       "count": 14
     },
     {
-      "origin": "Welsh",
-      "count": 14
-    },
-    {
       "origin": "Latin / Japonés",
       "count": 13
     },
     {
       "origin": "Turkic",
       "count": 13
-    },
-    {
-      "origin": "Scottish Gaelic",
-      "count": 11
     },
     {
       "origin": "Turkish and Arabic",
@@ -191,11 +195,15 @@
       "count": 10
     },
     {
+      "origin": "Basque",
+      "count": 10
+    },
+    {
       "origin": "Italian / Japonés",
       "count": 10
     },
     {
-      "origin": "Basque",
+      "origin": "Japanese",
       "count": 9
     },
     {
@@ -212,6 +220,10 @@
     },
     {
       "origin": "Arabic and Maghrebi",
+      "count": 8
+    },
+    {
+      "origin": "Finnish",
       "count": 8
     },
     {
@@ -252,10 +264,6 @@
     },
     {
       "origin": "Catalan",
-      "count": 7
-    },
-    {
-      "origin": "Finnish",
       "count": 7
     },
     {
@@ -308,6 +316,10 @@
     },
     {
       "origin": "Nguni",
+      "count": 6
+    },
+    {
+      "origin": "Swahili",
       "count": 6
     },
     {
@@ -431,10 +443,6 @@
       "count": 4
     },
     {
-      "origin": "Japanese",
-      "count": 4
-    },
-    {
       "origin": "Kazakh / Turkic",
       "count": 4
     },
@@ -523,10 +531,6 @@
       "count": 3
     },
     {
-      "origin": "Hindi",
-      "count": 3
-    },
-    {
       "origin": "Hungarian",
       "count": 3
     },
@@ -596,6 +600,10 @@
     },
     {
       "origin": "Spanish / Portuguese",
+      "count": 3
+    },
+    {
+      "origin": "Swedish",
       "count": 3
     },
     {
@@ -6224,10 +6232,6 @@
     },
     {
       "origin": "Spanish/Italian",
-      "count": 1
-    },
-    {
-      "origin": "Swedish",
       "count": 1
     },
     {

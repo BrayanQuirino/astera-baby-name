@@ -5,7 +5,7 @@
   "meaningCount": 2141,
   "missingMeaningCount": 173757,
   "populatedCount": 175898,
-  "nativeScriptCount": 37020,
+  "nativeScriptCount": 37029,
   "variantCount": 4572,
   "cultureSources": 11,
   "wiktionaryLicense": "CC BY-SA 4.0",
@@ -30,8 +30,8 @@
   },
   "japaneseReview": {
     "reviewed": 112,
-    "added": 21,
-    "existingEnriched": 91,
+    "added": 0,
+    "existingEnriched": 112,
     "source": "Meiji Yasuda 2025 and editorial Japanese-name review"
   },
   "jmnedict": {
