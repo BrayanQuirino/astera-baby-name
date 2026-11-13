@@ -66,7 +66,7 @@ const reviewedNames=reviewed.map(row=>({
 const initialCatalog=[...reviewedNames,...baseNames,...international];
 const initialSeen=new Set();
 export const names=initialCatalog.filter(item=>{
- const key=item.name.normalize('NFD').replace(/[\\u0300-\\u036f]/g,'').toLocaleLowerCase('es');
+ const key=item.name.normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLocaleLowerCase('es');
  if(initialSeen.has(key))return false;
  initialSeen.add(key);
  return true;
