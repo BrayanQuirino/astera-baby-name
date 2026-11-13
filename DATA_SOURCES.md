@@ -89,4 +89,8 @@ Al fusionar se usa normalización Unicode NFC, mayúsculas/minúsculas, las vari
 
 El archivo `public/names/manifest.json` contiene las métricas actuales, un desglose por fuente y los descartes. `python scripts/validate_catalog.py` verifica conteos, orden alfabético, fuentes y ausencia de duplicados exactos.
 
-**Pendiente de ingestión automática:** INE España (sus hojas de cálculo requieren una adaptación validada) y otros países. No se atribuyen a Astera datos de fuentes no integradas.
+- **Instituto Nacional de Estadística (INE, España):** censo anual de población a 1 de enero de 2025. Archivo Excel oficial `nombres_por_edad_media.xlsx`, separado en hojas `Hombres` y `Mujeres`. Astera importa únicamente columnas verificadas de nombre y frecuencia; para entradas nuevas exige al menos 30 registros. Fuente: https://www.ine.es/daco/daco42/nombyapel/nombres_por_edad_media.xlsx. La residencia en España no implica etimología española.
+
+El catálogo completo se conserva en `public/names/extended.json`; el índice derivado `public/names/search-index.json` elimina campos de procedencia y frecuencia innecesarios para agilizar la carga de la página. El índice no sustituye la base original ni la atribución de fuentes.
+
+**Pendiente de futuras fuentes:** ampliar la cobertura histórica de países sin publicaciones oficiales reutilizables. No se atribuyen a Astera datos de fuentes no integradas.
