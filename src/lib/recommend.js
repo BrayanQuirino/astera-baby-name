@@ -147,7 +147,7 @@ export function recommendNames(names,preferences){
 }
 // Live discovery uses the same field names as personalized recommendations.
 // In browse mode, initials are a hard filter and surnames activate harmony ranking.
-export function filterNames(names,query,preferences={}){
+export function filterNames(names,query,preferences={},alreadySorted=false){
  const {gender='all',country='all',style='any',initial='',surname1='',surname2=''}=preferences;
  const q=normalize(query).trim(),letter=normalize(initial).trim().slice(0,1);
  const surnames=[surname1,surname2].map(v=>String(v||'').trim()).filter(Boolean);
@@ -163,7 +163,7 @@ export function filterNames(names,query,preferences={}){
   if(q&&!normalize([n.name,n.native||'',n.reading||'',n.meaning||'',n.origin||'',...(n.variants||[])].join(' ')).includes(q))return false;
   return true;
  }).map(n=>surnames.length?{...n,harmony:surnameHarmony(n.name,surnames)}:n)
-  .sort((a,b)=>surnames.length?(b.harmony-a.harmony||a.name.localeCompare(b.name,'es')):a.name.localeCompare(b.name,'es'));
+  .sort((a,b)=>surnames.length?(b.harmony-a.harmony||a.name.localeCompare(b.name,'es')):alreadySorted?0:a.name.localeCompare(b.name,'es'));
 }
 export function zodiac(date){
  if(!date)return {name:'Tu cielo',symbol:'✧',dots:[[14,23],[71,19],[40,48],[81,72],[28,83],[60,91]]};
