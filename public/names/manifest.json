@@ -16,16 +16,14 @@
       "SSA national births (public domain; redistributed by Nameling)",
       "UK ONS/NRS/NISRA births (OGL v3.0; redistributed by Nameling)",
       "IBGE Censo 2022 Brazil (public records; Gabriel Lobo CC BY 4.0 compilation)",
+      "INE Spain 2025 annual census names",
       "Wikidata given-name labels (CC0)"
     ],
-    "newNames": 36813,
+    "newNames": 0,
     "skipped": {
-      "existing_reused": 113210,
-      "ssa_below_minimum": 50249
+      "existing_reused": 153452,
+      "ssa_below_minimum": 47870
     },
-    "newBySource": {
-      "ibge-censo-2022": 32999,
-      "wikidata-cc0": 3814
-    }
+    "newBySource": {}
   }
 }
