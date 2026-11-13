@@ -73,7 +73,7 @@ export default function App(){
  const [expandedLetterRange,setExpandedLetterRange]=useState('');
  const [searchFocused,setSearchFocused]=useState(false);
  const [selectedSuggestion,setSelectedSuggestion]=useState('');
- const [showFloatingLoad,setShowFloatingLoad]=useState(false);
+ const [showFloatingReturn,setShowFloatingReturn]=useState(false);
  // One source of truth across the explorer and Discover Name dialog.
  const [prefs,setPrefs]=useState(empty);
  const [discoveryMode,setDiscoveryMode]=useState(false);
@@ -122,17 +122,43 @@ export default function App(){
  const result=useMemo(()=>{const found=filterNames(names,query,prefs,true);return selectedSuggestion?found.filter(n=>n.name===selectedSuggestion):found},[names,query,prefs,selectedSuggestion]);
  const display=useMemo(()=>showFav?names.filter(n=>favorites.includes(n.id)).sort((a,b)=>a.name.localeCompare(b.name,lang)):result,[showFav,names,favorites,result,lang]);
  const pageSize=24;
- const [visibleCount,setVisibleCount]=useState(pageSize);
- const visible=useMemo(()=>display.slice(0,visibleCount),[display,visibleCount]);
- const canLoadMore=visibleCount<display.length;
- const loadMore=()=>setVisibleCount(n=>Math.min(n+pageSize,display.length));
- useEffect(()=>setVisibleCount(pageSize),[query,prefs,showFav,discoveryMode]);
+ const [batchIndex,setBatchIndex]=useState(0);
+ const [carouselIndex,setCarouselIndex]=useState(0);
+ const carouselRef=useRef(null);
+ const batchCount=Math.max(1,Math.ceil(display.length/pageSize));
+ const currentBatch=Math.min(batchIndex,batchCount-1);
+ const batchStart=currentBatch*pageSize;
+ const visible=useMemo(()=>display.slice(batchStart,batchStart+pageSize),[display,batchStart]);
+ const canLoadMore=currentBatch<batchCount-1;
+ const scrollToResults=()=>requestAnimationFrame(()=>document.getElementById('name-results')?.scrollIntoView({behavior:'smooth',block:'start'}));
+ const loadMore=()=>{if(!canLoadMore)return;setBatchIndex(i=>Math.min(i+1,batchCount-1));setCarouselIndex(0);scrollToResults()};
+ const resetCarousel=()=>{setCarouselIndex(0);if(carouselRef.current)carouselRef.current.scrollLeft=0};
+ const moveCarousel=step=>{
+  const track=carouselRef.current;
+  if(!track)return;
+  const next=Math.max(0,Math.min(visible.length-1,carouselIndex+step));
+  const target=track.children[next];
+  if(target){track.scrollTo({left:target.offsetLeft-track.children[0].offsetLeft,behavior:'smooth'});setCarouselIndex(next)}
+ };
+ const onCarouselScroll=()=>{
+  const track=carouselRef.current;
+  if(!track||track.children.length===0)return;
+  const offset=track.scrollLeft+track.children[0].offsetLeft;
+  let best=0,distance=Infinity;
+  for(let i=0;i<track.children.length;i++){
+   const current=Math.abs(track.children[i].offsetLeft-offset);
+   if(current<distance){best=i;distance=current}
+  }
+  setCarouselIndex(best);
+ };
+ useEffect(()=>{setBatchIndex(0);resetCarousel()},[query,prefs,showFav,discoveryMode,display.length]);
+ useEffect(()=>{resetCarousel()},[currentBatch]);
  useEffect(()=>{
   const check=()=>{
    const explore=document.getElementById('explorar');
    if(!explore)return;
    const rect=explore.getBoundingClientRect();
-   setShowFloatingLoad(rect.top<window.innerHeight*.35&&rect.bottom>window.innerHeight*.25);
+   setShowFloatingReturn(rect.top<-window.innerHeight*.22&&rect.bottom>window.innerHeight*.25);
   };
   check();
   window.addEventListener('scroll',check,{passive:true});
@@ -186,9 +212,22 @@ export default function App(){
  }}>
  <span className="smart-suggestion-name">{n.name}</span><span className="smart-suggestion-origin">{n.origin}</span><ArrowRight size={14}/></button>)}
  </div>}</div><div className="filter-bottom"><div className="segmented">{[['all',t('all')],['girl',t('girl')],['boy',t('boy')]].map(([v,label])=><button key={v} className={prefs.gender===v?'active':''} onClick={()=>updateFilter('gender',v)}>{label}</button>)}</div><CultureCombobox options={countries} counts={cultureCounts} value={prefs.country} lang={lang} label={t('cultureQuestion')} onChange={next=>updateFilter('country',next)}/></div><AlphabetPicker label={t('initialRanges')} initial={prefs.initial} initialRange={prefs.initialRange} expandedRange={expandedLetterRange} onRange={updateRange} onInitial={updateInitial}/><div className="advanced-toggle-row"><button type="button" className={'advanced-toggle '+(advancedOpen||activeFilters?'active':'')} aria-expanded={advancedOpen} aria-controls="advanced-name-filters" onClick={()=>setAdvancedOpen(v=>!v)}><SlidersHorizontal size={17}/>{advancedOpen?t('collapseFilters'):t('expandFilters')} {activeFilters>0&&<span className="filter-count">{activeFilters}</span>}<ChevronDown className={advancedOpen?'rotated':''} size={16}/></button>{activeFilters>0&&<button className="clear-advanced" type="button" onClick={()=>setPrefs(p=>({...p,style:'any',initial:'',surname1:'',surname2:''}))}>{t('clearFilters')}</button>}</div>{advancedOpen&&<div className="advanced-panel" id="advanced-name-filters"><div className="advanced-grid"><div className="advanced-field"><strong>{t('styleQuestion')}</strong><div className="choices">{styles.map(([v,k])=><button type="button" key={v} className={prefs.style===v?'active':''} onClick={()=>updateFilter('style',v)}>{t(k)}</button>)}</div></div><label className="advanced-field"><strong>{t('initialQuestion')}</strong><input value={prefs.initial} onChange={e=>updateInitial(e.target.value)} maxLength={1} placeholder={t('initialPlaceholder')} autoComplete="off" /></label><div className="advanced-field"><strong>{t('surnames')}</strong><div className="two-fields"><input aria-label={t('surname1')} value={prefs.surname1} onChange={e=>updateFilter('surname1',e.target.value)} placeholder={t('surname1')} maxLength={70}/><input aria-label={t('surname2')} value={prefs.surname2} onChange={e=>updateFilter('surname2',e.target.value)} placeholder={t('surname2')} maxLength={70}/></div><small className="surname-hint">{t('surnameHint')}</small></div></div></div>}</div>{prefs.country!=='all'&&<p className="origin-filter-note">{t('originFilterNote')} · {t('unknownOrigins')}: {unknownOrigins.toLocaleString(lang)}. {t('originFilterSource')}</p>}
- <div className="listing-head"><h3>✦ {showFav?t('listingFavorites'):discoveryMode?t('listingRecommended'):t('listingDefault')} <span>{display.length}</span></h3>{(showFav||discoveryMode)&&<button onClick={reset}>{t('backExplore')} ↗</button>}{showFav&&favorites.length>0&&<button onClick={share}>{copied?<Check size={16}/>:<Copy size={16}/>} {copied?t('copied'):t('copy')}</button>}</div>
- <div className="name-grid">{visible.map(n=><NameCard key={n.id} item={n} liked={favorites.includes(n.id)} toggle={toggle} open={setDetail} surnames={harmonyEnabled?babySurnames:''} harmony={harmonyEnabled?n.harmony:null} popularity={getPopularity(n,popularityData,popularityCountry)} meaning={localizedMeaning(n,lang,meaningBundle)} translated={hasLocalizedMeaning(n,lang,meaningBundle)} t={t}/>)}</div>{canLoadMore&&<div className="load-more-panel"><span>{t('showing')} {visible.length.toLocaleString(lang)} {t('of')} {display.length.toLocaleString(lang)}</span><button className="load-more-button" type="button" onClick={loadMore}><Sparkles size={16}/>{t('loadMore')} <span>+{Math.min(pageSize,display.length-visibleCount)}</span></button></div>}
- {canLoadMore&&showFloatingLoad&&<button type="button" className="floating-load-more" onClick={loadMore} aria-label={t('loadMore')}><ArrowRight size={17}/>{t('loadMore')} <span>+{Math.min(pageSize,display.length-visibleCount)}</span></button>}
+ <div id="name-results" className="result-anchor"><div className="listing-head"><h3>✦ {showFav?t('listingFavorites'):discoveryMode?t('listingRecommended'):t('listingDefault')} <span>{display.length}</span></h3>{(showFav||discoveryMode)&&<button onClick={reset}>{t('backExplore')} ↗</button>}{showFav&&favorites.length>0&&<button onClick={share}>{copied?<Check size={16}/>:<Copy size={16}/>} {copied?t('copied'):t('copy')}</button>}</div>
+ <div className="name-grid" ref={carouselRef} onScroll={onCarouselScroll} aria-label={t('nameCarousel')}>{visible.map(n=><NameCard key={n.id} item={n} liked={favorites.includes(n.id)} toggle={toggle} open={setDetail} surnames={harmonyEnabled?babySurnames:''} harmony={harmonyEnabled?n.harmony:null} popularity={getPopularity(n,popularityData,popularityCountry)} meaning={localizedMeaning(n,lang,meaningBundle)} translated={hasLocalizedMeaning(n,lang,meaningBundle)} t={t}/>)}</div>
+ {visible.length>1&&<div className="mobile-carousel-nav" aria-label={t('nameCarousel')}>
+  <button type="button" aria-label={t('previousName')} onClick={()=>moveCarousel(-1)} disabled={carouselIndex===0}><ArrowRight className="arrow-back" size={18}/></button>
+  <span>{t('swipeNames')} <strong>{carouselIndex+1} / {visible.length}</strong></span>
+  <button type="button" aria-label={t('nextName')} onClick={()=>moveCarousel(1)} disabled={carouselIndex===visible.length-1}><ArrowRight size={18}/></button>
+ </div>}{display.length>pageSize&&<div className="load-more-panel">
+  <span>{t('showing')} {(batchStart+1).toLocaleString(lang)}–{(batchStart+visible.length).toLocaleString(lang)} {t('of')} {display.length.toLocaleString(lang)}</span>
+  <div className="batch-navigation">
+   {currentBatch>0&&<button className="load-previous-button" type="button" onClick={()=>{setBatchIndex(i=>Math.max(0,i-1));setCarouselIndex(0);scrollToResults()}}><ArrowRight className="arrow-back" size={16}/>{t('previousNames')}</button>}
+   {canLoadMore?<button className="load-more-button" type="button" onClick={loadMore}><Sparkles size={16}/>{t('loadMore')} <span>+{Math.min(pageSize,display.length-batchStart-visible.length)}</span></button>
+   :<button className="load-previous-button" type="button" onClick={()=>{setBatchIndex(0);setCarouselIndex(0);scrollToResults()}}>{t('firstNames')}</button>}
+  </div>
+ </div>}
+ </div>
+ {showFloatingReturn&&!wizard&&!detail&&<button type="button" className="floating-load-more floating-search-return" onClick={()=>document.getElementById('explorar')?.scrollIntoView({behavior:'smooth',block:'start'})} aria-label={t('backToSearch')}><ArrowRight className="arrow-up" size={17}/>{t('backToSearch')}</button>}
  {!display.length&&<div className="no-results"><h3>{t('noResults')}</h3><p>{t('tryFilters')}</p><button className="outlined" onClick={reset}>{t('seeAll')}</button></div>}<p className="catalog-note">{t('popularityNote')} · {t('catalogNote')} {names.length.toLocaleString(lang)} · Onomaverse · SSA · ONS/NRS/NISRA · IBGE / Gabriel Lobo · INE · Wikidata · <a href="https://github.com/BrayanQuirino/astera-baby-name/blob/main/DATA_SOURCES.md" target="_blank" rel="noreferrer">{t('source')}</a>.</p></section>
  <Sky date={prefs.date} setDate={value=>set('date',value)} t={t} lang={lang}/>
  <section className="closing"><div>✳</div><h2>{t('closingTitle')}<br/><em>{t('closingEm')}</em></h2><p>{t('closingDescription')}</p><button className="primary" onClick={()=>setWizard(true)}>{t('begin')} <ArrowRight size={18}/></button></section></main>
