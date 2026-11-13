@@ -111,23 +111,28 @@ def merge(name,gender,country,source,frequency=0,native=None,origin=None,source_
         entry.setdefault("usageCount",{})[country]=max(int(frequency),int(entry.get("usageCount",{}).get(country,0)))
     usage_counts[source]+=1
 
-# SSA official: 145 annual files, rows are first names, sexes and counts.
-# Use sum >= 50 births AND at least two observed years for new names; no
-# arbitrary popularity claims. Keep all existing low-frequency names intact.
-ssa_url="https://www.ssa.gov/oact/babynames/names.zip"
+# Official SSA records redistributed as a public-domain CSV via Nameling.
+# Origin publisher: https://www.ssa.gov/oact/babynames/
+# Redistribution: https://www.nameling.co.uk/names/data
+# Confirmed schema: name, sex, year, count, us_rank.
+# Never infer origin from the location of a birth.
+ssa_url="https://www.nameling.co.uk/data/us-baby-names.zip"
 ssa_bytes=fetch(ssa_url)
 tally=collections.defaultdict(lambda:{"F":0,"M":0,"years":set()})
 with zipfile.ZipFile(io.BytesIO(ssa_bytes)) as archive:
-    for path in archive.namelist():
-        match=re.fullmatch(r"yob(\\d{4})\\.txt",path)
-        if not match:continue
-        for row in csv.reader(io.StringIO(archive.read(path).decode("utf-8-sig"))):
-            if len(row)<3:continue
-            name,sex,number=row[:3]
-            if sex not in ("F","M"):continue
-            try:count=int(number)
+    files=[path for path in archive.namelist() if path.casefold().endswith(".csv")]
+    if not files:raise RuntimeError("SSA mirror missing CSV")
+    for path in files:
+        reader=csv.DictReader(io.TextIOWrapper(archive.open(path),encoding="utf-8-sig"))
+        print("SSA columns",reader.fieldnames,flush=True)
+        for row in reader:
+            name=(row.get("name") or "").strip()
+            sex=str(row.get("sex") or row.get("gender") or "").strip().upper()
+            year=str(row.get("year") or "")
+            try:count=int(row.get("count") or 0)
             except ValueError:continue
-            entry=tally[name];entry[sex]+=count;entry["years"].add(match.group(1))
+            if not name or sex not in ("F","M") or count<=0:continue
+            e=tally[name];e[sex]+=count;e["years"].add(year)
 for name,totals in tally.items():
     num=totals["F"]+totals["M"]
     if key(name) not in indexed and (num<50 or len(totals["years"])<2):
@@ -135,6 +140,36 @@ for name,totals in tally.items():
     gender="girl" if totals["F"]>totals["M"]*1.5 else "boy" if totals["M"]>totals["F"]*1.5 else "unisex"
     merge(name,gender,"US","ssa-us-national",frequency=num,source_url=ssa_url)
 print("SSA processed",len(tally),"candidate names; newly added",source_counters["ssa-us-national"],flush=True)
+
+# UK names: original ONS, NRS and NISRA public records consolidated under OGL v3.0.
+# Confirmed schema name, sex, year, england_wales, scotland, northern_ireland,
+# uk_total, uk_rank. Import only name frequency, never claim British etymology.
+uk_url="https://www.nameling.co.uk/data/uk-baby-names.zip"
+try:
+    uk_bytes=fetch(uk_url)
+    uk=collections.defaultdict(lambda:{"F":0,"M":0,"years":set()})
+    with zipfile.ZipFile(io.BytesIO(uk_bytes)) as archive:
+        files=[path for path in archive.namelist() if path.casefold().endswith(".csv")]
+        for path in files:
+            reader=csv.DictReader(io.TextIOWrapper(archive.open(path),encoding="utf-8-sig"))
+            print("UK columns",reader.fieldnames,flush=True)
+            for row in reader:
+                name=(row.get("name") or "").strip()
+                sex=str(row.get("sex") or "").strip().upper()
+                if sex in ("BOY","BOYS","MALE"):sex="M"
+                if sex in ("GIRL","GIRLS","FEMALE"):sex="F"
+                try:count=int(row.get("uk_total") or 0)
+                except ValueError:continue
+                if not name or sex not in ("M","F") or count<=0:continue
+                e=uk[name];e[sex]+=count;e["years"].add(str(row.get("year") or ""))
+    for name,totals in uk.items():
+        num=totals["F"]+totals["M"]
+        if key(name) not in indexed and (num<25 or len(totals["years"])<2):continue
+        gender="girl" if totals["F"]>totals["M"]*1.5 else "boy" if totals["M"]>totals["F"]*1.5 else "unisex"
+        merge(name,gender,"GB","ons-uk-national",frequency=num,source_url=uk_url)
+    print("UK processed",len(uk),"candidate names; newly added",source_counters["ons-uk-national"],flush=True)
+except Exception as exc:
+    print("Optional UK records unavailable",str(exc)[:120],flush=True)
 
 # Wikidata CC0: official public endpoint with stable Wikibase entities. Query only
 # actual instances of "given name" with Latin-script English or language label.
@@ -182,7 +217,7 @@ manifest.update(count=len(results),populatedCount=len(results),meaningCount=with
                 missingMeaningCount=creative,
                 nativeScriptCount=sum(bool(x.get("native")) for x in results),
                 variantCount=sum(bool(x.get("variants")) for x in results),
-                enrichment={"sources":["SSA national births (public domain)","Wikidata given-name labels (CC0)"],
+                enrichment={"sources":["SSA national births (public domain; redistributed by Nameling)","UK ONS/NRS/NISRA births (OGL v3.0; redistributed by Nameling)","Wikidata given-name labels (CC0)"],
                             "newNames":len(results)-initial,"skipped":dict(skipped),
                             "newBySource":dict(source_counters)})
 coverage=load(OUT/"coverage.json")
