@@ -17,11 +17,7 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - name: Rebuild source-backed and creative meanings
-        run: python scripts/build_catalog.py
-      - name: Apply reviewed compound names and canonical variants
-        run: python scripts/apply_name_corrections.py
-      - name: Validate catalog ordering, schema and source traceability
+      - name: Audit committed international catalog, not an outdated rebuild
         run: python scripts/validate_catalog.py
       - name: Install app dependencies
         run: npm install --no-audit --no-fund
