@@ -5,7 +5,7 @@
   "meaningCount": 2141,
   "missingMeaningCount": 173757,
   "populatedCount": 175898,
-  "nativeScriptCount": 37029,
+  "nativeScriptCount": 37032,
   "variantCount": 4572,
   "cultureSources": 11,
   "wiktionaryLicense": "CC BY-SA 4.0",
@@ -43,6 +43,17 @@
       "unisex": 18673,
       "boy": 3284,
       "girl": 11781
+    }
+  },
+  "meaningEditorialReview": {
+    "version": "2026-11-13",
+    "method": "Sourced meanings preserved; suggested kanji and literary alternatives are labeled creative.",
+    "stats": {
+      "creative_specific": 170104,
+      "existing_sourced": 2141,
+      "kanji_interpreted": 3542,
+      "editorial_international": 19,
+      "reviewed_japanese": 92
     }
   }
 }
