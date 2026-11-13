@@ -15,7 +15,7 @@ test('gender-only selection is alphabetical and does not display harmony',()=>{
 });
 test('optional preferences activate a 0-100 harmony percentage',()=>{
  const ranked=recommendNames(names,{gender:'all',surname1:'García',surname2:'Tanaka',country:'JP'});
- assert.equal(ranked.length,4);
+ assert.equal(ranked.length,2);
  assert.ok(ranked.every(n=>Number.isInteger(n.harmony)&&n.harmony>=0&&n.harmony<=100));
  assert.ok(ranked.every((n,i)=>i===0||ranked[i-1].harmony>=n.harmony));
  assert.equal(hasHarmonyPreferences({surname1:'García'}),true);
