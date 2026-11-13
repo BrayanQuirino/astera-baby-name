@@ -30,6 +30,8 @@ for row in catalog:
         assert "JP" in row.get("originCountryCodes",[]), "EDRDG name must carry Japan origin evidence"
     assert isinstance(row["countries"],list) and row["countries"]==sorted(set(row["countries"]))
     assert isinstance(row["meaning"],str) and row["meaning"].strip()
+    assert not row["meaning"].startswith("Evoca "), f"Generic creative template leaked: {row['name']}"
+    assert not row["meaning"].startswith("Nombre japonés:"), f"Generic Japanese disclaimer leaked: {row['name']}"
     assert row.get("meaningStatus") in ("documented","poetic_interpretation"), row["name"]
     assert row.get("meaningType") in ("published","creative"), row["name"]
     assert row.get("reviewStatus") in ("source_matched","requires_etymological_source"), row["name"]
@@ -51,5 +53,7 @@ if client_index.exists():
     assert index_data["count"]==len(catalog)==len(index_data["rows"]), "Index size differs from source catalog"
     assert len(index_data["fields"])==len(index_data["rows"][0]), "Index field layout invalid"
     idx_name=index_data["fields"].index("name")
+    idx_meaning=index_data["fields"].index("meaning")
+    assert all(row[idx_meaning]==item["meaning"] for row,item in zip(index_data["rows"],catalog)), "Mobile index has stale meanings"
     assert all(row[idx_name]==item["name"] for row,item in zip(index_data["rows"],catalog)), "Name order in index differs from source"
 print(f"VALIDATED {len(catalog):,} names; {manifest['meaningCount']:,} sourced meanings; {manifest['missingMeaningCount']:,} pending; {len(countries)} countries")
