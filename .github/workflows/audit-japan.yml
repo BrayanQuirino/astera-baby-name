@@ -1,0 +1,31 @@
+name: Audit Japanese name coverage
+on:
+  push:
+    branches: [main]
+    paths:
+      - scripts/audit_japan_filter.py
+      - .github/workflows/audit-japan.yml
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python scripts/audit_japan_filter.py
+      - name: Commit report
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add reports/japan_filter_audit.json
+          git commit -m "audit: report JP origin and usage discrepancy" || exit 0
+          git fetch origin main
+          git rebase origin/main
+          git push origin HEAD:main
