@@ -59,7 +59,7 @@ export default function NameSkyExperience({item,date,onDateChange,onClose,onFavo
 
   </div>
   <div className="cosmic-bottom sky-full-controls"><div className="cosmic-date"><span>{t('birthDate')}</span><StarDatePicker value={date} onChange={onDateChange} lang={lang} dark/></div><SkyLocationControl location={location} onChange={setLocation} lang={lang}/><div className="cosmic-sign"><span>{t('zodiac')}</span><strong>{sky?sky.sign:t('discoverLater')}</strong>{sky&&<small>Sol en {sky.constellation} (aprox.)</small>}
- {sky&&<button type="button" className="zodiac-detail-toggle" aria-expanded={symbolOpen} onClick={toggleSymbol}><Sparkles size={16}/>{symbolOpen?t('zodiacCollapse'):t('zodiacOpen')}</button>}
+
  </div></div>
   <p className="sky-disclaimer">{t('skyDisclaimer')} Datos: d3-celestial (BSD-3-Clause).</p>
  </div>;
