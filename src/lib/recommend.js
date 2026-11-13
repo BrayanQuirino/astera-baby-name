@@ -1,7 +1,75 @@
 export const normalize = value => String(value||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();
+// Cultural origin differs from countries where a name has been recorded.
+// A given name can be used in Japan without being Japanese by origin.
+// Intentionally exclude unknown origins rather than assigning a false culture.
+const CULTURE_TERMS={
+ JP:['japanese','japones','japon','nihongo','日本'],
+ KR:['korean','coreano','coreana','한국'],
+ CN:['chinese','chino','china','mandarin','中国'],
+ TW:['chinese','chino','china','taiwan','台湾'],
+ ES:['spanish','espanol','espana','castilian','castellano'],
+ MX:['mexican','mexico','nahuatl','maya','mayan','zapotec','mixtec','otomi','purepecha','huichol'],
+ FR:['french','frances','francia','breton'],
+ DE:['german','aleman','alemania','germanic','germanico'],
+ IT:['italian','italiano','italia'],
+ GB:['english','british','welsh','scottish','anglo','ingles'],
+ US:['american','estadounidense','native american'],
+ GR:['greek','griego','grecia'],
+ SE:['swedish','sueco','suecia','nordic','scandinavian'],
+ IN:['indian','india','hindi','sanskrit','tamil','bengali','marathi','punjabi','telugu','malayalam'],
+ EG:['egyptian','egipcio','coptic'],
+ BR:['brazilian','brasileno','brasil','tupi','guarani','portuguese'],
+ NG:['nigerian','nigeria','yoruba','igbo','hausa'],
+ IE:['irish','irlandes','gaelic'],
+ KE:['kenyan','kenia','swahili','suajili'],
+ PT:['portuguese','portugues','portugal'],
+ RU:['russian','ruso','rusia'],
+ TR:['turkish','turco','turquia'],
+ IL:['hebrew','hebreo','israeli'],
+ SA:['arabic','arabe','saudi'],
+ IR:['persian','persa','iranian','farsi'],
+ PK:['urdu','pakistani','punjabi'],
+ VN:['vietnamese','vietnamita'],
+ TH:['thai','tailandes'],
+ NL:['dutch','neerlandes','holandes'],
+ PL:['polish','polaco'],
+ NO:['norwegian','noruego','norse'],
+ DK:['danish','danes'],
+ FI:['finnish','finlandes'],
+ IS:['icelandic','islandes'],
+ UA:['ukrainian','ucraniano'],
+ CZ:['czech','checo'],
+ HU:['hungarian','hungaro'],
+ RO:['romanian','rumano'],
+ AR:['argentinian','argentino','quechua','mapuche'],
+ CL:['chilean','chileno','mapuche'],
+ PE:['peruvian','peruano','quechua','aymara'],
+ CO:['colombian','colombiano'],
+ VE:['venezuelan','venezolano'],
+ PH:['filipino','tagalog','filipina'],
+ ID:['indonesian','bahasa indonesia','javanese'],
+ MY:['malay','malaysian'],
+ ZA:['south african','zulu','xhosa','afrikaans']
+};
+const CULTURE_ALIASES={
+ JP:['japones','japanese','japon'],KR:['coreano','korean'],CN:['chino','chinese'],TW:['chino','chinese'],ES:['espanol','spanish'],
+ MX:['mexico','mexican'],FR:['frances','french'],DE:['aleman','german'],IT:['italiano','italian'],
+ GB:['ingles','english'],GR:['griego','greek'],PT:['portugues','portuguese']
+};
+export function matchesCulture(name,country='all'){
+ if(!country||country==='all')return true;
+ const origin=normalize(name.origin||'').replace(/[^\p{L}\p{N}]+/gu,' ').trim();
+ const terms=CULTURE_TERMS[country]||[];
+ const aliases=CULTURE_ALIASES[country]||[];
+ const originWords=' '+origin+' ';
+ if([...terms,...aliases].some(term=>originWords.includes(' '+normalize(term)+' ')))return true;
+ // Country provenance is frequency data, not an assertion of cultural origin.
+ // For nonmapped cultures keep exact origin-country wording only, not country usage.
+ return false;
+}
 export function searchNames(names,term,gender,country){
  const q=normalize(term).trim();
- return names.filter(n=>(gender==='all'||n.gender===gender||n.gender==='unisex')&&(country==='all'||n.country===country||n.countries?.includes(country))&&(!q||normalize([n.name,n.native||'',n.reading||'',n.meaning,n.origin,...n.variants].join(' ')).includes(q)));
+ return names.filter(n=>(gender==='all'||n.gender===gender||n.gender==='unisex')&&matchesCulture(n,country)&&(!q||normalize([n.name,n.native||'',n.reading||'',n.meaning,n.origin,...(n.variants||[])].join(' ')).includes(q)));
 }
 // Pronunciation-aware *heuristic* (not a linguistic pronunciation dictionary).
 // Normalize spelling, count vowel nuclei, examine every word boundary and
@@ -65,10 +133,10 @@ export function recommendNames(names,preferences){
  const initial=normalize(preferences.initial||'').trim().slice(0,1);
  const surnames=[surname1,surname2].map(v=>String(v||'').trim()).filter(Boolean);
  const personalized=Boolean(surnames.length||country!=='all'||style!=='any');
- return names.filter(n=>(gender==='all'||n.gender===gender||n.gender==='unisex')&&(!initial||normalize(n.name).startsWith(initial))).map(n=>{
+ return names.filter(n=>(gender==='all'||n.gender===gender||n.gender==='unisex')&&matchesCulture(n,country)&&(!initial||normalize(n.name).startsWith(initial))).map(n=>{
   const name=normalize(n.name);
   let preferenceScore=0;
-  if(country!=='all'&&(n.country===country||n.countries?.includes(country)))preferenceScore+=12;
+  if(country!=='all')preferenceScore+=12;
   if(style==='short'&&name.length<=5)preferenceScore+=8;
   if(style==='nature'&&/luna|sora|sakura|citlali|aurora|ravi|hana|leo/i.test(n.name))preferenceScore+=8;
   if(style==='traditional'&&/hugo|lucia|mateo|sofia|ines|nicolas|elena/i.test(name))preferenceScore+=8;
@@ -85,7 +153,7 @@ export function filterNames(names,query,preferences={}){
  const surnames=[surname1,surname2].map(v=>String(v||'').trim()).filter(Boolean);
  return names.filter(n=>{
   if(gender!=='all'&&n.gender!==gender&&n.gender!=='unisex')return false;
-  if(country!=='all'&&n.country!==country&&!n.countries?.includes(country))return false;
+  if(!matchesCulture(n,country))return false;
   if(letter&&!normalize(n.name).startsWith(letter))return false;
   const name=normalize(n.name);
   if(style==='short'&&name.length>5)return false;
