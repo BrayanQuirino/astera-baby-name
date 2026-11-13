@@ -58,6 +58,12 @@ const CULTURE_ALIASES={
 };
 export function matchesCulture(name,country='all'){
  if(!country||country==='all')return true;
+ // The published catalog explicitly records linguistic/cultural origin
+ // independently of countries where the name was counted in a census.
+ // An empty array means unverified: do not silently use birth geography.
+ if(Array.isArray(name.originCountryCodes)){
+  return name.originCountryCodes.includes(country);
+ }
  const origin=normalize(name.origin||'').replace(/[^\p{L}\p{N}]+/gu,' ').trim();
  const terms=CULTURE_TERMS[country]||[];
  const aliases=CULTURE_ALIASES[country]||[];
