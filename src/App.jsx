@@ -45,9 +45,12 @@ export default function App(){
     if(!nameResponse.ok||!countryResponse.ok)throw Error('El catálogo ampliado no está disponible');
     const [extended,locations]=await Promise.all([nameResponse.json(),countryResponse.json()]);
     if(!active)return;
-    const known=new Set(curatedNames.map(n=>n.name.normalize('NFD').toLowerCase()));
-    const additions=extended.filter(n=>!known.has(n.name.normalize('NFD').toLowerCase())).map((n,i)=>({...n,id:curatedNames.length+i}));
-    setNames([...curatedNames,...additions]);
+    // Catalog entries are authoritative and already deduplicated. Preserve curated
+    // entries only when absent from the expanded catalog; reconcile diacritics.
+    const aliasKey=value=>String(value||'').normalize('NFD').replace(/[\\u0300-\\u036f]/g,'').toLowerCase().trim();
+    const known=new Set(extended.map(n=>aliasKey(n.name)));
+    const additions=curatedNames.filter(n=>!known.has(aliasKey(n.name)));
+    setNames([...extended,...additions].map((n,id)=>({...n,id})));
     const codes=new Set(curatedCountries.map(([code])=>code));
     setCountries([...curatedCountries,...locations.filter(c=>!codes.has(c.code)).map(c=>[c.code,c.name])].sort((a,b)=>a[0]==='all'?-1:b[0]==='all'?1:a[1].localeCompare(b[1],'es')));
    }).catch(error=>console.info('Astera conserva el catálogo local:',error.message));
