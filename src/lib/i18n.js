@@ -794,5 +794,7 @@ for(const [code,[popularity,popularityNote,noPopularity,meaningOriginal]] of Obj
 
 const advancedLabels={"es":["Filtros","Limpiar filtros","¿Con qué inicial debe comenzar?","Inicial (ej. A)"],"en":["Filters","Clear filters","Which initial should it start with?","Initial (e.g. A)"],"fr":["Filtres","Effacer les filtres","Par quelle initiale commencer ?","Initiale (ex. A)"],"pt":["Filtros","Limpar filtros","Com qual inicial deve começar?","Inicial (ex. A)"],"de":["Filter","Filter zurücksetzen","Mit welchem Anfangsbuchstaben?","Anfangsbuchstabe (z. B. A)"],"it":["Filtri","Cancella filtri","Con quale iniziale deve iniziare?","Iniziale (es. A)"],"ja":["絞り込み","フィルターをクリア","最初の文字は？","頭文字（例：A）"],"ko":["필터","필터 초기화","어떤 첫 글자로 시작할까요?","첫 글자 (예: A)"],"zh":["筛选","清除筛选","希望以哪个字母开头？","首字母（如 A）"]};
 for(const [code,[filters,clearFilters,initialQuestion,initialPlaceholder]] of Object.entries(advancedLabels))Object.assign(messages[code],{filters,clearFilters,initialQuestion,initialPlaceholder});
+const compoundLabels={"es":"Nombre compuesto","en":"Compound name","fr":"Prénom composé","pt":"Nome composto","de":"Zusammengesetzter Name","it":"Nome composto","ja":"複合名","ko":"복합 이름","zh":"复合名字"};
+for(const [code,label] of Object.entries(compoundLabels))messages[code].components=label;
 export const localeFor=(input='')=>{const code=String(input).toLowerCase().split(/[-_]/)[0];return LANGUAGES[code]?code:null};
 export const translate=(lang,key)=>messages[lang]?.[key]??messages.es[key]??key;
