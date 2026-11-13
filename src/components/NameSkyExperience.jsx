@@ -17,15 +17,18 @@ export default function NameSkyExperience({item,date,onDateChange,onClose,onFavo
  const [location,setLocation]=useState({preset:0,lat:19.4326,lon:-99.1332});
  const sky=celestialForDate(date);
  const [symbolOpen,setSymbolOpen]=useState(true);
+ const [revealVersion,setRevealVersion]=useState(0);
  const symbolTimer=useRef(null);
  useEffect(()=>{
   setSymbolOpen(true);
+  setRevealVersion(n=>n+1);
   clearTimeout(symbolTimer.current);
   symbolTimer.current=setTimeout(()=>setSymbolOpen(false),5200);
   return()=>clearTimeout(symbolTimer.current);
  },[item.name,date]);
  const toggleSymbol=()=>{
   clearTimeout(symbolTimer.current);
+  if(!symbolOpen)setRevealVersion(n=>n+1);
   setSymbolOpen(open=>!open);
  };
  return <div className="cosmic-overlay cosmic-fullsky" role="dialog" aria-modal="true" aria-label={t('aboveSky')+' '+item.name}>
@@ -42,7 +45,7 @@ export default function NameSkyExperience({item,date,onDateChange,onClose,onFavo
    {sky&&<div className={'zodiac-vision '+(symbolOpen?'revealed':'folded')} aria-hidden={!symbolOpen}>
       <div className="zodiac-vision-atmosphere"/>
       <div className="zodiac-vision-portal"/>
-      <ZodiacEmblem sign={sky.sign}/>
+      <ZodiacEmblem key={sky.sign+'-'+revealVersion} sign={sky.sign}/>
       <div className="zodiac-vision-caption"><span>{t('zodiacRevealed')}</span><strong>{sky.sign}</strong></div>
     </div>}
   </div>
