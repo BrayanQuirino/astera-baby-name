@@ -420,3 +420,58 @@
  .zodiac-reveal-stage .zodiac-vision,.zodiac-reveal-stage .zodiac-vision *{animation:none!important;transition:none!important}
  .zodiac-reveal-stage .illustrated-zodiac-figure path{stroke-dashoffset:0!important}
 }
+
+
+/* Selected-name page: the illustration participates in the document grid.
+   It must never float on top of the name, facts or observation controls. */
+@media (min-width:761px){
+  .cosmic-fullsky .immersive-layout{
+    display:grid;grid-template-columns:minmax(0,1.1fr) minmax(320px,.9fr);
+    align-items:start;column-gap:clamp(26px,5vw,98px);row-gap:24px;
+    min-height:0;height:auto;max-width:1510px;
+    margin:clamp(28px,4vh,60px) auto 0;padding:0 0 clamp(34px,6vh,88px);
+    box-sizing:border-box;
+  }
+  .cosmic-fullsky .immersive-layout .cosmic-name{
+    grid-column:1;grid-row:1;width:100%;max-width:none;min-width:0;
+    align-self:start;padding:0;
+  }
+  .cosmic-fullsky .immersive-layout .cosmic-name h2{
+    font-size:clamp(54px,6.25vw,112px);overflow-wrap:anywhere;
+    line-height:1.05;letter-spacing:-.035em;
+  }
+  .cosmic-fullsky .immersive-layout .zodiac-reveal-stage{
+    grid-column:2;grid-row:1;position:relative;inset:auto;
+    right:auto;top:auto;width:100%;height:auto;min-height:0;
+    align-self:start;pointer-events:none;
+  }
+  .cosmic-fullsky .immersive-layout .zodiac-reveal-stage .zodiac-vision{
+    width:min(100%,430px);height:auto;aspect-ratio:1;
+    max-height:none;flex-shrink:0;
+  }
+  .cosmic-fullsky .immersive-layout .zodiac-reveal-stage .zodiac-vision.folded{
+    height:auto;max-height:none;aspect-ratio:1;
+  }
+  .cosmic-fullsky .sky-full-controls{
+    clear:both;margin-top:0;position:relative;z-index:6;
+  }
+}
+@media (max-width:760px){
+  .cosmic-fullsky .immersive-layout{padding-bottom:24px}
+  .cosmic-fullsky .zodiac-reveal-stage{max-width:100%;overflow:visible}
+  .cosmic-fullsky .cosmic-meaning{max-width:100%}
+}
+@keyframes zodiacGlyphReveal{
+  from{opacity:0;transform:scale(.78) rotate(-7deg);filter:blur(6px)}
+  to{opacity:1;transform:scale(1) rotate(0);filter:blur(0)}
+}
+.zodiac-reveal-stage .illustrated-zodiac-figure{
+  transform-origin:100px 100px;
+  animation:zodiacGlyphReveal .85s cubic-bezier(.2,.8,.2,1) both;
+}
+.zodiac-reveal-stage .illustrated-zodiac-figure path{
+  stroke-dasharray:none;stroke-dashoffset:0;animation:none;
+}
+@media (prefers-reduced-motion:reduce){
+  .zodiac-reveal-stage .illustrated-zodiac-figure{animation:none}
+}
