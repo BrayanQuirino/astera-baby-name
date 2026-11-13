@@ -69,3 +69,16 @@ test('country filters respect attested origin even when recorded elsewhere',()=>
  assert.deepEqual(searchNames(samples,'','all','JP').map(n=>n.name),['Mina']);
  assert.deepEqual(filterNames(samples,'',{country:'JP'}).map(n=>n.name),['Mina']);
 });
+
+test('explicit cultural country codes are authoritative over birthplace and language string',()=>{
+ const same={name:'Lina',gender:'girl',origin:'Arabic / French',country:'US',countries:['US','FR','JP'],originCountryCodes:['FR','SA'],variants:[]};
+ const uncertain={name:'Nora',gender:'girl',origin:'Origen por verificar',country:'JP',countries:['JP'],originCountryCodes:[],variants:[]};
+ const japanese={name:'Akari',gender:'girl',origin:'Japonés',country:'US',countries:['US'],originCountryCodes:['JP'],variants:[]};
+ assert.equal(matchesCulture(same,'FR'),true);
+ assert.equal(matchesCulture(same,'SA'),true);
+ assert.equal(matchesCulture(same,'JP'),false);
+ assert.equal(matchesCulture(uncertain,'JP'),false);
+ assert.equal(matchesCulture(japanese,'JP'),true);
+ assert.deepEqual(filterNames([same,uncertain,japanese],'',{country:'JP'}).map(x=>x.name),['Akari']);
+ assert.deepEqual(recommendNames([same,uncertain,japanese],{country:'FR'}).map(x=>x.name),['Lina']);
+});
