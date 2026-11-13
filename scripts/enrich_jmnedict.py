@@ -99,6 +99,11 @@ for lookup,record in sorted(variants.items()):
  native=options[0] if options else kana[0]
  if norm(name) in indexed:
   row=indexed[norm(name)]
+  if row.get("source")=="EDRDG-JMnedict":
+   row["gender"]=gender
+   if row.get("meaning","").startswith("Nombre japonés:"):
+    row["meaning"]=poetic(name)
+    row["meaningCaveat"]="El significado en japonés depende de los kanji elegidos."
   if "japon" not in row.get("origin","").casefold() and "japanese" not in row.get("origin","").casefold():
    old=row.get("origin","")
    row["origin"]="Japonés" if not old or "verificar" in old.casefold() else old+" / Japonés"
