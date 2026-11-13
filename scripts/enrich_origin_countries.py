@@ -50,12 +50,12 @@ sparql='''SELECT DISTINCT ?item ?name ?langLabel WHERE {
 api="https://query.wikidata.org/sparql"
 seen=set()
 retrieved=0
-for offset in range(0,25000,2500):
+for offset in range(0,10000,2500):
     q=sparql%offset
     url=api+'?'+urllib.parse.urlencode({"query":q,"format":"json"})
     try:
         request=urllib.request.Request(url,headers={"User-Agent":"Astera Baby Name/0.6 (research project; https://github.com/BrayanQuirino/astera-baby-name)","Accept":"application/sparql-results+json"})
-        with urllib.request.urlopen(request,timeout=55) as response:
+        with urllib.request.urlopen(request,timeout=25) as response:
             result=json.load(response)
     except Exception as exc:
         print("Wikidata P407 query interrupted after",retrieved,":",str(exc)[:160],flush=True)
