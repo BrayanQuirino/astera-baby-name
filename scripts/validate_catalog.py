@@ -42,4 +42,12 @@ for row in catalog:
     assert isinstance(row["variants"],list)
     assert len(row["variants"])==len(set(row["variants"]))
     assert row["variants"]==sorted(row["variants"],key=str.casefold), f"Variant order changed for {row['name']}"
+# The mobile search index is a generated projection, never a second data source.
+client_index=root/"public/names/search-index.json"
+if client_index.exists():
+    index_data=json.loads(client_index.read_text(encoding="utf-8"))
+    assert index_data["count"]==len(catalog)==len(index_data["rows"]), "Index size differs from source catalog"
+    assert len(index_data["fields"])==len(index_data["rows"][0]), "Index field layout invalid"
+    idx_name=index_data["fields"].index("name")
+    assert all(row[idx_name]==item["name"] for row,item in zip(index_data["rows"],catalog)), "Name order in index differs from source"
 print(f"VALIDATED {len(catalog):,} names; {manifest['meaningCount']:,} sourced meanings; {manifest['missingMeaningCount']:,} pending; {len(countries)} countries")
