@@ -25,7 +25,7 @@ TARGETS=[
  ("Tagalog","PH"),("Igbo","NG"),("Tamil","IN"),("Bengali","BD"),
  ("Latin",None),("Old Norse","NO"),("Old English","GB"),("Germanic","DE")]
 # Host language is not used as origin, even for borrowed names.
-HOSTS=["English","French","Spanish","German","Italian","Portuguese"]
+HOSTS=["English","French","Spanish"]
 SEXES=["male","female"]
 def key(s):return unicodedata.normalize("NFC",str(s or "")).strip().casefold()
 def norm(s):return ''.join(c for c in unicodedata.normalize("NFD",str(s or "").casefold()) if unicodedata.category(c)!="Mn")
@@ -46,22 +46,27 @@ def pages(category):
   try:
    with urllib.request.urlopen(urllib.request.Request(url,headers={
        "User-Agent":"AsteraBabyName/0.9 (https://github.com/BrayanQuirino/astera-baby-name; multilingual first-name research)",
-       "Accept":"application/json"}),timeout=18) as response:
+       "Accept":"application/json"}),timeout=9) as response:
     payload=json.load(response)
   except (urllib.error.URLError,TimeoutError,ValueError) as exc:
    failures[type(exc).__name__]+=1
+   if isinstance(exc,urllib.error.HTTPError) and exc.code in (403,429):
+    raise RuntimeError("Wiktionary API rate limit or access denied; abort safely") from exc
    break
   result += [i["title"] for i in payload.get("query",{}).get("categorymembers",[]) if i.get("ns")==0]
   continuation=payload.get("continue",{}).get("cmcontinue")
   if not continuation:break
  cache[category]=result
  return result
-for origin,code in TARGETS:
+for origin,code in TARGETS[:29]:
  if not code:continue
  for host in HOSTS:
   for sex in SEXES:
    category=f"{host} {sex} given names from {origin}"
-   candidates=pages(category)
+   try:candidates=pages(category)
+   except RuntimeError:
+    print("Wiktionary API blocked; not publishing partial data",flush=True)
+    raise SystemExit(0)
    if not candidates:continue
    touched=0
    for label in candidates:
