@@ -1,5 +1,6 @@
 import international from '../data/international.json';
 import reviewed from '../data/name_corrections.json';
+import japanese from '../data/japanese_curated.json';
 // Catálogo piloto. Las etimologías pueden variar por idioma y tradición.
 const baseNames=[
 ["Hikaru","unisex","Japonés","Luz (光) o resplandor (輝)","JP","Hikari"],
@@ -63,7 +64,7 @@ const reviewedNames=reviewed.map(row=>({
  reviewStatus:'source_matched',nativeStatus:'not_available',
  source:'astera-curated-compound-2026'
 }));
-const initialCatalog=[...reviewedNames,...baseNames,...international];
+const initialCatalog=[...reviewedNames,...japanese.map(item=>({...item,meaning:item.meaning||'Significado variable según los kanji; documentación pendiente.',variants:item.variants||[]})),...baseNames,...international];
 const initialSeen=new Set();
 export const names=initialCatalog.filter(item=>{
  const key=item.name.normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLocaleLowerCase('es');
