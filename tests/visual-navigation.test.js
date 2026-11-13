@@ -22,8 +22,10 @@ test('letter range controls and main page zodiac emoji reveal are absent',()=>{
 });
 test('zodiac illustration belongs to name-detail celestial experience, not landing page',()=>{
  assert.match(detail,/<ZodiacEmblem/);
- assert.match(detail,/setTimeout\(\(\)=>setSymbolOpen\(false\),5200\)/);
+ assert.match(detail,/setTimeout\(\(\)=>setSymbolOpen\(false\),6500\)/);
  assert.match(detail,/zodiac-detail-toggle/);
+ assert.match(detail,/matchMedia/);
+ assert.doesNotMatch(detail,/sky-corner-legend/);
  assert.doesNotMatch(detail,/sky\.symbol/);
  for(const sign of ['Aries','Tauro','Géminis','Cáncer','Leo','Virgo','Libra','Escorpio','Sagitario','Capricornio','Acuario','Piscis']){
   assert.ok(symbol.includes(sign),sign+' must have a custom illustrated vector');
