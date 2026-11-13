@@ -51,6 +51,8 @@ for _,elem in parser:
  kanji=[t.strip() for t in elem.xpath("./k_ele/keb/text()") if t and len(t.strip())<=10]
  kind=[str(x).strip() for x in elem.xpath("./trans/name_type/text()")]
  gender=gender_tag(kind)
+ if scanned<=5 or (scanned<15000 and scanned%3000==0):
+  print("JMnedict XML sample",scanned,"kind",kind[:4],"kana",kana[:2],"kanji",kanji[:2],"parsed gender",gender,flush=True)
  if gender and kana:
   for reading in kana[:3]:
    romaji=clean_romanization(reading)
