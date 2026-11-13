@@ -61,6 +61,11 @@ def main():
         )
         item["countries"]=sorted(set(item.get("countries",[]))|{preferred["country"]})
         by_name[canon]=item
+    # Names that are unmistakable import artifacts rather than candidate names.
+    # Leave ambiguous abbreviations unmodified until their meaning is verified.
+    invalid_import_tokens={"A*I","Eg/J","F/I","G/I","Eg(Hd","F(Jd"}
+    for invalid in invalid_import_tokens:
+        by_name.pop(exact(invalid),None)
     sorted_items=sorted(by_name.values(),key=lambda row:row["name"].casefold())
     keys=[exact(row["name"]) for row in sorted_items]
     if len(keys)!=len(set(keys)):
