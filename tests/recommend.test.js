@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {recommendNames,filterNames,matchesCulture,hasHarmonyPreferences,surnameHarmony,searchNames} from '../src/lib/recommend.js';
+import {recommendNames,filterNames,LETTER_RANGES,initialWithinRange,matchesCulture,hasHarmonyPreferences,surnameHarmony,searchNames} from '../src/lib/recommend.js';
 const names=[
  {id:1,name:'Zuri',gender:'girl',country:'MX',countries:['MX'],origin:'México',native:'',meaning:'Luz',variants:[]},
  {id:2,name:'Ana',gender:'girl',country:'ES',countries:['ES'],origin:'España',native:'',meaning:'Gracia',variants:[]},
@@ -81,4 +81,30 @@ test('explicit cultural country codes are authoritative over birthplace and lang
  assert.equal(matchesCulture(japanese,'JP'),true);
  assert.deepEqual(filterNames([same,uncertain,japanese],'',{country:'JP'}).map(x=>x.name),['Akari']);
  assert.deepEqual(recommendNames([same,uncertain,japanese],{country:'FR'}).map(x=>x.name),['Lina']);
+});
+
+test('all letter-range buttons cover A through Z once, including E',()=>{
+ const groups=LETTER_RANGES.map(([start,end])=>start+'-'+end);
+ assert.deepEqual(groups,['A-E','F-K','L-P','Q-U','V-Z']);
+ for(const ch of 'abcdefghijklmnopqrstuvwxyz'){
+  assert.equal(groups.filter(range=>initialWithinRange(ch,range)).length,1,'letter '+ch);
+ }
+});
+test('explorer and Discover Name use exactly the same filters',()=>{
+ const sample=[
+  {name:'Ana',gender:'girl',origin:'Spanish',originCountryCodes:['ES'],variants:[]},
+  {name:'Aina',gender:'girl',origin:'Spanish',originCountryCodes:['ES'],variants:[]},
+  {name:'Alfredo',gender:'boy',origin:'Spanish',originCountryCodes:['ES'],variants:[]},
+  {name:'Emma',gender:'girl',origin:'French',originCountryCodes:['FR'],variants:[]},
+  {name:'Fátima',gender:'girl',origin:'Arabic',originCountryCodes:['SA'],variants:[]}
+ ];
+ for(const selection of [
+   {gender:'girl',country:'ES',initialRange:'A-E',style:'any'},
+   {gender:'all',country:'all',initial:'A',style:'any'},
+   {gender:'girl',country:'FR',initialRange:'A-E',style:'short'},
+   {gender:'girl',country:'ES',initialRange:'A-E',surname1:'García'}
+ ]){
+  assert.deepEqual(recommendNames(sample,selection).map(n=>n.name),filterNames(sample,'',selection).map(n=>n.name));
+ }
+ assert.deepEqual(filterNames(sample,'',{country:'ES',initialRange:'A-E'}).map(n=>n.name),['Aina','Alfredo','Ana']);
 });
