@@ -21,8 +21,9 @@ def write(path,value,pretty=False):
  path.write_text(json.dumps(value,ensure_ascii=False,indent=2 if pretty else None,separators=None if pretty else (",",":"))+("\n" if pretty else ""),encoding="utf-8")
 def valid_kana(value):
  return bool(value) and len(value)<=15 and all(0x3040<=ord(ch)<=0x30ff or ch in "ー・" for ch in value)
+KAKASI=kakasi()
 def clean_romanization(value):
- chunks=kakasi().convert(value)
+ chunks=KAKASI.convert(value)
  output=''.join(segment["hepburn"] for segment in chunks)
  output=output.replace(" ","").replace("-","").replace("'","")
  if not re.fullmatch(r"[a-zA-ZāīūēōĀĪŪĒŌ]+",output):return ""
