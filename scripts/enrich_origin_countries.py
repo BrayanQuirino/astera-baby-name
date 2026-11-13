@@ -6,7 +6,7 @@ origins or Wikidata P407), NEVER census/birth/usage countries. Name spellings
 may have several independent origins. A language-country mapping provides
 a cultural *search category*, not proof of historical birthplace.
 """
-import collections,json,re,time,unicodedata,urllib.parse,urllib.request
+import collections,json,os,re,time,unicodedata,urllib.parse,urllib.request
 from pathlib import Path
 
 ROOT=Path(__file__).resolve().parents[1]
@@ -50,7 +50,7 @@ sparql='''SELECT DISTINCT ?item ?name ?langLabel WHERE {
 api="https://query.wikidata.org/sparql"
 seen=set()
 retrieved=0
-for offset in range(0,10000,2500):
+for offset in ([] if os.environ.get('ASTERA_OFFLINE_ORIGINS') else range(0,10000,2500)):
     q=sparql%offset
     url=api+'?'+urllib.parse.urlencode({"query":q,"format":"json"})
     try:
