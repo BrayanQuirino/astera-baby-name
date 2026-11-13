@@ -796,5 +796,7 @@ const advancedLabels={"es":["Filtros","Limpiar filtros","¿Con qué inicial debe
 for(const [code,[filters,clearFilters,initialQuestion,initialPlaceholder]] of Object.entries(advancedLabels))Object.assign(messages[code],{filters,clearFilters,initialQuestion,initialPlaceholder});
 const compoundLabels={"es":"Nombre compuesto","en":"Compound name","fr":"Prénom composé","pt":"Nome composto","de":"Zusammengesetzter Name","it":"Nome composto","ja":"複合名","ko":"복합 이름","zh":"复合名字"};
 for(const [code,label] of Object.entries(compoundLabels))messages[code].components=label;
+const disclosureLabels={"es":["Mostrar filtros","Ocultar filtros"],"en":["Show filters","Hide filters"],"fr":["Afficher les filtres","Masquer les filtres"],"pt":["Mostrar filtros","Ocultar filtros"],"de":["Filter anzeigen","Filter ausblenden"],"it":["Mostra filtri","Nascondi filtri"],"ja":["フィルターを表示","フィルターを閉じる"],"ko":["필터 펼치기","필터 접기"],"zh":["展开筛选","收起筛选"]};
+for(const [code,[expandFilters,collapseFilters]] of Object.entries(disclosureLabels))Object.assign(messages[code],{expandFilters,collapseFilters});
 export const localeFor=(input='')=>{const code=String(input).toLowerCase().split(/[-_]/)[0];return LANGUAGES[code]?code:null};
 export const translate=(lang,key)=>messages[lang]?.[key]??messages.es[key]??key;
