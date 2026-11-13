@@ -178,3 +178,9 @@
 .alphabet-buttons button.active{background:#273955;color:white;border-color:#273955;box-shadow:0 3px 10px #27395520}
 .alphabet-buttons button:focus-visible{outline:2px solid #b68a61;outline-offset:2px}
 @media(max-width:560px){.alphabet-filter{display:block}.alphabet-filter>span{display:block;margin:0 0 9px}.alphabet-buttons{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:5px}.alphabet-buttons button{min-width:0;padding:8px 3px;font-size:11px}}
+
+/* Discover Name mirrors the same letter-range state used in the open explorer. */
+.wizard-alphabet{display:flex;flex-direction:column;gap:10px;margin:-3px 0 20px}
+.wizard-alphabet>span{font-size:11px;font-weight:700;color:#697181}
+.wizard-alphabet .alphabet-buttons button{min-height:36px}
+@media(max-width:560px){.wizard-alphabet .alphabet-buttons{grid-template-columns:repeat(5,minmax(0,1fr))}}
