@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {recommendNames,filterNames,hasHarmonyPreferences,surnameHarmony,searchNames} from '../src/lib/recommend.js';
+import {recommendNames,filterNames,matchesCulture,hasHarmonyPreferences,surnameHarmony,searchNames} from '../src/lib/recommend.js';
 const names=[
  {id:1,name:'Zuri',gender:'girl',country:'MX',countries:['MX'],origin:'México',native:'',meaning:'Luz',variants:[]},
  {id:2,name:'Ana',gender:'girl',country:'ES',countries:['ES'],origin:'España',native:'',meaning:'Gracia',variants:[]},
@@ -44,4 +44,28 @@ test('search filters combine gender, culture, style and surname harmony',()=>{
  assert.ok(ranked.every(n=>Number.isInteger(n.harmony)));
  assert.ok(ranked.every((n,i)=>i===0||ranked[i-1].harmony>=n.harmony));
  assert.equal(hasHarmonyPreferences({initial:'A',style:'modern',country:'JP'}),false);
+});
+
+test('cultural origin never equals mere recorded frequency in Japan',()=>{
+ const samples=[
+  {name:'Hikaru',gender:'unisex',origin:'Japonés',country:'MX',countries:['JP','MX'],variants:[]},
+  {name:'Haruki',gender:'boy',origin:'Japanese',country:'JP',countries:['JP','US'],variants:[]},
+  {name:'Michael',gender:'boy',origin:'English / Hebrew',country:'JP',countries:['JP'],variants:[]},
+  {name:'Uncertain',gender:'boy',origin:'Origen por verificar',country:'JP',countries:['JP'],variants:[]},
+  {name:'Minjun',gender:'boy',origin:'Coreano',country:'JP',countries:['JP','KR'],variants:[]},
+  {name:'Aiko',gender:'girl',origin:'Japanese',country:'US',countries:['US'],variants:[]}
+ ];
+ assert.deepEqual(filterNames(samples,'',{country:'JP'}).map(n=>n.name),['Aiko','Haruki','Hikaru']);
+ assert.deepEqual(recommendNames(samples,{country:'JP'}).map(n=>n.name),['Aiko','Haruki','Hikaru']);
+ assert.equal(matchesCulture(samples[2],'JP'),false);
+ assert.equal(matchesCulture(samples[4],'KR'),true);
+});
+test('country filters respect attested origin even when recorded elsewhere',()=>{
+ const samples=[
+  {name:'Mina',gender:'girl',origin:'Japanese / Arabic',country:'US',countries:['JP','US'],variants:[]},
+  {name:'Mia',gender:'girl',origin:'Latin',country:'JP',countries:['JP'],variants:[]},
+  {name:'Unspecified',gender:'girl',origin:'Origen por verificar',country:'JP',countries:['JP'],variants:[]}
+ ];
+ assert.deepEqual(searchNames(samples,'','all','JP').map(n=>n.name),['Mina']);
+ assert.deepEqual(filterNames(samples,'',{country:'JP'}).map(n=>n.name),['Mina']);
 });
