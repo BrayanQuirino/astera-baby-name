@@ -1,11 +1,11 @@
 {
   "version": "v2026.10",
-  "count": 144719,
+  "count": 175898,
   "countryCount": 103,
   "meaningCount": 2141,
-  "missingMeaningCount": 142578,
-  "populatedCount": 144719,
-  "nativeScriptCount": 3502,
+  "missingMeaningCount": 173757,
+  "populatedCount": 175898,
+  "nativeScriptCount": 37020,
   "variantCount": 4572,
   "cultureSources": 11,
   "wiktionaryLicense": "CC BY-SA 4.0",
@@ -33,5 +33,16 @@
     "added": 21,
     "existingEnriched": 91,
     "source": "Meiji Yasuda 2025 and editorial Japanese-name review"
+  },
+  "jmnedict": {
+    "japaneseGivenNames": 33738,
+    "new": 31179,
+    "merged": 2559,
+    "license": "CC BY-SA; EDRDG attribution",
+    "gender": {
+      "unisex": 18673,
+      "boy": 3284,
+      "girl": 11781
+    }
   }
 }

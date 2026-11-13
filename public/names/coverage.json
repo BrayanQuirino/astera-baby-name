@@ -1,10 +1,10 @@
 {
-  "totalNames": 144719,
+  "totalNames": 175898,
   "meaningDocumented": 2141,
-  "meaningPending": 142578,
+  "meaningPending": 173757,
   "meaningSources": {
     "astera-reviewed-compound": 15,
-    "creative": 142578,
+    "creative": 173757,
     "meiji-yasuda-name-survey-2025": 19,
     "nurturepedia/arabic": 46,
     "nurturepedia/english": 36,
@@ -24,59 +24,63 @@
   "pendingByOrigin": [
     {
       "origin": "Origen por verificar",
-      "count": 136965
-    },
-    {
-      "origin": "Arabic",
-      "count": 1459
-    },
-    {
-      "origin": "Turkish",
-      "count": 216
-    },
-    {
-      "origin": "Hebrew",
-      "count": 187
-    },
-    {
-      "origin": "Spanish",
-      "count": 171
-    },
-    {
-      "origin": "Latin",
-      "count": 152
-    },
-    {
-      "origin": "English",
-      "count": 146
-    },
-    {
-      "origin": "Italian",
-      "count": 134
-    },
-    {
-      "origin": "Sanskrit",
-      "count": 127
-    },
-    {
-      "origin": "French",
-      "count": 102
-    },
-    {
-      "origin": "Greek",
-      "count": 95
+      "count": 134933
     },
     {
       "origin": "Japonés",
-      "count": 84
+      "count": 33295
+    },
+    {
+      "origin": "Arabic",
+      "count": 1410
+    },
+    {
+      "origin": "Turkish",
+      "count": 210
+    },
+    {
+      "origin": "Spanish",
+      "count": 163
+    },
+    {
+      "origin": "Hebrew",
+      "count": 162
+    },
+    {
+      "origin": "English",
+      "count": 142
+    },
+    {
+      "origin": "Latin",
+      "count": 139
+    },
+    {
+      "origin": "Italian",
+      "count": 124
+    },
+    {
+      "origin": "Sanskrit",
+      "count": 120
+    },
+    {
+      "origin": "French",
+      "count": 98
+    },
+    {
+      "origin": "Greek",
+      "count": 90
     },
     {
       "origin": "Germanic",
-      "count": 78
+      "count": 76
     },
     {
       "origin": "Persian",
-      "count": 68
+      "count": 64
+    },
+    {
+      "origin": "Arabic / Japonés",
+      "count": 49
     },
     {
       "origin": "Zulu",
@@ -84,7 +88,7 @@
     },
     {
       "origin": "Dutch",
-      "count": 36
+      "count": 33
     },
     {
       "origin": "Yoruba",
@@ -92,31 +96,35 @@
     },
     {
       "origin": "Slavic",
-      "count": 31
+      "count": 30
     },
     {
       "origin": "Old English",
       "count": 29
     },
     {
-      "origin": "Russian",
-      "count": 28
-    },
-    {
-      "origin": "Chinese",
-      "count": 27
-    },
-    {
       "origin": "Portuguese",
-      "count": 27
+      "count": 26
+    },
+    {
+      "origin": "Russian",
+      "count": 26
+    },
+    {
+      "origin": "Hebrew / Japonés",
+      "count": 25
     },
     {
       "origin": "Polish",
       "count": 25
     },
     {
+      "origin": "Chinese",
+      "count": 24
+    },
+    {
       "origin": "Irish",
-      "count": 21
+      "count": 19
     },
     {
       "origin": "Egyptian Arabic",
@@ -131,16 +139,12 @@
       "count": 17
     },
     {
-      "origin": "German",
-      "count": 17
-    },
-    {
       "origin": "Turkish (from Arabic)",
       "count": 17
     },
     {
-      "origin": "Welsh",
-      "count": 17
+      "origin": "German",
+      "count": 16
     },
     {
       "origin": "Kazakh",
@@ -151,15 +155,19 @@
       "count": 15
     },
     {
-      "origin": "Old Norse",
-      "count": 15
-    },
-    {
       "origin": "Czech",
       "count": 14
     },
     {
-      "origin": "Scottish Gaelic",
+      "origin": "Old Norse",
+      "count": 14
+    },
+    {
+      "origin": "Welsh",
+      "count": 14
+    },
+    {
+      "origin": "Latin / Japonés",
       "count": 13
     },
     {
@@ -167,11 +175,7 @@
       "count": 13
     },
     {
-      "origin": "Arabic and Persian",
-      "count": 11
-    },
-    {
-      "origin": "Finnish",
+      "origin": "Scottish Gaelic",
       "count": 11
     },
     {
@@ -183,19 +187,15 @@
       "count": 10
     },
     {
-      "origin": "Malay",
+      "origin": "Arabic and Persian",
+      "count": 10
+    },
+    {
+      "origin": "Italian / Japonés",
       "count": 10
     },
     {
       "origin": "Basque",
-      "count": 9
-    },
-    {
-      "origin": "Scandinavian",
-      "count": 9
-    },
-    {
-      "origin": "Scottish",
       "count": 9
     },
     {
@@ -207,10 +207,6 @@
       "count": 9
     },
     {
-      "origin": "Arabic (Egyptian)",
-      "count": 8
-    },
-    {
       "origin": "Arabic / Turkish",
       "count": 8
     },
@@ -219,11 +215,7 @@
       "count": 8
     },
     {
-      "origin": "Breton",
-      "count": 8
-    },
-    {
-      "origin": "Catalan",
+      "origin": "Malay",
       "count": 8
     },
     {
@@ -231,8 +223,20 @@
       "count": 8
     },
     {
+      "origin": "Scottish",
+      "count": 8
+    },
+    {
+      "origin": "Spanish / Japonés",
+      "count": 8
+    },
+    {
       "origin": "Zulu and Xhosa",
       "count": 8
+    },
+    {
+      "origin": "Arabic (Egyptian)",
+      "count": 7
     },
     {
       "origin": "Arabic / Semitic",
@@ -243,11 +247,27 @@
       "count": 7
     },
     {
-      "origin": "Kurdish",
+      "origin": "Breton",
+      "count": 7
+    },
+    {
+      "origin": "Catalan",
+      "count": 7
+    },
+    {
+      "origin": "Finnish",
+      "count": 7
+    },
+    {
+      "origin": "Sanskrit / Japonés",
       "count": 7
     },
     {
       "origin": "Sanskrit and Indian",
+      "count": 7
+    },
+    {
+      "origin": "Scandinavian",
       "count": 7
     },
     {
@@ -279,7 +299,7 @@
       "count": 6
     },
     {
-      "origin": "Italian (from Latin)",
+      "origin": "Kurdish",
       "count": 6
     },
     {
@@ -288,6 +308,10 @@
     },
     {
       "origin": "Nguni",
+      "count": 6
+    },
+    {
+      "origin": "Turkish / Japonés",
       "count": 6
     },
     {
@@ -303,11 +327,11 @@
       "count": 5
     },
     {
-      "origin": "Italian (Latin)",
+      "origin": "Greek / Japonés",
       "count": 5
     },
     {
-      "origin": "Italian / Latin",
+      "origin": "Italian (Latin)",
       "count": 5
     },
     {
@@ -351,19 +375,27 @@
       "count": 4
     },
     {
-      "origin": "Arabic / Egyptian",
-      "count": 4
-    },
-    {
       "origin": "Arabic / Semitic / Islamic",
       "count": 4
     },
     {
-      "origin": "Arabic and Malay",
+      "origin": "Arabic Turkish",
       "count": 4
     },
     {
-      "origin": "Arabic Turkish",
+      "origin": "Chinese / Japonés",
+      "count": 4
+    },
+    {
+      "origin": "English / Japonés",
+      "count": 4
+    },
+    {
+      "origin": "Finnish / Japonés",
+      "count": 4
+    },
+    {
+      "origin": "French / Japonés",
       "count": 4
     },
     {
@@ -379,19 +411,19 @@
       "count": 4
     },
     {
-      "origin": "Hungarian",
-      "count": 4
-    },
-    {
-      "origin": "Igbo (Nigerian)",
-      "count": 4
-    },
-    {
       "origin": "Irish Gaelic",
       "count": 4
     },
     {
+      "origin": "Italian (from Latin)",
+      "count": 4
+    },
+    {
       "origin": "Italian / Greek",
+      "count": 4
+    },
+    {
+      "origin": "Italian / Latin",
       "count": 4
     },
     {
@@ -407,11 +439,7 @@
       "count": 4
     },
     {
-      "origin": "Maghrebi Arabic",
-      "count": 4
-    },
-    {
-      "origin": "Old High German",
+      "origin": "Persian / Japonés",
       "count": 4
     },
     {
@@ -443,7 +471,15 @@
       "count": 3
     },
     {
+      "origin": "Arabic / Egyptian",
+      "count": 3
+    },
+    {
       "origin": "Arabic / Maghrebi",
+      "count": 3
+    },
+    {
+      "origin": "Arabic and Malay",
       "count": 3
     },
     {
@@ -467,7 +503,7 @@
       "count": 3
     },
     {
-      "origin": "English and Hebrew",
+      "origin": "Dutch / Japonés",
       "count": 3
     },
     {
@@ -491,7 +527,11 @@
       "count": 3
     },
     {
-      "origin": "Indian",
+      "origin": "Hungarian",
+      "count": 3
+    },
+    {
+      "origin": "Igbo (Nigerian) / Japonés",
       "count": 3
     },
     {
@@ -511,15 +551,11 @@
       "count": 3
     },
     {
-      "origin": "Multicultural",
-      "count": 3
-    },
-    {
-      "origin": "Multiple origins",
-      "count": 3
-    },
-    {
       "origin": "Norman French",
+      "count": 3
+    },
+    {
+      "origin": "Old High German",
       "count": 3
     },
     {
@@ -568,6 +604,10 @@
     },
     {
       "origin": "Turkish from Arabic",
+      "count": 3
+    },
+    {
+      "origin": "Welsh / Japonés",
       "count": 3
     },
     {
@@ -639,19 +679,7 @@
       "count": 2
     },
     {
-      "origin": "Arabic, with strong Turkish adoption",
-      "count": 2
-    },
-    {
-      "origin": "Berber",
-      "count": 2
-    },
-    {
       "origin": "Celtic",
-      "count": 2
-    },
-    {
-      "origin": "Chinese (Hokkien / Teochew)",
       "count": 2
     },
     {
@@ -675,7 +703,7 @@
       "count": 2
     },
     {
-      "origin": "English and Latin",
+      "origin": "English and Hebrew",
       "count": 2
     },
     {
@@ -712,6 +740,10 @@
     },
     {
       "origin": "Germanic / English",
+      "count": 2
+    },
+    {
+      "origin": "Germanic / Japonés",
       "count": 2
     },
     {
@@ -763,7 +795,19 @@
       "count": 2
     },
     {
+      "origin": "Indian / Japonés",
+      "count": 2
+    },
+    {
       "origin": "Iraqi Arabic",
+      "count": 2
+    },
+    {
+      "origin": "Irish / Japonés",
+      "count": 2
+    },
+    {
+      "origin": "Italian (from Latin) / Japonés",
       "count": 2
     },
     {
@@ -807,6 +851,18 @@
       "count": 2
     },
     {
+      "origin": "Maghrebi Arabic",
+      "count": 2
+    },
+    {
+      "origin": "Maghrebi Arabic / Japonés",
+      "count": 2
+    },
+    {
+      "origin": "Malay / Japonés",
+      "count": 2
+    },
+    {
       "origin": "Mapuche",
       "count": 2
     },
@@ -816,6 +872,18 @@
     },
     {
       "origin": "Moroccan Arabic",
+      "count": 2
+    },
+    {
+      "origin": "Multicultural",
+      "count": 2
+    },
+    {
+      "origin": "Multicultural / Japonés",
+      "count": 2
+    },
+    {
+      "origin": "Multiple origins / Japonés",
       "count": 2
     },
     {
@@ -839,7 +907,19 @@
       "count": 2
     },
     {
+      "origin": "Russian / Japonés",
+      "count": 2
+    },
+    {
       "origin": "Sanskrit / Indian",
+      "count": 2
+    },
+    {
+      "origin": "Scandinavian / Japonés",
+      "count": 2
+    },
+    {
+      "origin": "Scottish Gaelic / Japonés",
       "count": 2
     },
     {
@@ -963,11 +1043,11 @@
       "count": 1
     },
     {
-      "origin": "Amazigh and North African Arabic",
+      "origin": "Amazigh and North African Arabic / Japonés",
       "count": 1
     },
     {
-      "origin": "Ambiguous short form with several plausible sources, including Arabic shorthand usage and wider associations with the ancient Egyptian divine name Ra.",
+      "origin": "Ambiguous short form with several plausible sources, including Arabic shorthand usage and wider associations with the ancient Egyptian divine name Ra. / Japonés",
       "count": 1
     },
     {
@@ -1027,7 +1107,11 @@
       "count": 1
     },
     {
-      "origin": "Arabic (Egyptian-Levantine)",
+      "origin": "Arabic (Egyptian) / Japonés",
+      "count": 1
+    },
+    {
+      "origin": "Arabic (Egyptian-Levantine) / Japonés",
       "count": 1
     },
     {
@@ -1035,7 +1119,7 @@
       "count": 1
     },
     {
-      "origin": "Arabic (Egyptian/North African)",
+      "origin": "Arabic (Egyptian/North African) / Japonés",
       "count": 1
     },
     {
@@ -1127,11 +1211,11 @@
       "count": 1
     },
     {
-      "origin": "Arabic (Maghrebi colloquial)",
+      "origin": "Arabic (Maghrebi colloquial) / Japonés",
       "count": 1
     },
     {
-      "origin": "Arabic (Maghrebi Dialect)",
+      "origin": "Arabic (Maghrebi Dialect) / Japonés",
       "count": 1
     },
     {
@@ -1303,6 +1387,10 @@
       "count": 1
     },
     {
+      "origin": "Arabic / Egyptian / Japonés",
+      "count": 1
+    },
+    {
       "origin": "Arabic / Egyptian / Latin",
       "count": 1
     },
@@ -1319,7 +1407,7 @@
       "count": 1
     },
     {
-      "origin": "Arabic / Greek / Georgian",
+      "origin": "Arabic / Greek / Georgian / Japonés",
       "count": 1
     },
     {
@@ -1455,15 +1543,19 @@
       "count": 1
     },
     {
+      "origin": "Arabic and Malay / Japonés",
+      "count": 1
+    },
+    {
       "origin": "Arabic and Malay Muslim",
       "count": 1
     },
     {
-      "origin": "Arabic and modern nickname",
+      "origin": "Arabic and modern nickname / Japonés",
       "count": 1
     },
     {
-      "origin": "Arabic and multilingual",
+      "origin": "Arabic and multilingual / Japonés",
       "count": 1
     },
     {
@@ -1472,6 +1564,10 @@
     },
     {
       "origin": "Arabic and North African",
+      "count": 1
+    },
+    {
+      "origin": "Arabic and Persian / Japonés",
       "count": 1
     },
     {
@@ -1591,7 +1687,7 @@
       "count": 1
     },
     {
-      "origin": "Arabic form of Jesus name tradition used as masculine given name",
+      "origin": "Arabic form of Jesus name tradition used as masculine given name / Japonés",
       "count": 1
     },
     {
@@ -1947,6 +2043,14 @@
       "count": 1
     },
     {
+      "origin": "Arabic, with strong Turkish adoption",
+      "count": 1
+    },
+    {
+      "origin": "Arabic, with strong Turkish adoption / Japonés",
+      "count": 1
+    },
+    {
       "origin": "Arabic, with Tunisian transliteration",
       "count": 1
     },
@@ -1979,7 +2083,7 @@
       "count": 1
     },
     {
-      "origin": "Arabic/Maghrebi",
+      "origin": "Arabic/Maghrebi / Japonés",
       "count": 1
     },
     {
@@ -1987,7 +2091,7 @@
       "count": 1
     },
     {
-      "origin": "Arabic/Slavic",
+      "origin": "Arabic/Slavic / Japonés",
       "count": 1
     },
     {
@@ -1995,7 +2099,7 @@
       "count": 1
     },
     {
-      "origin": "Arabic/Turkish",
+      "origin": "Arabic/Turkish / Japonés",
       "count": 1
     },
     {
@@ -2019,7 +2123,7 @@
       "count": 1
     },
     {
-      "origin": "Armenian / Malay / Spanish (multiple origins)",
+      "origin": "Armenian / Malay / Spanish (multiple origins) / Japonés",
       "count": 1
     },
     {
@@ -2055,6 +2159,14 @@
       "count": 1
     },
     {
+      "origin": "Berber",
+      "count": 1
+    },
+    {
+      "origin": "Berber / Japonés",
+      "count": 1
+    },
+    {
       "origin": "Berber/Italian",
       "count": 1
     },
@@ -2068,6 +2180,10 @@
     },
     {
       "origin": "Breton / Anglo-Norman",
+      "count": 1
+    },
+    {
+      "origin": "Breton / Japonés",
       "count": 1
     },
     {
@@ -2100,6 +2216,10 @@
     },
     {
       "origin": "Catalan (from Hebrew via Latin)",
+      "count": 1
+    },
+    {
+      "origin": "Catalan / Japonés",
       "count": 1
     },
     {
@@ -2143,7 +2263,7 @@
       "count": 1
     },
     {
-      "origin": "Central and Eastern European form of Teresa",
+      "origin": "Central and Eastern European form of Teresa / Japonés",
       "count": 1
     },
     {
@@ -2151,11 +2271,19 @@
       "count": 1
     },
     {
-      "origin": "Chinese (Cantonese)",
+      "origin": "Chinese (Cantonese) / Japonés",
       "count": 1
     },
     {
       "origin": "Chinese (Hokkien / Teochew / Hakka)",
+      "count": 1
+    },
+    {
+      "origin": "Chinese (Hokkien / Teochew)",
+      "count": 1
+    },
+    {
+      "origin": "Chinese (Hokkien / Teochew) / Japonés",
       "count": 1
     },
     {
@@ -2183,11 +2311,7 @@
       "count": 1
     },
     {
-      "origin": "Chinese / Japonés",
-      "count": 1
-    },
-    {
-      "origin": "Chinese / Thai / Lao",
+      "origin": "Chinese / Thai / Lao / Japonés",
       "count": 1
     },
     {
@@ -2195,7 +2319,7 @@
       "count": 1
     },
     {
-      "origin": "Chinese and Hebrew",
+      "origin": "Chinese and Hebrew / Japonés",
       "count": 1
     },
     {
@@ -2219,7 +2343,7 @@
       "count": 1
     },
     {
-      "origin": "Chinese, Vietnamese, and West African contexts",
+      "origin": "Chinese, Vietnamese, and West African contexts / Japonés",
       "count": 1
     },
     {
@@ -2355,7 +2479,7 @@
       "count": 1
     },
     {
-      "origin": "Dutch / Indonesian",
+      "origin": "Dutch / Indonesian / Japonés",
       "count": 1
     },
     {
@@ -2431,11 +2555,11 @@
       "count": 1
     },
     {
-      "origin": "Dutch, Flemish, Chinese, and Vietnamese",
+      "origin": "Dutch, Flemish, Chinese, and Vietnamese / Japonés",
       "count": 1
     },
     {
-      "origin": "East Asian given-name form, especially as a Romanized spelling in Korean naming",
+      "origin": "East Asian given-name form, especially as a Romanized spelling in Korean naming / Japonés",
       "count": 1
     },
     {
@@ -2459,7 +2583,7 @@
       "count": 1
     },
     {
-      "origin": "Egyptian",
+      "origin": "Egyptian / Japonés",
       "count": 1
     },
     {
@@ -2671,11 +2795,23 @@
       "count": 1
     },
     {
+      "origin": "English and Hebrew / Japonés",
+      "count": 1
+    },
+    {
       "origin": "English and Hebrew-influenced",
       "count": 1
     },
     {
       "origin": "English and Indian",
+      "count": 1
+    },
+    {
+      "origin": "English and Latin",
+      "count": 1
+    },
+    {
+      "origin": "English and Latin / Japonés",
       "count": 1
     },
     {
@@ -2735,11 +2871,11 @@
       "count": 1
     },
     {
-      "origin": "English diminutive usage, with secondary roots in other traditions",
+      "origin": "English diminutive usage, with secondary roots in other traditions / Japonés",
       "count": 1
     },
     {
-      "origin": "English diminutive with parallel Punjabi usage",
+      "origin": "English diminutive with parallel Punjabi usage / Japonés",
       "count": 1
     },
     {
@@ -2851,7 +2987,7 @@
       "count": 1
     },
     {
-      "origin": "English, German, Spanish, and Bengali",
+      "origin": "English, German, Spanish, and Bengali / Japonés",
       "count": 1
     },
     {
@@ -2879,7 +3015,7 @@
       "count": 1
     },
     {
-      "origin": "European diminutive from the Antonius name family",
+      "origin": "European diminutive from the Antonius name family / Japonés",
       "count": 1
     },
     {
@@ -3015,7 +3151,7 @@
       "count": 1
     },
     {
-      "origin": "French and North African",
+      "origin": "French and North African / Japonés",
       "count": 1
     },
     {
@@ -3043,7 +3179,7 @@
       "count": 1
     },
     {
-      "origin": "French diminutive of Robert, later English unisex usage",
+      "origin": "French diminutive of Robert, later English unisex usage / Japonés",
       "count": 1
     },
     {
@@ -3051,7 +3187,7 @@
       "count": 1
     },
     {
-      "origin": "French diminutive with strong North African and Francophone social use",
+      "origin": "French diminutive with strong North African and Francophone social use / Japonés",
       "count": 1
     },
     {
@@ -3151,11 +3287,11 @@
       "count": 1
     },
     {
-      "origin": "Georgian",
+      "origin": "Georgian (with broader modern cross-cultural use)",
       "count": 1
     },
     {
-      "origin": "Georgian (with broader modern cross-cultural use)",
+      "origin": "Georgian / Japonés",
       "count": 1
     },
     {
@@ -3175,7 +3311,11 @@
       "count": 1
     },
     {
-      "origin": "German / Frisian / Scandinavian",
+      "origin": "German / Frisian / Scandinavian / Japonés",
+      "count": 1
+    },
+    {
+      "origin": "German / Japonés",
       "count": 1
     },
     {
@@ -3227,11 +3367,11 @@
       "count": 1
     },
     {
-      "origin": "Germanic (through French Raymond)",
+      "origin": "Germanic (through French Raymond) / Japonés",
       "count": 1
     },
     {
-      "origin": "Germanic (via Italian)",
+      "origin": "Germanic (via Italian) / Japonés",
       "count": 1
     },
     {
@@ -3283,7 +3423,7 @@
       "count": 1
     },
     {
-      "origin": "Germanic and Indonesian",
+      "origin": "Germanic and Indonesian / Japonés",
       "count": 1
     },
     {
@@ -3343,7 +3483,7 @@
       "count": 1
     },
     {
-      "origin": "Greek (via English diminutive and Dutch independent use)",
+      "origin": "Greek (via English diminutive and Dutch independent use) / Japonés",
       "count": 1
     },
     {
@@ -3411,7 +3551,7 @@
       "count": 1
     },
     {
-      "origin": "Greek / Spanish",
+      "origin": "Greek / Spanish / Japonés",
       "count": 1
     },
     {
@@ -3463,7 +3603,7 @@
       "count": 1
     },
     {
-      "origin": "Greek via European forms",
+      "origin": "Greek via European forms / Japonés",
       "count": 1
     },
     {
@@ -3471,7 +3611,7 @@
       "count": 1
     },
     {
-      "origin": "Greek via Latin and European Christian usage",
+      "origin": "Greek via Latin and European Christian usage / Japonés",
       "count": 1
     },
     {
@@ -3531,7 +3671,7 @@
       "count": 1
     },
     {
-      "origin": "Greek/Iberian",
+      "origin": "Greek/Iberian / Japonés",
       "count": 1
     },
     {
@@ -3571,7 +3711,7 @@
       "count": 1
     },
     {
-      "origin": "Hebrew (Biblical) / Latin American / East African",
+      "origin": "Hebrew (Biblical) / Latin American / East African / Japonés",
       "count": 1
     },
     {
@@ -3579,7 +3719,7 @@
       "count": 1
     },
     {
-      "origin": "Hebrew (via European forms)",
+      "origin": "Hebrew (via European forms) / Japonés",
       "count": 1
     },
     {
@@ -3639,11 +3779,11 @@
       "count": 1
     },
     {
-      "origin": "Hebrew and English short form",
+      "origin": "Hebrew and English short form / Japonés",
       "count": 1
     },
     {
-      "origin": "Hebrew and European",
+      "origin": "Hebrew and European / Japonés",
       "count": 1
     },
     {
@@ -3763,11 +3903,11 @@
       "count": 1
     },
     {
-      "origin": "Hebrew/Arabic/Persian",
+      "origin": "Hebrew/Arabic/Persian / Japonés",
       "count": 1
     },
     {
-      "origin": "Hebrew/French",
+      "origin": "Hebrew/French / Japonés",
       "count": 1
     },
     {
@@ -3779,11 +3919,19 @@
       "count": 1
     },
     {
+      "origin": "Hungarian / Japonés",
+      "count": 1
+    },
+    {
       "origin": "Hungarian and Catalan form of Judith, ultimately Hebrew",
       "count": 1
     },
     {
       "origin": "Hungarian from Slavic",
+      "count": 1
+    },
+    {
+      "origin": "Igbo (Nigerian)",
       "count": 1
     },
     {
@@ -3795,6 +3943,10 @@
       "count": 1
     },
     {
+      "origin": "Indian",
+      "count": 1
+    },
+    {
       "origin": "Indian (Hindi, Bengali)",
       "count": 1
     },
@@ -3803,7 +3955,7 @@
       "count": 1
     },
     {
-      "origin": "Indian (Malayalam)",
+      "origin": "Indian (Malayalam) / Japonés",
       "count": 1
     },
     {
@@ -3819,7 +3971,7 @@
       "count": 1
     },
     {
-      "origin": "Indian devotional name used across several South Asian languages",
+      "origin": "Indian devotional name used across several South Asian languages / Japonés",
       "count": 1
     },
     {
@@ -3863,7 +4015,7 @@
       "count": 1
     },
     {
-      "origin": "Irish and Italian (short form of Honora and Eleonora)",
+      "origin": "Irish and Italian (short form of Honora and Eleonora) / Japonés",
       "count": 1
     },
     {
@@ -3963,6 +4115,10 @@
       "count": 1
     },
     {
+      "origin": "Italian / Latin / Japonés",
+      "count": 1
+    },
+    {
       "origin": "Italian / Latin / Nature",
       "count": 1
     },
@@ -3983,11 +4139,11 @@
       "count": 1
     },
     {
-      "origin": "Italian and French (pet name)",
+      "origin": "Italian and French (pet name) / Japonés",
       "count": 1
     },
     {
-      "origin": "Italian and Georgian short-form",
+      "origin": "Italian and Georgian short-form / Japonés",
       "count": 1
     },
     {
@@ -4003,7 +4159,7 @@
       "count": 1
     },
     {
-      "origin": "Italian and South Slavic (Arabic influence)",
+      "origin": "Italian and South Slavic (Arabic influence) / Japonés",
       "count": 1
     },
     {
@@ -4083,7 +4239,7 @@
       "count": 1
     },
     {
-      "origin": "Italian masculine name, historically a short form of Durante",
+      "origin": "Italian masculine name, historically a short form of Durante / Japonés",
       "count": 1
     },
     {
@@ -4211,7 +4367,11 @@
       "count": 1
     },
     {
-      "origin": "Kurdish / Persian",
+      "origin": "Kurdish / Japonés",
+      "count": 1
+    },
+    {
+      "origin": "Kurdish / Persian / Japonés",
       "count": 1
     },
     {
@@ -4259,11 +4419,11 @@
       "count": 1
     },
     {
-      "origin": "Latin / Italian",
+      "origin": "Latin / Italian (modern revival) / Japonés",
       "count": 1
     },
     {
-      "origin": "Latin / Italian (modern revival)",
+      "origin": "Latin / Italian / Japonés",
       "count": 1
     },
     {
@@ -4275,7 +4435,7 @@
       "count": 1
     },
     {
-      "origin": "Latin / Romance (regional feminine usage)",
+      "origin": "Latin / Romance (regional feminine usage) / Japonés",
       "count": 1
     },
     {
@@ -4287,7 +4447,7 @@
       "count": 1
     },
     {
-      "origin": "Latin / Scandinavian",
+      "origin": "Latin / Scandinavian / Japonés",
       "count": 1
     },
     {
@@ -4311,7 +4471,7 @@
       "count": 1
     },
     {
-      "origin": "Latin and Christian European tradition",
+      "origin": "Latin and Christian European tradition / Japonés",
       "count": 1
     },
     {
@@ -4447,7 +4607,7 @@
       "count": 1
     },
     {
-      "origin": "Malagasy / Finnish / Yoruba / Catalan Root",
+      "origin": "Malagasy / Finnish / Yoruba / Catalan Root / Japonés",
       "count": 1
     },
     {
@@ -4551,7 +4711,7 @@
       "count": 1
     },
     {
-      "origin": "Modern English literary coinage",
+      "origin": "Modern English literary coinage / Japonés",
       "count": 1
     },
     {
@@ -4631,15 +4791,15 @@
       "count": 1
     },
     {
-      "origin": "Multi-origin / uncertain",
+      "origin": "Multi-origin / uncertain / Japonés",
       "count": 1
     },
     {
-      "origin": "Multi-origin, especially Kurdish and Maghrebi usage",
+      "origin": "Multi-origin, especially Kurdish and Maghrebi usage / Japonés",
       "count": 1
     },
     {
-      "origin": "Multi-origin, including Arabic, Igbo, and South Asian usage",
+      "origin": "Multi-origin, including Arabic, Igbo, and South Asian usage / Japonés",
       "count": 1
     },
     {
@@ -4651,15 +4811,11 @@
       "count": 1
     },
     {
-      "origin": "Multicultural / Japonés",
-      "count": 1
-    },
-    {
       "origin": "Multicultural diminutive",
       "count": 1
     },
     {
-      "origin": "Multicultural short form",
+      "origin": "Multicultural short form / Japonés",
       "count": 1
     },
     {
@@ -4671,7 +4827,7 @@
       "count": 1
     },
     {
-      "origin": "Multilingual form used in several traditions",
+      "origin": "Multilingual form used in several traditions / Japonés",
       "count": 1
     },
     {
@@ -4695,15 +4851,19 @@
       "count": 1
     },
     {
-      "origin": "Multiple Asian naming traditions with uncertain unified origin in this record",
+      "origin": "Multiple Asian naming traditions with uncertain unified origin in this record / Japonés",
       "count": 1
     },
     {
-      "origin": "Multiple modern traditions, chiefly English and Scandinavian",
+      "origin": "Multiple modern traditions, chiefly English and Scandinavian / Japonés",
       "count": 1
     },
     {
-      "origin": "Multiple origins (Greek, Tupi, Spanish American)",
+      "origin": "Multiple origins",
+      "count": 1
+    },
+    {
+      "origin": "Multiple origins (Greek, Tupi, Spanish American) / Japonés",
       "count": 1
     },
     {
@@ -4711,7 +4871,7 @@
       "count": 1
     },
     {
-      "origin": "Multiple traditions, especially Irish and Sanskrit",
+      "origin": "Multiple traditions, especially Irish and Sanskrit / Japonés",
       "count": 1
     },
     {
@@ -4791,7 +4951,7 @@
       "count": 1
     },
     {
-      "origin": "Nickname-style given name used in Arabic and Mediterranean contexts",
+      "origin": "Nickname-style given name used in Arabic and Mediterranean contexts / Japonés",
       "count": 1
     },
     {
@@ -4803,7 +4963,7 @@
       "count": 1
     },
     {
-      "origin": "North African",
+      "origin": "North African / Japonés",
       "count": 1
     },
     {
@@ -4891,7 +5051,15 @@
       "count": 1
     },
     {
+      "origin": "Old High German / Japonés",
+      "count": 1
+    },
+    {
       "origin": "Old Norse (Scandinavian)",
+      "count": 1
+    },
+    {
+      "origin": "Old Norse / Japonés",
       "count": 1
     },
     {
@@ -5151,7 +5319,7 @@
       "count": 1
     },
     {
-      "origin": "Portuguese / Afrikaans (Combination / Phonological Root)",
+      "origin": "Portuguese / Afrikaans (Combination / Phonological Root) / Japonés",
       "count": 1
     },
     {
@@ -5160,6 +5328,10 @@
     },
     {
       "origin": "Portuguese / Hebrew",
+      "count": 1
+    },
+    {
+      "origin": "Portuguese / Japonés",
       "count": 1
     },
     {
@@ -5251,7 +5423,7 @@
       "count": 1
     },
     {
-      "origin": "Romanian, Greek, and Basque",
+      "origin": "Romanian, Greek, and Basque / Japonés",
       "count": 1
     },
     {
@@ -5315,7 +5487,7 @@
       "count": 1
     },
     {
-      "origin": "Russian and Italian (short form); Georgian (Saint Nino)",
+      "origin": "Russian and Italian (short form); Georgian (Saint Nino) / Japonés",
       "count": 1
     },
     {
@@ -5411,7 +5583,7 @@
       "count": 1
     },
     {
-      "origin": "Sanskrit and Persian",
+      "origin": "Sanskrit and Persian / Japonés",
       "count": 1
     },
     {
@@ -5439,11 +5611,11 @@
       "count": 1
     },
     {
-      "origin": "Sanskrit, from the verbal root hṛ",
+      "origin": "Sanskrit, from the verbal root hṛ / Japonés",
       "count": 1
     },
     {
-      "origin": "Sanskrit, Greek, and Hebrew",
+      "origin": "Sanskrit, Greek, and Hebrew / Japonés",
       "count": 1
     },
     {
@@ -5451,7 +5623,7 @@
       "count": 1
     },
     {
-      "origin": "Sanskrit/Hindi (South Asian)",
+      "origin": "Sanskrit/Hindi (South Asian) / Japonés",
       "count": 1
     },
     {
@@ -5507,6 +5679,10 @@
       "count": 1
     },
     {
+      "origin": "Scottish / Japonés",
+      "count": 1
+    },
+    {
       "origin": "Scottish and English",
       "count": 1
     },
@@ -5531,7 +5707,7 @@
       "count": 1
     },
     {
-      "origin": "Semitic (Hebrew/Arabic)",
+      "origin": "Semitic (Hebrew/Arabic) / Japonés",
       "count": 1
     },
     {
@@ -5563,7 +5739,7 @@
       "count": 1
     },
     {
-      "origin": "Slavic (Czech, Slovak, Polish)",
+      "origin": "Slavic (Czech, Slovak, Polish) / Japonés",
       "count": 1
     },
     {
@@ -5603,6 +5779,10 @@
       "count": 1
     },
     {
+      "origin": "Slavic / Japonés",
+      "count": 1
+    },
+    {
       "origin": "Slavic / Latin",
       "count": 1
     },
@@ -5627,7 +5807,7 @@
       "count": 1
     },
     {
-      "origin": "Slavic and internationalized European usage",
+      "origin": "Slavic and internationalized European usage / Japonés",
       "count": 1
     },
     {
@@ -5699,7 +5879,7 @@
       "count": 1
     },
     {
-      "origin": "South Indian",
+      "origin": "South Indian / Japonés",
       "count": 1
     },
     {
@@ -5767,7 +5947,7 @@
       "count": 1
     },
     {
-      "origin": "Spanish (gem-name)",
+      "origin": "Spanish (gem-name) / Japonés",
       "count": 1
     },
     {
@@ -5799,7 +5979,7 @@
       "count": 1
     },
     {
-      "origin": "Spanish (Latin American variant of Johanna, ultimately from Hebrew יוֹחָנָן)",
+      "origin": "Spanish (Latin American variant of Johanna, ultimately from Hebrew יוֹחָנָן) / Japonés",
       "count": 1
     },
     {
@@ -6075,7 +6255,7 @@
       "count": 1
     },
     {
-      "origin": "Telugu",
+      "origin": "Telugu / Japonés",
       "count": 1
     },
     {
@@ -6103,11 +6283,11 @@
       "count": 1
     },
     {
-      "origin": "Tswana, Greek, and modern international",
+      "origin": "Tswana, Greek, and modern international / Japonés",
       "count": 1
     },
     {
-      "origin": "Tupi-Guarani (Brazilian Portuguese)",
+      "origin": "Tupi-Guarani (Brazilian Portuguese) / Japonés",
       "count": 1
     },
     {
@@ -6427,7 +6607,7 @@
       "count": 1
     },
     {
-      "origin": "Turkish/Germanic",
+      "origin": "Turkish/Germanic / Japonés",
       "count": 1
     },
     {
@@ -6443,11 +6623,11 @@
       "count": 1
     },
     {
-      "origin": "Uncertain placeholder or clipped record",
+      "origin": "Uncertain placeholder or clipped record / Japonés",
       "count": 1
     },
     {
-      "origin": "Uncertain truncated record from Egyptian and Maghreb civil registries",
+      "origin": "Uncertain truncated record from Egyptian and Maghreb civil registries / Japonés",
       "count": 1
     },
     {
@@ -6455,11 +6635,11 @@
       "count": 1
     },
     {
-      "origin": "Uncertain; likely a clipped Maghrebi transliteration rather than a stable standalone classical form",
+      "origin": "Uncertain; likely a clipped Maghrebi transliteration rather than a stable standalone classical form / Japonés",
       "count": 1
     },
     {
-      "origin": "Uncertain; likely a compressed North African and Arabic-adjacent record rather than one single recoverable given name tradition.",
+      "origin": "Uncertain; likely a compressed North African and Arabic-adjacent record rather than one single recoverable given name tradition. / Japonés",
       "count": 1
     },
     {
@@ -6527,7 +6707,7 @@
       "count": 1
     },
     {
-      "origin": "West African, Arabic, and nickname usage",
+      "origin": "West African, Arabic, and nickname usage / Japonés",
       "count": 1
     },
     {
@@ -6555,7 +6735,7 @@
       "count": 1
     },
     {
-      "origin": "Yoruba given name from West Africa",
+      "origin": "Yoruba given name from West Africa / Japonés",
       "count": 1
     },
     {

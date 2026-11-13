@@ -1,8 +1,7 @@
 {
-  "total": 144719,
-  "classified": 7006,
-  "unclassified": 137713,
-  "WikidataNamesMatched": 0,
+  "total": 175898,
+  "classified": 40279,
+  "unclassified": 135619,
   "countries": {
     "AM": 3,
     "AR": 2,
@@ -27,7 +26,7 @@
     "IN": 330,
     "IR": 205,
     "IT": 362,
-    "JP": 127,
+    "JP": 33749,
     "KR": 5,
     "MX": 2,
     "MY": 40,
@@ -49,5 +48,5 @@
     "VN": 6,
     "ZA": 114
   },
-  "notes": "Country codes are language/culture search categories, NOT countries of birth or record usage."
+  "notes": "Cultural/language-origin evidence only; never residency or birth country."
 }
