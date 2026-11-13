@@ -19,6 +19,12 @@ def norm(s):return unicodedata.normalize("NFC",str(s)).casefold().strip()
 def read(path):return json.loads(path.read_text(encoding="utf-8"))
 def write(path,value,pretty=False):
  path.write_text(json.dumps(value,ensure_ascii=False,indent=2 if pretty else None,separators=None if pretty else (",",":"))+("\n" if pretty else ""),encoding="utf-8")
+PHRASES=["una historia llena de posibilidades","la luz de los nuevos comienzos","un camino de descubrimientos","un universo por explorar","la armonía de un cielo tranquilo","la fuerza de los sueños","la belleza de un nuevo capítulo","la ternura de un nuevo hogar"]
+def poetic(name):
+ import hashlib
+ digest=hashlib.sha256(name.casefold().encode("utf-8")).digest()
+ first=digest[0]%len(PHRASES); second=(first+1+digest[1]%(len(PHRASES)-1))%len(PHRASES)
+ return "Evoca "+PHRASES[first]+" y "+PHRASES[second]+"."
 def valid_kana(value):
  return bool(value) and len(value)<=15 and all(0x3040<=ord(ch)<=0x30ff or ch in "ー・" for ch in value)
 KAKASI=kakasi()
@@ -87,7 +93,8 @@ for lookup,record in sorted(variants.items()):
  name=clean_romanization(kana[0])
  if not name:continue
  sexes=[sex for sex in ("boy","girl") if record[sex]]
- gender="unisex" if record["unisex"] or len(sexes)!=1 else sexes[0]
+ # Unspecified gender is NOT evidence of a gender-neutral name.
+ gender="unisex" if len(sexes)==2 else sexes[0] if len(sexes)==1 else "unknown"
  options=sorted(record["native"],key=lambda x:(len(x),x))
  native=options[0] if options else kana[0]
  if norm(name) in indexed:
@@ -110,7 +117,7 @@ for lookup,record in sorted(variants.items()):
    "name":name,"gender":gender,"origin":"Japonés","originCountryCodes":["JP"],
    "originCountrySources":["EDRDG-JMnedict"],"country":"JP","countries":["JP"],
    "native":native,"nativeVariants":options[:16],"nativeStatus":"documented",
-   "reading":kana[0],"meaning":"Nombre japonés: su significado específico depende de los kanji elegidos.",
+   "reading":kana[0],"meaning":poetic(name),"meaningCaveat":"El significado en japonés depende de los kanji elegidos.",
    "meaningType":"creative","meaningStatus":"poetic_interpretation",
    "meaningSource":None,"meaningSourceUrl":None,
    "reviewStatus":"requires_etymological_source","variants":[],"source":"EDRDG-JMnedict",
