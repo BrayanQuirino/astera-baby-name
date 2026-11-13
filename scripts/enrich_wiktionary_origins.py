@@ -25,7 +25,7 @@ TARGETS=[
  ("Tagalog","PH"),("Igbo","NG"),("Tamil","IN"),("Bengali","BD"),
  ("Latin",None),("Old Norse","NO"),("Old English","GB"),("Germanic","DE")]
 # Host language is not used as origin, even for borrowed names.
-HOSTS=["English","French","Spanish"]
+HOSTS=["English","French","Spanish","German","Italian","Portuguese"]
 SEXES=["male","female"]
 def key(s):return unicodedata.normalize("NFC",str(s or "")).strip().casefold()
 def norm(s):return ''.join(c for c in unicodedata.normalize("NFD",str(s or "").casefold()) if unicodedata.category(c)!="Mn")
@@ -58,7 +58,7 @@ def pages(category):
   if not continuation:break
  cache[category]=result
  return result
-for origin,code in TARGETS[:29]:
+for origin,code in TARGETS:
  if not code:continue
  for host in HOSTS:
   for sex in SEXES:
