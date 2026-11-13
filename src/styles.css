@@ -146,3 +146,20 @@
 .compound-components{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin:0 0 10px;color:#8a6b4c;font-size:11px;line-height:1.35}
 .compound-components small{color:#8b8b90;font-size:10px}
 .compound-components>span{border:1px solid #e9dfce;border-radius:13px;padding:3px 9px;background:#faf5ed}
+
+/* Filter composition: consistent label baseline, control height and wrapping. */
+.advanced-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.25fr);column-gap:18px;row-gap:19px;align-items:start}
+.advanced-grid>.advanced-field:first-child{grid-column:1/-1}
+.advanced-field{display:flex;flex-direction:column;min-width:0;gap:0}
+.advanced-field>strong{display:flex;align-items:flex-end;min-height:38px;line-height:1.35;margin:0 0 9px;font-size:12px;overflow-wrap:anywhere}
+.advanced-grid>.advanced-field:first-child>strong{min-height:0;margin-bottom:10px}
+.advanced-field>input,.advanced-field input{box-sizing:border-box;height:46px;min-height:46px}
+.advanced-field .two-fields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px;align-items:stretch}
+.advanced-field .choices{display:flex;gap:7px;flex-wrap:wrap}
+.advanced-field .choices button{display:inline-flex;justify-content:center;align-items:center;min-height:40px;line-height:1.25;text-align:center;padding:9px 13px}
+.advanced-field .surname-hint{margin-top:8px}
+.advanced-toggle{min-height:44px}
+.advanced-toggle:focus-visible,.clear-advanced:focus-visible{outline:2px solid #a87b4d;outline-offset:3px}
+@media(max-width:900px){.advanced-grid{grid-template-columns:minmax(0,1fr) minmax(0,1.6fr)}.advanced-grid>.advanced-field:last-child{grid-column:auto}}
+@media(max-width:620px){.advanced-grid{grid-template-columns:minmax(0,1fr)}.advanced-grid>.advanced-field:first-child{grid-column:auto}.advanced-field>strong{min-height:0}.advanced-field .two-fields{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:380px){.advanced-field .two-fields{grid-template-columns:minmax(0,1fr)}}
