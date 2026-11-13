@@ -29,3 +29,11 @@ test('zodiac illustration belongs to name-detail celestial experience, not landi
   assert.ok(symbol.includes(sign),sign+' must have a custom illustrated vector');
  }
 });
+
+test('standalone sky story is gone; animated zodiac stage remains first in mobile name detail',()=>{
+ assert.doesNotMatch(app,/<Sky\\s+date=/);
+ assert.doesNotMatch(app,/href="#cielo"/);
+ assert.match(detail,/zodiac-reveal-stage/);
+ assert.match(detail,/zodiac-stage-toggle/);
+ assert.ok(detail.indexOf('zodiac-reveal-stage') < detail.indexOf('cosmic-name'), 'zodiac must precede name details');
+});
