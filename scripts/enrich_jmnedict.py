@@ -38,9 +38,17 @@ def gender_tag(tags):
  if not (female or male or common):return None
  return 'unisex' if female and male else 'girl' if female else 'boy' if male else 'unisex'
 
-with urllib.request.urlopen(urllib.request.Request(URL,headers=HEADERS),timeout=85) as response:
- blob=response.read()
-if len(blob)<100000:raise RuntimeError("JMnedict archive unexpectedly small")
+blob=None
+last_error=None
+for url in (URL,"https://ftp.edrdg.org/pub/Nihongo/JMnedict.xml.gz",URL):
+ try:
+  with urllib.request.urlopen(urllib.request.Request(url,headers=HEADERS),timeout=45) as response:
+   blob=response.read()
+  if blob and len(blob)>100000:break
+ except Exception as exc:
+  last_error=exc
+  print("JMnedict mirror failed",url,repr(exc)[:150],flush=True)
+if not blob or len(blob)<100000:raise RuntimeError("JMnedict archive could not be downloaded from EDRDG mirrors") from last_error
 print("Downloaded JMnedict",len(blob),"compressed bytes",flush=True)
 variants=collections.defaultdict(lambda:{"boy":False,"girl":False,"unisex":False,"native":set(),"readings":set(),"entities":set()})
 parser=etree.iterparse(gzip.GzipFile(fileobj=io.BytesIO(blob)),events=("end",),tag="entry",resolve_entities=True,load_dtd=True,no_network=True,huge_tree=True)
