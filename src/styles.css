@@ -494,3 +494,32 @@
 @media(max-width:390px){
   .hero .orrery-caption{left:12%;right:12%;width:76%;font-size:8px;letter-spacing:.6px}
 }
+
+
+/* Zodiac artwork approved by the user: 12 photographic gold illustrations
+   in one 4x3 WebP sprite. No generated cartoon glyphs or placeholder icons. */
+.zodiac-reveal-stage .illustrated-zodiac-approved{
+  display:block;position:relative;z-index:2;
+  width:94%;height:auto;aspect-ratio:1;max-width:100%;max-height:none;
+  flex:0 0 auto;border-radius:50%;
+  background-color:#0c1d35;background-repeat:no-repeat;
+  background-size:400% 300%;
+  box-shadow:0 0 0 1px #e9c48130,0 0 36px #dbb87525;
+  filter:drop-shadow(0 0 11px #f3cd8640);
+  animation:zodiacApprovedReveal .85s cubic-bezier(.18,.75,.21,1) both;
+}
+.zodiac-reveal-stage .zodiac-vision-portal{opacity:.26}
+.zodiac-reveal-stage .zodiac-vision-caption{
+  z-index:3;bottom:-2%;text-align:center;
+  padding:0 10px;text-shadow:0 2px 12px #091529,0 1px 5px #091529;
+}
+.cosmic-fullsky .zodiac-reveal-stage .zodiac-vision .illustrated-zodiac-approved{
+  width:94%;height:auto;max-height:none;
+}
+@keyframes zodiacApprovedReveal{
+  from{opacity:0;transform:scale(.83);filter:blur(8px)}
+  to{opacity:1;transform:scale(1);filter:drop-shadow(0 0 11px #f3cd8640)}
+}
+@media(prefers-reduced-motion:reduce){
+ .zodiac-reveal-stage .illustrated-zodiac-approved{animation:none!important}
+}

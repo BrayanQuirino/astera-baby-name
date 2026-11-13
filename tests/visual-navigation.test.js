@@ -33,8 +33,13 @@ test('zodiac illustration belongs to name-detail celestial experience, not landi
  assert.doesNotMatch(detail,/matchMedia/);
  assert.doesNotMatch(detail,/sky-corner-legend/);
  assert.doesNotMatch(detail,/sky\.symbol/);
+ assert.match(symbol,/approved-zodiac-sprite\.webp/);
+ assert.match(symbol,/backgroundPosition:POSITIONS\[selected\]/);
+ assert.match(symbol,/role="img"/);
+ const approvedSprite=readFileSync(new URL('../public/zodiac/approved-zodiac-sprite.webp',import.meta.url));
+ assert.ok(approvedSprite.length>50000,'Approved zodiac sprite should be present and contain artwork');
  for(const sign of ['Aries','Tauro','Géminis','Cáncer','Leo','Virgo','Libra','Escorpio','Sagitario','Capricornio','Acuario','Piscis']){
-  assert.ok(symbol.includes(sign),sign+' must have a custom illustrated vector');
+  assert.ok(symbol.includes(sign),sign+' must map to a distinct approved artwork tile');
  }
 });
 
