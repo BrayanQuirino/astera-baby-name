@@ -46,7 +46,7 @@ def load(path):
     return json.loads(path.read_text(encoding="utf-8"))
 def dump(path,obj,pretty=False):
     path.write_text(json.dumps(obj,ensure_ascii=False,indent=2 if pretty else None,
-                               separators=None if pretty else (",",":"))+("\\n" if pretty else ""),encoding="utf-8")
+                               separators=None if pretty else (",",":"))+("\n" if pretty else ""),encoding="utf-8")
 PHRASES=[
  "una historia llena de posibilidades","la luz de los nuevos comienzos",
  "un encuentro que transforma la vida","un sueño que empieza a florecer",
