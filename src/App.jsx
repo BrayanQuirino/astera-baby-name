@@ -1,4 +1,4 @@
-import React,{useMemo,useState,useEffect} from 'react';
+import React,{useMemo,useState,useEffect,useRef} from 'react';
 import {Heart,Search,ArrowRight,Sparkles,Globe2,X,CalendarDays,Menu,Copy,Check,SlidersHorizontal,ChevronDown} from 'lucide-react';
 import {names as curatedNames,countries as curatedCountries} from './lib/names.js';
 import StarDatePicker from './components/StarDatePicker.jsx';
@@ -35,10 +35,12 @@ const zodiacStarMaps={
 function Sky({date,setDate,t,lang}){
  const sign=zodiac(date);
  const [expanded,setExpanded]=useState(true);
+ const collapseTimer=useRef(null);
  useEffect(()=>{
   setExpanded(true);
-  const timer=setTimeout(()=>setExpanded(false),4700);
-  return()=>clearTimeout(timer);
+  clearTimeout(collapseTimer.current);
+  collapseTimer.current=setTimeout(()=>setExpanded(false),4700);
+  return()=>clearTimeout(collapseTimer.current);
  },[date]);
  const dots=zodiacStarMaps[sign.symbol]||[[20,25],[42,42],[61,25],[77,58],[45,76]];
  return <section id="cielo" className="sky-section">
@@ -58,7 +60,7 @@ function Sky({date,setDate,t,lang}){
     <span className="zodiac-reveal-caption">{t('zodiacRevealed')}</span>
    </div>
    <div className="zodiac-info"><strong>{sign.name}</strong><span className="sky-label">{date?t('skySign'):t('chooseDate')}</span>
-    <button type="button" className="zodiac-reopen" aria-expanded={expanded} onClick={()=>setExpanded(v=>!v)}>
+    <button type="button" className="zodiac-reopen" aria-expanded={expanded} onClick={()=>{clearTimeout(collapseTimer.current);setExpanded(v=>!v)}}>
      <Sparkles size={15}/>{expanded?t('zodiacCollapse'):t('zodiacOpen')}
     </button>
    </div>
@@ -70,6 +72,7 @@ export default function App(){
  const [advancedOpen,setAdvancedOpen]=useState(false);
  const [expandedLetterRange,setExpandedLetterRange]=useState('');
  const [searchFocused,setSearchFocused]=useState(false);
+ const [selectedSuggestion,setSelectedSuggestion]=useState('');
  const [showFloatingLoad,setShowFloatingLoad]=useState(false);
  // One source of truth across the explorer and Discover Name dialog.
  const [prefs,setPrefs]=useState(empty);
@@ -116,7 +119,7 @@ export default function App(){
  useEffect(()=>{document.body.style.overflow=wizard||detail?'hidden':'';return()=>{document.body.style.overflow=''}},[wizard,detail]);
  const cultureCounts=useMemo(()=>{const counts={};for(const n of names){for(const code of n.originCountryCodes||[]){counts[code]=(counts[code]||0)+1;}}return counts},[names]);
  const unknownOrigins=useMemo(()=>names.reduce((sum,n)=>sum+(!Array.isArray(n.originCountryCodes)||n.originCountryCodes.length===0?1:0),0),[names]);
- const result=useMemo(()=>filterNames(names,query,prefs,true),[names,query,prefs]);
+ const result=useMemo(()=>{const found=filterNames(names,query,prefs,true);return selectedSuggestion?found.filter(n=>n.name===selectedSuggestion):found},[names,query,prefs,selectedSuggestion]);
  const display=useMemo(()=>showFav?names.filter(n=>favorites.includes(n.id)).sort((a,b)=>a.name.localeCompare(b.name,lang)):result,[showFav,names,favorites,result,lang]);
  const pageSize=24;
  const [visibleCount,setVisibleCount]=useState(pageSize);
@@ -149,14 +152,14 @@ export default function App(){
   }
   return [...exact,...starts,...related].slice(0,7);
  },[result,query,showFav]);
- const chooseSuggestion=name=>{setQuery(name);setSearchFocused(false);setShowFav(false);setDiscoveryMode(false)};
+ const chooseSuggestion=name=>{setSelectedSuggestion(name);setQuery(name);setSearchFocused(false);setShowFav(false);setDiscoveryMode(false)};
  const harmonyEnabled=!showFav&&hasHarmonyPreferences(prefs);
  const popularityCountry=prefs.country;
  const babySurnames=[prefs.surname1,prefs.surname2].map(v=>v.trim()).filter(Boolean).join(' ');
  const activeFilters=Number(prefs.style!=='any')+Number(Boolean(prefs.initial.trim()))+Number(Boolean(prefs.surname1.trim()))+Number(Boolean(prefs.surname2.trim()));
  const toggle=id=>setFavorites(v=>v.includes(id)?v.filter(n=>n!==id):[...v,id]);
  const set=(key,value)=>updateFilter(key,value);
- const reset=()=>{setDiscoveryMode(false);setShowFav(false);setQuery('');setPrefs(empty);setPage(1)};
+ const reset=()=>{setDiscoveryMode(false);setShowFav(false);setQuery('');setSelectedSuggestion('');setPrefs(empty);setPage(1)};
  const generate=()=>{setDiscoveryMode(true);setShowFav(false);setPage(1);setWizard(false);setTimeout(()=>document.getElementById('explorar')?.scrollIntoView({behavior:'smooth'}),80)};
  const share=async()=>{try{await navigator.clipboard.writeText(names.filter(n=>favorites.includes(n.id)).map(n=>n.name+' — '+n.meaning).join('\n'));setCopied(true);setTimeout(()=>setCopied(false),1800)}catch{}};
  return <div className="site">
@@ -171,8 +174,8 @@ export default function App(){
  value={query} onFocus={()=>setSearchFocused(true)} onKeyDown={e=>{
   if(e.key==='Escape')setSearchFocused(false);
   if(e.key==='ArrowDown'&&searchFocused&&smartSuggestions.length){e.preventDefault();document.querySelector('#smart-name-suggestions button')?.focus()}
- }} onChange={e=>{setQuery(e.target.value);setSearchFocused(true);setShowFav(false)}}/>
- {query&&<button type="button" aria-label={t('clearSearch')} onClick={()=>{setQuery('');setSearchFocused(false)}}><X size={16}/></button>}</div>
+ }} onChange={e=>{setSelectedSuggestion('');setQuery(e.target.value);setSearchFocused(true);setShowFav(false)}}/>
+ {query&&<button type="button" aria-label={t('clearSearch')} onClick={()=>{setQuery('');setSelectedSuggestion('');setSearchFocused(false)}}><X size={16}/></button>}</div>
  {searchFocused&&smartSuggestions.length>0&&<div className="smart-suggestions" id="smart-name-suggestions" role="listbox" aria-label={t('suggestedNames')}>
  <span className="smart-suggestion-caption">✦ {t('suggestedNames')}</span>
  {smartSuggestions.map(n=><button key={n.id??n.name} type="button" role="option" aria-selected={false} onClick={()=>chooseSuggestion(n.name)}
