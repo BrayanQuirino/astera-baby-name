@@ -1,165 +1,127 @@
 import React from 'react';
 
-// Twelve hand-drawn SVG constellational emblems. The artwork depicts each
-// traditional zodiac figure (not the Unicode zodiac glyph or an abstract icon).
-// All illustrations share Astera's existing champagne-gold palette.
-const art = {
- Aries: {
-  filled: ['M80 71 Q100 55 120 71 L130 109 Q125 144 100 154 Q75 144 70 109 Z','M83 133 Q100 124 117 133 L113 151 Q100 160 87 151 Z'],
-  outline: ['M77 77 C66 44 42 40 32 61 C18 90 45 111 62 92 C76 78 62 63 50 72 C42 78 46 87 53 87',
-   'M123 77 C134 44 158 40 168 61 C182 90 155 111 138 92 C124 78 138 63 150 72 C158 78 154 87 147 87',
-   'M76 81 L62 98 L74 107 M124 81 L138 98 L126 107','M82 76 Q94 63 100 69 Q106 63 118 76'],
-  detail: ['M84 103 Q90 97 96 103 M104 103 Q110 97 116 103','M90 134 Q100 141 110 134','M95 144 L100 148 L105 144'],
-  dots: [[90,106,2],[110,106,2],[96,144,1.8],[104,144,1.8]]
- },
- Tauro: {
-  filled: ['M66 71 Q100 56 134 71 L142 104 Q139 142 120 153 L80 153 Q61 142 58 104 Z',
-   'M78 126 Q100 115 122 126 L119 153 Q100 166 81 153 Z'],
-  outline: ['M68 75 C45 74 29 56 28 33 Q42 50 70 53 L83 66',
-   'M132 75 C155 74 171 56 172 33 Q158 50 130 53 L117 66',
-   'M66 93 Q44 79 35 99 Q47 111 60 105 M134 93 Q156 79 165 99 Q153 111 140 105'],
-  detail: ['M74 101 Q86 93 96 102 M104 102 Q114 93 126 101','M85 128 Q100 118 115 128',
-   'M91 145 Q100 151 109 145','M100 154 Q95 165 100 168 Q105 165 100 154'],
-  dots: [[84,104,2],[116,104,2],[90,137,3],[110,137,3]]
- },
- 'Géminis': {
-  filled: ['M53 81 Q67 73 82 84 L90 136 L77 153 L53 144 L49 108 Z',
-   'M118 84 Q133 73 147 81 L151 108 L147 144 L123 153 L110 136 Z'],
-  outline: ['M49 62 Q46 43 61 37 Q78 32 83 51 Q85 67 71 74 Q56 76 49 62 Z',
-   'M117 51 Q122 32 139 37 Q154 43 151 62 Q144 76 129 74 Q115 67 117 51 Z',
-   'M54 91 Q39 101 37 123 L48 131 M146 91 Q161 101 163 123 L152 131',
-   'M65 145 L58 169 M79 149 L84 169 M121 149 L116 169 M135 145 L142 169',
-   'M82 90 Q100 103 118 90 M81 122 Q100 113 119 122'],
-  detail: ['M49 52 Q55 35 68 42 L80 48 M120 48 Q133 35 151 52',
-   'M58 60 Q65 65 73 60 M127 60 Q135 65 142 60',
-   'M90 83 Q100 95 110 83','M56 111 Q68 119 82 112 M118 112 Q132 119 144 111'],
-  dots: [[63,56,1.8],[73,56,1.8],[127,56,1.8],[137,56,1.8]]
- },
- 'Cáncer': {
-  filled: ['M55 92 Q100 67 145 92 Q159 115 145 135 Q126 152 100 149 Q74 152 55 135 Q41 115 55 92 Z',
-   'M44 91 Q26 85 20 66 L34 70 L43 58 L48 79 Z',
-   'M156 91 Q174 85 180 66 L166 70 L157 58 L152 79 Z'],
-  outline: ['M55 104 Q42 83 28 86 M145 104 Q158 83 172 86',
-   'M58 123 L36 137 L29 149 M67 137 L54 158 M82 145 L76 164',
-   'M142 123 L164 137 L171 149 M133 137 L146 158 M118 145 L124 164',
-   'M77 86 L74 65 M123 86 L126 65'],
-  detail: ['M67 102 Q100 86 133 102','M70 124 Q100 139 130 124','M90 135 Q100 141 110 135',
-   'M38 77 L26 67 M162 77 L174 67'],
-  dots: [[74,62,4],[126,62,4]]
- },
- Leo: {
-  filled: ['M100 29 L118 44 L139 37 L145 60 L164 66 L154 90 L168 108 L149 122 L150 148 L127 143 L114 166 L100 152 L86 166 L73 143 L50 148 L51 122 L32 108 L46 90 L36 66 L55 60 L61 37 L82 44 Z',
-   'M70 78 Q100 58 130 78 Q138 110 119 135 Q100 148 81 135 Q62 110 70 78 Z',
-   'M85 120 Q100 109 115 120 L110 137 Q100 143 90 137 Z'],
-  outline: ['M66 78 L61 60 L81 74 M134 78 L139 60 L119 74',
-   'M69 100 Q83 97 90 105 M110 105 Q117 97 131 100',
-   'M85 124 L62 121 M85 130 L60 133 M115 124 L138 121 M115 130 L140 133'],
-  detail: ['M80 91 Q88 85 96 92 M104 92 Q112 85 120 91','M91 117 L100 123 L109 117','M100 123 L100 132',
-   'M100 132 Q94 138 87 132 M100 132 Q106 138 113 132'],
-  dots: [[89,96,2.3],[111,96,2.3]]
- },
- Virgo: {
-  filled: ['M69 101 Q80 93 89 91 L111 91 Q120 93 131 101 L153 164 L47 164 Z',
-   'M82 49 Q83 33 101 32 Q122 33 123 50 L127 91 L111 98 L89 98 L73 91 Z'],
-  outline: ['M87 48 Q74 54 71 86 Q63 108 56 120 M115 48 Q130 58 130 85 Q136 108 143 118',
-   'M70 105 Q57 113 48 135 M130 105 Q141 113 145 133',
-   'M78 135 Q100 147 122 135 M63 157 Q100 168 137 157',
-   'M148 115 L155 61 M154 67 L141 56 M155 80 L168 69 M153 92 L140 82 M153 104 L165 94'],
-  detail: ['M84 56 Q99 44 117 55','M92 72 Q100 77 108 72','M94 82 Q100 86 106 82',
-   'M96 95 L85 115 M104 95 L116 115','M155 61 Q167 49 171 42 M155 82 Q166 80 174 73'],
-  dots: [[92,66,1.8],[108,66,1.8]]
- },
- Libra: {
-  filled: ['M40 114 Q56 139 75 114 Z','M125 114 Q144 139 160 114 Z','M93 49 L107 49 L107 157 L93 157 Z'],
-  outline: ['M48 63 L152 63','M100 43 L100 162 M86 162 L114 162 M74 169 L126 169',
-   'M56 65 L40 113 L75 113 L65 65 M135 65 L125 113 L160 113 L144 65',
-   'M86 48 Q100 28 114 48','M37 115 Q57 147 78 115 M122 115 Q143 147 163 115'],
-  detail: ['M88 74 L112 74','M89 156 L111 156','M51 102 L65 102 M135 102 L149 102'],
-  dots: [[100,38,3]]
- },
- Escorpio: {
-  filled: ['M73 85 Q87 70 107 81 Q125 93 119 115 Q114 136 97 136 Q78 132 73 112 Z',
-   'M53 85 L37 77 L22 91 L29 105 L49 96 Z','M127 85 L143 77 L158 91 L151 105 L131 96 Z'],
-  outline: ['M60 84 L42 61 L25 60 M60 90 L41 99 L26 117 M119 85 L139 61 L156 60 M123 94 L143 108 L157 122',
-   'M78 115 L62 133 L53 151 M90 133 L82 153 M107 131 L117 153',
-   'M119 105 Q140 100 151 116 Q166 133 151 148 Q137 162 144 174',
-   'M144 174 L134 160 L155 165 Z'],
-  detail: ['M81 98 Q98 91 115 98','M82 114 Q98 120 114 114','M89 132 Q100 137 109 131',
-   'M36 80 L27 70 M144 80 L157 70'],
-  dots: [[84,94,2],[112,94,2]]
- },
- Sagitario: {
-  filled: ['M72 105 Q85 94 104 99 L127 112 L147 110 L158 125 L145 136 L116 133 L96 129 L79 136 L62 124 Z',
-   'M96 88 L93 66 Q97 57 109 58 L119 73 L117 104 L103 110 Z',
-   'M99 43 Q101 30 114 30 Q128 33 124 47 Q120 61 109 60 Q96 56 99 43 Z'],
-  outline: ['M67 118 Q44 112 39 95 Q43 127 62 136',
-   'M84 128 L77 164 L61 164 M99 132 L99 163 L112 163',
-   'M127 132 L137 163 L151 163 M145 131 L157 160 L169 160',
-   'M116 73 L138 88 L156 76 M101 75 L81 93 L69 90',
-   'M152 50 Q178 79 151 111','M148 52 L152 111',
-   'M123 82 L177 55 M177 55 L161 54 M177 55 L169 68'],
-  detail: ['M99 39 Q111 24 123 39','M107 49 Q116 53 121 47',
-   'M68 122 Q90 115 107 125','M133 116 Q145 123 155 116'],
-  dots: [[117,45,2]]
- },
- Capricornio: {
-  filled: ['M70 82 Q81 65 99 78 Q111 90 121 100 Q145 107 151 128 Q143 141 126 140 Q111 136 96 122 L80 130 L67 112 Z',
-   'M117 135 Q136 142 149 130 Q167 119 174 139 Q181 162 158 171 Q139 176 128 163 Q153 167 159 153 Q161 141 145 147 Q134 151 117 135 Z'],
-  outline: ['M78 88 Q50 87 51 62 Q51 41 72 38 Q61 56 75 68',
-   'M92 80 Q113 52 97 39 Q84 30 75 46 Q93 45 88 62',
-   'M67 98 Q51 106 43 121 Q55 128 70 116','M76 128 L68 159 L82 159 M96 123 L92 155 L104 155',
-   'M128 145 Q145 158 159 153','M138 154 Q145 144 153 144'],
-  detail: ['M63 94 Q75 88 86 96','M49 121 Q59 126 66 119',
-   'M131 130 Q148 124 157 139','M142 160 Q155 161 163 152'],
-  dots: [[74,95,2.2]]
- },
- Acuario: {
-  filled: ['M88 83 Q103 74 113 83 L120 132 L88 132 L82 101 Z',
-   'M59 82 L82 70 L99 96 L76 111 Z',
-   'M86 39 Q89 28 101 29 Q115 30 116 43 Q115 60 101 62 Q86 57 86 39 Z'],
-  outline: ['M83 94 Q67 112 53 102 L39 96','M115 95 Q130 102 142 92 L150 76',
-   'M93 133 L83 166 M111 133 L120 166','M50 82 Q43 73 52 67 L71 59 L85 73 L78 84 Q66 92 50 82 Z',
-   'M40 107 Q51 113 64 107 T90 107 T116 107 T142 107 T168 107',
-   'M35 133 Q47 122 59 133 T83 133 T107 133 T131 133 T155 133 T179 133',
-   'M35 151 Q47 140 59 151 T83 151 T107 151 T131 151 T155 151 T179 151'],
-  detail: ['M86 41 Q96 30 110 38','M96 52 Q103 56 109 51',
-   'M48 87 Q50 99 42 105','M61 88 Q67 103 58 111','M76 87 Q83 103 75 112'],
-  dots: [[103,46,2]]
- },
- Piscis: {
-  filled: ['M44 65 Q76 36 99 66 Q79 96 44 65 Z','M101 130 Q126 101 156 130 Q126 160 101 130 Z',
-   'M46 65 L27 45 L28 85 Z','M154 130 L174 110 L174 150 Z'],
-  outline: ['M99 66 Q115 81 114 99 Q113 117 101 130','M44 65 Q52 60 62 61 Q75 63 81 70','M156 130 Q148 135 138 134 Q125 132 119 125',
-   'M57 52 L57 78 M66 48 L66 83','M143 117 L143 143 M134 113 L134 147',
-   'M89 58 Q106 45 120 61 M80 138 Q93 153 109 145'],
-  detail: ['M72 54 Q83 65 72 76','M127 119 Q117 130 127 141',
-   'M107 86 Q105 101 107 114'],
-  dots: [[85,65,2.5],[115,131,2.5]]
- }
+// Astera zodiac iconography: traditional silhouettes inspired by the user's
+// reference cards. Original, scalable SVG figures, not emoji or line scribbles.
+const gold='url(#zodiac-gold)';
+const dark='#101f39';
+
+const icons={
+ Aries:<g>
+  <path d="M83 103 C64 102 44 87 46 68 C47 48 70 45 79 61 C87 76 69 84 64 74" fill="none" stroke={gold} strokeWidth="12" strokeLinecap="round"/>
+  <path d="M117 103 C136 102 156 87 154 68 C153 48 130 45 121 61 C113 76 131 84 136 74" fill="none" stroke={gold} strokeWidth="12" strokeLinecap="round"/>
+  <path d="M79 91 Q100 75 121 91 L121 117 L100 150 L79 117 Z" fill={gold}/>
+  <path d="M83 91 L69 99 L86 116 Z M117 91 L131 99 L114 116 Z" fill={gold}/>
+  <path d="M90 105 L96 108 M104 108 L110 105" stroke={dark} strokeWidth="4" strokeLinecap="round"/>
+  <path d="M95 133 L100 139 L105 133" fill={dark}/>
+ </g>,
+ Tauro:<g>
+  <path d="M77 85 Q53 81 47 65 L43 42 Q56 59 74 62 L89 78 Z" fill={gold}/>
+  <path d="M123 85 Q147 81 153 65 L157 42 Q144 59 126 62 L111 78 Z" fill={gold}/>
+  <path d="M74 72 Q100 61 126 72 L136 105 Q129 137 113 149 L87 149 Q71 137 64 105 Z" fill={gold}/>
+  <path d="M64 87 Q49 78 46 99 L66 110 M136 87 Q151 78 154 99 L134 110" fill={gold}/>
+  <path d="M82 104 L92 106 M108 106 L118 104" stroke={dark} strokeWidth="5" strokeLinecap="round"/>
+  <path d="M86 130 Q100 119 114 130 L110 148 L90 148 Z" fill="#c88941" opacity=".85"/>
+  <ellipse cx="94" cy="136" rx="3" ry="2.5" fill={dark}/>
+  <ellipse cx="106" cy="136" rx="3" ry="2.5" fill={dark}/>
+ </g>,
+ 'Géminis':<g>
+  <path d="M93 75 Q84 48 64 51 Q43 54 45 78 L37 87 L46 94 Q47 108 60 112 L61 131 L45 141 L41 155 L98 155 L95 119 L78 113 Q89 100 87 86 Z" fill={gold}/>
+  <path d="M107 75 Q116 48 136 51 Q157 54 155 78 L163 87 L154 94 Q153 108 140 112 L139 131 L155 141 L159 155 L102 155 L105 119 L122 113 Q111 100 113 86 Z" fill={gold}/>
+  <path d="M47 70 Q55 43 80 52 Q90 56 91 77 Q74 71 66 62 Q58 76 46 79 Z" fill="#edc37e"/>
+  <path d="M153 70 Q145 43 120 52 Q110 56 109 77 Q126 71 134 62 Q142 76 154 79 Z" fill="#edc37e"/>
+  <path d="M60 88 L68 88 M132 88 L140 88" stroke={dark} strokeWidth="3.8" strokeLinecap="round"/>
+  <path d="M100 49 L103 58 L112 61 L103 64 L100 73 L97 64 L88 61 L97 58 Z" fill="#fff3c8"/>
+ </g>,
+ 'Cáncer':<g>
+  <ellipse cx="100" cy="117" rx="38" ry="26" fill={gold}/>
+  <path d="M72 109 Q59 90 47 93 L40 78 Q27 86 35 103 L46 110 L55 102 L67 119 Z" fill={gold}/>
+  <path d="M128 109 Q141 90 153 93 L160 78 Q173 86 165 103 L154 110 L145 102 L133 119 Z" fill={gold}/>
+  <path d="M59 122 L43 131 L37 145 M68 137 L58 149 M82 143 L76 157 M141 122 L157 131 L163 145 M132 137 L142 149 M118 143 L124 157" fill="none" stroke={gold} strokeWidth="6.5" strokeLinecap="round"/>
+  <path d="M79 103 L76 86 M121 103 L124 86" stroke={gold} strokeWidth="5.5" strokeLinecap="round"/>
+  <circle cx="76" cy="83" r="7" fill={gold}/><circle cx="124" cy="83" r="7" fill={gold}/>
+  <circle cx="75" cy="83" r="2.8" fill={dark}/><circle cx="125" cy="83" r="2.8" fill={dark}/>
+  <path d="M90 132 Q100 140 110 132" fill="none" stroke={dark} strokeWidth="3.5" strokeLinecap="round"/>
+ </g>,
+ Leo:<g>
+  {Array.from({length:12},(_,i)=><ellipse key={i} cx="100" cy="56" rx="16" ry="31" transform={'rotate('+(i*30)+' 100 107)'} fill={i%2? '#e9b763':gold}/>)}
+  <path d="M72 94 Q74 75 100 72 Q126 75 128 94 L122 127 Q115 143 100 146 Q85 143 78 127 Z" fill="#f4ce85"/>
+  <path d="M78 98 L90 102 M110 102 L122 98" stroke={dark} strokeWidth="4.8" strokeLinecap="round"/>
+  <path d="M90 122 Q100 116 110 122 L100 131 Z" fill={dark}/>
+  <path d="M100 130 L100 137 M100 137 Q93 143 87 137 M100 137 Q107 143 113 137" stroke={dark} fill="none" strokeWidth="3.2" strokeLinecap="round"/>
+  <path d="M100 79 L104 88 L113 91 L104 94 L100 103 L96 94 L87 91 L96 88 Z" fill="#fff4ce" opacity=".86"/>
+ </g>,
+ Virgo:<g>
+  <path d="M117 58 Q141 57 151 78 Q161 102 146 121 Q158 137 150 152 Q127 167 105 155 Q122 131 116 109 Q104 88 108 70 Z" fill={gold}/>
+  <path d="M119 58 Q92 40 72 61 Q60 74 66 96 L58 113 L68 119 Q70 142 89 139 L92 153 L65 162 L56 169 L146 169 Q134 151 116 147 L116 118 Q129 106 128 85 Z" fill={gold}/>
+  <path d="M79 80 Q85 67 105 71 Q114 87 108 99 L91 109 Q81 111 74 103 L71 94 Q81 95 79 80 Z" fill="#ffe2a5"/>
+  <path d="M83 95 L90 95" stroke={dark} strokeWidth="3" strokeLinecap="round"/>
+  <path d="M87 112 Q96 117 105 110" stroke={dark} strokeWidth="2.8" fill="none" strokeLinecap="round"/>
+  <path d="M111 115 Q122 129 117 143 M133 86 Q148 107 138 124" stroke={dark} strokeOpacity=".4" strokeWidth="3" fill="none"/>
+ </g>,
+ Libra:<g>
+  <path d="M100 44 L100 158" stroke={gold} strokeWidth="8" strokeLinecap="round"/>
+  <path d="M53 76 L147 76" stroke={gold} strokeWidth="7" strokeLinecap="round"/>
+  <path d="M84 159 L116 159 M68 169 L132 169" stroke={gold} strokeWidth="8" strokeLinecap="round"/>
+  <path d="M65 80 L48 127 L82 127 Z M135 80 L118 127 L152 127 Z" fill="none" stroke={gold} strokeWidth="4.5" strokeLinejoin="round"/>
+  <path d="M42 128 Q64 151 88 128 Z M112 128 Q136 151 158 128 Z" fill={gold}/>
+  <path d="M100 39 L104 47 L112 50 L104 53 L100 61 L96 53 L88 50 L96 47 Z" fill="#fff0c5"/>
+ </g>,
+ Escorpio:<g>
+  <path d="M75 93 Q96 72 117 92 L126 115 Q121 138 99 144 Q77 138 72 115 Z" fill={gold}/>
+  <path d="M74 100 L60 83 L43 94 L52 109 L65 104 M126 100 L140 83 L157 94 L148 109 L135 104" fill={gold}/>
+  <path d="M57 83 L44 69 L34 75 M143 83 L156 69 L166 75" fill="none" stroke={gold} strokeWidth="7" strokeLinecap="round"/>
+  <path d="M78 131 L65 145 L59 157 M91 140 L84 159 M108 140 L115 159 M121 131 L134 145 L140 157" fill="none" stroke={gold} strokeWidth="7" strokeLinecap="round"/>
+  <path d="M124 115 Q154 113 158 133 Q160 154 144 161 Q131 167 136 175" fill="none" stroke={gold} strokeWidth="11" strokeLinecap="round"/>
+  <path d="M135 173 L127 160 L146 166 L135 183 Z" fill="#ffdf9e"/>
+  <path d="M85 108 L92 110 M108 110 L115 108" stroke={dark} strokeWidth="4.5" strokeLinecap="round"/>
+  <path d="M82 121 Q99 128 116 121" stroke={dark} strokeWidth="3" fill="none"/>
+ </g>,
+ Sagitario:<g>
+  <path d="M74 53 Q39 97 77 151" fill="none" stroke={gold} strokeWidth="10" strokeLinecap="round"/>
+  <path d="M74 53 L78 151" stroke="#f8d99c" strokeWidth="3.5" fill="none"/>
+  <path d="M59 139 L145 57" stroke={gold} strokeWidth="8" strokeLinecap="round"/>
+  <path d="M145 57 L134 58 L149 42 L158 76 L147 66 Z" fill={gold}/>
+  <path d="M61 137 L54 155 L71 149 M75 119 L96 145" fill="none" stroke={gold} strokeWidth="6.5" strokeLinecap="round"/>
+  <path d="M66 101 Q76 90 84 83" fill="none" stroke="#f7dfad" strokeWidth="3" strokeLinecap="round"/>
+ </g>,
+ Capricornio:<g>
+  <path d="M67 87 Q84 67 106 87 L116 111 Q113 130 99 144 Q82 134 76 116 Z" fill={gold}/>
+  <path d="M73 96 Q44 86 50 58 Q58 37 78 50 Q61 56 66 73 Q70 83 82 77" fill="none" stroke={gold} strokeWidth="10" strokeLinecap="round"/>
+  <path d="M110 93 Q137 86 137 60 Q136 46 122 45 Q143 34 155 56 Q168 83 122 109" fill="none" stroke={gold} strokeWidth="10" strokeLinecap="round"/>
+  <path d="M85 137 L98 169 L108 134" fill={gold}/>
+  <path d="M88 106 L94 108 M105 108 L112 106" stroke={dark} strokeWidth="4.3" strokeLinecap="round"/>
+  <path d="M95 121 L100 127 L105 121" fill={dark}/>
+ </g>,
+ Acuario:<g>
+  <path d="M40 91 C53 73 65 109 78 91 S102 73 115 91 S139 109 152 91 S164 73 170 80" fill="none" stroke={gold} strokeWidth="12" strokeLinecap="round"/>
+  <path d="M40 128 C53 110 65 146 78 128 S102 110 115 128 S139 146 152 128 S164 110 170 117" fill="none" stroke={gold} strokeWidth="12" strokeLinecap="round"/>
+  <path d="M100 54 L104 63 L113 67 L104 71 L100 80 L96 71 L87 67 L96 63 Z" fill="#fff0c4"/>
+ </g>,
+ Piscis:<g>
+  <path d="M90 85 Q69 43 38 65 Q62 77 38 92 Q69 109 90 85 Z" fill={gold}/>
+  <path d="M110 121 Q131 163 162 141 Q138 129 162 114 Q131 97 110 121 Z" fill={gold}/>
+  <path d="M45 75 Q31 66 25 54 L25 105 Q36 95 45 86 Z M155 131 Q168 122 175 111 L175 162 Q164 152 155 143 Z" fill="#f6d18b"/>
+  <path d="M91 84 Q108 94 109 109 Q110 116 110 121" fill="none" stroke={gold} strokeWidth="7" strokeLinecap="round"/>
+  <circle cx="76" cy="83" r="3" fill={dark}/><circle cx="124" cy="123" r="3" fill={dark}/>
+  <path d="M55 76 Q63 69 70 77 M130 132 Q138 139 145 131" fill="none" stroke={dark} strokeOpacity=".6" strokeWidth="2.5"/>
+ </g>
 };
-
-export const ZODIAC_ART_SIGNS=Object.freeze(Object.keys(art));
-
+export const ZODIAC_ART_SIGNS=Object.freeze(Object.keys(icons));
 export default function ZodiacEmblem({sign='Aries',className=''}) {
- const figure=art[sign]||art.Aries;
- return <svg className={'illustrated-zodiac '+className} viewBox="0 0 200 200" role="img" aria-label={sign} xmlns="http://www.w3.org/2000/svg">
+ return <svg className={'illustrated-zodiac '+className} viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label={sign}>
   <defs>
-   <radialGradient id="zodiac-art-back"><stop stopColor="#f7da99" stopOpacity=".28"/><stop offset="1" stopColor="#f7da99" stopOpacity="0"/></radialGradient>
-   <linearGradient id="zodiac-art-line" x1="0" y1="0" x2="1" y2="1"><stop stopColor="#fff2c3"/><stop offset=".5" stopColor="#dfac66"/><stop offset="1" stopColor="#fff4d2"/></linearGradient>
+   <radialGradient id="zodiac-art-back"><stop stopColor="#f7da99" stopOpacity=".23"/><stop offset="1" stopColor="#f7da99" stopOpacity="0"/></radialGradient>
+   <linearGradient id="zodiac-gold" x1="0" y1="0" x2="1" y2="1">
+    <stop stopColor="#fff0bd"/><stop offset=".35" stopColor="#f5ca7c"/><stop offset=".75" stopColor="#dca45d"/><stop offset="1" stopColor="#ffe0a1"/>
+   </linearGradient>
   </defs>
-  <circle cx="100" cy="100" r="96" fill="url(#zodiac-art-back)"/>
-  <circle cx="100" cy="100" r="84" className="illustrated-zodiac-ring"/>
-  <circle cx="100" cy="100" r="70" className="illustrated-zodiac-inner"/>
-  <g className="illustrated-zodiac-figure" stroke="url(#zodiac-art-line)" strokeLinejoin="round" strokeLinecap="round">
-   {figure.filled.map((d,i)=><path key={'f'+i} d={d} fill="#e7b875" fillOpacity=".12" strokeWidth="3.4" pathLength="1" style={{animationDelay:(.1*i)+'s'}}/>)}
-   {figure.outline.map((d,i)=><path key={'o'+i} d={d} fill="none" strokeWidth="3.5" pathLength="1" style={{animationDelay:(.12*i)+'s'}}/>)}
-   {figure.detail.map((d,i)=><path key={'d'+i} d={d} fill="none" strokeWidth="2.3" pathLength="1" style={{animationDelay:(.15*i)+'s'}}/>)}
-   {figure.dots.map(([cx,cy,r],i)=><circle key={'p'+i} cx={cx} cy={cy} r={r} fill="#fff1cd" stroke="none"/>)}
-  </g>
+  <circle cx="100" cy="100" r="97" fill="url(#zodiac-art-back)"/>
+  <circle cx="100" cy="100" r="85" className="illustrated-zodiac-ring"/>
+  <circle cx="100" cy="100" r="73" className="illustrated-zodiac-inner"/>
+  <g className="illustrated-zodiac-figure">{icons[sign]||icons.Aries}</g>
   {Array.from({length:12},(_,i)=>{
-   const theta=i*Math.PI/6;
-   const x=100+87*Math.cos(theta),y=100+87*Math.sin(theta);
-   return <circle key={i} cx={x} cy={y} r={i%3===0?1.8:1} fill="#f7d69c" className="illustrated-zodiac-star"/>;
+   const angle=i*Math.PI/6,x=100+88*Math.cos(angle),y=100+88*Math.sin(angle);
+   return <circle key={i} cx={x} cy={y} r={i%3===0?2.1:1.1} fill="#f7d69c" className="illustrated-zodiac-star"/>;
   })}
  </svg>;
 }
