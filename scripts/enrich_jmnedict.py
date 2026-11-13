@@ -30,10 +30,10 @@ def clean_romanization(value):
  # Restore familiar spellings for long vowels, while preserving kana as reading.
  return output[0].upper()+output[1:]
 def gender_tag(tags):
- text=' '.join(tags).casefold()
- female=any(k in text for k in ("female given name","female","fem"))
- male=any(k in text for k in ("male given name","male","masc"))
- common=any(k in text for k in ("given name","given"))
+ labels={re.sub(r'[^a-z ]','',x.casefold()).strip() for x in tags}
+ female=any(x in ('female given name','female','fem','f') for x in labels)
+ male=any(x in ('male given name','male','masc','m') for x in labels)
+ common=any(x in ('given name','given','unclassified given name','g') for x in labels)
  if not (female or male or common):return None
  return "unisex" if female and male else "girl" if female else "boy" if male else "unisex"
 
