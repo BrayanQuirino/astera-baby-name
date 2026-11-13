@@ -31,12 +31,12 @@ def clean_romanization(value):
  # Restore familiar spellings for long vowels, while preserving kana as reading.
  return output[0].upper()+output[1:]
 def gender_tag(tags):
- labels={re.sub(r'[^a-z ]','',x.casefold()).strip() for x in tags}
- female=any(x in ('female given name','female','fem','f') for x in labels)
- male=any(x in ('male given name','male','masc','m') for x in labels)
- common=any(x in ('given name','given','unclassified given name','g') for x in labels)
+ labels=[re.sub(r'[^a-z ]','',x.casefold()).strip() for x in tags]
+ female=any(x.startswith('female given name') or x in ('female','fem','f') for x in labels)
+ male=any(x.startswith('male given name') or x in ('male','masc','m') for x in labels)
+ common=any(x.startswith('given name or forename') or x in ('given name','given','g') for x in labels)
  if not (female or male or common):return None
- return "unisex" if female and male else "girl" if female else "boy" if male else "unisex"
+ return 'unisex' if female and male else 'girl' if female else 'boy' if male else 'unisex'
 
 with urllib.request.urlopen(urllib.request.Request(URL,headers=HEADERS),timeout=85) as response:
  blob=response.read()
