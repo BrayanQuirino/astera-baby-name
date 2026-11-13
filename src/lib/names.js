@@ -1,4 +1,5 @@
 import international from '../data/international.json';
+import reviewed from '../data/name_corrections.json';
 // Catálogo piloto. Las etimologías pueden variar por idioma y tradición.
 const baseNames=[
 ["Hikaru","unisex","Japonés","Luz (光) o resplandor (輝)","JP","Hikari"],
@@ -53,4 +54,20 @@ const baseNames=[
 export const countries=[["all","Todas las culturas"],["MX","México"],["JP","Japón"],["ES","España"],["IT","Italia"],["FR","Francia"],["DE","Alemania"],["GB","Reino Unido"],["US","Estados Unidos"],["GR","Grecia"],["SE","Suecia"],["IN","India"],["KR","Corea"],["EG","Egipto"],["BR","Brasil"],["NG","Nigeria"],["IE","Irlanda"],["KE","Kenia"]];
 
 // Curated multilingual additions; each original spelling is retained as written.
-export const names=[...baseNames,...international.filter(extra=>!baseNames.some(base=>base.name.toLocaleLowerCase('es')===extra.name.toLocaleLowerCase('es')))].map((item,id)=>({...item,id}));
+const reviewedNames=reviewed.map(row=>({
+ name:row.name,gender:row.gender,origin:row.origin,meaning:row.meaning,
+ country:row.country,countries:[row.country],components:row.components||[],
+ variants:row.variants||[],native:'',meaningType:'published',
+ meaningStatus:'documented',meaningLanguage:row.meaningLanguage||'es',
+ meaningSource:'astera-reviewed-compound',meaningSourceUrl:row.meaningSourceUrl,
+ reviewStatus:'source_matched',nativeStatus:'not_available',
+ source:'astera-curated-compound-2026'
+}));
+const initialCatalog=[...reviewedNames,...baseNames,...international];
+const initialSeen=new Set();
+export const names=initialCatalog.filter(item=>{
+ const key=item.name.normalize('NFD').replace(/[\\u0300-\\u036f]/g,'').toLocaleLowerCase('es');
+ if(initialSeen.has(key))return false;
+ initialSeen.add(key);
+ return true;
+}).map((item,id)=>({...item,id}));
