@@ -19,6 +19,8 @@ jobs:
           python-version: '3.12'
       - name: Rebuild source-backed and creative meanings
         run: python scripts/build_catalog.py
+      - name: Apply reviewed compound names and canonical variants
+        run: python scripts/apply_name_corrections.py
       - name: Validate catalog ordering, schema and source traceability
         run: python scripts/validate_catalog.py
       - name: Install app dependencies
