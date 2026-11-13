@@ -1,0 +1,50 @@
+name: Enrich sourced origins from Wiktionary
+on:
+  push:
+    branches: [main]
+    paths:
+      - scripts/enrich_wiktionary_origins.py
+      - .github/workflows/wiktionary-origins.yml
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: astera-wiktionary-etymology
+  cancel-in-progress: true
+jobs:
+  enrich:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Verify actual given-name etymological source categories
+        run: python -u scripts/enrich_wiktionary_origins.py
+      - name: Rebuild origin coverage and client index
+        run: |
+          python scripts/build_origin_coverage.py
+          python scripts/build_client_index.py
+          python scripts/validate_catalog.py
+      - name: Publish documented country origins only
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add public/names/extended.json public/names/origin-coverage.json public/names/search-index.json
+          if test -f reports/wiktionary_origin_enrichment.json; then
+            git add reports/wiktionary_origin_enrichment.json
+          fi
+          if ! git diff --cached --quiet; then
+            git commit -m "data: add sourced names' etymological origins from Wiktionary"
+            for attempt in 1 2 3 4; do
+              git fetch origin main
+              git rebase origin/main
+              if git push origin HEAD:main; then exit 0; fi
+              sleep 4
+            done
+            exit 1
+          fi
