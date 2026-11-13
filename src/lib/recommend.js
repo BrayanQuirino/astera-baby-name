@@ -134,33 +134,27 @@ export function surnameHarmony(givenName,surnames=[]){
  if(name.length<=2||name.length>=13)points-=5;
  return Math.round(clamp(points,8,98));
 }
-export function recommendNames(names,preferences){
- const {gender='all',country='all',style='any',parent1='',parent2='',mother='',father='',surname1='',surname2=''}=preferences;
- const initial=normalize(preferences.initial||'').trim().slice(0,1);
- const surnames=[surname1,surname2].map(v=>String(v||'').trim()).filter(Boolean);
- const personalized=Boolean(surnames.length||country!=='all'||style!=='any');
- return names.filter(n=>(gender==='all'||n.gender===gender||n.gender==='unisex')&&matchesCulture(n,country)&&(!initial||normalize(n.name).startsWith(initial))).map(n=>{
-  const name=normalize(n.name);
-  let preferenceScore=0;
-  if(country!=='all')preferenceScore+=12;
-  if(style==='short'&&name.length<=5)preferenceScore+=8;
-  if(style==='nature'&&/luna|sora|sakura|citlali|aurora|ravi|hana|leo/i.test(n.name))preferenceScore+=8;
-  if(style==='traditional'&&/hugo|lucia|mateo|sofia|ines|nicolas|elena/i.test(name))preferenceScore+=8;
-  if(style==='modern'&&/kai|ren|mia|yuna|zuri|noah|liam/i.test(name))preferenceScore+=8;
-  const harmony=surnames.length?surnameHarmony(n.name,surnames):null;
-  return {...n,harmony,score:preferenceScore+(harmony??0)};
- }).sort((a,b)=>personalized?(b.score-a.score||a.name.localeCompare(b.name,'es')):a.name.localeCompare(b.name,'es'));
+// One canonical filtering engine for both browsing and personalized discovery.
+// Every option is a hard filter; only surname harmony affects result order.
+export const LETTER_RANGES=[['A','E'],['F','K'],['L','P'],['Q','U'],['V','Z']];
+export const initialWithinRange=(name,range)=>{
+ if(!range)return true;
+ const first=normalize(name).trim()[0]||'';
+ const item=LETTER_RANGES.find(([a,b])=>a+'-'+b===range);
+ return !item||first>=item[0].toLowerCase()&&first<=item[1].toLowerCase();
+};
+export function recommendNames(names,preferences={}){
+ return filterNames(names,'',preferences);
 }
-// Live discovery uses the same field names as personalized recommendations.
-// In browse mode, initials are a hard filter and surnames activate harmony ranking.
 export function filterNames(names,query,preferences={},alreadySorted=false){
- const {gender='all',country='all',style='any',initial='',surname1='',surname2=''}=preferences;
+ const {gender='all',country='all',style='any',initial='',initialRange='',surname1='',surname2=''}=preferences;
  const q=normalize(query).trim(),letter=normalize(initial).trim().slice(0,1);
  const surnames=[surname1,surname2].map(v=>String(v||'').trim()).filter(Boolean);
- return names.filter(n=>{
+ const filtered=names.filter(n=>{
   if(gender!=='all'&&n.gender!==gender&&n.gender!=='unisex')return false;
   if(!matchesCulture(n,country))return false;
   if(letter&&!normalize(n.name).startsWith(letter))return false;
+  if(!initialWithinRange(n.name,initialRange))return false;
   const name=normalize(n.name);
   if(style==='short'&&name.length>5)return false;
   if(style==='nature'&&!/luna|sora|sakura|citlali|aurora|ravi|hana|leo|rosa|flora|iris|sol|rio|kai|mar|river|jade|oliver|olive|dahlia/i.test(name))return false;
@@ -168,8 +162,10 @@ export function filterNames(names,query,preferences={},alreadySorted=false){
   if(style==='modern'&&!/kai|ren|mia|yuna|zuri|noah|liam|emma|olivia|luca|leo|enzo|theo|aria|nova|ezra/i.test(name))return false;
   if(q&&!normalize([n.name,n.native||'',n.reading||'',n.meaning||'',n.origin||'',...(n.variants||[])].join(' ')).includes(q))return false;
   return true;
- }).map(n=>surnames.length?{...n,harmony:surnameHarmony(n.name,surnames)}:n)
-  .sort((a,b)=>surnames.length?(b.harmony-a.harmony||a.name.localeCompare(b.name,'es')):alreadySorted?0:a.name.localeCompare(b.name,'es'));
+ });
+ if(!surnames.length)return alreadySorted?filtered:filtered.sort((a,b)=>a.name.localeCompare(b.name,'es'));
+ return filtered.map(n=>({...n,harmony:surnameHarmony(n.name,surnames)}))
+  .sort((a,b)=>b.harmony-a.harmony||a.name.localeCompare(b.name,'es'));
 }
 export function zodiac(date){
  if(!date)return {name:'Tu cielo',symbol:'✧',dots:[[14,23],[71,19],[40,48],[81,72],[28,83],[60,91]]};
