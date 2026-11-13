@@ -17,9 +17,53 @@ function readFavorites(){try{return JSON.parse(localStorage.getItem('astera.favo
 function NameCard({item,liked,toggle,open,surnames='',harmony=null,popularity=null,t,meaning,translated=true}){
  return <article className="name-card"><div className="name-card-top"><span className="name-category">{item.origin}</span><button className={'heart '+(liked?'liked':'')} onClick={()=>toggle(item.id)} aria-label={liked?t('remove'):t('save')}><Heart size={19} fill={liked?'currentColor':'none'}/></button></div><button className="name-open" onClick={()=>open(item)}><h3>{item.name}</h3>{surnames&&<span className="full-name-preview">{item.name} {surnames}</span>}{item.native&&<span className="native-name">{item.native}</span>}{item.components?.length>1&&<span className="compound-components" aria-label={t('components')}><small>{t('components')}</small><span>{item.components.join(' · ')}</span></span>}<p>{meaning||t('nameStory')}</p>{!translated&&<small className="meaning-source-caption">{t('meaningOriginal')}</small>}{item.meaningType==='creative'&&<small className="poetic-label">✧ {t('poetic')}</small>}{popularity&&<div className="harmony-meter popularity-meter" aria-label={`${t('popularity')}: ${popularity.index}/100`} title={t('popularityNote')}><div className="harmony-meter-heading"><span>✦ {t('popularity')} <small>({popularity.country})</small></span><strong>{popularity.index}/100</strong></div><div className="harmony-track"><div style={{width:`${popularity.index}%`}}/></div></div>}{!popularity&&<div className="harmony-meter popularity-meter" title={t('popularityNote')}><div className="harmony-meter-heading"><span>✦ {t('popularity')}</span><strong>{t('noPopularity')}</strong></div><div className="harmony-track missing"><div/></div></div>}{harmony!==null&&<div className="harmony-meter" aria-label={`${t('harmony')}: ${harmony}%`}><div className="harmony-meter-heading"><span>✧ {t('harmony')}</span><strong>{harmony}%</strong></div><div className="harmony-track"><div style={{width:`${harmony}%`}}/></div></div>}<span>{t('nameStory')} <ArrowRight size={15}/></span></button></article>
 }
+// Stylized zodiac artwork: decorative star patterns, not an astronomical sky map.
+const zodiacStarMaps={
+ '♈':[[20,68],[35,44],[51,38],[67,23],[76,33]],
+ '♉':[[24,25],[37,44],[51,51],[67,26],[82,21],[69,67],[52,73]],
+ '♊':[[27,24],[27,49],[27,78],[44,69],[57,28],[72,22],[72,51],[72,77]],
+ '♋':[[21,51],[39,36],[54,52],[72,34],[80,59]],
+ '♌':[[27,21],[43,34],[55,18],[68,43],[57,60],[38,72],[69,77]],
+ '♍':[[18,29],[29,47],[42,39],[57,52],[74,37],[81,67],[58,76]],
+ '♎':[[20,30],[40,45],[60,45],[81,29],[50,72]],
+ '♏':[[19,24],[29,45],[43,52],[54,68],[69,75],[81,58]],
+ '♐':[[18,76],[35,56],[51,37],[75,20],[71,45],[49,65]],
+ '♑':[[21,37],[37,20],[54,33],[72,50],[81,72],[54,71],[36,63]],
+ '♒':[[14,35],[32,27],[43,42],[61,26],[77,41],[86,55]],
+ '♓':[[20,31],[38,23],[56,42],[72,60],[84,75],[30,69],[51,77]]
+};
 function Sky({date,setDate,t,lang}){
  const sign=zodiac(date);
- return <section id="cielo" className="sky-section"><div className="sky-copy"><div className="eyebrow">{t('skyEyebrow')}</div><h2>{t('skyTitle')} <em>{t('skyEm')}</em></h2><p>{t('skyDescription')}</p><div className="date-input"><StarDatePicker value={date} onChange={setDate} lang={lang} dark/></div><small>{t('skyNote')}</small></div><div className="sky-graphic"><div className="orbital outer"></div><div className="orbital inner"></div><div className="sky-symbol">{sign.symbol}</div><div className="sky-stars">{sign.dots.map(([x,y],i)=><span key={i} style={{left:x+'%',top:y+'%'}}>✦</span>)}</div><strong>{sign.name}</strong><span className="sky-label">{date?t('skySign'):t('chooseDate')}</span></div></section>
+ const [expanded,setExpanded]=useState(true);
+ useEffect(()=>{
+  setExpanded(true);
+  const timer=setTimeout(()=>setExpanded(false),4700);
+  return()=>clearTimeout(timer);
+ },[date]);
+ const dots=zodiacStarMaps[sign.symbol]||[[20,25],[42,42],[61,25],[77,58],[45,76]];
+ return <section id="cielo" className="sky-section">
+  <div className="sky-copy"><div className="eyebrow">{t('skyEyebrow')}</div><h2>{t('skyTitle')} <em>{t('skyEm')}</em></h2>
+  <p>{t('skyDescription')}</p><div className="date-input"><StarDatePicker value={date} onChange={setDate} lang={lang} dark/></div><small>{t('skyNote')}</small>
+  </div>
+  <div className="sky-graphic zodiac-scene">
+   <div className="orbital outer"></div><div className="orbital inner"></div>
+   <svg className="zodiac-constellation" viewBox="0 0 100 100" aria-hidden="true">
+    <defs><radialGradient id="zodiacGlow"><stop offset="0%" stopColor="#ffe5ac" stopOpacity=".95"/><stop offset="100%" stopColor="#b89259" stopOpacity=".1"/></radialGradient></defs>
+    <polyline className="zodiac-lines" points={dots.map(([x,y])=>x+','+y).join(' ')}/>
+    {dots.map(([x,y],i)=><g key={i}><circle className="zodiac-star-aura" cx={x} cy={y} r="2.5" fill="url(#zodiacGlow)"/><circle className="zodiac-star-point" cx={x} cy={y} r=".8" style={{animationDelay:(.16*i)+'s'}}/></g>)}
+   </svg>
+   <div className="zodiac-sparkles" aria-hidden="true">✦ <span>✧</span><i>✦</i></div>
+   <div className={'zodiac-symbol-reveal '+(expanded?'show':'collapsed')} aria-hidden={!expanded}>
+    <div className="zodiac-symbol-aura"></div><span className="sky-symbol">{sign.symbol}</span>
+    <span className="zodiac-reveal-caption">{t('zodiacRevealed')}</span>
+   </div>
+   <div className="zodiac-info"><strong>{sign.name}</strong><span className="sky-label">{date?t('skySign'):t('chooseDate')}</span>
+    <button type="button" className="zodiac-reopen" aria-expanded={expanded} onClick={()=>setExpanded(v=>!v)}>
+     <Sparkles size={15}/>{expanded?t('zodiacCollapse'):t('zodiacOpen')}
+    </button>
+   </div>
+  </div>
+ </section>
 }
 export default function App(){
  const [query,setQuery]=useState('');
