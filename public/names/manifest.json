@@ -1,10 +1,10 @@
 {
   "version": "v2026.10",
-  "count": 18429,
+  "count": 18423,
   "countryCount": 103,
   "meaningCount": 2122,
-  "missingMeaningCount": 16307,
-  "populatedCount": 18429,
+  "missingMeaningCount": 16301,
+  "populatedCount": 18423,
   "nativeScriptCount": 3482,
   "variantCount": 4572,
   "cultureSources": 11,

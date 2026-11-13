@@ -1,10 +1,10 @@
 {
-  "totalNames": 18429,
+  "totalNames": 18423,
   "meaningDocumented": 2122,
-  "meaningPending": 16307,
+  "meaningPending": 16301,
   "meaningSources": {
     "astera-reviewed-compound": 15,
-    "creative": 16307,
+    "creative": 16301,
     "nurturepedia/arabic": 46,
     "nurturepedia/english": 36,
     "nurturepedia/french": 26,
@@ -23,7 +23,7 @@
   "pendingByOrigin": [
     {
       "origin": "Origen por verificar",
-      "count": 10777
+      "count": 10771
     },
     {
       "origin": "Arabic",
