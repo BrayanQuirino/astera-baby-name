@@ -112,3 +112,17 @@ El catálogo completo se conserva en `public/names/extended.json`; el índice de
 - **Licencia**: [EDRDG licencia de diccionarios, CC BY-SA](https://www.edrdg.org/edrdg/licence.html). Se exige reconocimiento visible de EDRDG y preservar la licencia de los datos derivados. Los datos originales siguen siendo de EDRDG; Astera no reclama autoría de ese diccionario.
 - La importación `scripts/enrich_jmnedict.py` incorpora solamente entradas que JMnedict identifica como nombres de pila japoneses. No importa apellidos, topónimos ni nombres de productos. La lectura kana se romaniza mediante `pykakasi`; múltiples escrituras kanji se agrupan como variantes de **un mismo nombre romanizado**, no se publican como nombres distintos.
 - La escritura japonesa puede alterar por completo el significado de un nombre. Por ello, la romanización sola no autoriza una etimología: las interpretaciones poéticas siguen diferenciándose de los significados verificados.
+
+### Orígenes procedentes de categorías etimológicas de Wiktionary
+
+El importador incremental `scripts/enrich_wiktionary_origins.py` usa exclusivamente categorías del tipo **«[idioma de la forma] male/female given names from [idioma de origen]»**. La parte «from» documenta explícitamente la procedencia lingüística de la variante, a diferencia de una categoría de uso como «French female given names», que por sí sola no prueba etimología. Un nombre puede tener varias procedencias atestiguadas.
+
+- Fuente: [English Wiktionary, categorías de nombres propios](https://en.wiktionary.org/wiki/Category:Given_names_by_language).
+- Licencia de datos: Creative Commons Attribution-ShareAlike (CC BY-SA) de Wiktionary; los datos derivados de esas categorías conservan atribución y condiciones de compartir igual. El texto original, los orígenes y sus categorías siguen perteneciendo a los autores colaborativos de Wiktionary.
+- Procedencia por registro: `originCountrySources` añade la categoría exacta y `originLanguages` conserva los orígenes originales. Las etiquetas de país son una **referencia cultural de la lengua**; no afirman lugar de nacimiento ni uso exclusivo en ese país.
+- Auditoría: `reports/wiktionary_origin_enrichment.json` contiene asociaciones nuevas por cultura. El proceso es incremental e idempotente: vuelve a incluir lo documentado y no duplica nombres ni países ya asociados.
+- Cuando no se encuentra prueba de origen, **no** se asigna uno ficticio. Esta regla es esencial para evitar clasificaciones engañosas de los nombres importados desde censos nacionales.
+
+### Filtros sincronizados
+
+La exploración libre y «Descubrir nombre» utilizan el mismo estado de selección: género, cultura, estilo, inicial exacta, rango de iniciales y apellidos. El mismo filtrado de `src/lib/recommend.js` determina los resultados; los apellidos afectan solo a la puntuación de armonía y el orden de los nombres. Los botones A–E, F–K, L–P, Q–U y V–Z permanecen visibles y son mutuamente excluyentes con la inicial exacta.
