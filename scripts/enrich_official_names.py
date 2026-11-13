@@ -171,6 +171,39 @@ try:
 except Exception as exc:
     print("Optional UK records unavailable",str(exc)[:120],flush=True)
 
+# Brazil IBGE 2022 census: CC-BY 4.0 compilation by Gabriel Lobo of official
+# IBGE public-domain aggregate data. Never treat presence in Brazil as Brazilian
+# etymology. Join only `given` names; exclude surnames, and retain source.
+# Dataset details: https://huggingface.co/datasets/olob0/ibge-nomes-no-brasil-2022
+try:
+    import pyarrow.parquet as pq
+    ibge_root="https://huggingface.co/datasets/olob0/ibge-nomes-no-brasil-2022/resolve/main/parquet/"
+    ranking=pq.read_table(io.BytesIO(fetch(ibge_root+"name_ranking.parquet"))).to_pylist()
+    details=pq.read_table(io.BytesIO(fetch(ibge_root+"name_detail.parquet"))).to_pylist()
+    print("IBGE columns",list(ranking[0]),list(details[0]),flush=True)
+    sex_by_name={key(row["name_text"]):row for row in details if row.get("name_type")=="given"}
+    ibge_rows=0
+    for row in ranking:
+        if row.get("name_type")!="given":continue
+        name=cleaned(row.get("name_text") or "").title()
+        # The original census is accentless and lowercased; retain preferred
+        # canonical spelling in Astera when an accent-bearing form already exists.
+        if not name:continue
+        detail=sex_by_name.get(key(row["name_text"])) or {}
+        try:frequency=int(row.get("frequency") or 0)
+        except (ValueError,TypeError):continue
+        if frequency<100 and key(name) not in indexed:continue
+        try:male=int(detail.get("male_count") or 0)
+        except (ValueError,TypeError):male=0
+        try:female=int(detail.get("female_count") or 0)
+        except (ValueError,TypeError):female=0
+        gender="girl" if female>male*1.5 else "boy" if male>female*1.5 else "unisex"
+        merge(name,gender,"BR","ibge-censo-2022",frequency=frequency,source_url=ibge_root)
+        ibge_rows+=1
+    print("IBGE filtered given names",ibge_rows,"new",source_counters["ibge-censo-2022"],flush=True)
+except Exception as exc:
+    print("Optional IBGE names unavailable:",type(exc).__name__,str(exc)[:200],flush=True)
+
 # Wikidata CC0: official public endpoint with stable Wikibase entities. Query only
 # actual instances of "given name" with Latin-script English or language label.
 # Limit each request and cap runtime; do not invent etymologies from labels.
@@ -217,7 +250,7 @@ manifest.update(count=len(results),populatedCount=len(results),meaningCount=with
                 missingMeaningCount=creative,
                 nativeScriptCount=sum(bool(x.get("native")) for x in results),
                 variantCount=sum(bool(x.get("variants")) for x in results),
-                enrichment={"sources":["SSA national births (public domain; redistributed by Nameling)","UK ONS/NRS/NISRA births (OGL v3.0; redistributed by Nameling)","Wikidata given-name labels (CC0)"],
+                enrichment={"sources":["SSA national births (public domain; redistributed by Nameling)","UK ONS/NRS/NISRA births (OGL v3.0; redistributed by Nameling)","IBGE Censo 2022 Brazil (public records; Gabriel Lobo CC BY 4.0 compilation)","Wikidata given-name labels (CC0)"],
                             "newNames":len(results)-initial,"skipped":dict(skipped),
                             "newBySource":dict(source_counters)})
 coverage=load(OUT/"coverage.json")
