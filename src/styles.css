@@ -168,3 +168,13 @@
 .origin-filter-note{margin:13px 0 0;max-width:100%;font-size:11px;line-height:1.6;color:#746c68}
 .culture-option-count{margin-left:auto;padding:2px 7px;border-radius:11px;background:#f2ece3;color:#746454;font-size:10px;white-space:nowrap;font-variant-numeric:tabular-nums}
 .culture-options button[role="option"]{display:flex;align-items:center;gap:8px}
+
+/* Always-visible alphabet choices complement the collapsible detailed filters. */
+.alphabet-filter{display:flex;flex-wrap:wrap;align-items:center;gap:11px;margin:16px 0 2px}
+.alphabet-filter>span{font-size:12px;font-weight:700;color:#596175;white-space:nowrap}
+.alphabet-buttons{display:flex;align-items:center;gap:7px;flex-wrap:wrap}
+.alphabet-buttons button{min-width:57px;min-height:38px;border-radius:22px;background:#fcf8f2;border:1px solid #dbcfbf;color:#596175;padding:8px 12px;font-size:12px;line-height:1.2;font-weight:650;transition:background .2s,border .2s,color .2s}
+.alphabet-buttons button:hover{background:#eee4d7;border-color:#b99c7c}
+.alphabet-buttons button.active{background:#273955;color:white;border-color:#273955;box-shadow:0 3px 10px #27395520}
+.alphabet-buttons button:focus-visible{outline:2px solid #b68a61;outline-offset:2px}
+@media(max-width:560px){.alphabet-filter{display:block}.alphabet-filter>span{display:block;margin:0 0 9px}.alphabet-buttons{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:5px}.alphabet-buttons button{min-width:0;padding:8px 3px;font-size:11px}}
