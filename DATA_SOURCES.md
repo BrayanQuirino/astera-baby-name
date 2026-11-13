@@ -94,3 +94,21 @@ El archivo `public/names/manifest.json` contiene las métricas actuales, un desg
 El catálogo completo se conserva en `public/names/extended.json`; el índice derivado `public/names/search-index.json` elimina campos de procedencia y frecuencia innecesarios para agilizar la carga de la página. El índice no sustituye la base original ni la atribución de fuentes.
 
 **Pendiente de futuras fuentes:** ampliar la cobertura histórica de países sin publicaciones oficiales reutilizables. No se atribuyen a Astera datos de fuentes no integradas.
+
+## Origen cultural documentado vs. países de uso — corrección noviembre de 2026
+
+- `countries` y `usageCount`: países donde el nombre está documentado en estadísticas; **no prueban su procedencia cultural**.
+- `origin`: origen lingüístico documentado, cuando la fuente lo ofrece. `Origen por verificar` se conserva cuando no existe evidencia.
+- `originCountryCodes`: países de referencia cultural asociados **únicamente** a orígenes lingüísticos registrados; no se derivan de frecuencias ni de los países de nacimiento. Pueden contener varios códigos en nombres con varias tradiciones independientes (p. ej. un nombre de origen árabe y francés).
+- `originCountrySource` y `originCountrySources`: fuentes para clasificar nombres; `originLanguages` conserva lenguas adicionales registradas directamente por Wikidata P407 cuando este servicio está disponible.
+- `public/names/origin-coverage.json`: auditoría de cobertura real por categoría, incluidas las entradas de origen desconocido. Los nombres sin pruebas de origen quedan fuera de los filtros culturales en lugar de asignarles una nacionalidad falsa.
+
+**Importante:** los países del filtro representan culturas/idiomas históricamente asociados a un país, no una afirmación de lugar de nacimiento. «Inglés» se relaciona con Inglaterra, pero no todas las personas llamadas John son inglesas. «Árabe» trasciende muchos países y no implica que el nombre naciera en Arabia Saudita. No se multiplican orígenes simplemente porque el nombre circule internacionalmente.
+
+### Japón: JMnedict (EDRDG)
+
+- Proyecto: [Electronic Dictionary Research and Development Group, JMnedict / ENAMDICT](https://www.edrdg.org/wiki/index.php/JMnedict-ENAMDICT_Dictionary_Project).
+- Descarga: https://www.edrdg.org/pub/Nihongo/JMnedict.xml.gz.
+- **Licencia**: [EDRDG licencia de diccionarios, CC BY-SA](https://www.edrdg.org/edrdg/licence.html). Se exige reconocimiento visible de EDRDG y preservar la licencia de los datos derivados. Los datos originales siguen siendo de EDRDG; Astera no reclama autoría de ese diccionario.
+- La importación `scripts/enrich_jmnedict.py` incorpora solamente entradas que JMnedict identifica como nombres de pila japoneses. No importa apellidos, topónimos ni nombres de productos. La lectura kana se romaniza mediante `pykakasi`; múltiples escrituras kanji se agrupan como variantes de **un mismo nombre romanizado**, no se publican como nombres distintos.
+- La escritura japonesa puede alterar por completo el significado de un nombre. Por ello, la romanización sola no autoriza una etimología: las interpretaciones poéticas siguen diferenciándose de los significados verificados.
