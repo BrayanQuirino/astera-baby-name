@@ -32,7 +32,7 @@ export default function App(){
  const languageChange=next=>{setLang(next);setLanguageOffer(null);try{localStorage.setItem('astera.language',next)}catch{}};
  useEffect(()=>{document.documentElement.lang=lang;document.title='Astera · '+t('findName')},[lang]);
  useEffect(()=>{const browser=(navigator.languages||[navigator.language]).map(localeFor).find(Boolean);let stored=false;try{stored=Boolean(localStorage.getItem('astera.language')||sessionStorage.getItem('astera.languageOfferDismissed'))}catch{}if(browser&&browser!=='es'&&!stored)setLanguageOffer(browser)},[]);
- const [names,setNames]=useState(curatedNames);
+ const [names,setNames]=useState(()=>[...curatedNames].sort((a,b)=>a.name.localeCompare(b.name,'es')).map((n,id)=>({...n,id})));
  const [countries,setCountries]=useState(curatedCountries);
  const [popularityData,setPopularityData]=useState(null);
  const [meaningBundle,setMeaningBundle]=useState(null);
@@ -40,17 +40,18 @@ export default function App(){
  useEffect(()=>{let alive=true;setMeaningBundle(null);if(lang==='es')return()=>{alive=false};fetch(import.meta.env.BASE_URL+'names/locales/'+lang+'.json').then(r=>r.ok?r.json():null).then(data=>{if(alive)setMeaningBundle(data)}).catch(()=>{});return()=>{alive=false}},[lang]);
  useEffect(()=>{
   let active=true;
-  Promise.all([fetch(import.meta.env.BASE_URL+'names/extended.json'),fetch(import.meta.env.BASE_URL+'names/countries.json')])
+  Promise.all([fetch(import.meta.env.BASE_URL+'names/search-index.json').then(r=>r.ok?r:fetch(import.meta.env.BASE_URL+'names/extended.json')),fetch(import.meta.env.BASE_URL+'names/countries.json')])
    .then(async ([nameResponse,countryResponse])=>{
     if(!nameResponse.ok||!countryResponse.ok)throw Error('El catálogo ampliado no está disponible');
-    const [extended,locations]=await Promise.all([nameResponse.json(),countryResponse.json()]);
+    const [catalogPayload,locations]=await Promise.all([nameResponse.json(),countryResponse.json()]);
+    const extended=Array.isArray(catalogPayload)?catalogPayload:catalogPayload.rows.map(row=>Object.fromEntries(catalogPayload.fields.map((field,i)=>[field,row[i]])));
     if(!active)return;
     // Catalog entries are authoritative and already deduplicated. Preserve curated
     // entries only when absent from the expanded catalog; reconcile diacritics.
     const aliasKey=value=>String(value||'').normalize('NFD').replace(/[\\u0300-\\u036f]/g,'').toLowerCase().trim();
     const known=new Set(extended.map(n=>aliasKey(n.name)));
     const additions=curatedNames.filter(n=>!known.has(aliasKey(n.name)));
-    setNames([...extended,...additions].map((n,id)=>({...n,id})));
+    setNames([...extended,...additions].sort((a,b)=>a.name.localeCompare(b.name,'es')).map((n,id)=>({...n,id})));
     const codes=new Set(curatedCountries.map(([code])=>code));
     setCountries([...curatedCountries,...locations.filter(c=>!codes.has(c.code)).map(c=>[c.code,c.name])].sort((a,b)=>a[0]==='all'?-1:b[0]==='all'?1:a[1].localeCompare(b[1],'es')));
    }).catch(error=>console.info('Astera conserva el catálogo local:',error.message));
@@ -60,7 +61,7 @@ export default function App(){
  const [prefs,setPrefs]=useState(empty),[suggestions,setSuggestions]=useState(null),[detail,setDetail]=useState(null),[copied,setCopied]=useState(false),[menu,setMenu]=useState(false);
  useEffect(()=>{localStorage.setItem('astera.favorites',JSON.stringify(favorites))},[favorites]);
  useEffect(()=>{document.body.style.overflow=wizard||detail?'hidden':'';return()=>{document.body.style.overflow=''}},[wizard,detail]);
- const result=useMemo(()=>filterNames(names,query,{gender,country,...browsePrefs}),[names,query,gender,country,browsePrefs]);
+ const result=useMemo(()=>filterNames(names,query,{gender,country,...browsePrefs},true),[names,query,gender,country,browsePrefs]);
  const display=useMemo(()=>showFav?names.filter(n=>favorites.includes(n.id)).sort((a,b)=>a.name.localeCompare(b.name,lang)):suggestions||result,[showFav,names,favorites,suggestions,result,lang]);
  const pageSize=24;
  const pageCount=Math.max(1,Math.ceil(display.length/pageSize));
