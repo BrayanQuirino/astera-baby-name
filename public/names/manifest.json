@@ -1,10 +1,10 @@
 {
   "version": "v2026.10",
-  "count": 75455,
+  "count": 112268,
   "countryCount": 103,
   "meaningCount": 2122,
-  "missingMeaningCount": 73333,
-  "populatedCount": 75455,
+  "missingMeaningCount": 110146,
+  "populatedCount": 112268,
   "nativeScriptCount": 3482,
   "variantCount": 4572,
   "cultureSources": 11,
@@ -15,17 +15,17 @@
     "sources": [
       "SSA national births (public domain; redistributed by Nameling)",
       "UK ONS/NRS/NISRA births (OGL v3.0; redistributed by Nameling)",
+      "IBGE Censo 2022 Brazil (public records; Gabriel Lobo CC BY 4.0 compilation)",
       "Wikidata given-name labels (CC0)"
     ],
-    "newNames": 57032,
+    "newNames": 36813,
     "skipped": {
-      "existing_reused": 37020,
-      "ssa_below_minimum": 52182
+      "existing_reused": 113210,
+      "ssa_below_minimum": 50249
     },
     "newBySource": {
-      "ssa-us-national": 44832,
-      "ons-uk-national": 4519,
-      "wikidata-cc0": 7681
+      "ibge-censo-2022": 32999,
+      "wikidata-cc0": 3814
     }
   }
 }
