@@ -144,7 +144,8 @@ export const initialWithinRange=(name,range)=>{
  return !item||first>=item[0].toLowerCase()&&first<=item[1].toLowerCase();
 };
 export function recommendNames(names,preferences={}){
- return filterNames(names,'',preferences);
+ const matches=filterNames(names,'',preferences);
+ return hasHarmonyPreferences(preferences)?matches:matches.map(n=>({...n,harmony:null}));
 }
 export function filterNames(names,query,preferences={},alreadySorted=false){
  const {gender='all',country='all',style='any',initial='',initialRange='',surname1='',surname2=''}=preferences;
