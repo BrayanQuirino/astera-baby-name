@@ -1,11 +1,11 @@
 {
   "version": "v2026.10",
-  "count": 144698,
+  "count": 144719,
   "countryCount": 103,
-  "meaningCount": 2122,
-  "missingMeaningCount": 142576,
-  "populatedCount": 144698,
-  "nativeScriptCount": 3482,
+  "meaningCount": 2141,
+  "missingMeaningCount": 142578,
+  "populatedCount": 144719,
+  "nativeScriptCount": 3502,
   "variantCount": 4572,
   "cultureSources": 11,
   "wiktionaryLicense": "CC BY-SA 4.0",
@@ -27,5 +27,11 @@
     "newBySource": {
       "ine-spain-2025": 32430
     }
+  },
+  "japaneseReview": {
+    "reviewed": 112,
+    "added": 21,
+    "existingEnriched": 91,
+    "source": "Meiji Yasuda 2025 and editorial Japanese-name review"
   }
 }

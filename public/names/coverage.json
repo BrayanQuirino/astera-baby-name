@@ -1,10 +1,11 @@
 {
-  "totalNames": 144698,
-  "meaningDocumented": 2122,
-  "meaningPending": 142576,
+  "totalNames": 144719,
+  "meaningDocumented": 2141,
+  "meaningPending": 142578,
   "meaningSources": {
     "astera-reviewed-compound": 15,
-    "creative": 142576,
+    "creative": 142578,
+    "meiji-yasuda-name-survey-2025": 19,
     "nurturepedia/arabic": 46,
     "nurturepedia/english": 36,
     "nurturepedia/french": 26,
@@ -23,7 +24,7 @@
   "pendingByOrigin": [
     {
       "origin": "Origen por verificar",
-      "count": 137046
+      "count": 136965
     },
     {
       "origin": "Arabic",
@@ -66,6 +67,10 @@
       "count": 95
     },
     {
+      "origin": "Japonés",
+      "count": 84
+    },
+    {
       "origin": "Germanic",
       "count": 78
     },
@@ -94,16 +99,16 @@
       "count": 29
     },
     {
-      "origin": "Chinese",
+      "origin": "Russian",
       "count": 28
+    },
+    {
+      "origin": "Chinese",
+      "count": 27
     },
     {
       "origin": "Portuguese",
-      "count": 28
-    },
-    {
-      "origin": "Russian",
-      "count": 28
+      "count": 27
     },
     {
       "origin": "Polish",
@@ -182,10 +187,6 @@
       "count": 10
     },
     {
-      "origin": "Turkish / Arabic",
-      "count": 10
-    },
-    {
       "origin": "Basque",
       "count": 9
     },
@@ -195,6 +196,10 @@
     },
     {
       "origin": "Scottish",
+      "count": 9
+    },
+    {
+      "origin": "Turkish / Arabic",
       "count": 9
     },
     {
@@ -406,10 +411,6 @@
       "count": 4
     },
     {
-      "origin": "Multicultural",
-      "count": 4
-    },
-    {
       "origin": "Old High German",
       "count": 4
     },
@@ -507,6 +508,10 @@
     },
     {
       "origin": "Latin and French",
+      "count": 3
+    },
+    {
+      "origin": "Multicultural",
       "count": 3
     },
     {
@@ -734,10 +739,6 @@
       "count": 2
     },
     {
-      "origin": "Hausa (from Arabic)",
-      "count": 2
-    },
-    {
       "origin": "Hausa and Arabic",
       "count": 2
     },
@@ -891,10 +892,6 @@
     },
     {
       "origin": "Sudanese Arabic",
-      "count": 2
-    },
-    {
-      "origin": "Swedish",
       "count": 2
     },
     {
@@ -2186,6 +2183,10 @@
       "count": 1
     },
     {
+      "origin": "Chinese / Japonés",
+      "count": 1
+    },
+    {
       "origin": "Chinese / Thai / Lao",
       "count": 1
     },
@@ -3298,7 +3299,7 @@
       "count": 1
     },
     {
-      "origin": "Germanic root through Central and Southeastern European usage",
+      "origin": "Germanic root through Central and Southeastern European usage / Japonés",
       "count": 1
     },
     {
@@ -3547,6 +3548,14 @@
     },
     {
       "origin": "Hakka and Cantonese Chinese (Malaysian)",
+      "count": 1
+    },
+    {
+      "origin": "Hausa (from Arabic)",
+      "count": 1
+    },
+    {
+      "origin": "Hausa (from Arabic) / Japonés",
       "count": 1
     },
     {
@@ -4639,6 +4648,10 @@
     },
     {
       "origin": "Multicultural (Hebrew / Arabic / Sanskrit)",
+      "count": 1
+    },
+    {
+      "origin": "Multicultural / Japonés",
       "count": 1
     },
     {
@@ -6034,7 +6047,15 @@
       "count": 1
     },
     {
+      "origin": "Swedish",
+      "count": 1
+    },
+    {
       "origin": "Swedish / English",
+      "count": 1
+    },
+    {
+      "origin": "Swedish / Japonés",
       "count": 1
     },
     {
@@ -6231,6 +6252,10 @@
     },
     {
       "origin": "Turkish / Arabic / Islamic",
+      "count": 1
+    },
+    {
+      "origin": "Turkish / Arabic / Japonés",
       "count": 1
     },
     {
