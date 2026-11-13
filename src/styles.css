@@ -475,3 +475,22 @@
 @media (prefers-reduced-motion:reduce){
   .zodiac-reveal-stage .illustrated-zodiac-figure{animation:none}
 }
+
+
+/* Keep the celestial-atlas signature within the visible hero at every width. */
+.hero .orrery-caption{
+  left:0;right:0;width:100%;max-width:100%;margin:0;
+  padding-inline:clamp(10px,2.5vw,24px);
+  text-align:center;white-space:normal;overflow-wrap:break-word;
+  font-size:clamp(8px,.7vw,10px);letter-spacing:clamp(.7px,.13vw,1.8px);
+  line-height:1.5;box-sizing:border-box;pointer-events:none;
+}
+@media(max-width:760px){
+  .hero .orrery-caption{
+    left:10%;right:10%;width:80%;bottom:6%;
+    padding:0 8px;font-size:9px;letter-spacing:1px;
+  }
+}
+@media(max-width:390px){
+  .hero .orrery-caption{left:12%;right:12%;width:76%;font-size:8px;letter-spacing:.6px}
+}
