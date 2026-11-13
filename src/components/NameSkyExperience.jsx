@@ -1,4 +1,4 @@
-import React,{useEffect,useRef,useState} from 'react';
+import React,{useState} from 'react';
 import {ArrowLeft,Heart,ExternalLink,Sparkles} from 'lucide-react';
 import StarDatePicker from './StarDatePicker.jsx';
 import FullSkyMap,{SkyLocationControl} from './FullSkyMap.jsx';
@@ -16,22 +16,10 @@ export default function NameSkyExperience({item,date,onDateChange,onClose,onFavo
  const t=key=>translate(lang,key);
  const [location,setLocation]=useState({preset:0,lat:19.4326,lon:-99.1332});
  const sky=celestialForDate(date);
+ // The visitor controls this artwork. Never close it on a timer or date change.
  const [symbolOpen,setSymbolOpen]=useState(true);
  const [revealVersion,setRevealVersion]=useState(0);
- const symbolTimer=useRef(null);
- useEffect(()=>{
-  setSymbolOpen(true);
-  setRevealVersion(n=>n+1);
-  clearTimeout(symbolTimer.current);
-  // Do not auto-dismiss artwork before someone scrolling on a phone can see it.
-  // On mobile the reveal stays visible until the person closes it explicitly.
-  if(!window.matchMedia('(max-width: 760px)').matches){
-   symbolTimer.current=setTimeout(()=>setSymbolOpen(false),6500);
-  }
-  return()=>clearTimeout(symbolTimer.current);
- },[item.name,date]);
  const toggleSymbol=()=>{
-  clearTimeout(symbolTimer.current);
   if(!symbolOpen)setRevealVersion(n=>n+1);
   setSymbolOpen(open=>!open);
  };
