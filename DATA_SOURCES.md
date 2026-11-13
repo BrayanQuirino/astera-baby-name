@@ -73,3 +73,20 @@ Astera diferencia explícitamente dos categorías:
 Esta distinción es obligatoria incluso si posteriormente se encuentran fuentes nuevas. La regeneración intenta primero coincidencias de significados publicados, y solamente después completa el espacio de presentación con texto creativo estable para el mismo nombre. El archivo `coverage.json` separa estas poblaciones y `manifest.json` expone `populatedCount`.
 
 La fuente Nurturepedia se amplió con sus colecciones de nombres por países, respetando la compatibilidad de origen; los títulos de las colecciones no se utilizan como prueba de la etimología de un nombre.
+
+## Ampliación oficial de nombres y control de duplicados — noviembre de 2026
+
+El importador reproducible `scripts/enrich_official_names.py` amplía el catálogo de nombres **sin interpretar que un país de uso sea el país de origen**. Los nuevos registros conservan `origin: "Origen por verificar"` salvo que exista una fuente independiente y validada. `countries` y `usageCount` son evidencia de uso y frecuencia, no de etimología.
+
+Fuentes para los nombres adicionales:
+
+- **US Social Security Administration (SSA):** registros de nombres de nacidos de 1880 a 2025, considerados de dominio público como obra del gobierno federal estadounidense. Fuente original: https://www.ssa.gov/oact/babynames/. Debido a restricciones HTTP 403 del servidor SSA para GitHub Actions, se usa el archivo CSV de datos oficiales redistribuido por Nameling: https://www.nameling.co.uk/names/data. Nameling también publica rangos propios; Astera importa exclusivamente los recuentos y nombres de la fuente estadística, no sus significados editoriales. Se aplica un umbral de 50 nacimientos acumulados y al menos dos años para nombres totalmente nuevos.
+- **Reino Unido — ONS, NRS y NISRA:** nombres de 1996–2025 con licencia [Open Government Licence v3.0](https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/), agregados por Nameling en la misma página anterior. Astera importa nombres y conteos, sin significados ni deducciones culturales. Para nombres nuevos exige al menos 25 registros acumulados y dos años.
+- **Instituto Brasileiro de Geografia e Estatística (IBGE):** registros públicos agregados de nombres de pila del Censo 2022, recopilados y reestructurados por Gabriel Lobo (@olob0), bajo **CC BY 4.0** para la compilación. El importador utiliza exclusivamente `name_type=given` (excluye apellidos) con frecuencia de al menos 100 registros para nombres nuevos y conserva el recuento por sexo cuando está disponible. Fuente original: https://censo2022.ibge.gov.br/nomes/ ; archivo: https://huggingface.co/datasets/olob0/ibge-nomes-no-brasil-2022.
+- **Wikidata:** nombres etiquetados como instancias de nombre de pila, obtenidos del punto de consulta SPARQL público con licencia **CC0**: https://www.wikidata.org/ ; https://query.wikidata.org/. Se importa el nombre, no los significados, y se deja el origen cultural por verificar.
+
+Al fusionar se usa normalización Unicode NFC, mayúsculas/minúsculas, las variantes compuestas ya verificadas y un índice de nombres únicos. No se fusionan grafías diferentes por una etimología supuesta. Los duplicados exactos mantienen los datos editoriales preexistentes y solamente enriquecen los países de uso, las fuentes y las frecuencias. Los nombres sin significado documentado reciben únicamente la **interpretación poética etiquetada** que ya usa el sitio.
+
+El archivo `public/names/manifest.json` contiene las métricas actuales, un desglose por fuente y los descartes. `python scripts/validate_catalog.py` verifica conteos, orden alfabético, fuentes y ausencia de duplicados exactos.
+
+**Pendiente de ingestión automática:** INE España (sus hojas de cálculo requieren una adaptación validada) y otros países. No se atribuyen a Astera datos de fuentes no integradas.
