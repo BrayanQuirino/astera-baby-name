@@ -283,3 +283,90 @@
  .name-grid>.name-card{flex-basis:85vw;width:85vw}
 }
 @media(prefers-reduced-motion:reduce){.name-grid{scroll-behavior:auto}.load-previous-button{transition:none}}
+
+/* ============================================
+   ASTERA / interactive 3D celestial orrery
+   A lightweight, original CSS 3D scene: mouse changes viewing angles.
+   ============================================ */
+.hero{overflow:hidden;isolation:isolate}
+.hero-copy{z-index:4}
+.orrery-container{--parallax-x:0;--parallax-y:0;position:absolute;right:-3%;top:2%;height:95%;width:min(61%,820px);z-index:1;perspective:980px;touch-action:pan-y;user-select:none;overflow:visible;pointer-events:auto}
+.orrery-depth{position:absolute;inset:0;transform-style:preserve-3d;transform:rotateY(calc(var(--parallax-x) * 11deg)) rotateX(calc(var(--parallax-y) * -9deg));transition:transform .2s cubic-bezier(.24,.76,.29,1);pointer-events:none}
+.orrery-starfield{position:absolute;inset:-6%;transform:translate3d(calc(var(--parallax-x) * -12px),calc(var(--parallax-y) * -11px),-130px);filter:drop-shadow(0 0 5px #e3d1ae);pointer-events:none}
+.orrery-starfield i{position:absolute;display:block;border-radius:50%;background:#fff3da;box-shadow:0 0 7px 2px #cfe3ff66;animation:orreryTwinkle 3.8s ease-in-out infinite alternate}
+.orrery-star-lines{position:absolute;inset:-5%;width:110%;height:110%;overflow:visible;opacity:.85;transform:translateZ(-80px)}
+.orrery-sky-path{fill:none;stroke:url(#astera-constellation-stroke);stroke-width:.24;stroke-dasharray:1.8 1.1}
+.orrery-disc{position:absolute;left:50%;top:48%;height:min(80%,600px);aspect-ratio:1;transform-style:preserve-3d;transform:translate(-50%,-50%) rotateX(61deg) rotateZ(-19deg);filter:drop-shadow(0 16px 24px #080c1c7a)}
+.orrery-ring{position:absolute;left:50%;top:50%;width:var(--orbit-size);aspect-ratio:1;transform:translate(-50%,-50%);border:1px solid #e2cba03b;border-radius:50%;box-shadow:0 0 14px #e8c68b08,inset 0 0 10px #e7ce9711;pointer-events:none}
+.orrery-ring::after{content:'';position:absolute;inset:-.5%;border-radius:50%;border:1px dotted #d6bf9a16}
+.orrery-revolve{position:absolute;inset:0;animation:orreryRevolve linear infinite;animation-duration:var(--orbital-speed,22s);transform-origin:50% 50%}
+.orrery-revolve.revolve-0{--orbital-speed:12s}
+.orrery-revolve.revolve-1{--orbital-speed:17s;animation-delay:-8s}
+.orrery-revolve.revolve-2{--orbital-speed:24s;animation-delay:-13s}
+.orrery-revolve.revolve-3{--orbital-speed:34s;animation-delay:-26s}
+.orrery-revolve.revolve-4{--orbital-speed:51s;animation-delay:-18s}
+.orrery-revolve.revolve-5{--orbital-speed:68s;animation-delay:-43s}
+.orrery-planet{position:absolute;top:0;left:50%;transform:translate(-50%,-50%) rotateX(-61deg);border-radius:50%;box-shadow:inset -7px -5px 11px #090c1c99,0 0 14px #f0d3b640;background:radial-gradient(circle at 30% 26%,#ecddbd,#9a8490 55%,#393b59)}
+.orrery-planet.mercury{width:9px;height:9px;background:radial-gradient(circle at 30% 25%,#e2d3bf,#868b95 60%,#303c51)}
+.orrery-planet.venus{width:14px;height:14px;background:radial-gradient(circle at 30% 25%,#ffe7a8,#d9a65d 56%,#70462a)}
+.orrery-planet.earth{width:20px;height:20px;background:radial-gradient(circle at 28% 24%,#c9eaff,#3c8ab3 39%,#316977 60%,#1b304d)}
+.orrery-planet.mars{width:15px;height:15px;background:radial-gradient(circle at 30% 25%,#f8b180,#bd6745 52%,#593248)}
+.orrery-planet.jupiter{width:32px;height:32px;background:repeating-linear-gradient(172deg,#e9ca9c 0 5px,#b17e60 6px 9px,#dcb68b 10px 14px,#997267 15px 17px);box-shadow:inset -8px -6px 11px #513e4066,0 0 24px #c6a68f4d}
+.orrery-planet.saturn{width:27px;height:27px;background:radial-gradient(circle at 30% 25%,#f0d8a8,#b39a75 56%,#695974)}
+.planet-saturn-ring{position:absolute;inset:36% -35%;border:5px solid #d8c3a389;border-left-color:#e9d3aa33;border-right-color:#e9d3aa66;border-radius:50%;transform:rotate(-22deg);box-shadow:0 0 4px #e8d5ab66}
+.orrery-sun{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%) translateZ(26px);width:68px;height:68px;display:grid;place-items:center;border-radius:50%;background:radial-gradient(circle,#fff1c4 0%,#f5c77b 38%,#ce8746 66%,#af66321a 100%);box-shadow:0 0 28px 9px #f8c6758a,0 0 90px 40px #b77d4533,0 0 145px 62px #e4a05019}
+.sun-core{position:absolute;inset:8%;border-radius:50%;background:radial-gradient(circle at 33% 24%,#fffce4 0%,#f7d18f 54%,#e8a655 95%);filter:blur(.3px)}
+.sun-flare{position:absolute;inset:-22%;border:1px solid #f8d79452;border-radius:50%;animation:orreryFlare 7s ease-in-out infinite}
+.orrery-depth-particles{position:absolute;inset:0;color:#ebd7ac;opacity:.8;top:15%;left:13%;font-size:21px;transform:translateZ(80px);pointer-events:none}
+.orrery-depth-particles span{position:absolute;left:84%;top:220px;font-size:13px}
+.orrery-depth-particles i{position:absolute;left:69%;top:36px;font-size:28px;font-style:normal}
+.orrery-caption{position:absolute;right:6%;bottom:5%;color:#c3b18f;font-size:9px;letter-spacing:2.2px;text-shadow:0 1px 9px #070c17}
+@keyframes orreryRevolve{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+@keyframes orreryTwinkle{0%,100%{opacity:.28;transform:scale(.8)}50%{opacity:.95;transform:scale(1.4)}}
+@keyframes orreryFlare{0%,100%{opacity:.48;transform:scale(.94)}50%{opacity:.95;transform:scale(1.15)}}
+
+/* Landing-page sky has a star map, not a zodiac illustration. */
+.constellation-preview{overflow:hidden}
+.constellation-only{inset:8%;width:84%;height:84%}
+.constellation-preview-label{position:absolute;bottom:30px;left:0;right:0;text-align:center;font-size:10px;letter-spacing:2.2px;color:#e5c997}
+.constellation-preview::before{content:'';position:absolute;inset:13%;border-radius:50%;background:radial-gradient(circle,#e7c78d13 0%,transparent 72%);pointer-events:none}
+
+/* Illustrated zodiac: luminous hand-traced vector artwork INSIDE the chosen name. */
+.zodiac-vision{position:absolute;z-index:5;right:4%;top:2%;width:min(37vw,450px);height:min(48vw,470px);display:flex;flex-direction:column;justify-content:center;align-items:center;transform-origin:center;pointer-events:none;transition:opacity .75s ease,transform 1.1s cubic-bezier(.19,.7,.2,1),filter 1.1s ease}
+.zodiac-vision.revealed{opacity:1;transform:scale(1);filter:blur(0);visibility:visible}
+.zodiac-vision.folded{opacity:0;transform:scale(.07) translateY(-130px);filter:blur(16px);visibility:hidden}
+.zodiac-vision-atmosphere{position:absolute;inset:-9%;border-radius:50%;background:radial-gradient(circle,#e5ac6130 0%,#bb9a6238 17%,#47678e17 43%,transparent 71%);filter:blur(20px);animation:zodiacVisionGlow 3.5s ease-in-out infinite}
+.zodiac-vision-portal{position:absolute;inset:5%;border:1px solid #f5ddad57;border-radius:50%;box-shadow:0 0 35px #e6ba7350,inset 0 0 28px #f2d3a31c;animation:zodiacPortal 18s linear infinite}
+.zodiac-vision-portal::before,.zodiac-vision-portal::after{content:'';position:absolute;border-radius:50%;border:1px dotted #f0d29d6a}
+.zodiac-vision-portal::before{inset:6%}
+.zodiac-vision-portal::after{inset:-8%;border-color:#b6d6ec50}
+.illustrated-zodiac{position:relative;width:90%;height:90%;overflow:visible;filter:drop-shadow(0 0 15px #efc680a0)}
+.illustrated-zodiac-ring{fill:none;stroke:#f2d8ac57;stroke-width:.7;stroke-dasharray:1.5 6}
+.illustrated-zodiac-inner{fill:none;stroke:#f2d8ac3c;stroke-width:.7}
+.illustrated-zodiac-figure path{stroke-dasharray:1;stroke-dashoffset:1;animation:zodiacFigureDraw 2.6s cubic-bezier(.18,.7,.19,1) forwards}
+.illustrated-zodiac-star{animation:orreryTwinkle 3s ease-in-out infinite}
+.zodiac-vision-caption{position:absolute;bottom:-1%;display:flex;align-items:center;flex-direction:column;gap:5px;text-shadow:0 2px 12px #101a2e}
+.zodiac-vision-caption span{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#e8d5b7}
+.zodiac-vision-caption strong{font-family:'Playfair Display',serif;font-weight:500;font-size:29px;color:#fff4db}
+.zodiac-detail-toggle{margin-top:8px;display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:37px;padding:9px 13px;border:1px solid #dfc49682;background:#162744d1;border-radius:25px;color:#f0d1a2;cursor:pointer;font-size:11px;font-weight:600;white-space:nowrap}
+.zodiac-detail-toggle:hover{background:#385071;color:#fff}
+.zodiac-detail-toggle:focus-visible{outline:2px solid #f4cb91;outline-offset:3px}
+@keyframes zodiacFigureDraw{0%{stroke-dashoffset:1;opacity:.1}85%{opacity:1}100%{stroke-dashoffset:0;opacity:1}}
+@keyframes zodiacPortal{to{transform:rotate(360deg)}}
+@keyframes zodiacVisionGlow{0%,100%{opacity:.6;transform:scale(.91)}50%{opacity:1;transform:scale(1.1)}}
+@media(max-width:1000px){.hero-copy{width:65%}.orrery-container{right:-16%;width:66%}}
+@media(max-width:760px){
+ .hero{overflow:hidden;min-height:720px;padding-bottom:320px}
+ .hero-copy{width:100%;max-width:100%;z-index:3}
+ .orrery-container{top:auto;bottom:-75px;right:-10%;width:110%;height:420px;opacity:.9}
+ .orrery-disc{height:92%}
+ .orrery-caption{right:18%;bottom:10%}
+ .zodiac-vision{position:relative;inset:auto;width:min(80vw,370px);height:min(85vw,380px);margin:0 auto 20px}
+ .zodiac-vision.folded{height:0;max-height:0;margin:0;overflow:hidden}
+ .cosmic-sign{align-items:flex-start}
+}
+@media(max-width:400px){.hero{padding-bottom:260px;min-height:650px}.orrery-container{bottom:-70px;height:350px}.orrery-disc{height:96%}.orrery-sun{width:52px;height:52px}.zodiac-vision{width:75vw;height:75vw}}
+@media(prefers-reduced-motion:reduce){
+ .orrery-container *, .zodiac-vision *, .zodiac-vision{animation:none!important;transition:none!important}
+ .illustrated-zodiac-figure path{stroke-dashoffset:0}
+}
