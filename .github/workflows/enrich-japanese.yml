@@ -5,6 +5,7 @@ on:
     paths:
       - src/data/japanese_curated.json
       - scripts/enrich_japanese_names.py
+      - scripts/repair_name_meanings.py
       - .github/workflows/enrich-japanese.yml
   workflow_dispatch:
 permissions:
@@ -26,6 +27,8 @@ jobs:
           python-version: '3.12'
       - name: Merge Japanese names and attested kanji
         run: python scripts/enrich_japanese_names.py
+      - name: Replace generic meanings in the entire JSON catalog
+        run: python scripts/repair_name_meanings.py
       - name: Regenerate public mobile index
         run: python scripts/build_client_index.py
       - name: Validate full JSON and mobile index
