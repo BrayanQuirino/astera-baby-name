@@ -23,7 +23,8 @@ test('letter range controls and main page zodiac emoji reveal are absent',()=>{
 test('zodiac illustration belongs to name-detail celestial experience, not landing page',()=>{
  assert.match(detail,/<ZodiacEmblem/);
  assert.match(detail,/setTimeout\(\(\)=>setSymbolOpen\(false\),6500\)/);
- assert.match(detail,/zodiac-detail-toggle/);
+ assert.match(detail,/zodiac-stage-toggle/);
+ assert.doesNotMatch(detail,/zodiac-detail-toggle/);
  assert.match(detail,/matchMedia/);
  assert.doesNotMatch(detail,/sky-corner-legend/);
  assert.doesNotMatch(detail,/sky\.symbol/);
@@ -38,4 +39,13 @@ test('standalone sky story is gone; animated zodiac stage remains first in mobil
  assert.match(detail,/zodiac-reveal-stage/);
  assert.match(detail,/zodiac-stage-toggle/);
  assert.ok(detail.indexOf('zodiac-reveal-stage') < detail.indexOf('cosmic-name'), 'zodiac must precede name details');
+});
+
+test('phone-sized CSS places zodiac ahead of long name content',()=>{
+ const css=readFileSync(new URL('../src/styles.css',import.meta.url),'utf8');
+ assert.match(css,/\.cosmic-fullsky \.zodiac-reveal-stage\{position:relative/);
+ assert.match(css,/order:-1/);
+ assert.match(css,/\.cosmic-fullsky \.zodiac-reveal-stage \.zodiac-vision/);
+ assert.match(css,/\.cosmic-fullsky \.cosmic-name\{width:100%/);
+ assert.match(css,/\.zodiac-stage-toggle/);
 });
