@@ -24,10 +24,11 @@ export default function CosmicOrrery(){
  useEffect(()=>{
   const node=root.current;
   if(!node)return;
+  const interactionArea=node.closest('.hero')||node;
   const reduce=window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
   const move=event=>{
    if(reduce)return;
-   const box=node.getBoundingClientRect();
+   const box=interactionArea.getBoundingClientRect();
    const x=(event.clientX-box.left)/box.width-.5;
    const y=(event.clientY-box.top)/box.height-.5;
    target.current={x:Math.max(-1,Math.min(1,x*2)),y:Math.max(-1,Math.min(1,y*2))};
@@ -42,9 +43,9 @@ export default function CosmicOrrery(){
    node.style.setProperty('--parallax-x','0');
    node.style.setProperty('--parallax-y','0');
   };
-  node.addEventListener('pointermove',move,{passive:true});
-  node.addEventListener('pointerleave',reset);
-  return()=>{node.removeEventListener('pointermove',move);node.removeEventListener('pointerleave',reset);if(frame.current)cancelAnimationFrame(frame.current)};
+  interactionArea.addEventListener('pointermove',move,{passive:true});
+  interactionArea.addEventListener('pointerleave',reset);
+  return()=>{interactionArea.removeEventListener('pointermove',move);interactionArea.removeEventListener('pointerleave',reset);if(frame.current)cancelAnimationFrame(frame.current)};
  },[]);
  return <div className="orrery-container" ref={root} aria-label="Interactive 3D-style solar system with connected stars">
    <div className="orrery-depth" aria-hidden="true">
