@@ -1,9 +1,10 @@
 {
-  "totalNames": 18433,
-  "meaningDocumented": 2107,
-  "meaningPending": 16326,
+  "totalNames": 18429,
+  "meaningDocumented": 2122,
+  "meaningPending": 16307,
   "meaningSources": {
-    "creative": 16326,
+    "astera-reviewed-compound": 15,
+    "creative": 16307,
     "nurturepedia/arabic": 46,
     "nurturepedia/english": 36,
     "nurturepedia/french": 26,
@@ -22,7 +23,7 @@
   "pendingByOrigin": [
     {
       "origin": "Origen por verificar",
-      "count": 10788
+      "count": 10777
     },
     {
       "origin": "Arabic",
@@ -34,15 +35,15 @@
     },
     {
       "origin": "Hebrew",
-      "count": 189
+      "count": 187
     },
     {
       "origin": "Spanish",
-      "count": 172
+      "count": 171
     },
     {
       "origin": "Latin",
-      "count": 153
+      "count": 152
     },
     {
       "origin": "English",
@@ -5737,10 +5738,6 @@
       "count": 1
     },
     {
-      "origin": "Spanish (compound of José and María, devotional Catholic tradition)",
-      "count": 1
-    },
-    {
       "origin": "Spanish (compound: Hebrew + Greek/Latin)",
       "count": 1
     },
@@ -5893,10 +5890,6 @@
       "count": 1
     },
     {
-      "origin": "Spanish and Mexican Catholic",
-      "count": 1
-    },
-    {
       "origin": "Spanish and Portuguese compound Christian tradition",
       "count": 1
     },
@@ -5914,10 +5907,6 @@
     },
     {
       "origin": "Spanish and Slavic",
-      "count": 1
-    },
-    {
-      "origin": "Spanish Catholic devotional tradition",
       "count": 1
     },
     {
@@ -6018,10 +6007,6 @@
     },
     {
       "origin": "Spanish, Latin, and Germanic",
-      "count": 1
-    },
-    {
-      "origin": "Spanish, Portuguese, and Romanian",
       "count": 1
     },
     {
