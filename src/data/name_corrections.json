@@ -1,0 +1,303 @@
+[
+  {
+    "name": "María",
+    "gender": "girl",
+    "country": "ES",
+    "origin": "Hebreo, vía griego y latín",
+    "meaning": "Forma española de Maria, procedente de Miriam. Su significado original es incierto; se relaciona tradicionalmente con «amada» o «niña deseada».",
+    "meaningSourceUrl": "https://www.behindthename.com/name/mari10a",
+    "variants": [
+      "Maria",
+      "Mª",
+      "M.",
+      "Ma.",
+      "Mª.",
+      "Mary"
+    ],
+    "merge": [
+      "Maria"
+    ],
+    "components": [
+      "María"
+    ],
+    "meaningLanguage": "es"
+  },
+  {
+    "name": "Carmen",
+    "gender": "girl",
+    "country": "ES",
+    "origin": "Español, relacionado con el Monte Carmelo",
+    "meaning": "Forma española de Carmel, asociada a la Virgen del Carmen y al Monte Carmelo («jardín»); relacionada popularmente con el latín carmen, «canto».",
+    "meaningSourceUrl": "https://www.behindthename.com/name/carmen",
+    "components": [
+      "Carmen"
+    ],
+    "meaningLanguage": "es"
+  },
+  {
+    "name": "María del Carmen",
+    "gender": "girl",
+    "country": "ES",
+    "origin": "Español, tradición mariana",
+    "meaning": "Nombre compuesto de María y Carmen, vinculado a la advocación de Nuestra Señora del Carmen y al Monte Carmelo.",
+    "meaningSourceUrl": "https://arquidiocesismexico.org.mx/calendario/ntra-sra-del-carmen/",
+    "variants": [
+      "Maria Del Carmen",
+      "M Carmen",
+      "M. Carmen",
+      "Mª Carmen",
+      "Ma Carmen"
+    ],
+    "merge": [
+      "Maria Del Carmen",
+      "M Carmen"
+    ],
+    "components": [
+      "María",
+      "Carmen"
+    ],
+    "meaningLanguage": "es"
+  },
+  {
+    "name": "María Carmen",
+    "gender": "girl",
+    "country": "ES",
+    "origin": "Español, compuesto",
+    "meaning": "Combinación de María y Carmen; Carmen está relacionado con el Monte Carmelo, y María deriva de Miriam.",
+    "meaningSourceUrl": "https://www.behindthename.com/name/mari10a",
+    "variants": [
+      "Maria Carmen"
+    ],
+    "merge": [
+      "Maria Carmen"
+    ],
+    "components": [
+      "María",
+      "Carmen"
+    ],
+    "meaningLanguage": "es"
+  },
+  {
+    "name": "María José",
+    "gender": "girl",
+    "country": "ES",
+    "origin": "Español, compuesto",
+    "meaning": "Combinación femenina de María y José; José procede del hebreo y se interpreta como «Dios añadirá».",
+    "meaningSourceUrl": "https://www.behindthename.com/name/jose10",
+    "variants": [
+      "Maria Jose",
+      "M Jose",
+      "M. José",
+      "Mª José"
+    ],
+    "merge": [
+      "Maria Jose",
+      "M Jose"
+    ],
+    "components": [
+      "María",
+      "José"
+    ],
+    "meaningLanguage": "es"
+  },
+  {
+    "name": "María de los Ángeles",
+    "gender": "girl",
+    "country": "ES",
+    "origin": "Español, tradición mariana",
+    "meaning": "Nombre mariano asociado a la advocación de Nuestra Señora de los Ángeles.",
+    "meaningSourceUrl": "https://es.wikipedia.org/wiki/Nuestra_Se%C3%B1ora_de_los_%C3%81ngeles",
+    "variants": [
+      "Maria De Los Angeles",
+      "M Angeles",
+      "M. Ángeles",
+      "Mª Ángeles"
+    ],
+    "merge": [
+      "Maria De Los Angeles",
+      "M Angeles"
+    ],
+    "components": [
+      "María",
+      "Ángeles"
+    ],
+    "meaningLanguage": "es"
+  },
+  {
+    "name": "María Elena",
+    "gender": "girl",
+    "country": "ES",
+    "origin": "Español, compuesto",
+    "meaning": "Combinación de María y Elena; Elena se asocia tradicionalmente con el resplandor.",
+    "meaningSourceUrl": "https://www.behindthename.com/name/helena",
+    "variants": [
+      "Maria Elena",
+      "Ma Elena",
+      "Mª Elena"
+    ],
+    "merge": [
+      "Maria Elena",
+      "Ma Elena"
+    ],
+    "components": [
+      "María",
+      "Elena"
+    ],
+    "meaningLanguage": "es"
+  },
+  {
+    "name": "María Guadalupe",
+    "gender": "girl",
+    "country": "MX",
+    "origin": "Español, tradición guadalupana",
+    "meaning": "Combinación de María y Guadalupe, tradicionalmente vinculada a Nuestra Señora de Guadalupe.",
+    "meaningSourceUrl": "https://es.wikipedia.org/wiki/Virgen_de_Guadalupe_(M%C3%A9xico)",
+    "variants": [
+      "Maria Guadalupe",
+      "Ma Guadalupe",
+      "Mª Guadalupe"
+    ],
+    "merge": [
+      "Maria Guadalupe",
+      "Ma Guadalupe"
+    ],
+    "components": [
+      "María",
+      "Guadalupe"
+    ],
+    "meaningLanguage": "es"
+  },
+  {
+    "name": "María del Pilar",
+    "gender": "girl",
+    "country": "ES",
+    "origin": "Español, tradición mariana",
+    "meaning": "Nombre mariano vinculado a Nuestra Señora del Pilar; «pilar» alude a una columna o soporte.",
+    "meaningSourceUrl": "https://es.wikipedia.org/wiki/Virgen_del_Pilar",
+    "variants": [
+      "Maria Del Pilar"
+    ],
+    "merge": [
+      "Maria Del Pilar"
+    ],
+    "components": [
+      "María",
+      "Pilar"
+    ],
+    "meaningLanguage": "es"
+  },
+  {
+    "name": "María del Rosario",
+    "gender": "girl",
+    "country": "ES",
+    "origin": "Español, tradición mariana",
+    "meaning": "Nombre mariano vinculado a Nuestra Señora del Rosario, advocación asociada a la oración del rosario.",
+    "meaningSourceUrl": "https://es.wikipedia.org/wiki/Nuestra_Se%C3%B1ora_del_Rosario",
+    "variants": [
+      "Maria Del Rosario"
+    ],
+    "merge": [
+      "Maria Del Rosario"
+    ],
+    "components": [
+      "María",
+      "Rosario"
+    ],
+    "meaningLanguage": "es"
+  },
+  {
+    "name": "María de la Luz",
+    "gender": "girl",
+    "country": "MX",
+    "origin": "Español, tradición mariana",
+    "meaning": "Nombre mariano que reúne María y «luz», símbolo de claridad y esperanza.",
+    "meaningSourceUrl": "https://es.wikipedia.org/wiki/Nuestra_Se%C3%B1ora_de_la_Luz",
+    "variants": [
+      "Maria De La Luz"
+    ],
+    "merge": [
+      "Maria De La Luz"
+    ],
+    "components": [
+      "María",
+      "Luz"
+    ],
+    "meaningLanguage": "es"
+  },
+  {
+    "name": "María Dolores",
+    "gender": "girl",
+    "country": "ES",
+    "origin": "Español, tradición mariana",
+    "meaning": "Combinación de María y Dolores, vinculada a la advocación de Nuestra Señora de los Dolores.",
+    "meaningSourceUrl": "https://www.behindthename.com/name/dolores",
+    "variants": [
+      "Maria Dolores"
+    ],
+    "merge": [
+      "Maria Dolores"
+    ],
+    "components": [
+      "María",
+      "Dolores"
+    ],
+    "meaningLanguage": "es"
+  },
+  {
+    "name": "José María",
+    "gender": "boy",
+    "country": "ES",
+    "origin": "Español, compuesto",
+    "meaning": "Nombre compuesto masculino de José y María; José tiene su origen en el hebreo y se interpreta como «Dios añadirá».",
+    "meaningSourceUrl": "https://www.behindthename.com/name/jose10",
+    "variants": [
+      "Jose Maria"
+    ],
+    "merge": [
+      "Jose Maria"
+    ],
+    "components": [
+      "José",
+      "María"
+    ],
+    "meaningLanguage": "es"
+  },
+  {
+    "name": "Ana María",
+    "gender": "girl",
+    "country": "ES",
+    "origin": "Español, compuesto",
+    "meaning": "Combinación de Ana («gracia») y María, forma española de Miriam.",
+    "meaningSourceUrl": "https://www.behindthename.com/name/ana-1",
+    "variants": [
+      "Ana Maria"
+    ],
+    "merge": [
+      "Ana Maria"
+    ],
+    "components": [
+      "Ana",
+      "María"
+    ],
+    "meaningLanguage": "es"
+  },
+  {
+    "name": "María de Fátima",
+    "gender": "girl",
+    "country": "PT",
+    "origin": "Portugués / Español, tradición mariana",
+    "meaning": "Nombre mariano que alude a Nuestra Señora de Fátima, advocación ligada a la localidad portuguesa de Fátima.",
+    "meaningSourceUrl": "https://www.behindthename.com/name/fatima",
+    "variants": [
+      "Maria De Fatima"
+    ],
+    "merge": [
+      "Maria De Fatima"
+    ],
+    "components": [
+      "María",
+      "Fátima"
+    ],
+    "meaningLanguage": "es"
+  }
+]
