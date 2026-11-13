@@ -6,7 +6,7 @@ import {translate} from '../lib/i18n.js';
 const fold=value=>String(value??'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLocaleLowerCase('es').trim();
 
 /** Searchable, keyboard-accessible country selector; no third-party widget dependency. */
-export default function CultureCombobox({options,value,onChange,label='Cultura',className='',lang='es'}) {
+export default function CultureCombobox({options,value,onChange,label='Cultura',className='',lang='es',counts=null}) {
  const [open,setOpen]=useState(false);
  const [term,setTerm]=useState('');
  const [active,setActive]=useState(0);
@@ -48,7 +48,7 @@ export default function CultureCombobox({options,value,onChange,label='Cultura',
    </div>
   </label>
   {open&&<div className="culture-options" id="culture-options" role="listbox" aria-label={label}>
-    {list.length?list.slice(0,110).map(([code,name],i)=><button id={'culture-option-'+code} type="button" role="option" aria-selected={value===code} key={code} className={(active===i?'active ':'')+(value===code?'selected':'')} onMouseEnter={()=>setActive(i)} onMouseDown={event=>event.preventDefault()} onClick={()=>choose(code)}><span>{name}</span>{value===code&&<Check size={15}/>}</button>):<p className="culture-empty">{translate(lang,'noCulture')}</p>}
+    {list.length?list.slice(0,110).map(([code,name],i)=><button id={'culture-option-'+code} type="button" role="option" aria-selected={value===code} key={code} className={(active===i?'active ':'')+(value===code?'selected':'')} onMouseEnter={()=>setActive(i)} onMouseDown={event=>event.preventDefault()} onClick={()=>choose(code)}><span>{name}</span>{counts&&code!=='all'&&<small className="culture-option-count" aria-label={String(counts[code]||0)}>{(counts[code]||0).toLocaleString(lang)}</small>}{value===code&&<Check size={15}/>}</button>):<p className="culture-empty">{translate(lang,'noCulture')}</p>}
   </div>}
  </div>;
 }
