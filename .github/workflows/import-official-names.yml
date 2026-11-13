@@ -1,0 +1,37 @@
+name: Enrich Astera with official baby names
+on:
+  push:
+    branches: [main]
+    paths:
+      - scripts/enrich_official_names.py
+      - .github/workflows/import-official-names.yml
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  import:
+    runs-on: ubuntu-latest
+    timeout-minutes: 28
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Import, deduplicate and retain provenance
+        run: python scripts/enrich_official_names.py
+      - name: Validate schema, uniqueness and catalog statistics
+        run: python scripts/validate_catalog.py
+      - name: Record full catalog and quality reports on main
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add public/names/extended.json public/names/manifest.json public/names/coverage.json
+          if ! git diff --cached --quiet; then
+            git commit -m "data: publish deduplicated official name expansion"
+            git fetch origin main
+            git rebase origin/main
+            git push origin HEAD:main
+          fi
