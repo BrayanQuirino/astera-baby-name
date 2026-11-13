@@ -204,6 +204,33 @@ try:
 except Exception as exc:
     print("Optional IBGE names unavailable:",type(exc).__name__,str(exc)[:200],flush=True)
 
+# Spain INE 2025 annual population census: the official open statistical table
+# 'nombres_por_edad_media.xlsx' has separate Hombres / Mujeres sheets.
+# Rows start after headers at line 7: order, name, frequency, mean age.
+# No Spanish etymology is inferred from residence in Spain.
+try:
+    import openpyxl
+    ine_url="https://www.ine.es/daco/daco42/nombyapel/nombres_por_edad_media.xlsx"
+    book=openpyxl.load_workbook(io.BytesIO(fetch(ine_url,timeout=80)),read_only=True,data_only=True)
+    ine_names=collections.defaultdict(lambda:{"M":0,"F":0})
+    for sheet in book:
+        sex="M" if sheet.title.strip().casefold()=="hombres" else "F" if sheet.title.strip().casefold()=="mujeres" else None
+        if sex is None:continue
+        for i,row in enumerate(sheet.values):
+            if i<7:continue
+            name=cleaned(row[1] if len(row)>1 else "").title()
+            try:count=int(row[2])
+            except (IndexError,ValueError,TypeError):continue
+            if valid(name) and count>=20:ine_names[name][sex]+=count
+    for name,counts in ine_names.items():
+        total=counts["M"]+counts["F"]
+        if key(name) not in indexed and total<30:continue
+        sex="girl" if counts["F"]>counts["M"]*1.5 else "boy" if counts["M"]>counts["F"]*1.5 else "unisex"
+        merge(name,sex,"ES","ine-spain-2025",frequency=total,source_url=ine_url)
+    print("INE candidates",len(ine_names),"new",source_counters["ine-spain-2025"],flush=True)
+except Exception as exc:
+    print("Optional INE names unavailable:",type(exc).__name__,str(exc)[:150],flush=True)
+
 # Wikidata CC0: official public endpoint with stable Wikibase entities. Query only
 # actual instances of "given name" with Latin-script English or language label.
 # Limit each request and cap runtime; do not invent etymologies from labels.
@@ -250,7 +277,7 @@ manifest.update(count=len(results),populatedCount=len(results),meaningCount=with
                 missingMeaningCount=creative,
                 nativeScriptCount=sum(bool(x.get("native")) for x in results),
                 variantCount=sum(bool(x.get("variants")) for x in results),
-                enrichment={"sources":["SSA national births (public domain; redistributed by Nameling)","UK ONS/NRS/NISRA births (OGL v3.0; redistributed by Nameling)","IBGE Censo 2022 Brazil (public records; Gabriel Lobo CC BY 4.0 compilation)","Wikidata given-name labels (CC0)"],
+                enrichment={"sources":["SSA national births (public domain; redistributed by Nameling)","UK ONS/NRS/NISRA births (OGL v3.0; redistributed by Nameling)","IBGE Censo 2022 Brazil (public records; Gabriel Lobo CC BY 4.0 compilation)","INE Spain 2025 annual census names","Wikidata given-name labels (CC0)"],
                             "newNames":len(results)-initial,"skipped":dict(skipped),
                             "newBySource":dict(source_counters)})
 coverage=load(OUT/"coverage.json")
