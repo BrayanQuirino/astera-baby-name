@@ -41,7 +41,7 @@ jobs:
           print('Japanese with cultural-origin evidence',r['countries'].get('JP'))
           assert r['countries'].get('JP',0)>1000
           d=json.load(open('public/names/manifest.json'))
-          assert d['jmnedict']['new']>1000
+          assert d['jmnedict']['japaneseGivenNames']>1000
           PY
       - name: Publish catalog with Japanese name attestations
         run: |
