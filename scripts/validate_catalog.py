@@ -25,7 +25,9 @@ for row in catalog:
     key=row["name"].casefold().strip()
     assert key not in seen, f"Duplicate name: {row['name']}"
     seen.add(key)
-    assert row["gender"] in ("boy","girl","unisex")
+    assert row["gender"] in ("boy","girl","unisex","unknown")
+    if row.get("source")=="EDRDG-JMnedict":
+        assert "JP" in row.get("originCountryCodes",[]), "EDRDG name must carry Japan origin evidence"
     assert isinstance(row["countries"],list) and row["countries"]==sorted(set(row["countries"]))
     assert isinstance(row["meaning"],str) and row["meaning"].strip()
     assert row.get("meaningStatus") in ("documented","poetic_interpretation"), row["name"]
