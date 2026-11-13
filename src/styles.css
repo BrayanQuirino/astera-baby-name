@@ -141,3 +141,8 @@
 .advanced-field .two-fields{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
 @media(max-width:900px){.advanced-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.advanced-grid>.advanced-field:last-child{grid-column:1/-1}}
 @media(max-width:600px){.advanced-panel{padding:17px}.advanced-grid{grid-template-columns:minmax(0,1fr);gap:19px}.advanced-grid>.advanced-field:last-child{grid-column:auto}.advanced-field .two-fields{grid-template-columns:minmax(0,1fr)}}
+
+/* Compound names retain a unified card with recognizable first-name components. */
+.compound-components{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin:0 0 10px;color:#8a6b4c;font-size:11px;line-height:1.35}
+.compound-components small{color:#8b8b90;font-size:10px}
+.compound-components>span{border:1px solid #e9dfce;border-radius:13px;padding:3px 9px;background:#faf5ed}
