@@ -1,7 +1,8 @@
-import React,{useState} from 'react';
-import {ArrowLeft,Heart,ExternalLink,Compass} from 'lucide-react';
+import React,{useEffect,useRef,useState} from 'react';
+import {ArrowLeft,Heart,ExternalLink,Compass,Sparkles} from 'lucide-react';
 import StarDatePicker from './StarDatePicker.jsx';
 import FullSkyMap,{SkyLocationControl} from './FullSkyMap.jsx';
+import ZodiacEmblem from './ZodiacEmblem.jsx';
 import {celestialForDate} from '../lib/celestial.js';
 import {translate} from '../lib/i18n.js';
 const sources={
@@ -15,6 +16,18 @@ export default function NameSkyExperience({item,date,onDateChange,onClose,onFavo
  const t=key=>translate(lang,key);
  const [location,setLocation]=useState({preset:0,lat:19.4326,lon:-99.1332});
  const sky=celestialForDate(date);
+ const [symbolOpen,setSymbolOpen]=useState(true);
+ const symbolTimer=useRef(null);
+ useEffect(()=>{
+  setSymbolOpen(true);
+  clearTimeout(symbolTimer.current);
+  symbolTimer.current=setTimeout(()=>setSymbolOpen(false),5200);
+  return()=>clearTimeout(symbolTimer.current);
+ },[item.name,date]);
+ const toggleSymbol=()=>{
+  clearTimeout(symbolTimer.current);
+  setSymbolOpen(open=>!open);
+ };
  return <div className="cosmic-overlay cosmic-fullsky" role="dialog" aria-modal="true" aria-label={t('aboveSky')+' '+item.name}>
   <FullSkyMap date={date} location={location}/>
   <div className="cosmic-top"><button onClick={onClose}><ArrowLeft size={18}/> {t('backNames')}</button><span>✳ astera.</span></div>
@@ -26,8 +39,16 @@ export default function NameSkyExperience({item,date,onDateChange,onClose,onFavo
     <button className="cosmic-like" onClick={onFavorite}><Heart size={18} fill={isFavorite?'currentColor':'none'}/>{isFavorite?t('saved'):t('saveToFavorites')}</button>
    </div>
    <div className="sky-corner-legend"><span><Compass size={15}/> {t('aboveSky')}</span><strong>{t('storyStars')}</strong><small>{t('skyAt')}</small></div>
+   {sky&&<div className={'zodiac-vision '+(symbolOpen?'revealed':'folded')} aria-hidden={!symbolOpen}>
+      <div className="zodiac-vision-atmosphere"/>
+      <div className="zodiac-vision-portal"/>
+      <ZodiacEmblem sign={sky.sign}/>
+      <div className="zodiac-vision-caption"><span>{t('zodiacRevealed')}</span><strong>{sky.sign}</strong></div>
+    </div>}
   </div>
-  <div className="cosmic-bottom sky-full-controls"><div className="cosmic-date"><span>{t('birthDate')}</span><StarDatePicker value={date} onChange={onDateChange} lang={lang} dark/></div><SkyLocationControl location={location} onChange={setLocation} lang={lang}/><div className="cosmic-sign"><span>{t('zodiac')}</span><strong>{sky?sky.symbol+' '+sky.sign:t('discoverLater')+' ✧'}</strong>{sky&&<small>Sol en {sky.constellation} (aprox.)</small>}</div></div>
+  <div className="cosmic-bottom sky-full-controls"><div className="cosmic-date"><span>{t('birthDate')}</span><StarDatePicker value={date} onChange={onDateChange} lang={lang} dark/></div><SkyLocationControl location={location} onChange={setLocation} lang={lang}/><div className="cosmic-sign"><span>{t('zodiac')}</span><strong>{sky?sky.sign:t('discoverLater')}</strong>{sky&&<small>Sol en {sky.constellation} (aprox.)</small>}
+ {sky&&<button type="button" className="zodiac-detail-toggle" aria-expanded={symbolOpen} onClick={toggleSymbol}><Sparkles size={16}/>{symbolOpen?t('zodiacCollapse'):t('zodiacOpen')}</button>}
+ </div></div>
   <p className="sky-disclaimer">{t('skyDisclaimer')} Datos: d3-celestial (BSD-3-Clause).</p>
  </div>;
 }
