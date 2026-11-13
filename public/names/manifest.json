@@ -1,14 +1,31 @@
 {
   "version": "v2026.10",
-  "count": 18423,
+  "count": 75455,
   "countryCount": 103,
   "meaningCount": 2122,
-  "missingMeaningCount": 16301,
-  "populatedCount": 18423,
+  "missingMeaningCount": 73333,
+  "populatedCount": 75455,
   "nativeScriptCount": 3482,
   "variantCount": 4572,
   "cultureSources": 11,
   "wiktionaryLicense": "CC BY-SA 4.0",
   "meaningStatus": "every name has text; published or clearly labeled creative interpretation",
-  "attribution": "Names data from Onomaverse (https://onomaverse.com/datasets), licensed CC BY 4.0."
+  "attribution": "Names data from Onomaverse (https://onomaverse.com/datasets), licensed CC BY 4.0.",
+  "enrichment": {
+    "sources": [
+      "SSA national births (public domain; redistributed by Nameling)",
+      "UK ONS/NRS/NISRA births (OGL v3.0; redistributed by Nameling)",
+      "Wikidata given-name labels (CC0)"
+    ],
+    "newNames": 57032,
+    "skipped": {
+      "existing_reused": 37020,
+      "ssa_below_minimum": 52182
+    },
+    "newBySource": {
+      "ssa-us-national": 44832,
+      "ons-uk-national": 4519,
+      "wikidata-cc0": 7681
+    }
+  }
 }
