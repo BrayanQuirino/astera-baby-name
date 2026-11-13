@@ -1,10 +1,10 @@
 {
   "version": "v2026.10",
-  "count": 112268,
+  "count": 144698,
   "countryCount": 103,
   "meaningCount": 2122,
-  "missingMeaningCount": 110146,
-  "populatedCount": 112268,
+  "missingMeaningCount": 142576,
+  "populatedCount": 144698,
   "nativeScriptCount": 3482,
   "variantCount": 4572,
   "cultureSources": 11,
@@ -19,11 +19,13 @@
       "INE Spain 2025 annual census names",
       "Wikidata given-name labels (CC0)"
     ],
-    "newNames": 0,
+    "newNames": 32430,
     "skipped": {
-      "existing_reused": 153452,
+      "existing_reused": 167386,
       "ssa_below_minimum": 47870
     },
-    "newBySource": {}
+    "newBySource": {
+      "ine-spain-2025": 32430
+    }
   }
 }
