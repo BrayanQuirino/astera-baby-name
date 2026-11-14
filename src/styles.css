@@ -545,3 +545,92 @@
   max-width:87%;
   max-height:none;
 }
+
+
+/* Compact, permanent zodiac identity in the observation details.
+   Artwork is no longer an overlay, leaving the sky/constellation unobstructed. */
+.cosmic-fullsky .sky-full-controls{
+  align-items:center;
+  gap:clamp(16px,2vw,28px);
+}
+.cosmic-fullsky .sky-full-controls .zodiac-sign-summary{
+  display:flex;
+  flex-direction:row;
+  align-items:center;
+  justify-content:flex-start;
+  gap:clamp(10px,1.15vw,17px);
+  margin-left:auto;
+  width:auto;
+  min-width:0;
+  max-width:100%;
+  text-align:left;
+}
+.zodiac-sign-graphic{
+  width:clamp(80px,8vw,104px);
+  height:clamp(80px,8vw,104px);
+  flex:0 0 clamp(80px,8vw,104px);
+  position:relative;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  isolation:isolate;
+}
+.zodiac-sign-graphic .illustrated-zodiac-approved{
+  display:block;
+  width:100%;
+  height:100%;
+  max-width:none;
+  aspect-ratio:1;
+  background-size:400% 300%;
+  background-repeat:no-repeat;
+  background-color:transparent;
+  border:0;
+  border-radius:0;
+  box-shadow:none;
+  overflow:hidden;
+  filter:drop-shadow(0 0 8px #e7b87b70);
+}
+.zodiac-sign-copy{
+  display:flex;
+  min-width:0;
+  flex-direction:column;
+  align-items:flex-start;
+  justify-content:center;
+  gap:5px;
+  text-align:left;
+}
+.zodiac-sign-copy span{line-height:1.3}
+.cosmic-fullsky .sky-full-controls .zodiac-sign-copy strong{
+  font-size:clamp(20px,2vw,25px);
+  line-height:1.1;
+}
+.zodiac-sign-copy small{line-height:1.5;white-space:normal}
+@media (min-width:761px){
+  .cosmic-fullsky .immersive-layout{
+    min-height:clamp(350px,47vh,610px);
+    align-items:center;
+  }
+}
+@media (max-width:760px){
+  .cosmic-fullsky .sky-full-controls .zodiac-sign-summary{
+    width:100%;
+    margin-left:0;
+    gap:13px;
+    align-items:center;
+    flex-direction:row;
+    justify-content:flex-start;
+  }
+  .zodiac-sign-graphic{
+    width:88px;height:88px;flex-basis:88px;
+  }
+  .cosmic-fullsky .sky-full-controls .zodiac-sign-copy{
+    align-items:flex-start;
+    text-align:left;
+  }
+}
+@media (max-width:390px){
+  .zodiac-sign-graphic{
+    width:76px;height:76px;flex-basis:76px;
+  }
+  .cosmic-fullsky .sky-full-controls .zodiac-sign-summary{gap:9px}
+}
