@@ -20,19 +20,16 @@ test('letter range controls and main page zodiac emoji reveal are absent',()=>{
  assert.doesNotMatch(app,/zodiac-reopen/);
  assert.match(app,/initialQuestion/);
 });
-test('zodiac illustration belongs to name-detail celestial experience, not landing page',()=>{
- assert.match(detail,/<ZodiacEmblem/);
- assert.doesNotMatch(detail,/setTimeout|setInterval|symbolTimer|clearTimeout/);
- assert.doesNotMatch(detail,/setSymbolOpen\(true\)/);
- assert.match(detail,/useState\(true\)/);
- assert.match(detail,/setSymbolOpen\(open=>!open\)/);
- assert.match(detail,/if\(!symbolOpen\)setRevealVersion/);
- assert.match(detail,/aria-expanded={symbolOpen}/);
- assert.match(detail,/zodiac-stage-toggle/);
- assert.doesNotMatch(detail,/zodiac-detail-toggle/);
- assert.doesNotMatch(detail,/matchMedia/);
- assert.doesNotMatch(detail,/sky-corner-legend/);
- assert.doesNotMatch(detail,/sky\.symbol/);
+test('zodiac artwork is permanently visible beside observation sign info',()=>{
+ assert.match(detail,/<div className="cosmic-sign zodiac-sign-summary">/);
+ assert.match(detail,/<div className="zodiac-sign-graphic"><ZodiacEmblem sign={sky.sign}\/><\/div>/);
+ assert.match(detail,/<div className="zodiac-sign-copy">/);
+ assert.match(detail,/Sol en {sky.constellation} \(aprox\.\)/);
+ assert.doesNotMatch(detail,/zodiac-reveal-stage|zodiac-stage-toggle|zodiac-vision|setSymbolOpen|symbolOpen|toggleSymbol|setTimeout|setInterval|symbolTimer/);
+ assert.doesNotMatch(detail,/Sparkles|aria-expanded/);
+ assert.doesNotMatch(detail,/matchMedia|sky-corner-legend|sky\.symbol/);
+ assert.equal((detail.match(/<ZodiacEmblem/g)||[]).length,1,'Exactly one illustration should render');
+ assert.ok(detail.indexOf('cosmic-name')<detail.indexOf('zodiac-sign-summary'),'The large illustration must no longer occupy the sky area');
  assert.match(symbol,/approved-zodiac-isolated-v2\.webp/);
  assert.match(symbol,/backgroundPosition:POSITIONS\[selected\]/);
  assert.match(symbol,/role="img"/);
@@ -42,26 +39,26 @@ test('zodiac illustration belongs to name-detail celestial experience, not landi
  assert.equal(approvedSprite.subarray(12,16).toString(),'VP8X','Expected extended WebP with transparency');
  assert.ok(approvedSprite[20]&0x10,'Zodiac illustrations must include real alpha transparency');
  const css=readFileSync(new URL('../src/styles.css',import.meta.url),'utf8');
- assert.match(css,/background-color:transparent;background-repeat:no-repeat/);
- assert.match(css,/box-shadow:none/);
+ assert.match(css,/\.zodiac-sign-graphic \.illustrated-zodiac-approved/);
+ assert.match(css,/background-color:transparent/);
+ assert.match(css,/background-size:400% 300%/);
  for(const sign of ['Aries','Tauro','Géminis','Cáncer','Leo','Virgo','Libra','Escorpio','Sagitario','Capricornio','Acuario','Piscis']){
   assert.ok(symbol.includes(sign),sign+' must map to a distinct isolated artwork tile');
  }
 });
-
-test('standalone sky story is gone; animated zodiac stage remains first in mobile name detail',()=>{
+test('the sky story stays removed and the constellation area is clear',()=>{
  assert.doesNotMatch(app,/<Sky\\s+date=/);
  assert.doesNotMatch(app,/href="#cielo"/);
- assert.match(detail,/zodiac-reveal-stage/);
- assert.match(detail,/zodiac-stage-toggle/);
- assert.ok(detail.indexOf('zodiac-reveal-stage') < detail.indexOf('cosmic-name'), 'zodiac must precede name details');
+ assert.match(detail,/FullSkyMap date={date} location={location}/);
+ assert.doesNotMatch(detail,/zodiac-reveal-stage|zodiac-stage-toggle/);
 });
 
-test('phone-sized CSS places zodiac ahead of long name content',()=>{
+test('mobile zodiac summary always keeps the illustration left of text',()=>{
  const css=readFileSync(new URL('../src/styles.css',import.meta.url),'utf8');
- assert.match(css,/\.cosmic-fullsky \.zodiac-reveal-stage\{position:relative/);
- assert.match(css,/order:-1/);
- assert.match(css,/\.cosmic-fullsky \.zodiac-reveal-stage \.zodiac-vision/);
- assert.match(css,/\.cosmic-fullsky \.cosmic-name\{width:100%/);
- assert.match(css,/\.zodiac-stage-toggle/);
+ assert.match(css,/\.cosmic-fullsky \.sky-full-controls \.zodiac-sign-summary/);
+ assert.match(css,/flex-direction:row/);
+ assert.match(css,/\.zodiac-sign-graphic/);
+ assert.match(css,/\.zodiac-sign-copy/);
+ assert.match(css,/@media \(max-width:760px\)/);
+ assert.match(css,/\.cosmic-fullsky \.sky-full-controls \.zodiac-sign-copy/);
 });
