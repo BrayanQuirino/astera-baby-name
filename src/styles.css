@@ -496,15 +496,15 @@
 }
 
 
-/* Zodiac artwork approved by the user: 12 photographic gold illustrations
+/* Zodiac artwork approved by the user: 12 transparent gold illustrations
    in one 4x3 WebP sprite. No generated cartoon glyphs or placeholder icons. */
 .zodiac-reveal-stage .illustrated-zodiac-approved{
   display:block;position:relative;z-index:2;
   width:94%;height:auto;aspect-ratio:1;max-width:100%;max-height:none;
-  flex:0 0 auto;border-radius:50%;
-  background-color:#0c1d35;background-repeat:no-repeat;
+  flex:0 0 auto;border-radius:0;
+  background-color:transparent;background-repeat:no-repeat;
   background-size:400% 300%;
-  box-shadow:0 0 0 1px #e9c48130,0 0 36px #dbb87525;
+  box-shadow:none;
   filter:drop-shadow(0 0 11px #f3cd8640);
   animation:zodiacApprovedReveal .85s cubic-bezier(.18,.75,.21,1) both;
 }

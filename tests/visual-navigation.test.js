@@ -36,8 +36,14 @@ test('zodiac illustration belongs to name-detail celestial experience, not landi
  assert.match(symbol,/approved-zodiac-sprite\.webp/);
  assert.match(symbol,/backgroundPosition:POSITIONS\[selected\]/);
  assert.match(symbol,/role="img"/);
- const approvedSprite=readFileSync(new URL('../public/zodiac/approved-zodiac-sprite.webp',import.meta.url));
+ const approvedSprite=readFileSync(new URL('../public/zodiac/approved-zodiac-transparent.webp',import.meta.url));
  assert.ok(approvedSprite.length>50000,'Approved zodiac sprite should be present and contain artwork');
+ assert.equal(approvedSprite.subarray(0,4).toString(),'RIFF','Expected a WebP image');
+ assert.equal(approvedSprite.subarray(12,16).toString(),'VP8X','Expected extended WebP with transparency');
+ assert.ok(approvedSprite[20]&0x10,'Zodiac illustrations must include real alpha transparency');
+ const css=readFileSync(new URL('../src/styles.css',import.meta.url),'utf8');
+ assert.match(css,/background-color:transparent;background-repeat:no-repeat/);
+ assert.match(css,/box-shadow:none/);
  for(const sign of ['Aries','Tauro','Géminis','Cáncer','Leo','Virgo','Libra','Escorpio','Sagitario','Capricornio','Acuario','Piscis']){
   assert.ok(symbol.includes(sign),sign+' must map to a distinct approved artwork tile');
  }
