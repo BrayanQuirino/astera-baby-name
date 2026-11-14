@@ -33,7 +33,7 @@ test('zodiac illustration belongs to name-detail celestial experience, not landi
  assert.doesNotMatch(detail,/matchMedia/);
  assert.doesNotMatch(detail,/sky-corner-legend/);
  assert.doesNotMatch(detail,/sky\.symbol/);
- assert.match(symbol,/approved-zodiac-transparent\.webp/);
+ assert.match(symbol,/approved-zodiac-isolated-v2\.webp/);
  assert.match(symbol,/backgroundPosition:POSITIONS\[selected\]/);
  assert.match(symbol,/role="img"/);
  const approvedSprite=readFileSync(new URL('../public/zodiac/approved-zodiac-isolated-v2.webp',import.meta.url));
