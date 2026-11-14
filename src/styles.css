@@ -523,3 +523,25 @@
 @media(prefers-reduced-motion:reduce){
  .zodiac-reveal-stage .illustrated-zodiac-approved{animation:none!important}
 }
+
+/* Isolated zodiac-art tiles: safely inset each figure within its own cell.
+   Background positions still map the 4-by-3 sprite, now without clipping or
+   neighboring figures. Keep gold artwork independent from label and controls. */
+.zodiac-reveal-stage .illustrated-zodiac-approved{
+  width:87%;
+  height:auto;
+  aspect-ratio:1;
+  max-width:87%;
+  overflow:hidden;
+  background-repeat:no-repeat;
+  background-position:var(--zodiac-position,center);
+  background-size:400% 300%;
+  border-radius:0;
+  background-color:transparent;
+}
+.cosmic-fullsky .zodiac-reveal-stage .zodiac-vision .illustrated-zodiac-approved{
+  width:87%;
+  height:auto;
+  max-width:87%;
+  max-height:none;
+}
